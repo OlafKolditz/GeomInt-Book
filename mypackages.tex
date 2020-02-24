@@ -1,0 +1,76 @@
+\usepackage{adjustbox}
+%Languages
+\usepackage[english]{babel} %%% 'french', 'german', 'spanish', 'danish', etc.
+%OK\usepackage[utf8]{inputenc} %Umlaute
+%Si - Units
+\usepackage[binary-units = true]{siunitx}
+%Math
+\usepackage{amsmath,bm}
+\usepackage{amssymb}
+%\usepackage{amsmath}
+\usepackage{txfonts}
+\usepackage{mathdots}
+\usepackage[classicReIm]{kpfonts}
+%\usepackage{cool}
+%Figures
+\usepackage{graphicx}        %standard LaTeX graphics tool  when including figure files
+\usepackage{subcaption}
+\usepackage{pstricks, pst-node, pst-text, pst-3d, color}
+% You can include more LaTeX packages here
+%\usepackage{todonotes} %
+\usepackage[hang]{footmisc} %OK Fußnoten
+\usepackage{marginnote}
+\usepackage{rotating} % Tabellen drehen
+\setcounter{secnumdepth}{5}
+% Tabellen
+\usepackage{tabularx}
+\newcolumntype{L}[1]{>{\raggedright\arraybackslash}p{#1}} % linksbündig mit Breitenangabe
+\newcolumntype{C}[1]{>{\centering\arraybackslash}p{#1}} % zentriert mit Breitenangabe
+\newcolumntype{R}[1]{>{\raggedleft\arraybackslash}p{#1}} % rechtsbündig mit Breitenangabe
+\usepackage{multirow}
+\usepackage{xcolor,colortbl}
+\usepackage{longtable} % Tabellen mit Seitenumbruch
+%
+\usepackage{makeidx} % fuer Stichwortverzeichnis OK
+\usepackage{multicol} % fuer Stichwortverzeichnis OK
+\makeindex
+\usepackage{array}% tabelle
+\usepackage{booktabs}% tabelle
+% Notes
+\usepackage{lipsum} % Dummytext
+\usepackage{xargs}  % Use more than one optional parameter in a new commands
+\usepackage[colorinlistoftodos,prependcaption,textsize=normalsize]{todonotes}
+%\usepackage{url}
+\usepackage[hyphens]{url}
+\usepackage[hidelinks]{hyperref} %% use hidelinks to avoid ugly highlight box of link.
+%% highlight hypre reference links by light colors. To deactivate highlight colors, please just remove it.
+\hypersetup{
+    colorlinks,
+    linkcolor={red!50!black},
+    citecolor={blue!50!black},
+    urlcolor={blue!80!black}
+}
+%Time
+\usepackage[yyyymmdd,hhmmss]{datetime}
+\usepackage{pifont} %circled numbers
+%Aufzählungen
+\usepackage{enumitem}
+%%bibliography
+%\usepackage{chapterbib}
+%\usepackage[sectionbib]{natbib}
+%bibliographyofeachapter
+%\usepackage{bibentry}
+%OK\usepackage{adjustbox} !!! Errors with clipbox
+\usepackage{etoolbox}
+\usepackage{units}
+%\usepackage{mfirstuc} 
+\usepackage{glossaries} % for symbol list
+\usepackage{pdfpages}
+%text highlighting
+\usepackage{xcolor, soul}
+\usepackage{romannum}
+\usepackage{pdflscape}
+\usepackage{caption} %set the space between the table and its caption
+\usepackage{dsfont}
+\usepackage{wrapfig}
+\usepackage[font=small,labelfont=bf]{caption}

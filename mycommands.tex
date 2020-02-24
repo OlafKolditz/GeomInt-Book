@@ -1,0 +1,799 @@
+%Table of Contents (TOC)
+\setcounter{tocdepth}{2} 
+\sethlcolor{magenta}
+\newcommand{\hljm}[1]{{\sethlcolor{olive}\hl{#1}}}
+\newcommand{\hlmn}[1]{{\sethlcolor{lime}\hl{#1}}}
+\newcommand{\hltf}[1]{{\sethlcolor{cyan}\hl{#1}}}
+\newcommand{\hlwpi}[1]{{\sethlcolor{olive}\hl{#1}}}
+\newcommand{\hlwpii}[1]{{\sethlcolor{lime}\hl{#1}}}
+\newcommand{\hlwpiii}[1]{{\sethlcolor{cyan}\hl{#1}}}
+\newcommand{\hlok}[1]{{\sethlcolor{magenta}\hl{#1}}}
+\newcommand{\hltn}[1]{{\sethlcolor{green}\hl{#1}}}
+\newcommand{\hlbgr}[1]{{\sethlcolor{olive}\hl{#1}}}
+\newcommand{\hlcau}[1]{{\sethlcolor{yellow}\hl{#1}}}
+\newcommand{\hlifg}[1]{{\sethlcolor{lime}\hl{#1}}}
+\newcommand{\hltuf}[1]{{\sethlcolor{cyan}\hl{#1}}}
+\newcommand{\hlufz}[1]{{\sethlcolor{magenta}\hl{#1}}}
+\newcommand{\hluos}[1]{{\sethlcolor{lightgray}\hl{#1}}}
+\newcommand{\hlman}[1]{{\sethlcolor{pink}\hl{#1}}}
+%
+\captionsetup[table]{skip=5pt}
+%
+\newcommand{\Authors}[1]{{\textit{#1}\\[2mm]}}
+%
+\newcommand{\todol}[1]{{\todo[color=black]{\textcolor{black}{#1}}}}
+\newcommand{\todod}[1]{{\todo[color=green]{\textcolor{green}{#1}}}}
+
+%%%Math
+\newcommand{\beq}{\begin{equation}}
+\newcommand{\eeq}{\end{equation}}
+\newcommand{\nn}{\nonumber}
+\newcommand{\mwith}{\quad \text{with} \quad}
+\newcommand{\mand}{\quad \text{and} \quad}
+\newcommand{\mom}{\quad \text{on} \quad}
+\newcommand{\mdiv}{\,\text{div}\,}
+\newcommand{\mDiv}{\,\text{Div}\,}
+\newcommand{\grad}{\,\text{grad}\,}
+\newcommand{\Grad}{\,\text{Grad}\,}
+\newcommand{\Cel}{\,$^\circ$C}
+\newcommand{\dcdot}{\mbf{\,:\,}}
+\newcommand{\tr}{\text{tr}\,}
+\newcommand{\mathd}{\text{d}}
+\newcommand{\mathD}{\text{D}}
+\newcommand{\mdiag}{\,\text{diag\,}}
+\newcommand{\fourtens}[1]{\mbox{${\mbox{\boldmath$\mathcal{#1}$\unboldmath}}$}}
+\newcommand{\mbf}[1]{{\mathbf{#1}}}
+\newcommand{\mbfs}{\boldsymbol}
+\newcommand{\dev}{\stackrel{def}{=}}
+\newcommand{\tbf}{\textbf}
+\newcommand{\tit}{\textit}
+\newcommand{\mrm}{\text}
+%\newcommand{\citep}[1]{(\cite{#1})}
+%\newcommand{\citet}{\cite}
+\newcommand{\tf}{$\rightarrow\ $}
+\newcommand{\ds}{\displaystyle}
+\newcommand{\mtd}[2]{\frac{\mathd_{#1}{#2}}{\mathd t}} %material time derivative
+\newcommand{\ptd}[1]{\frac{\partial {#1}}{\partial t}} %partial time derivative
+\newcommand{\pd}[2]{\frac{\partial {#1}}{\partial {#2}}} %partial derivative
+\newcommand{\vint}[1]{\int \limits_\Omega {#1} \mathd \Omega} %volume integral
+\newcommand{\sint}[2]{\int \limits_{\partial \Omega_{#1}} {#2} \mathd \Gamma}
+\newcommand{\uexp}[1]{$^{\text{{#1}}}$}%superscript
+\newcommand{\uind}[1]{$_{\text{{#1}}}$}%subscript
+\newcommand{\mvec}[1]{\mathsfbfit{#1}}%Vektoren
+\newcommand{\mmat}[1]{\mathsfbfit{#1}}%Matrizen
+\newcommand{\iter}[3]{\ {}^{#3}{#1}^{#2}}%quantity, time, iteration
+\newcommand{\drop}[1]{\red \cancelto{0}{\black #1} \black}
+\newcommand{\centerpic}[3]{\hspace{#1\textwidth}\resizebox{#2\textwidth}{!}{\includegraphics{#3}}}
+\newcommand{\squote}[2]{\begin{quote}{\huge{``}}{#1}{\huge{''}}\end{quote}\hfill Aus: {#2}}
+\newcommand{\mpar}[1]{\marginpar{\flushleft \color{red} \tiny #1}}
+%math
+\newcommand{\md}[1]{\mtd{\mrm{S}}{#1}}
+%OK ToDo
+\newcommand{\uline}[1]{\underline{#1}}
+\newcommand{\uuline}[1]{\underline{\underline{#1}}}
+\newcommand{\p}{\partial}
+\newcommand{\myparagraph}[1]{\paragraph{#1}\mbox{}\\} %linebreak after paragraphs
+%
+%\usepackage{float}  %fix the position of figures
+\newcommand{\jump}[1]{[\![#1]\!]}
+\newcommand{\ATone}{\texttt{AT$_1$}}
+\newcommand{\ATtwo}{\texttt{AT$_2$}}
+\newcommand{\norm}[1]{\left\lVert#1\right\rVert}
+%% Shortcuts Patrick
+% Derivatives
+\newcommand{\pt}{\partial}
+\newcommand{\pderiv}[2]{\frac{\pt #1}{\pt #2}}
+\newcommand{\ppderiv}[2]{\frac{\pt^2 #1}{\pt #2^2}}
+\newcommand{\mtderivfill}[1]{\left(\frac{\text{D} #1}{\text{D} \, t \hfill}\right)}
+\newcommand{\mtderiv}[1]{\frac{\text{D} #1}{\text{D} \, t}}
+%% SPH Commands
+%==============================================================================
+% Abk"urzungen
+%==============================================================================
+\newcommand{\CalA}      {{\mathcal A}}
+\newcommand{\CalB}      {{\mathcal B}}
+\newcommand{\CalC}      {{\mathcal C}}
+\newcommand{\CalD}      {{\mathcal D}}
+\newcommand{\CalE}      {{\mathcal E}}
+\newcommand{\CalF}      {{\mathcal F}}
+\newcommand{\CalG}      {{\mathcal G}}
+\newcommand{\CalH}      {{\mathcal H}}
+\newcommand{\CalI}      {{\mathcal I}}
+\newcommand{\CalJ}      {{\mathcal J}}
+\newcommand{\CalK}      {{\mathcal K}}
+\newcommand{\CalL}      {{\mathcal L}}
+\newcommand{\CalM}      {{\mathcal M}}
+\newcommand{\CalN}      {{\mathcal N}}
+\newcommand{\CalO}      {{\mathcal O}}
+\newcommand{\CalP}      {{\mathcal P}}
+\newcommand{\CalQ}      {{\mathcal Q}}
+\newcommand{\CalR}      {{\mathcal R}}
+\newcommand{\CalS}      {{\mathcal S}}
+\newcommand{\CalT}      {{\mathcal T}}
+\newcommand{\CalU}      {{\mathcal U}}
+\newcommand{\CalV}      {{\mathcal V}}
+\newcommand{\CalW}      {{\mathcal W}}
+\newcommand{\CalX}      {{\mathcal X}}
+\newcommand{\CalY}      {{\mathcal Y}}
+\newcommand{\CalZ}      {{\mathcal Z}}
+\def\res                {\mbox{Res}     }
+\def\Res                {\mbox{Res}     }
+\newcommand{\RB}        {Rand\-be\-ding\-ung}
+\newcommand{\DRB}       {\Name{Dirichlet}-\RB}
+\newcommand{\NRB}       {\Name{Neumann}-\RB}
+%==============================================================================
+% Namen normal und fett
+%==============================================================================
+% Bold Small Caps als Macro \bsc
+\newsavebox{\bscbox}
+\newlength{\bscwidth}
+\newlength{\bscshift}
+\setlength{\bscshift}{0.1pt}
+\newcommand{\bsc}[1]{%
+  \savebox{\bscbox}{\sc #1}%
+  \settowidth{\bscwidth}{\usebox{\bscbox}}%
+  \hspace*{-\bscshift}\usebox{\bscbox}\hspace*{-\bscwidth}%
+  \hspace*{-\bscshift}\usebox{\bscbox}\hspace*{-\bscwidth}%
+  \hspace*{4\bscshift}\usebox{\bscbox}\hspace*{-\bscwidth}%
+  \hspace*{-\bscshift}\usebox{\bscbox}\hspace*{-\bscwidth}%
+  \hspace*{-\bscshift}\raisebox{2\bscshift}{\usebox{\bscbox}}%
+}
+% Bold Slanted als Macro \bsl
+\newsavebox{\bslbox}
+\newlength{\bslwidth}
+\newlength{\bslshift}
+\setlength{\bslshift}{0.1pt}
+\newcommand{\bsl}[1]{%
+  \savebox{\bslbox}{\sl #1}%
+  \settowidth{\bslwidth}{\usebox{\bslbox}}%
+  \hspace*{-\bslshift}\usebox{\bslbox}\hspace*{-\bslwidth}%
+  \hspace*{-\bslshift}\usebox{\bslbox}\hspace*{-\bslwidth}%
+  \hspace*{4\bslshift}\usebox{\bslbox}\hspace*{-\bslwidth}%
+  \hspace*{-\bslshift}\usebox{\bslbox}\hspace*{-\bslwidth}%
+  \hspace*{-\bslshift}\raisebox{2\bslshift}{\usebox{\bslbox}}%
+}
+%\newcommand{\Name}[1]  {{\sc #1}}
+%\newcommand{\NAME}[1]  {{\bsc #1}}
+%\newcommand{\Name}[1]   {{{#1}}\/}
+\newcommand{\NAME}[1]   {{\bsl{#1}$\,$}\/}
+\newcommand{\Fett}[1]   {{\bfseries #1}}
+\newcommand{\FETT}[2]   {{\bfseries #1}}
+%==============================================================================
+% Umgebungen wie Def, Satz oder Beweis
+%==============================================================================
+%\newtheorem{Def}{Definition}[chapter]
+%\newtheorem{Satz}[Def]{Satz}
+%\newenvironment{Bewei\medskips}{{\bf Beweis:}}{\Qed\smallskip}
+%\newenvironment{Beispiel}{{\bf Beispiel:}}{}
+%\newenvironment{Bemerkung}{\smallskip{\bf Bemerkung:}}{\hfill$\Box$\smallskip}
+\newsavebox{\BildText}
+\newenvironment{Bild}[1]{\savebox{\BildText}{#1}\begin{figure}[htb]}%
+                        {\centerline{\usebox{\BildText}}\end{figure}}
+%\renewcommand{\thetable}   {\thechapter.\arabic{table}}
+%\renewcommand{\thefigure}  {\thechapter.\arabic{figure}}
+%\renewcommand{\theequation}{\thechapter.\arabic{equation}}
+\newcommand{\Kasten}[3]%
+{\begin{equation}
+  \fbox{
+    \begin{minipage}{5.5in}
+      \centering
+      #2
+      \rule{5.4in}{0.5pt}
+      {\bf #3}
+    \end{minipage}
+  }
+  \label{box:#1}
+\end{equation}}
+%--- Referenzen
+\newcommand{\Ref}[1]%
+{%
+  \typeout{Referenz #1 in Seite \thepage}%
+  \ifthenelse{\equal{\pageref{#1}}{\thepage}}%
+             {\ref{#1}}%
+             {\ref{#1} auf Seite \pageref{#1}}%
+}
+\newcommand{\RefBraces}[1]%
+{%
+  \typeout{Referenz #1 in Seite \thepage}%
+  \ifthenelse{\equal{\pageref{#1}}{\thepage}}%
+             {(\ref{#1})}%
+             {(\ref{#1}) auf Seite \pageref{#1}}%
+}
+\newcommand{\refpart}[1]{\Ref{part:#1}}         % Referenz eines Teils
+\newcommand{\refchap}[1]{\Ref{chap:#1}}         % Referenz eines Kapitels
+\newcommand{\refsect}[1]{\Ref{sect:#1}}         % Referenz eines Abschnitts
+\newcommand{\refssec}[1]{\Ref{ssec:#1}}         % Referenz eines Unterabschn.
+\newcommand{\refssub}[1]{\Ref{ssub:#1}}         % Referenz eines Unterunterab.
+\newcommand{\refdef}[1] {\Ref{def:#1}}          % Referenz einer Definition
+\newcommand{\reftab}[1] {\Ref{tab:#1}}          % Referenz einer Tabelle
+\newcommand{\reffig}[1] {\Ref{fig:#1}}          % Referenz eines Bildes
+\newcommand{\refeqn}[1] {\RefBraces{eqn:#1}}    % Referenz einer Gleichung
+\newcommand{\refbox}[1] {\RefBraces{box:#1}}    % Referenz eines Kastens
+\newcommand{\Cite}[2]{\Name{#1} \cite{#2}}
+\newcommand{\CITE}[3]{\Name{#1} \cite[#3]{#2}}
+%==============================================================================
+% Mathematische Operatoren/Funktionen
+%==============================================================================
+\newcommand{\Abs   }[1]{    \left|  #1  \right| }
+\newcommand{\LRN   }[1]{    \left(  #1  \right) }
+\newcommand{\LRE   }[1]{    \left[  #1  \right] }
+\newcommand{\LRG   }[1]{    \left\{ #1  \right\}}
+\newcommand{\NORM  }[1]{    \left\| #1  \right\|}
+\newcommand{\Norm  }[1]{         \| #1        \|}
+% Ausserdem gibt es standard-maessig in LaTeX:
+% \log \lg \ln \lim \limsup \liminf
+% \sin \arcsin \sinh \cos \arccos \cosh
+% \tan \arctan \tanh \cot \coth \sec \csc
+% \max \min \sup \inf
+% \arg \ker \dim \hom \deg
+% \det \exp \gcd
+\def\adj{\mathop{\mathrm{adj}}\nolimits}
+\def\cof{\mathop{\mathrm{cof}}\nolimits}
+\def\dev{\mathop{\mathrm{dev}}\nolimits}
+\def\vol{\mathop{\mathrm{vol}}\nolimits}
+\def\diag{\mathop{\mathrm{diag}}\nolimits}
+\def\div{\mathop{\mathrm{div}}\nolimits}
+\def\Div{\mathop{\mathrm{Div}}\nolimits}
+\def\grad{\mathop{\mathrm{grad}}\nolimits}
+\def\gradT{\mathop{{\mathrm{grad}}^T}\nolimits}
+\def\Grad{\mathop{\mathrm{Grad}}\nolimits}
+\def\Grada{\mathop{\mathrm{Grad}}_\alpha\nolimits}
+\def\GradS{\mathop{{\mathrm{Grad}}_S}\nolimits}
+\def\GradST{\mathop{{\mathrm{Grad}}_S^T}\nolimits}
+\def\range{\mathop{\mathrm{range}}\nolimits}
+\def\rank{\mathop{\mathrm{rank}}\nolimits}
+\def\sym{\mathop{\mathrm{sym}}\nolimits}
+\def\tr{\mathop{\mathrm{tr}}\nolimits}
+\def\lin{\mathop{\mathrm{lin}}\nolimits}
+\def\const{\mathop{\mathrm{const}}\nolimits}
+\newcommand{\leqapprox}{\raisebox{-.5ex}{\large$\stackrel{<}{\Ss\sim}$}}
+%==============================================================================
+% Umgebungen
+%==============================================================================
+\newcommand{\bit}       {\begin{itemize}}
+\newcommand{\eit}       {\end{itemize}}
+\newcommand{\bde}       {\begin{description}}
+\newcommand{\ede}       {\end{description}}
+\newcommand{\bec}       {\begin{center}}
+\newcommand{\eec}       {\end{center}}
+\newcommand{\benum}     {\begin{enumerate}}
+\newcommand{\eenum}     {\end{enumerate}}
+%==============================================================================
+% Kurzkommandos
+%==============================================================================
+\newcommand{\Ol}[1]{\overline{#1}}              % Ueberstreichung
+\newcommand{\Ul}[1]{\underline{#1}}             % Unterstreichung
+\newcommand{\Nn}{\nonumber\\}                   % Formeln ohne Nummern
+\newcommand{\Ss}{\scriptstyle}                  % kleiner Formelsatz
+\newcommand{\Ds}{\displaystyle}                 % grosser Formelsatz
+\newcommand{\Bm}{\boldmath}                     % fette Formeln
+\newcommand{\Bs}[1]{\boldsymbol{#1}}            % fette Symbole
+\newcommand{\Sum}{\sum\limits}                  % Summe    mit voller Hoehe
+\newcommand{\Int}{\int\limits}                  % Integral mit voller Hoehe
+\newcommand{\Qed}{\hfill \mbox{$\Box$}}         % qed bei Beweisen
+\newcommand{\Auf}{\longrightarrow}              % Abbildung 'auf'
+\newcommand{\Und}{\ \land \ }                   % Logisches 'Und'
+\newcommand{\Oder}{\ \lor  \ }                  % Logisches 'Oder'
+\newcommand{\OInt}{\oint\limits}                % Integral mit unten/oben
+\newcommand{\Gegen}{\rightarrow}                % Grenzwert 'gegen'
+\newcommand{\Folgt}{\Longrightarrow}            % Daraus    'folgt'
+\newcommand{\Gleich}{\Longleftrightarrow}       % "aquivalent zu
+%==============================================================================
+% Schriftendefinitionen ...
+%==============================================================================
+%\DeclareMathAlphabet\mathsfm{OT1}{cmss}{m}{n}
+%\DeclareMathAlphabet\mathsfb{OT1}{cmss}{bx}{n}                                                        
+%==============================================================================
+% Meta-Kommandos zur einfachen Umstellung
+%==============================================================================
+\newcommand{\SetP}[1]{{\cal #1}}                % Symbole Punktmengen
+\newcommand{\TenN}[1]{{\rm #1}}                 % Symbole Tensorrechnung normal
+\newcommand{\TenB}[1]{{\rm\bf #1}}              % Symbole Tensorrechnung fett
+\newcommand{\TenZ}[1]{{\eurb #1}}               % Symbole Tensorrechnung Zweip.
+\newcommand{\TenG}[1]{\Bs{#1}}                  % Symbole Tens. griech.  fett
+\newcommand{\TenF}[1]{\stackrel{4}{{\eurb #1}}} % Symbole Tensorrechnung 4-st.
+\newcommand{\Set }[1]{\mathbb{#1}}              % Symbole Mengenzeichen
+\newcommand{\MatN}[1]{{\mathsfm{#1}}}           % Symbole Matrizenrechnung      normal
+%\newcommand{\MatB}[1]{{\mathsfb{#1}}}           % Symbole      dto              fett                   
+%-----
+%\newcommand{\MatN}[1]{{#1}}                     % Symbole Matrixrechnung normal
+%\newcommand{\Bs}[1]{\boldsymbol{#1}}           % fette Symbole
+\newcommand{\MatB}[1]{\Bs{#1}}                  % Symbole Matrixrechnung fett
+%==============================================================================
+% Mengen-Zeichen
+%==============================================================================
+\newcommand{\Q}{\Set{Q}}
+\newcommand{\E}{\Set{E}}
+\newcommand{\R}{\Set{R}}
+\newcommand{\Z}{\Set{Z}}
+%==============================================================================
+% Tensorrechnung
+%==============================================================================
+\def\vec  #1{\mbox{\boldmath $#1$}{}}
+\newcommand{\Phase}     {\varphi^\alpha}
+\newcommand{\Ja}        {J_\alpha}
+\newcommand{\Kin}       {\TenG{\chi}}
+\newcommand{\Kina}      {\TenG{\chi}_\alpha}
+%\newcommand{\Kin}      {{\Phi}}
+%\newcommand{\Kina}     {{\Phi}_\alpha}
+\newcommand{\PB}        {\SetP{B}}
+\newcommand{\PBa}       {\SetP{B}^\alpha}
+\newcommand{\PM}        {\SetP{M}}
+\newcommand{\PS}        {\SetP{S}}
+\newcommand{\PU}        {\SetP{U}}
+\newcommand{\TXB}       {T_\TX\PB}
+\newcommand{\TXBs}      {T^*_\TX\PB}
+\newcommand{\TXaB}      {T_{\TX_\alpha}\!\PB}
+\newcommand{\TXaBs}     {T^*_{\TX_\alpha}\!\PB}
+\newcommand{\TxS}       {T_\Tx\PS}
+\newcommand{\TxSs}      {T^*_\Tx\PS}
+%\newcommand{\TB}        {T\PB}
+\newcommand{\TBs}       {T^*\PB}
+%\newcommand{\TS}        {T\PS}
+\newcommand{\TSs}       {T^*\PS}
+\newcommand{\ZF}        {\TenZ{F}}
+\newcommand{\ZFa}       {\TenZ{F}_\alpha}
+\newcommand{\ZR}        {\TenZ{R}}
+\newcommand{\ZRa}       {\TenZ{R}_\alpha}
+\newcommand{\dm}        {{\rm d}m}
+\newcommand{\dt}        {{\rm d}t}
+\newcommand{\dtau}        {{\rm d}\tau}
+\newcommand{\dv}        {{\rm d}v}
+\newcommand{\dV}        {{\rm d}V}
+\newcommand{\dw}        {{\rm d}w}
+\newcommand{\dW}        {{\rm d}W}
+\newcommand{\dx}        {{\rm d}x}
+\newcommand{\da}        {{\rm d}a}
+\newcommand{\dalpha}    {{\rm d}\alpha}
+\newcommand{\dA}        {{\rm d}A}
+\newcommand{\dom}        {{\rm d}\omega}
+\newcommand{\tennull}   {\TenB{0}}
+\newcommand{\vecnull}   {\mbox{\small\bf{0}}}
+%\newcommand{\I}        {\TenN{I}}
+\newcommand{\IID}       {\TenN{II}_D}
+\newcommand{\IIID}      {\TenN{III}_D}
+\newcommand{\Tdx}       {\TenB{dx}}
+\newcommand{\TdX}       {\TenB{dX}}
+\newcommand{\TdXa}      {\TenB{dX}_\alpha}
+\newcommand{\Tdv}       {\TenB{dv}}
+\newcommand{\TEINS}     {\TenB{1}}
+\newcommand{\TA}        {\TenB{A}}
+\newcommand{\TAa}       {\TenB{A}_\alpha}
+\newcommand{\TB}        {\TenB{B}}
+\newcommand{\TC}        {\TenB{C}}
+\newcommand{\TD}        {\TenB{D}}
+\newcommand{\TE}        {\TenB{E}}
+\newcommand{\TF}        {\TenB{F}}
+\newcommand{\TG}        {\TenB{G}}
+\newcommand{\TI}        {\TenB{I}}
+\newcommand{\TL}        {\TenB{L}}
+\newcommand{\TK}        {\TenB{K}}
+\newcommand{\TM}        {\TenB{M}}
+\newcommand{\TP}        {\TenB{P}}
+\newcommand{\TQ}        {\TenB{Q}}
+\newcommand{\TR}        {\TenB{R}}
+\newcommand{\TS}        {\TenB{S}}
+\newcommand{\TT}        {\TenB{T}}
+\newcommand{\TW}        {\TenB{W}}
+\newcommand{\TTa}       {\TenB{T}^\alpha}
+\newcommand{\TU}        {\TenB{U}}
+\newcommand{\TV}        {\TenB{V}}
+\newcommand{\TVa}       {\TenB{V}_\alpha}
+\newcommand{\TX}        {\TenB{X}}
+\newcommand{\TXa}       {\TenB{X}_\alpha}
+\newcommand{\TY}        {\TenB{Y}}
+\newcommand{\Ta}        {\TenB{a}}
+\newcommand{\Taa}       {\TenB{a}_\alpha}
+\newcommand{\Tb}        {\TenB{b}}
+\newcommand{\Tc}        {\TenB{c}}
+\newcommand{\Tda}       {\TenB{d}_\alpha}
+\newcommand{\Te}        {\TenB{e}}
+\newcommand{\Th}        {\TenB{h}}
+\newcommand{\Tg}        {\TenB{g}}
+\newcommand{\Tj}        {\TenB{j}}
+\newcommand{\Tk}        {\TenB{k}}
+\newcommand{\Tn}        {\TenB{n}}
+\newcommand{\Tm}        {\TenB{m}}
+\newcommand{\Tp}        {\TenB{p}}
+\newcommand{\Tq}        {\TenB{q}}
+\newcommand{\Tr}        {\TenB{r}}
+\newcommand{\Ts}        {\TenB{s}}
+\newcommand{\Tt}        {\TenB{t}}
+\newcommand{\Tf}        {\TenB{f}}
+\newcommand{\Tu}        {\TenB{u}}
+\newcommand{\Tv}        {\TenB{v}}
+\newcommand{\Tva}       {\TenB{v}_\alpha}
+\newcommand{\Tw}        {\TenB{w}}
+\newcommand{\Tx}        {\TenB{x}}
+\newcommand{\Txdot}     {\TenB{\dot{x}}}
+\newcommand{\Ty}        {\TenB{y}}
+\newcommand{\Tz}        {\TenB{z}}
+\newcommand{\TPsi}      {\vec{\Psi}}
+\newcommand{\TPhi}      {\vec{\Phi}}
+\newcommand{\Tchi}      {\TenG{\chi}}
+\newcommand{\Tlambda}   {\TenG{\lambda}}
+\newcommand{\Tvarphi}   {\TenG{\vec{\varphi}}}
+\newcommand{\Tphi}      {\TenG{\phi}}
+\newcommand{\Tzeta}     {\TenG{\vec{\zeta}}}
+\newcommand{\Teps}      {\TenG{\varepsilon}}
+\newcommand{\Tgamma}      {\TenG{\gamma}}
+\newcommand{\Tnu}       {\TenG{\nu}}
+\newcommand{\Tsig}      {\TenG{\sigma}}
+\newcommand{\Ttau}      {\TenG{\tau}}
+\newcommand{\TXi}       {\TenG{\Xi}}
+\newcommand{\Txi}       {\TenG{\xi}}
+\newcommand{\TCF}       {\TenF{C}}
+\newcommand{\Tkappa}    {\TenG{\vec{\kappa}}}
+\newcommand{\TTheta}    {\TenG{\vec{\Theta}}}
+\newcommand{\Tomega}    {\TenG{\vec{\omega}}}
+\newcommand{\TOmega}    {\TenG{\vec{\Omega}}}
+% dimensionslose Gr"o"sen mit "Uberstreichung
+\newcommand{\Ddiv}      {\Ol{\div}}
+\newcommand{\Dgrad}     {\Ol{\TenN{gra}}\TenN{d}\,}
+\newcommand{\Dn}        {\bar{n}}
+\newcommand{\Dp}        {\bar{p}}
+\newcommand{\DTT}       {\bar{\TT}}
+\newcommand{\DTX}       {\bar{\TX}}
+\newcommand{\DTb}       {\bar{\Tb}}
+\newcommand{\DTu}       {\bar{\Tu}}
+\newcommand{\DTv}       {\bar{\Tv}}
+\newcommand{\DTw}       {\bar{\Tw}}
+\newcommand{\DTx}       {\bar{\Tx}}
+\newcommand{\EuNum}     {{\mathrm{Eu}}}
+\newcommand{\FrNum}     {{\mathrm{Fr}}}
+\newcommand{\ReNum}     {{\mathrm{Re}}}
+% spezielle Tensoren fuer TPM
+\newcommand{\TepsS  }{\Teps_{\!S}^{\phantom{1}}}
+\newcommand{\TepsSp }{\Teps_{\!Sp}^{\phantom{1}}}
+\newcommand{\TepsSe }{\Teps_{\!Se}^{\phantom{1}}}
+\newcommand{\TepsSpp}{(\Teps_{\!Sp}^{\phantom{1}})'_S}
+\newcommand{\TepsSP }{\Teps_{\!Sp}}
+\newcommand{\TTFE   }{\TT^F_{\!E}}
+\newcommand{\TTSE   }{\TT^S_{\!E}}
+\newcommand{\TTaE   }{\TT^\alpha_{\!E}}
+% materielle Zeitableitungen im Rahmen der TPM
+\newcommand{\MTx}        {\stackrel{'}{\Tx}}
+%==============================================================================
+% Matrizenrechnung
+%==============================================================================
+\newcommand{\Mzero}     {\MatB{0}}
+\newcommand{\Mchi}      {\MatB{\chi}}
+\newcommand{\Meps}      {\MatB{\varepsilon}}
+\newcommand{\Meta}      {\MatB{\eta}}
+\newcommand{\Mpsi}      {\MatB{\psi}}
+\newcommand{\MLambda}   {\MatB{\Lambda}}
+\newcommand{\MA}        {\MatB{A}}
+\newcommand{\MB}        {\MatB{B}}
+\newcommand{\ME}        {\MatB{E}}
+\newcommand{\MF}        {\MatB{F}}
+\newcommand{\MG}        {\MatB{G}}
+\newcommand{\MJ}        {\MatB{J}}
+\newcommand{\MM}        {\MatB{M}}
+%%%
+\newcommand{\ML}        {\MatB{L}}
+\newcommand{\MP}        {\MatB{P}}
+\newcommand{\MRes}      {\MatB{Res}}
+%%%
+\newcommand{\MN}        {\MatB{N}}
+\newcommand{\MRi}       {\MatB{R}_i}
+\newcommand{\MQ}        {\MatB{Q}}
+\newcommand{\MQi}       {\MatB{Q}_{\!i}}
+\newcommand{\MQj}       {\MatB{Q}_{\!j}}
+\newcommand{\MQni}      {\MatB{Q}_{\!ni}}
+\newcommand{\MQnj}      {\MatB{Q}_{\!nj}}
+\newcommand{\MQns}      {\MatB{Q}_{\!ns}}
+\newcommand{\MSi}       {\MatB{S}_i}
+\newcommand{\MT}        {\MatB{T}}
+\newcommand{\MU}        {\MatB{U}}
+\newcommand{\MX}        {\MatB{X}}
+\newcommand{\MXi}       {\MatB{X}_{\!i}}
+\newcommand{\MY}        {\MatB{Y}}
+\newcommand{\MYi}       {\MatB{Y}_{\!\!i}}
+\newcommand{\MYj}       {\MatB{Y}_{\!\!j}}
+\newcommand{\MYni}      {\MatB{Y}_{\!\!ni}}
+\newcommand{\MYnj}      {\MatB{Y}_{\!\!nj}}
+\newcommand{\MYns}      {\MatB{Y}_{\!\!ns}}
+\newcommand{\MZi}       {\MatB{Z}_i}
+\newcommand{\MZni}      {\MatB{Z}_{\!ni}}
+\newcommand{\Me}        {\MatB{e}}
+\newcommand{\Mf}        {\MatB{f}}
+\newcommand{\Mg}        {\MatB{g}}
+\newcommand{\Mh}        {\MatB{h}}
+\newcommand{\Mj}        {\MatB{j}}
+\newcommand{\Mk}        {\MatB{k}}
+\newcommand{\MK}        {\MatB{K}}
+\newcommand{\Mp}        {\MatB{p}}
+\newcommand{\Mq}        {\MatB{q}}
+\newcommand{\Mr}        {\MatB{r}}
+\newcommand{\Mri}       {\MatB{r}_i}
+\newcommand{\Mqp}       {\MatB{q}'}
+\newcommand{\Mqn}       {\MatB{q}_n}
+\newcommand{\Msi}       {\MatB{s}_i}
+\newcommand{\Mt}        {\MatB{t}}
+\newcommand{\Mu}        {\MatB{u}}
+\newcommand{\Mup}       {\MatB{u}'}
+\newcommand{\Mun}       {\MatB{u}_n}
+\newcommand{\Mv}        {\MatB{v}}
+\newcommand{\Mw}        {\MatB{w}}
+\newcommand{\Mx}        {\MatB{x}}
+\newcommand{\My}        {\MatB{y}}
+\newcommand{\Myp}       {\MatB{y}'}
+\newcommand{\Myn}       {\MatB{y}_{\!n}}
+\newcommand{\Mz}        {\MatB{z}}
+\newcommand{\Mzi}       {\MatB{z}_i}
+%==============================================================================
+% Matrizenrechnung - Symbold normal
+%==============================================================================
+\newcommand{\MNA}       {\MatN{A}}
+\newcommand{\MNB}       {\MatN{B}}
+\newcommand{\MNC}       {\MatN{C}}
+\newcommand{\MND}       {\MatN{D}}
+\newcommand{\MNE}       {\MatN{E}}
+\newcommand{\MNF}       {\MatN{F}}
+\newcommand{\MNG}       {\MatN{G}}
+\newcommand{\MNH}       {\MatN{H}}
+\newcommand{\MNI}       {\MatN{I}}
+%==============================================================================
+% Eulerfrakturen - Skalare und Index
+%==============================================================================
+\newcommand{\Ga}{\mathfrak{a}}
+\newcommand{\Gb}{\mathfrak{b}}
+\newcommand{\Gc}{\mathfrak{c}}
+\newcommand{\Gd}{\mathfrak{d}}
+\newcommand{\Ge}{\mathfrak{e}}
+\newcommand{\Gf}{\mathfrak{f}}
+\newcommand{\Gg}{\mathfrak{g}}
+\newcommand{\Gh}{\mathfrak{h}}
+\newcommand{\Gi}{\mathfrak{i}}
+\newcommand{\Gj}{\mathfrak{j}}
+\newcommand{\Gk}{\mathfrak{k}}
+\newcommand{\Gl}{\mathfrak{l}}
+\newcommand{\Gm}{\mathfrak{m}}
+\newcommand{\Gn}{\mathfrak{n}}
+\newcommand{\Go}{\mathfrak{o}}
+\newcommand{\Gp}{\mathfrak{p}}
+\newcommand{\Gq}{\mathfrak{q}}
+\newcommand{\Gr}{\mathfrak{r}}
+\newcommand{\Gs}{\mathfrak{s}}
+\newcommand{\Gt}{\mathfrak{t}}
+\newcommand{\Gu}{\mathfrak{u}}
+\newcommand{\Gv}{\mathfrak{v}}
+\newcommand{\Gw}{\mathfrak{w}}
+\newcommand{\Gx}{\mathfrak{x}}
+\newcommand{\Gy}{\mathfrak{y}}
+\newcommand{\Gz}{\mathfrak{z}}
+%
+\newcommand{\GA}{\mathfrak{A}}
+\newcommand{\GB}{\mathfrak{B}}
+\newcommand{\GC}{\mathfrak{C}}
+\newcommand{\GD}{\mathfrak{D}}
+\newcommand{\GE}{\mathfrak{E}}
+\newcommand{\GF}{\mathfrak{F}}
+\newcommand{\GG}{\mathfrak{G}}
+\newcommand{\GH}{\mathfrak{H}}
+\newcommand{\GI}{\mathfrak{I}}
+\newcommand{\GJ}{\mathfrak{J}}
+\newcommand{\GK}{\mathfrak{K}}
+\newcommand{\GL}{\mathfrak{L}}
+\newcommand{\GM}{\mathfrak{M}}
+\newcommand{\GN}{\mathfrak{N}}
+\newcommand{\GO}{\mathfrak{O}}
+\newcommand{\GP}{\mathfrak{P}}
+\newcommand{\GQ}{\mathfrak{Q}}
+\newcommand{\GR}{\mathfrak{R}}
+\newcommand{\GS}{\mathfrak{S}}
+\newcommand{\GT}{\mathfrak{T}}
+\newcommand{\GU}{\mathfrak{U}}
+\newcommand{\GV}{\mathfrak{V}}
+\newcommand{\GW}{\mathfrak{W}}
+\newcommand{\GX}{\mathfrak{X}}
+\newcommand{\GY}{\mathfrak{Y}}
+\newcommand{\GZ}{\mathfrak{Z}}
+%==============================================================================
+% Eulerfrakturen - FETT: Vektoren und Tensoren
+%==============================================================================
+\newcommand{\TGa}{\boldsymbol{\mathfrak{a}}}
+\newcommand{\TGb}{\boldsymbol{\mathfrak{b}}}
+\newcommand{\TGc}{\boldsymbol{\mathfrak{c}}}
+\newcommand{\TGd}{\boldsymbol{\mathfrak{d}}}
+\newcommand{\TGe}{\boldsymbol{\mathfrak{e}}}
+\newcommand{\TGf}{\boldsymbol{\mathfrak{f}}}
+\newcommand{\TGg}{\boldsymbol{\mathfrak{g}}}
+\newcommand{\TGh}{\boldsymbol{\mathfrak{h}}}
+\newcommand{\TGi}{\boldsymbol{\mathfrak{i}}}
+\newcommand{\TGj}{\boldsymbol{\mathfrak{j}}}
+\newcommand{\TGk}{\boldsymbol{\mathfrak{k}}}
+\newcommand{\TGl}{\boldsymbol{\mathfrak{l}}}
+\newcommand{\TGm}{\boldsymbol{\mathfrak{m}}}
+\newcommand{\TGn}{\boldsymbol{\mathfrak{n}}}
+\newcommand{\TGo}{\boldsymbol{\mathfrak{o}}}
+\newcommand{\TGp}{\boldsymbol{\mathfrak{p}}}
+\newcommand{\TGq}{\boldsymbol{\mathfrak{q}}}
+\newcommand{\TGr}{\boldsymbol{\mathfrak{r}}}
+\newcommand{\TGs}{\boldsymbol{\mathfrak{s}}}
+\newcommand{\TGt}{\boldsymbol{\mathfrak{t}}}
+\newcommand{\TGu}{\boldsymbol{\mathfrak{u}}}
+\newcommand{\TGv}{\boldsymbol{\mathfrak{v}}}
+\newcommand{\TGw}{\boldsymbol{\mathfrak{w}}}
+\newcommand{\TGx}{\boldsymbol{\mathfrak{x}}}
+\newcommand{\TGy}{\boldsymbol{\mathfrak{y}}}
+\newcommand{\TGz}{\boldsymbol{\mathfrak{z}}}
+%	     	 	     
+\newcommand{\TGA}{\boldsymbol{\mathfrak{A}}}
+\newcommand{\TGB}{\boldsymbol{\mathfrak{B}}}
+\newcommand{\TGC}{\boldsymbol{\mathfrak{C}}}
+\newcommand{\TGD}{\boldsymbol{\mathfrak{D}}}
+\newcommand{\TGE}{\boldsymbol{\mathfrak{E}}}
+\newcommand{\TGF}{\boldsymbol{\mathfrak{F}}}
+\newcommand{\TGG}{\boldsymbol{\mathfrak{G}}}
+\newcommand{\TGH}{\boldsymbol{\mathfrak{H}}}
+\newcommand{\TGI}{\boldsymbol{\mathfrak{I}}}
+\newcommand{\TGJ}{\boldsymbol{\mathfrak{J}}}
+\newcommand{\TGK}{\boldsymbol{\mathfrak{K}}}
+\newcommand{\TGL}{\boldsymbol{\mathfrak{L}}}
+\newcommand{\TGM}{\boldsymbol{\mathfrak{M}}}
+\newcommand{\TGN}{\boldsymbol{\mathfrak{N}}}
+\newcommand{\TGO}{\boldsymbol{\mathfrak{O}}}
+\newcommand{\TGP}{\boldsymbol{\mathfrak{P}}}
+\newcommand{\TGQ}{\boldsymbol{\mathfrak{Q}}}
+\newcommand{\TGR}{\boldsymbol{\mathfrak{R}}}
+\newcommand{\TGS}{\boldsymbol{\mathfrak{S}}}
+\newcommand{\TGT}{\boldsymbol{\mathfrak{T}}}
+\newcommand{\TGU}{\boldsymbol{\mathfrak{U}}}
+\newcommand{\TGV}{\boldsymbol{\mathfrak{V}}}
+\newcommand{\TGW}{\boldsymbol{\mathfrak{W}}}
+\newcommand{\TGX}{\boldsymbol{\mathfrak{X}}}
+\newcommand{\TGY}{\boldsymbol{\mathfrak{Y}}}
+\newcommand{\TGZ}{\boldsymbol{\mathfrak{Z}}}
+%==============================================================================
+% Index in Schreibschrift
+%==============================================================================
+\newcommand{\Ca}{\mbox{\calligra{\scriptsize a}}\/}
+\newcommand{\Cb}{\mbox{\calligra{\scriptsize b}}\/}
+\newcommand{\Cc}{\mbox{\calligra{\scriptsize c}}\/}
+\newcommand{\Cd}{\mbox{\calligra{\scriptsize d}}\/}
+\newcommand{\Ce}{\mbox{\calligra{\scriptsize e}}\/}
+\newcommand{\Cf}{\mbox{\calligra{\scriptsize f}}\/}
+\newcommand{\Cg}{\mbox{\calligra{\scriptsize g}}\/}
+\newcommand{\Ch}{\mbox{\calligra{\scriptsize h}}\/}
+\newcommand{\Ci}{\mbox{\calligra{\scriptsize i}}\/}
+\newcommand{\Cj}{\mbox{\calligra{\scriptsize j}}\/}
+\newcommand{\Ck}{\mbox{\calligra{\scriptsize k}}\/}
+\newcommand{\Cl}{\mbox{\calligra{\scriptsize l}}\/}
+\newcommand{\Cm}{\mbox{\calligra{\scriptsize m}}\/}
+\newcommand{\Cn}{\mbox{\calligra{\scriptsize n}}\/}
+\newcommand{\Co}{\mbox{\calligra{\scriptsize o}}\/}
+\newcommand{\Cp}{\mbox{\calligra{\scriptsize p}}\/}
+\newcommand{\Cq}{\mbox{\calligra{\scriptsize q}}\/}
+\newcommand{\Cr}{\mbox{\calligra{\scriptsize r}}\/}
+\newcommand{\Cs}{\mbox{\calligra{\scriptsize s}}\/}
+\newcommand{\Ct}{\mbox{\calligra{\scriptsize t}}\/}
+\newcommand{\Cu}{\mbox{\calligra{\scriptsize u}}\/}
+\newcommand{\Cv}{\mbox{\calligra{\scriptsize v}}\/}
+\newcommand{\Cw}{\mbox{\calligra{\scriptsize w}}\/}
+\newcommand{\Cx}{\mbox{\calligra{\scriptsize x}}\/}
+\newcommand{\Cy}{\mbox{\calligra{\scriptsize y}}\/}
+\newcommand{\Cz}{\mbox{\calligra{\scriptsize z}}\/}
+%
+\newcommand{\CA}{\mbox{\calligra{\scriptsize A}}\/}
+\newcommand{\CB}{\mbox{\calligra{\scriptsize B}}\/}
+\newcommand{\CC}{\mbox{\calligra{\scriptsize C}}\/}
+\newcommand{\CD}{\mbox{\calligra{\scriptsize D}}\/}
+\newcommand{\CE}{\mbox{\calligra{\scriptsize E}}\/}
+\newcommand{\CF}{\mbox{\calligra{\scriptsize F}}\/}
+\newcommand{\CG}{\mbox{\calligra{\scriptsize G}}\/}
+\newcommand{\CH}{\mbox{\calligra{\scriptsize H}}\/}
+\newcommand{\CI}{\mbox{\calligra{\scriptsize I}}\/}
+\newcommand{\CJ}{\mbox{\calligra{\scriptsize J}}\/}
+\newcommand{\CK}{\mbox{\calligra{\scriptsize K}}\/}
+\newcommand{\CL}{\mbox{\calligra{\scriptsize L}}\/}
+\newcommand{\CM}{\mbox{\calligra{\scriptsize M}}\/}
+\newcommand{\CN}{\mbox{\calligra{\scriptsize N}}\/}
+\newcommand{\CO}{\mbox{\calligra{\scriptsize O}}\/}
+\newcommand{\CP}{\mbox{\calligra{\scriptsize P}}\/}
+\newcommand{\CQ}{\mbox{\calligra{\scriptsize Q}}\/}
+\newcommand{\CR}{\mbox{\calligra{\scriptsize R}}\/}
+\newcommand{\CS}{\mbox{\calligra{\scriptsize S}}\/}
+\newcommand{\CT}{\mbox{\calligra{\scriptsize T}}\/}
+\newcommand{\CU}{\mbox{\calligra{\scriptsize U}}\/}
+\newcommand{\CV}{\mbox{\calligra{\scriptsize V}}\/}
+\newcommand{\CW}{\mbox{\calligra{\scriptsize W}}\/}
+\newcommand{\CX}{\mbox{\calligra{\scriptsize X}}\/}
+\newcommand{\CY}{\mbox{\calligra{\scriptsize Y}}\/}
+\newcommand{\CZ}{\mbox{\calligra{\scriptsize Z}}\/}
+%\newcommand{\CLin}  {\mbox{\calligra{\scriptsize Lin}}\/}
+%\newcommand{\CSym}  {\mbox{\calligra{\scriptsize Sym}}\/}
+%\newcommand{\CSkw}  {\mbox{\calligra{\scriptsize Skw}}\/}
+%\newcommand{\COrth} {\mbox{\calligra{\scriptsize Orth}}\/}
+\newcommand{\CLin}  {{\mathscr Lin     }}
+\newcommand{\CSym}  {{\mathscr Sym     }}
+\newcommand{\CSkw}  {{\mathscr Skew    }}
+\newcommand{\COrth} {{\mathscr Orth}^{+}}
+%==============================================================================
+% Vektoren
+%==============================================================================
+% Spaltenvektor mit runden Klammern
+\newcommand{\svektor}[2]%
+{\left(\!\!\!\begin{array}{c} #1\\#2 \end{array}\!\!\!\right)}
+% Zeilenvektor mit runden Klammern
+\newcommand{\zvektor}[2]%
+{\left(#1,#2\right)^T}
+% Spaltenvektor mit eckigen Klammern
+\newcommand{\Svektor}[2]%
+{\left[\!\!\!\begin{array}{l} #1\\#2 \end{array}\!\!\!\right]}
+% Zeilenvektor mit eckigen Klammern
+\newcommand{\Zvektor}[2]%
+{\left[#1,#2\right]^T}
+\newcommand{\nvec}{\bf{n}}
+\newcommand{\ncmp}{\rm{n}}
+\newcommand{\tvec}{\bf{t}}
+\newcommand{\tcmp}{\rm{t}}
+\newcommand{\xvec}{\bf{x}}
+\newcommand{\xcmp}{\rm{x}}
+\newcommand{\yvec}{\bf{y}}
+\newcommand{\ycmp}{\rm{y}}
+%==============================================================================
+% Bezeichnungen fuer FEM
+%==============================================================================
+\newcommand{\Erzeugnis}[1]{\langle #1 \rangle}
+\newcommand{\Basis    }[1]{\langle\langle #1 \rangle\rangle}
+\newcommand{\Dual     }[2]{\langle #1, #2 \rangle}
+\newcommand{\SProd    }[2]{( #1, #2 )}
+\newcommand{\Abschluss}[2]{\overline{#1}^{\Norm{\cdot}_{#2}}}
+\newcommand{\Greg}{\Ol{\Omega}}
+\newcommand{\Gphi}{\phi_n}
+\newcommand{\Gcoe}{U^n}
+\newcommand{\Gnod}{X}
+\newcommand{\Ereg}{\Ol{\Omega}_e}
+\newcommand{\Elab}{{\scriptscriptstyle (e)}}
+\newcommand{\Ephi}{\phi_i^\Elab}
+\newcommand{\Ecoe}{\stackrel{\Elab}{U^i}}
+\newcommand{\Enod}[2]{\stackrel{\Elab}{X^{#1}_{#2}}}
+\newcommand{\Eass}{\stackrel{\Elab \ }{{\mbox{\large\bf A}}_n^i}}
+\newcommand{\Gsum}{\sum_{n=1}^{N}}
+\newcommand{\Lsum}{\sum_{i=1}^{N_e}}
+\newcommand{\Esum}{\sum_{e=1}^{E}}
+\newcommand{\Ecup}{\bigcup_{e=1}^{E}}
+%==============================================================================
+% Optische Funktionen
+%==============================================================================
+\newcommand{\spc    }    {\hspace{ 5mm}}              % Freiraum  5mm
+\newcommand{\Spc    }    {\hspace{10mm}}              % Freiraum 10mm
+\newcommand{\SPC    }    {\hspace{20mm}}              % Freiraum 20mm
+%------------------------------------------------------------------------------
+\newcommand     {\eg}           {\mbox{e.\,g.}\ }
+\newcommand     {\bea}          {\renewcommand{\arraystretch}{1.5} \begin{array}}
+\newcommand     {\eea}          {\end{array}\renewcommand{\arraystretch}{1.0} }
+\newcommand     {\nnn}          {\nonumber  }
+\newcommand     {\auf}          {\mbox{on}  }
+%-------
+\newcommand     {\intst}        {\int\!\!\!\!\!\int\limits_{\!\!\!\!\!\!\Omega   \times I}}
+\newcommand     {\intbt}        {\int\!\!\!\!\!\!\int\limits_{\!\!\!\!\!\!\Gamma_N \times I}}
+% 
+\newcommand     {\intstn}       {\int\!\!\!\!\!\int\limits_{\!\!\!\!\!\!\Omega   \times I^n}}
+\newcommand     {\intbtn}       {\int\!\!\!\!\!\!\int\limits_{\!\!\!\!\!\!\Gamma_N \times I^n}}
+% 
+\newcommand     {\intresth}     {\int\!\!\!\!\!\int\limits_{\!\!\!\!\!\!T_h   \times I^n}}
+\newcommand     {\intrese}      {\int\!\!\!\!\!\!\int\limits_{\!\!\!\!\!\!E_h \times I^n}}
+\newcommand     {\intresti}     {\int\!\!\!\!\!\!\int\limits_{\!\!\!\!\!\!T_h}}
+%
+\newcommand     {\glref}[1]     {(\ref{#1})}
+\newcommand     {\EQ}[1]        {(\ref{#1})}
+\newcommand     {\figref}[1]    {(\ref{#1})}
+%------------------------------------------------------------------------------
+%\newfont{\Eule}{eule scaled 2000} % Uni-Logo
+%\newcommand{\logo}{{\Eule i}}
+%------------------------------------------------------------------------------
+\newcommand{\Fig}        [1]  {Abb.~(\ref{#1})}
+\newcommand{\Eq}         [1]  {Gl.~(\ref{#1})}
+\newcommand{\sdiamond}        {\mbox{\tiny$\Diamond$}}
+%------------------------------------------------------------------------------
+\newcommand{\DDOT}      [1]  {\stackrel{\mbox{\bf ..}}{#1}}%{\dot{#1}}
+\newcommand{\DOT}       [1]  {\stackrel{\mbox{\bf  .}}{#1}}%{\dot{#1}}
+\newcommand{\hgl}            {\\[+2mm]}
+\newcommand{\Hgl}            {\\[+3mm]}
+\newcommand{\HGl}            {\\[+4mm]}
+\newcommand{\HGL}            {\\[+5mm]}
+\newcommand{\hHgl}           {\\ \hline}
+%------------------------------------------------------------------------------
+\newcommand{\Stackrel}  [2]  {\,\stackrel{#1}{\text{$#2$}}}

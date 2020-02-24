@@ -1,0 +1,109 @@
+\subsection{HDF - Hybrid-Dimensional-Formulation}
+
+Hydro-mechanical modeling of fluid flow in deformable high aspect-ratio fractures (aperture $\ll$ fracture length) requires special numerical treatment of the governing equations. Discretization of high aspect-ratio fractures is challenging, and small absolute fracture deformations might lead to non-linear changes in the flow conditions within the fracture domain. Hybrid-dimensional elements were designed to overcome these difficulties and implicitly couple flow in deformable fractures with the deformation state of the surrounding matrix \cite{vinci2014, vinci2015,KIM20112094,KIM20111591,Girault2015,Girault2016,Castelletto2015,segura2004,segura2008coupledI,segura2008coupledII,vinci2014hydro,settgast2017fully,schmidt2019}.
+\subsubsection*{Governing equations of the hybrid-dimensional formulation}
+Flow in hydraulic transmissive high aspect-ratio fractures is based on the physics of viscous fluids $Re \ll 1$ and creeping flow conditions resulting in a Poiseuille-type flow description \cite{witherspoon1979}. The introduced assumptions simplify the balance of momentum to a pressure driven flow formulation where the relative fluid velocity 
+\begin{equation}
+\label{eq:hda_pressure_flux}
+\mathbf{w}_\mathfrak{f} = -\frac{\delta(\mathbf{u})^2}{12\,\eta^{\mathfrak{f}R}} \, \text{grad} \, p
+=: -\frac{k^\mathfrak{s}_{Fr}}{\eta^{\mathfrak{f}R}} \, \text{grad} \, p,
+\end{equation}
+is obtained from the parabolic velocity profile. In~\eqref{eq:hda_pressure_flux} $\delta$ denotes the fracture aperture, $\eta^{\mathfrak{f}R}$ the effective dynamic viscosity, $\mathbf{u}$ the fracture deformation, $p$ the fluid pressure and $k^\mathfrak{s}_{Fr}$ the introduced local fracture permeability.
+To determine relations between injected fluid and fracture volume, fluid density changes and fluid velocity the balance of mass is evaluated for a compressible fluid in deformable fractures. Hence,
+
+\begin{equation}
+\label{eq:hda_balance_of_mass}
+\dot{\overline{(\rho^{\mathfrak{f}R}\,\delta)} + \text{div}}
+\left(\, \hat{\mathbf{w}}_\mathfrak{f} \, \rho^{\mathfrak{f}R}\, \delta\right) = 0
+\end{equation}
+
+provides the condition to fulfill the conservation of mass in a deformable fracture setting where $\rho^{\mathfrak{f}R}$ is the fluid density. Once the fracture is surrounded by a porous medium leak-off can occur and is simply taken into account by an additional source term on the right hand side of~\eqref{eq:hda_balance_of_mass}.
+Evaluation of the balance of mass and momentum and assuming a linear constitutive relationship between fluid pressure and effective fluid density for barotropic fluids provides the scalar, lower-dimensional governing equation for fluid flow in deformable fractures
+
+\begin{align}
+%\begin{equation}
+\label{eq:governing}
+\begin{split}  
+\underbrace{\vphantom{\frac{1}{12 \,\eta^{\mathfrak{f}R}\, \beta^{\mathfrak{f}}} \pderiv{}{x}\left(\delta^2 \pderiv{p}{x}\right)} 
+\dot{p}}_{\MakeUppercase{\romannumeral 1{)}}} 
+- 
+\underbrace{\vphantom{\frac{1}{12 \,\eta^{\mathfrak{f}R}\, \beta^\mathfrak{f}} \pderiv
+{}{r}\left(\delta^2 \pderiv{p}{r}\right)} \frac{\delta^2}{12 \,\eta^{\mathfrak{f}R}} \, \text{grad} \,p \cdot \text{grad} \, p}_{\MakeUppercase{\romannumeral 2{)}}}  
+- 
+\underbrace {\vphantom{\frac{1}{12 \,\eta^{\mathfrak{f}R} \,\beta^{\mathfrak{f}} } \pderiv{}{x}\left(\delta^2 \pderiv{p}{x}\right)} \frac{\delta }{12\, \eta^{\mathfrak{f}R}\, \beta^{\mathfrak{f}}} \text{grad} \, \delta \cdot \text{grad} \, p}_{\MakeUppercase{\romannumeral 3{)}}}
+\\
+- 
+\underbrace{\frac{1}{12\,\, \eta^{\mathfrak{f}R} \beta^{\mathfrak{f}}} \text{div} \left( \delta^2 \, \text{grad} \, p\right)}_{\MakeUppercase{\romannumeral 4{)}}} 
++ 
+\underbrace{\vphantom{\frac{1}{12\,r\, \eta^{\mathfrak{f}R}\, \beta^{\mathfrak{f}}} \pderiv{}{r}\left(\frac{\delta^2}{r} \pderiv{p}{x}\right)} \frac{1}{\delta\, \beta^{\mathfrak{f}}}\pderiv{\delta}{t}}_{\MakeUppercase{\romannumeral 5{)}}}
+= 
+\underbrace{\vphantom{\frac{1}{12\,r\, \eta^{\mathfrak{f}R}\, \beta^{\mathfrak{f}}} \pderiv{}{r}\left(\frac{\delta^2}{r} \pderiv{p}{x}\right)} q_{lk}}_{\MakeUppercase{\romannumeral 6{)}}}.
+%\end{equation}
+\end{split}
+\end{align}
+
+Eq. \eqref{eq:governing} consists of a transient $\MakeUppercase{\romannumeral 1{)}}$, a quadratic 
+$\MakeUppercase{\romannumeral 2{)}}$, a convection $\MakeUppercase{\romannumeral 3{)}}$, a diffusion 
+$\MakeUppercase{\romannumeral 4{)}}$, a coupling $\MakeUppercase{\romannumeral 5{)}}$ and a leak-off 
+$\MakeUppercase{\romannumeral 6{)}}$ term. Due to their minor contribution to the overall solution terms $\MakeUppercase{\romannumeral 2{)}}$ and $\MakeUppercase{\romannumeral 3{)}}$ will be neglected in the following.
+
+\subsubsection*{Numerical implementation}
+Different strategies to solve eq.~\eqref{eq:governing} have been proposed in the literature. Due to the stiff nature of the global system, implicit coupling of the rock matrix and fracture domain is mandatory. Solution strategies can be distinguished between staggered and monolithic approaches. Staggered algorithms allow calculations on independent domains and non-conformal meshing of fluid and solid domains \cite{Girault2016}, but require a higher number of iterations compared to the monolithic approaches \cite{schmidt2019}. Monolithic approaches such as zero-thickness interface elements are numerically stable and allow modeling of constitutive contact behavior of fracture surfaces since connectivity between both surfaces is guaranteed \cite{segura2008coupledII}. Here we focus on the element formulation of zero-thickness interface elements. The interested reader is referred to \cite{Girault2015,Girault2016,schmidt2019} for a detailed description of weak coupling schemes.
+
+Interface elements allow longitudinal and transversal fracture flow as well as pressure jumps along both fracture surfaces. Numerically it is realized by auxiliary lower dimensional elements and averaging of the balance of mass and momentum. For the averaging process the already introduced balances of mass and momentum are extended to capture longitudinal and transversal fracture flow by decomposition of the seepage velocity 
+\begin{equation}
+    \label{eq:seepage_decomp}
+    \mathbf{w}_\mathfrak{f} = \mathbf{w}_\mathfrak{f}^l + \mathbf{w}_\mathfrak{f}^t.
+\end{equation}
+In order to allow integration of aligning node values on auxiliary element level the balance of mass is averaged over the fracture height and reads
+\begin{equation}
+    \label{eq:avg_mass_integral_final}
+    \cfrac{\delta}{K^\mathfrak{f}}\dot{P} + \dot{\delta} + \text{div}_l
+\left(\, \mathbf{W}_\mathfrak{f} \delta \right) = \mathbf{w}^+_\mathfrak{f} \cdot \mathbf{n^+} + \mathbf{w}^-_\mathfrak{f} \cdot \mathbf{n}^-
+\end{equation}
+where $P = \int_{-\delta/2}^{\delta/2}  \hat{p} \, \text{d}\mathbf{n}$ is the integral pressure, $\mathbf{W}_\mathfrak{f} = \int_{-\delta/2}^{\delta/2} \mathbf{w}^t_\mathfrak{f} \, \text{d}\mathbf{n}$ the integral seepage velocity, $\text{div}_l$ the divergence evaluated in longitudinal direction and the superscripts $^+$ and $^-$ denote the fracture surfaces. Averaging of the balance of momentum is conducted for the longitudinal and transversal fracture flow separately. In the longitudinal direction, the averaging process results in
+\begin{equation}
+    \label{eq:avg_longitudinal}
+    \mathbf{W}_\mathfrak{f} = -\frac{ k^\mathfrak{s}_{Fr,l}(\mathbf{x},t)}{\eta^{\mathfrak{f}R}} \, \text{grad}_l \, P.
+\end{equation}
+Description of the balance of momentum for transversal flow is realized by introducing and averaging a Darcy-like pressure-flow relationship which is approximated by the trapezoidal rule and finally given by 
+\begin{equation}
+   \label{eq:transversal_final}
+   \cfrac{1}{2} \left(-\mathbf{w}^+_\mathfrak{f} \cdot \mathbf{n}^+ + \mathbf{w}^-_\mathfrak{f} \cdot \mathbf{n}^- \right) = - \frac{k^\mathfrak{s}_{Fr,t}}{\eta^{\mathfrak{f}R}}\cfrac{-p^+ + p^-}{\delta}.
+\end{equation}
+A boundary condition for pressure $P$ closes the set of averaged balance equations. The formulation of the averaged quantity $P$ depends on the domain composition of the fracture height and reads
+\begin{align}
+\label{eq:avg_balance}
+\begin{split}
+-\xi \, \mathbf{w}^+_\mathfrak{f} \cdot \mathbf{n}^+ + \frac{2 \, k^\mathfrak{s}_{Fr,t}}{\delta \, \eta^{\mathfrak{f}R}} p^+ =  - (1 - \xi) \, \mathbf{w}^-_\mathfrak{f} \cdot \mathbf{n}^- + \frac{2 \, k^\mathfrak{s}_{Fr,t}}{\delta \, \eta^{\mathfrak{f}R}} P\\
+-\xi \, \mathbf{w}^-_\mathfrak{f} \cdot \mathbf{n}^- + \frac{2 \, k^\mathfrak{s}_{Fr,t}}{\delta \, \eta^{\mathfrak{f}R}} p^- =  - (1 - \xi) \, \mathbf{w}^+_\mathfrak{f} \cdot \mathbf{n}^+ + \frac{2 \, k^\mathfrak{s}_{Fr,t}}{\delta \, \eta^{\mathfrak{f}R}} P
+\end{split}
+\end{align}
+in its general form. Here the stability limit $\xi=1 / 2$ \cite{segura2004} is chosen \cite{Martin2005} so that the pressure jump along the fracture height and averaged pressure $P$ are given by
+\begin{align}
+    \label{eq:avg_pressure_sum}
+    \begin{split}
+        P &= \cfrac{p^{+} +  p^{-}}{2}\\
+        \mathbf{w}^-_\mathfrak{f} \cdot \mathbf{n}^- - \mathbf{w}^+_\mathfrak{f} \cdot \mathbf{n}^+ &= 2 \, k^\mathfrak{s}_{Fr,t} \cfrac{p^- - p^+}{\delta}.
+    \end{split}
+\end{align}
+The averaged governing equation for fluid flow in a deformable fracture at auxiliary element level is finally obtained by addition/subtraction of eq.~\eqref{eq:avg_mass_integral_final} and eq.~\eqref{eq:avg_pressure_sum} and leads to
+\begin{align}
+    \label{eq:avg_governing_final}
+    \begin{split}
+    \cfrac{1}{2}\left[\cfrac{1}{K^\mathfrak{f}}\dot{P} + \dot{\delta} + \text{div}_l \left(\, \mathbf{W}_\mathfrak{f} \delta \right)\right] -  k^\mathfrak{s}_{Fr,t} P^t = \mathbf{w}^+_\mathfrak{f} \cdot \mathbf{n^+} \quad \text{on} \, \Gamma^{Fr}_+,\\
+\cfrac{1}{2}\left[\cfrac{1}{K^\mathfrak{f}}\dot{P} + \dot{\delta} + \text{div}_l
+\left(\, \mathbf{W}_\mathfrak{f} \delta \right)\right] +  k^\mathfrak{s}_{Fr,t} P^t = \mathbf{w}^-_\mathfrak{f} \cdot \mathbf{n^-} \quad \text{on} \, \Gamma^{Fr}_-.
+    \end{split}
+\end{align}
+To solve the governing eq.~\eqref{eq:avg_governing_final} in a finite element (FE) framework the weak form of the zero-thickness element formulation results in
+\small
+\begin{align}
+\label{eq:s_coupling_weak_inter}
+\begin{split}
+&\int_{\Gamma^{Fr}_+} \left[\cfrac{1}{2} \left(\dot{p} \,w_{a}  + \cfrac{\delta^2}{{12 \,\eta^{\mathfrak{f}R}} \beta^\mathfrak{f}} \, \text{grad}_l \, P \cdot \text{grad}_l \, w_{a} + \cfrac{1}{\delta\, \beta^\mathfrak{f}} \,\pderiv{\delta}{t} \,w_{a}\right)  - \cfrac{1}{\delta\, \beta^\mathfrak{f}} \ k^\mathfrak{s}_{Fr,t} \ P^t \,w_a \right] \text{d}v = \cfrac{1}{\delta \, \beta^\mathfrak{f}} \ \mathbf{w}^+_\mathfrak{f} \cdot \mathbf{n^+}, \\
+&\int_{\Gamma^{Fr}_-} \left[\cfrac{1}{2} \left( \dot{p} \,w_{a}  + \cfrac{\delta^2}{{12 \,\eta^{\mathfrak{f}R}} \beta^\mathfrak{f}} \, \text{grad}_l \, P \cdot \text{grad}_l \, w_{a} + \cfrac{1}{\delta\, \beta^\mathfrak{f}} \,\pderiv{\delta}{t} \,w_{a} \right) + \cfrac{1}{\delta\, \beta^\mathfrak{f}} \ k^\mathfrak{s}_{Fr,t} \ P^t \,w_a \right] \text{d}v =\cfrac{1}{\delta \,\beta^\mathfrak{f}} \ \mathbf{w}^-_\mathfrak{f} \cdot \mathbf{n^-}
+\end{split}
+\end{align}
+\normalsize
+where $w_a$ is the lower dimensional test function used for the integration of the auxiliary elements. The form provided by eq.~\eqref{eq:s_coupling_weak_inter} is implemented in a FE framework using a Newton-Raphson scheme to solve non-linear, transient pressure diffusion problems in deformable fractures surrounded by a porous matrix which is captured by Biot's theory.

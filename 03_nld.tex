@@ -1,0 +1,102 @@
+\subsection{NLD - Non-Local Damage}
+
+\subsubsection*{Constitutive model}
+The theory of continuum damage mechanics has been consistently and successfully applied to the simulation of failure and fracture of brittle and ductile solids in the spirit of the local approach to fracture~\cite{Lemaitre2009,Murakami2012}. Because of the softening response, continuum damage models suffer from spurious mesh-dependency: the rate equation of equilibrium loses ellipticity, the acoustic tensor becomes singular and the problem ill-posed, bifurcated solutions of the static equilibrium might appear and the global dissipated energy decreases upon mesh-element size decrement. In the extreme case, snap-backs are possible and a cusp-catastrophe surface appears in the three-dimensional stress vs. strain vs. element-size space. Restoring objectivity in the solution with respect to mesh size has often been achieved by introducing an internal length in what is usually referred to as an extended or non-local continuum. In this contribution, we employ an integral-type non-local plastic-damage model, which can successfully prevent ill-posedness of the rate problem for softening damage models~\cite{Bazant2002,Duddu2013,Nguyen2015,Desmorat2015,Parisio2018}. The constitutive equation of the plastic-damage model relates Biot's effective stress to the elastic strain tensor as
+\begin{equation}
+    \label{eq:DamageConstitutiveRelation}
+    \mbfs{\sigma}' = \tilde{\fourtens{C}} \dcdot \mbfs{\epsilon}_\mrm{el},
+\end{equation}
+where $\tilde{\fourtens{C}}= \left( 1-d\right) \fourtens{C}$ is the damaged elastic tensor\footnote{Observe the linear degradation of stiffness in comparison to the quadratic formulation used in the phase-field formulation. Consequences of this choice have been discussed in~\cite{Borst2016}, where gradient-damage and phase-field models were compared. For links on non-local integral formulations and gradient-damage models, the reader is referred to~\cite{Kuhl2000} and references therein.}, $0 \leq d \leq 1$ is the damage parameter, $\mbfs{\epsilon}_\mrm{el}$ is the elastic strain tensor defined as the difference between total and plastic strain
+\begin{equation}
+    \label{eq:PlasticSplit} 
+    \mbfs{\epsilon}_\mrm{el}=\mbfs{\epsilon}-\mbfs{\epsilon}_\mrm{pl}.
+\end{equation}
+ According to Eq.~\eqref{eq:DamageConstitutiveRelation}, the concept of damage effective stress can be defined as the stress that acts on the undamaged part of the material as
+\begin{equation}
+    \label{eq:DamEffStress}
+    \tilde{\mbfs{\sigma}} = \frac{\mbfs{\sigma}'}{ 1-d }  = \fourtens{C} \dcdot \mbfs{\epsilon}_\mrm{el}.
+\end{equation}
+The loading surface for this class of plastic-damage model can be chosen as unique for the two dissipative mechanisms. In this case, we will employ a $J_2$-type failure surface of the Drucker-Prager family formulated in the damage effective stress space $\tilde{\mbfs{\sigma}}$:
+\begin{equation}\label{eq:dp_y}
+F=\sqrt{J_2}-\beta I_1+k=0,
+\end{equation}
+with $\beta$ and $k$ material parameters and the invariants of the stress tensor defined as
+\begin{equation}\label{eq:invar}
+\begin{split}
+I_1=\text{tr}\left( \tilde{\mbfs{\sigma}}  \right), J_2=\left(  \tilde{\mbf{s}} \dcdot  \tilde{\mbf{s}} \right)/2,
+\end{split}
+\end{equation}
+where $\tilde{\mbf{s}} = \tilde{\mbfs{\sigma}} - \text{tr}\left( \tilde{\mbfs{\sigma}} \right)/3\ \mbf{I}$ is the deviatoric effective stress tensor. The Karush-Kuhn-Tucker loading-unloading conditions write
+\begin{equation}\label{eq:kuh_tuc}
+F\left( \tilde{\mbfs{\sigma}} \right)\leq0 \quad {\lambda}\geq0 \quad {\lambda} F\left( \tilde{\mbfs{\sigma}} \right)=0,
+\end{equation}
+with $\lambda$ the plastic multiplier that defines the plastic strain rate as
+\begin{equation}\label{eq:plas_mult}
+\dot{\mbfs{\epsilon}}_\mrm{pl}=\lambda \frac{\partial G}{\partial \tilde{\mbfs{\sigma}}},
+\end{equation}
+In the current study, associated plasticity was modelled, i.e. the plastic potential function $G$ was identical to the yield function $G=F$.
+
+A non-local damage-driving variable $\bar{k}_d$ is obtained by integral averaging of its local counterpart $k_d$
+\begin{equation}\label{nnloc}
+\begin{split}
+\bar{k}_d\left( \mbfs{x} \right)=\frac{1}{\ds\int_{V} \alpha_0 \left( \norm{\mbfs{x}-\mbfs{\psi}} \right) \mathd\mbfs{\psi}}
+\int_{V} \alpha_0 \left( \norm{\mbfs{x}-\mbfs{\xi}} \right) k_d\left(\mbfs{\xi} \right) \mathd \mbfs{\xi}, 
+\end{split}
+\end{equation}
+where $r=\norm{\mbfs{x}-\mbfs{\xi}}$ is the distance between two points in the continuum and $\alpha_0$ is the weight function
+\begin{equation}\label{nnloc:alpha}
+\alpha_\text{0}=
+\begin{cases} 
+\ds \left(1-\frac{r^2}{l_{\text{c}}^2}\right) & \text{if } 0 \leq r \leq l_\text{c}  \\
+0  & \text{if } l_\text{c} \leq r  \\
+\end{cases}.
+\end{equation}
+In Eq.~\eqref{nnloc:alpha}, $l_\text{c}$ is an internal length of the continuum which defines the radius of interaction of the different points in the material. For the theoretical justification and the relation of $l_\text{c}$ with internal micro-structural characteristics, the interested reader is addressed to consult the literature~\cite{Bazant2002}. The local damage-driving variable $k_d$ of Eq.~\eqref{nnloc} is in turn a function of the rate of effective plastic strain and is defined in rate form as
+\begin{equation}\label{eq:dam_dri}
+\dot{k}_d=\dot{\epsilon}_\mrm{pl}^{\text{eff}}
+\end{equation}
+with
+\begin{equation}\label{eq:eff_pl_str}
+\epsilon_\mrm{pl}^{\text{eff}}(t)=\int \limits_0^t \sqrt{ \frac{2}{3} \dot{\mbfs{\epsilon}}_\mrm{pl} \dcdot \dot{\mbfs{\epsilon}}_\mrm{pl}} \mathd \tau.
+\end{equation}
+Finally, damage $d$ is an exponential function of the non-local driving variable as $\bar{k}_d$
+\begin{equation}\label{eq:dam_equ}
+d =\omega\left( \bar{k}_d \right)= 1-\exp \left( -\frac{\bar{k}_d}{\alpha_d} \right),
+\end{equation}
+where $\alpha_d$ is a material parameter controlling the rate of damage growth, and therefore material brittleness~\cite{Parisio2017}.
+
+
+\subsubsection*{Numerical implementation}
+
+The solution of the differential-algebraic system of equations describing the plastic-damage model is performed at each integration point within a fully implicit scheme for non-linear materials~\cite{Parisio2015,Nagel2016a,Nagel2017,Parisio2018b}. Because of the adopted coupling between damage and plasticity, damage can be explicitly computed and updated after the return-mapping algorithm has solved the plastic sub-problem in damage effective-stress space. The Newton-Raphson method for the plastic problem minimizes the residual $\mbfs{R}\left( \mbfs{z} \right)$, which is a function of the vector of state variables $\mbfs{z}$.
+
+The sought state variable vector contains the solution of the plastic problem at time step $t+\Delta t$ in terms of damage effective stress $\tilde{\mbfs{\sigma}}^{t+\Delta t}$, plastic strain $\mbfs{\epsilon}_\mrm{pl}^{t+\Delta t}$ and plastic multiplier $\lambda^{t+\Delta t}$. The residual to be minimized associated with the plastic state variables contains the equations of stress, plastic strain rate and the yield surface as an algebraic constraint and is expressed as
+\begin{equation}\label{eq:resid}
+\mbfs{R}\left( \mbfs{z} \right)=
+\begin{cases}
+\tilde{\mbfs{\sigma}}^{t+\Delta t} - \mathbf{C} \left( \mbfs{\epsilon}^{t+\Delta t} - \mbfs{\epsilon}^{t+\Delta t}_\mrm{pl}\right)
+\\
+\mbfs{\epsilon}_\mrm{pl}^{t+\Delta t} - \mbfs{\epsilon}_\mrm{pl}^{t} - \Delta t\lambda^{t+\Delta t} \ds \frac{\partial G}{\partial \tilde{\mbfs{\sigma}}^{t+\Delta t}}
+\\
+F\left( \tilde{\mbfs{\sigma}}^{t+\Delta t} \right) 
+\end{cases}.
+\end{equation}
+Linearization of the residual with respect to the state variables yields the following iterative Newton-Raphson scheme
+\begin{equation}\label{eq:sol}
+\mbfs{z}^{t+\Delta t}_{n+1}=\mbfs{z}^{t+\Delta t}_{n}-\left( \mbfs{J}^{t+\Delta t}_{n} \right)^{-1} \mbfs{R}^{t+\Delta t}_{n},
+\end{equation}
+with the Jacobian
+\begin{equation}\label{eq:jac}
+\mbfs{J}^{t+\Delta t}_{n}= \left. \frac{\partial \mbfs{R}^{t+\Delta t}}{\partial \mbfs{z}^{t+\Delta t}} \right|_{n},
+\end{equation}
+which can be computed analytically (as in the present case) or using a numerical perturbation technique. The process is iterated over $n$ until $\norm{\mbfs{R}} <\theta_\mrm{tol}$. The elasto-plastic tangent matrix $\mathbf{C}_\mrm{pl}$ is extracted from the Jacobian by solving the following system after local convergence 
+\begin{equation}\label{eq:tangent}
+\frac{\mathd \mbfs{z}}{\mathd \mbfs{\epsilon}} = - \mbfs{J}^{-1} \frac{\partial \mbfs{R}}{\partial  \mbfs{\epsilon}} ,
+\end{equation}
+where the first entries of $\mbfs{z}$ contain $\tilde{\mbfs{\sigma}}$~\cite{Nagel2017}. 
+The non-local damage variable $\bar{k}_d$ can be computed explicitly after convergence of the plastic algorithm, and is approximated in the finite element scheme as
+\begin{equation}\label{eq:kd_fe}
+\bar{k}_{d,i} = \frac{\sum_{j=1}^{n_p} w_{j} \alpha_0 \left( \norm{\mbfs{x}_i-\mbfs{x}_j} \right) k_d \left(\mbfs{x}_j\right) \det J\left(\mbfs{x}_j\right)}{\sum_{k=1}^{n_p} w_{k} \alpha_0 \left( \norm{\mbfs{x}_i-\mbfs{x}_k} \right) \det J\left(\mbfs{x}_k\right)
+},
+\end{equation}
+where $n_p$ is the number of integration points, $\det J\left(\mbfs{x}_k\right)$ is the determinant of the Jacobian of the isoparametric element coordinate transformation. The integration scheme is run on the integration points that fall into the non-local interaction radius $l_c$. From $\bar{k}_{d,i}$, damage at integration points is computed from Eq.~\eqref{eq:dam_equ}.

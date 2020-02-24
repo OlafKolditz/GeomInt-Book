@@ -1,0 +1,203 @@
+\subsection{LEM - Lattice-Element-Method}
+
+The application of the lattice element in modeling the fracture initiation and propagation in the geomaterials is well established \cite{Liuetal2007, Pradoetal2003, Vanmieretal2002}. The main advantage of the LEM is to model the stress redistribution and concentration upon the fracking process. The application of the LEM is extended to model the heat transfer in cemented geomaterials \cite{Sattarietal2017} as well as non-cohesive granular particles \cite{Rizvietal2018b}. The thermo-mechanical lattice model based on the integration of the interface element is able to model the expansion and shrinkage processes during the heating and cooling cycles \cite{Sattarietal2019b}. The LEM is also implemented to model the foam concrete behavior under the dynamic loading \cite{Rizvietal2018a}. In the recent decade, the dual lattice model to simulate the coupled hydro-mechanical loadings in geomaterials is developed \cite{Grassl2009}. In these models, the dual mesh grid for the fluid transport is generated. The short description of the implemented coupled thermo-hydro-mechanical lattice is given below.
+
+\subsubsection*{Discretization of the domain}
+
+The domain is discretized into a series of Voronoi cells to represent the individual particles or continuum based modeling depending on the purpose of the investigation. With the application of the vectorized random lattice (VRL), the irregularity factor known as the randomness factor ($\alpha$), which varies between 0 and 1, is introduced \cite{Moukarzeletal1992}. When the randomness factor is 0, the generated mesh is regular and when it is equal to 1, it reaches the maximum irregularity for VRL model.  Afterward, the Voronoi Tessellation is implemented and polygonal cells are generated (Figure \ref{fig: Amir_LEM_Domain_2D}, \ref{fig: Amir_LEM_Domain_3D}). The Delaunay Triangulation results in the Voronoi cell connectivity, which are the bond elements between two adjacent nodes. 
+
+\begin{figure}[!ht]
+\begin{subfigure}[c]{0.48\textwidth}
+\includegraphics[width=1\textwidth]{figures/Amir_LEM_Domain_2D.png}
+\subcaption{}
+\label{fig:Amir_LEM_Domain_2D}
+\end{subfigure}
+\hfill
+\begin{subfigure}[c]{0.48\textwidth}
+\includegraphics[width=1\textwidth]{figures/Amir_LEM_Domain_3D.png}
+\subcaption{}
+\label{fig:Amir_LEM_Domain_3D}
+\end{subfigure}
+\caption{The generated domain with $\alpha = 0.5$ (a) 2D discretization, and (b) 3D discretization}
+\end{figure}
+
+\subsubsection*{Mechanical lattice model}
+
+The mechanical lattice model is based on the assumption of the linear elastic fracture mechanics and Mode I and II fracture mechanisms. The simulation of the fracture in LEM is based on the removal of the bond elements between the neighboring Voronoi cells \cite{Rizvietal2019a}. The elements strength threshold is defined based on the critical strain energy or the fracture toughness for Mode I and II. In a different approach, the strength threshold is defined based on the Mohr-Coulombs tension cutoff model \cite{Bolanderetal1998}. The lattice elements are represented by series of spring (1DOF),  Euler-Bernoulli beam (3DOF)(Figure \ref{fig:Amir_LEM_Beam}) or Timoshenko beam elements (4DOF). The regularization of the regular lattice models, such as triangular or square discretized domains, is carried out and a relationship between the continuum and element properties is presented \cite{Ostojastarzewski2002, Karihalooetal2003}. This regularization assumes that the stored strain energy of the continuum, $U_{Continuum}$, is equal to the stored strain energies in each individual Voronoi cells, $U_{Cell}$. 
+
+\begin{figure}[!ht]
+\centering
+\includegraphics[width=0.75\textwidth]{figures/Amir_LEM_Beam.png}
+\caption{The Euler-Bernoulli beam element representing the bond between two cells}
+\label{fig:Amir_LEM_Beam}
+\end{figure}
+
+\begin{align}
+\label{eq:LEM_Mechanical_1}
+\begin{split}
+ U_{Cell}=U_{Continuum}\\
+ U_{Cell}=\frac{1}{2}\sum_{b}^{N_b}\left(F.u\right)^b\\
+ U_{Continuum}=\frac{1}{2}\int_{V}{\sigma.\varepsilon.dV}
+\end{split}
+\end{align}
+
+For a spring element in 2D,
+
+\begin{align}
+\label{eq:LEM_Mechanical_2}
+\begin{split}
+U_{Cell}=\frac{1}{2}\sum_{b}^{N_b}\left(F.u\right)^b=\frac{1}{2}\sum_{b=1}^{N_b}{{(L^2).\alpha}^\prime.n_i.n_j.n_k.n_m.\epsilon_{ij}.\varepsilon_{km}}\\
+U_{Continuum}=\frac{1}{2}\varepsilon.C.\varepsilon
+\end{split}
+\end{align}
+
+For a Euler-Bernoulli beam element in 2D,
+
+\begin{align}
+\label{eq:LEM_Mechanical_3}
+\begin{split}
+U_{Continuum}=\frac{V}{2}\gamma_{ij}C_{ijkm}\gamma_{km}+\frac{V}{2}\kappa_{i}D_{ij}\kappa_j
+\\
+C_{ijkm}=\sum_{b=1}^{N_b} {n_i.n_k \left( n_j.n_m.(R)^\prime)+n_j.n_m.(R)^{\prime\prime} \right)}
+\\
+D_{ij}=\sum_{b=1}^{N_b}{n_i.n_j}.S^\prime
+\end{split}
+\end{align}
+
+After the regularization of the lattice model and with the minimization of the potential energy of the system, the load Vs. displacement relation in each time step is determined. The bi-linear softening scheme is implemented to model the quasi-brittle material behavior, which is seen in various geomaterials, such as rock and concrete \cite{Inceetal2003}. 
+
+\begin{align}
+\label{eq:LEM_Mechanical_4}
+\begin{split}
+ U_{Strain}(x)=U_{Axial}(x)+U_{Shear}(x)+U_{Moment}(x)
+ \\
+ =
+ \frac{1}{2}\int_{0}^{L}{\left(\frac{f_x{(x)}^2}{EA}+\frac{f_y{(x)}^2}{GA}+\frac{M{(x)}^2}{EI}\right).dx} 
+ E_s=\frac{f_t}{\varepsilon_f-\varepsilon_t}\left(\frac{\varepsilon_f}{\varepsilon}-1\right)
+\end{split}
+\end{align}
+
+
+\subsubsection*{Thermo-mechanical lattice model}
+
+The thermo-mechanical lattice model is based on the weak coupling scheme between the thermal and mechanical model, which decreases the computational costs. The thermal lattice model is based on the discrete thermal lattice model (TDEM) \cite{Zhangetal2011, Fengetal2008}, where the Hertzian contact model is implemented to account for the heat conductance ($h_b$) between the particles. The axial compression force increment ($f_x$) results in higher thermal conductance between the particles, which eventually leads in a higher effective thermal conductivity ($K_{ij}^{eff}$). The regularization of the thermal lattice model is based on the relationship between the heat conductivity of elements and the continuum \cite{Rizvietal2018b}. 
+
+\begin{align}
+\label{eq:LEM_Thermal_1}
+\begin{split}  
+K_{ij}^{eff}=\frac{1}{V}\sum_{b=1}^{N_t}{h_b(L_b^2)n_i n_j}
+\\
+h_b = k_m \left( (L')^{\pm2} \left(\frac{3f_xL}{4E}\right)^\frac{1}{3} \right)
+\end{split}
+\end{align}        
+
+In a steady state, the amount of the heat in- and outflow ($q_b$) from a Voronoi cell (Figure\ref{fig:Amir_LEM_Thermal})is equal to zero,
+
+\begin{figure}[!ht]
+\centering
+\includegraphics[width=0.75\textwidth]{figures/Amir_LEM_Thermal.png}
+\caption{The heat flux into $i$th cell from surrounding boundaries}
+\label{fig:Amir_LEM_Thermal}
+\end{figure}
+
+\begin{align}
+\label{eq:LEM_Thermal_2}
+\begin{split}  
+\rho ic_iv_i\frac{dT_i}{dt}-\nabla .\left(k\nabla T_i\right)-\rho_i{\dot{q}}_i=0\\
+\nabla .\left(k\nabla T_i\right)=\sum_{b}^{N_b}{q_b=0}
+\end{split}
+\end{align}     
+ 
+However, in a transient case, the temperature gradient ($\frac{dT_b}{dt}$) is variable, depending on the density ($\rho_b$), heat capacity ($c_b$), volume ($v_b$) and thermal conductivity of elements,
+
+\begin{align}
+\label{eq:LEM_Thermal_3}
+\begin{split}  
+\sum_{b}^{N_b}{q_b=}\rho_bc_bv_b\frac{dT_b}{dt}
+\end{split}
+\end{align}     
+
+The effective thermal conductivity is calculated based on the average volume technique, where $q_{ave}$ is the average heat flow and $q_b^{(b)}$ is the heat flow through the assigned cells located in the boundary. 
+
+\begin{align}
+\label{eq:LEM_Thermal_4}
+\begin{split}  
+q_{ave}=\frac{\sum_{b=1}^{N_b^{(b)}}{q_b^{(b)}.{\hat{x}}_b}}{V}
+\end{split}
+\end{align} 
+
+The thermal strain is calculated based on the linear expansion of the lattice elements based on the heat expansion coefficient. The implementation of the thermal expansion into the mechanical model results in a fully coupled thermo-mechanical model \cite{Sattarietal2019b}.
+
+
+\subsubsection*{Hydro-mechanical lattice model} \label{Section:HMLattice}
+
+The existing hydro-mechanical lattice models are based on the assumption of the dual lattice network, where the mechanical lattice elements transfer the mechanical loads between the two nodes and the conduct elements perpendicular to the alignment of the mechanical elements transfer the fluid or gas flow between the conduct nodes \cite{Grassl2009, Grassletal2013}. The implemented hydro-mechanical lattice model is based on the mass conservation ($m$) of the fluids in the continuum. The hydraulic aperture ($a$), fluid viscosity ($\nu_f$), flow length ($L'$), hydraulic resistance ($R_a$), saturation degree ($Sr$), bulk modulus ($K_f$) are the main parameters used to determine the hydraulic pressures ($P$) and transferred fluid masses ($\Delta m$) between the conduct nodes. 
+
+\begin{align}
+\label{eq:LEM_Hydro_1}
+\begin{split}  
+m^{t+1}=m^t+\Delta m\\
+m^{t_0}={\rm Sr}^{t_0}V_{cavity}\rho_f\left(1+\frac{P^{t_0}}{K_f}\right)\\
+\Delta m_{ij}=f\left(Sr\right).\frac{P_j-P_i-\rho_fg\left(y_j-y_i\right)}{R_a}.\Delta t
+\end{split}
+\end{align} 
+
+According to the finite-discrete element method (FDEM) \cite{Lisjaketal2017}, the fluid mass is stored within defined physical and artificial cavities. Each conduct node represents an artificial cavity connected through conductive elements (Figure \ref{fig:Amir_LEM_Hydro}), where the hydraulic conductivity is governed based on the parallel plate cubic flow rule. 
+
+\begin{figure}[!ht]
+\centering
+\includegraphics[width=0.75\textwidth]{figures/Amir_LEM_Hydro.png}
+\caption{The schematic representation of the implemented hydro-mechanical model}
+\label{fig:Amir_LEM_Hydro}
+\end{figure}
+
+\begin{align}
+\label{eq:LEM_Hydro_2}
+\begin{split}
+R_a = \frac{12\nu_f}{a^3} L'  
+= 12 \nu_f \int_{s_i}^{s_j} \frac{1}{a (s^3)} ds 
+= \frac{6 \nu_f (a_j+a_i)}{(a_i a_j)^2} L'
+\end{split}
+\end{align} 
+
+When an artificial cavity is saturated, the amount of excessive fluid mass flowing inside the cavity builds the pore pressure, which then is transmitted into the mechanical nodes. If the cavity is not saturated, then the pore pressure is assumed to be zero. 
+
+\begin{align}
+\label{eq:LEM_Hydro_3}
+\begin{split}
+P^t=P^{t-1}+K_f\frac{\Delta m}{\rho_fV_{cavity}^t}\ \ \ \ \ \ \ \ \ \ \ if\ \ \ \ {\rm Sr}^t=1
+\end{split}
+\end{align} 
+
+With the implementation of the pore pressures into the mechanical lattice nodes, the pore pressure diffusion and the change of the hydraulic conductivity with the crack opening are measured. The flow simulation is accessible under both the pressure- or flowrate controlled boundary condition.
+
+
+\subsubsection*{Shrinkage and swelling lattice model} 
+
+The simulation of the shrinkage and swelling using the lattice element method is based on the particle shrinkage model \cite{Simaetal2013}, which is mainly considered in the discrete models. In contrast to the DEM, the shrinkage in LEM is implemented into the lattice elements (Figure \ref{fig:Amir_LEM_Shrinkage}). To do so, the interface elements to represent the bond between the particles are generated (\cite{Sattarietal2019b}). The shrinkage and swelling coefficients ($\alpha_s$) are temperature dependent. According to the initial water content ($\omega_0$) and the change of the water content ($\omega_f $) during the shrinkage and swelling process, the linear strain in the lattice elements is determined and implemented into the mechanical model. 
+
+\begin{figure}[!ht]
+\centering
+\includegraphics[width=0.75\textwidth]{figures/Amir_LEM_Shrinkage.png}
+\caption{The implementation of the interface element to simulate the shrinkage and swelling processes}
+\label{fig:Amir_LEM_Shrinkage}
+\end{figure}
+
+\begin{align}
+\label{eq:LEM_Shrinkage_1}
+\begin{split}
+L_t=L_{t=0}e^{(-\alpha_s\frac{t}{T})}\\
+\alpha_s=-\frac{1}{3}\ln{(1-\frac{\omega_0-\omega_f}{1+e_0}}.G_s)
+\end{split}
+\end{align} 
+
+The shrinkage and swelling coefficient are time, temperature and depth dependent. Therefore, graphs representing the evaporation rate as well as the soil water characteristic curves to assess the applied suction and the water content during the wetting and drying paths are required \cite{Voetal2017}. 
+\begin{align}
+\label{eq:LEM_Shrinkage_2}
+\begin{split}
+\bar{\bar{\sigma}}=C:\bar{\bar{\varepsilon}}-Sr.P\bar{\bar{\delta}}\\
+div\left(\frac{k}{\rho_fg}\nabla P\right)=C_M\frac{\partial P}{\partial t}+r
+\end{split}
+\end{align} 
+
+The elements shrinkage and expansion results in the axial compression and tensile stresses in the lattice elements, which when exceeds their predefined strength threshold they are removed and the micro fracking process under shrinkage and swelling conditions is simulated.

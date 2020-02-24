@@ -1,0 +1,18 @@
+\section{SPH - Smoothed-Particle-Hydrodynamics}
+The (explicit) discrete nodal formulation of the Navier-Stokes equations basically results in computations of loops over all considered particles and for each additional nested loops over neighbouring particles. On the one hand, this circumstance renders SPH a computationally demanding method, on the other hand, the parallelisation of this structure assembled from subroutines is quite generic on CPUs. 
+\todo{Hs: Den Abschnitt muessen wir auch nochmals gemeinsam etwas anderst formulieren.}
+Despite the Lagrangian character and the meshfree formulation, SPH codes can be compared to collocation methods resulting
+in particle-particle interactions (linear algebra operations)
+similar to explicit particle codes like Molecular Dynamics (MD)
+or Discrete Element Methods (DEM).
+Thus, they exhibit the same challenges as these explicit particle codes: for the caluclation of the particle interactions, data from neigbouring particles is needed, and memory access and load balancing is unstructured. The neigbour search algorithm is most expensive and considerable communication as well as data migration between processors is necessary.
+\todo[inline]{DK: Bis dahin vielleicht oben rein.}
+Therefore our SPH formulation is implemented on top of the highly optimized and MPI-parallelized HOOMD-blue library \cite{anderson2008general, glaser2015strong}, developed by the Glotzer group 
+\todo[inline]{HS: als reference... 
+(http://glotzerlab.engin.umich.edu/hoomd-blue/, at the University of Michigan, USA.)}  This general purpose particle simulation toolkit, initially developed for MD, comes with MPI-based spatial domain decomposition, demonstrated weak and strong scalability for both, GPU- and CPU-accelerated HPC clusters, heuristic load balancing, algorithms for neigbour search and sorting methods to ensure optimal memory access patterns. 
+The HOOMD-Blue software package is employed in a large selection of research areas, cf. the mentioned homepage. It is open-source, published under a BSD 3-clause license and a and comprehensive documentation is available.
+Recently, weak and strong scaling tests of fluid flow through porous media
+has been investigated on CPU- and GPU-HPC platforms, 
+\cite{osorno2019}.
+The implemented SPH model \cite{sivanesapillai2016pore} includes both, CUDA and MPI features and uses the abovementioned advantages. Setup of the boundary value problem and initialisation of the geometry and particle data is implemented as user-friendly Python scripts. The main implementation are programmed in C++ and CUDA. This comprises among other things the evaluation of the kernel, the computation of density rate, pressure fields and particle accelerations as well as the time integration. 
+\todo[inline]{DK: Hier muss noch hin was wir bisher so gemacht haben, mit den entsprechenden Referenzen, scalability und sonst?}

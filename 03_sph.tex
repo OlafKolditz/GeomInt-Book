@@ -1,0 +1,81 @@
+\subsection{SPH - Smoothed-Particle-Hydrodynamics}
+Direct Numerical Simulations (DNS) of effective physical properties of single-phase flow through porous or fractured solid materials can be performed directly on the pore scale of the porous soil or rock. Morphological information, the basis for the subsequent DNS, is obtained as segmented (binarized) voxel-data from $\mu$ X-Ray Computed Tomography (XRCT). In general, numerical simulations of flow processes on XRCT-data at small to moderate Reynolds (Re) numbers could be performed by mesh-based Finite Element, Finite Differences or Finite Volume methods \todo{HS: References}.
+Here, we haven chosen the mesh-less Smoothed Particle Hydrodynamics methods as an alternative simulation technique. SPH is a Lagrangian simulation tool used to solve Partial Differential Equations (PDE) and was originally
+developed by Gingold and Monaghan and Lucy for astrophysical problems. In recent years, due to it's flexibility and
+scalability and applicability on HPC architectures, especially in an explicit formulation,
+it became attractive for various problems fluid dynamics like single and multi-phase fluid mechanics with internal interfaces \todo{Rakulan's work}, suspension flow, \todo{Nadine's work} and single and multi-phase flow in porous media \todo{Rakulan's work}.
+Within the framework of this method, the discretisation of the PDEs spans a set of interacting collocation points $\mathcal{P}_i$ with position vectors $\Tx_i$, referred to as particles. The positions of the particles represent integration points at which field functions $\Phi (\Tx, t) $ are interpolated by convolution with the Dirac-Delta function $\delta$:
+\begin{equation}
+\label{eq:SPH_dirac_delta}
+    \Phi (\Tx, t) \, = \, \int_\Omega \Phi (\Tx', t) \delta(\Tx - \Tx') \dv.
+\end{equation}
+Replacing $\delta(\Tx -  \Tx')$ with the kernel function $ W(\Tx - \Tx', h)$ results in the approximation
+\begin{equation}
+\label{eq:SPH_replacement_kernel}
+    \Phi (\Tx, t) \, \approx \, \int_\Omega \Phi (\Tx', t) W(\Tx  -  \Tx', h) \dv,
+\end{equation}
+where the support $h$ of the kernel determines a sphere of influence and likewise declares neighbouring particles $\mathcal{P}_j$ with position vector $\Tx_j$. Subsequently, the discretisation (numerical integration) of the integral formulation converts continuous field functions into discrete particle properties  $\Phi (\Tx_i) = \Phi_i$, kernel representations into spatial discretisation and (Eq.\glref{eq:SPH_replacement_kernel}) yields 
+\begin{equation}
+\label{eq:SPH_discrete_field_function}
+    \Phi_i \, = \, \sum_j^N \Phi_j W(\Tx_i  -  \Tx_j, h) V_j \, .
+\end{equation}
+Herein, $V_j$ is introduced as the discrete representation of $ \dv$ and $j \, = \, 1,2, \dots, N $ indicates the neighbour particles within the kernel support of particle $\mathcal{P}_i$ . Analogously, differential operators turn into short-range interaction forces. For more technical details, also refering to the necessary time integration we refer to
+\todo{HS: Bitte hier noch Referenzen, Übersichtsartikel Monaghan, Rakulan etc.}
+
+\subsubsection{Single-phase flow of a Newtonian fluid\index{Newtonian fluid}}
+A SPH implementation of single-phase flow of a Newtonian fluid is based on the solution of the balance of momentum in the present local form
+\begin{equation}
+\label{eq-40_sph}
+    \rho^\Gf \,\dot{\Tv}_\Gf \, = \, \mu^\Gf \div (\grad \Tv_\Gf) \, - \, \grad p \, + \, \rho^\Gf\,\Tb 
+\end{equation}
+and the balance of mass
+\begin{equation}
+\label{eq-50_sph}
+    \dot{\rho}^\Gf \, = \, -\rho^\Gf \div \Tv_\Gf \, ,
+\end{equation}
+which are known as the Navier-Stokes equations.
+We adopted the notation used in mixture theory \todo{HS: Steet Renner 2019} where a subscript is used for kinematical quantities and a superscript elsewhere.
+$\rho^\Gf (\Tx, t)$ is the mass density field, $\Tv_\Gf $ is the velocity vector, $\mu^\Gf $ is the dynamic viscosity, $p (\Tx, t)$ is the pressure field and $\Tb$ are body force densities.
+The ``dot'' operator, cf. Equations \ref{eq-40_sph} and \ref{eq-50_sph},
+is denoting the material or substantial time derivative 
+$\cdot{(\bullet)} = \partial_t{\bullet} + \grad(\bullet) \cdot \Tv_\Gf$.
+In order to solve the quasi-incompressible (weakly compressible) character of the Navier-Stokes equations 
+an equation of state for the pressure in the form
+$p(\rho^\Gf)$ has to be formulated.
+Therefore, either a linear model or the Tait equation \cite{hayward1967compressibility}
+\begin{equation}
+\label{eq:SPH_tait_eos}
+    p(\rho) \, = \, \frac{\rho_0\,c^2_\Gf}{\gamma} \Bigg[ \Big( \frac{\rho}{\rho_0} \Big)^\gamma \, - \, 1 \Bigg]
+\end{equation}
+is commonly employed, wherein $c_\Gf = \sqrt{K^\GF}{\rho^\Gf}$ is the speed of sound of the fluid with the bulk modulus $K^\Gf$ and $\gamma$ is 
+a constant, specific to the modeled problem (usual $\gamma \, = \, 7 $ for quasi-incompressible fluids).
+\todo{HS: Gleichung (6) muessen wir nochmals kurz diskutieren. Was genau is $\rho$ und was wird fuer $\rho_0$ gewaehlt? } 
+
+\subsubsection{Discrete equations}
+
+By applying the above introduced transformation from continuous field equations to discrete algebraic SPH equations, the total force on each fluid particle $\mathcal{P}_i$ is obatined as the sum of the discrete body forces $\TF_i^B =  m_i\,\Tb $, viscous interaction forces $\TF_{ij}^V$ and pressure interaction forces $ \TF_{ij}^P$
+\begin{equation}
+\label{eq:SPH_momentum_balance}
+    m_i \dot{\Tv}_i \, = \, \sum_j^N \TF_{ij}^P  + \sum_j^N \TF_{ij}^V + \sum_j^N \TF^B,
+\end{equation}
+which leads to a relation for the particle velocity update
+\begin{align}
+    \label{eq:SPH_update_velocity}
+    \dot{\Tv}_i \, = \, & - \, \sum_j^N m_j \Big( \frac{p_i}{{\rho_i}^2} + \frac{p_j}{{\rho_j}^2} \Big) \frac{\Tx_{ij}}{r_{ij}} \frac{\partial W_{ij}}{\partial r_{ij}} \, \\ 
+    & + \, \sum_j^N \frac{m_j (\mu_i + \mu_j)(\Tv_i - \Tv_j)}{\rho_i \rho_j} \Big( \frac{1}{r_{ij}} \frac{\partial W_{ij}}{\partial r_{ij}} \Big) \, + \, \Tb \, .
+\end{align}
+Reconfiguration of the balance of mass, cf. Equation \glref{eq-50_sph} yields 
+\begin{equation}
+\label{eq:SPH_discrete_mass_balance}
+    \dot{\rho}_i \, = \, \sum_j^N m_j (\Tv_i - \Tv_j) \cdot \frac{\Tx_{ij} }{r_{ij}} \frac{\partial W_{ij}}{\partial r_{ij}}.
+\end{equation}
+However, the density field can also be calculated by an accumulative kernel interpolation $\rho_i = \sum m_j W_{ij}$.
+\todo{HS: Auch hier muessen wir wieder aufpassen. Was fuer ein $\rho$ meinen wir?}
+\subsubsection{Boundary conditions, time integration and artificial viscosity}
+For the application of single-phase flow though porous media, the solid skeleton is considered to be rigid and fluid-solid interfaces $\Gamma^{FS}$ generally satisfy no-slip and no-penetration boundary conditions. 
+More general solid-fluid interaction phenomena could be considered in SPH formulations, e.g. to mimic rough rock surfaces with asperities, but are not further discussed in the following.
+\todo{HS: haetten wir hier auch noch ein Zitat?}
+To that end, the solid domain is populated by so-called ``dummy'' particles
+\todo{HS: Zitat}. The velocity and pressure of these dummy particles is extrapolated by the fluid phase and computed by the balance of momentum, respectively, following the method proposed by Adami et al.~\cite{adami2012generalized}. Resulting velocity and pressure fields of dummy particles are counteracting those of the fluid phase and thus create no-slip and no-penetration conditions on $\Gamma^{FS}$. 
+The discrete particle properties are updated by the Velocity Verlet time integration method \cite{swope1982computer, verlet1967computer} which is a common time-integration scheme in particle methods. Further, a dissipative artificial viscosity term is used to reduce non-physical oscillations \cite{monaghan1992smoothed}.  
+\todo{HS: Koennen wir hier nochmals auf ein review paper zur SPH und Navier-Stokes verlinken?}
