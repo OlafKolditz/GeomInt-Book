@@ -20,3 +20,22 @@ The most recent version, OpenGeoSys-6 (OGS-6) \cite{Naumov:2018,Bilke2019}, is a
 OpenGeoSys is participating in several international model development, validation and benchmarking initiatives, e.g., DEVOVALEX (with applications mainly in the assessment of waste repositories, see~\cite{Birkholzer2018}), CO2BENCH (geological CO\textsubscript{2} storage, see~\cite{Kolditz2012613}), SeS Bench (reactive transport processes, see~\cite{Steefel:2015}) and HM-Intercomp (coupled hydrosystems, see~\cite{Maxwell:2015}).
 
 The OGS community provides an ongoing series of benchmark books \cite{BB4} and tutorials \cite{Lehmann:2018}. For more information please refer to the OpenGeoSys webpage \url{www.opengeosys.org}.
+
+\subsection{VPF - Variational Phase-Field model}
+The variational phase-field model (V-pf) is increasingly becoming a popular numerical method for fracture computation because of its ability to account for arbitrary numbers of pre-existing or propagating cracks in terms of energy minimization, without any a priori assumption on their geometry or restriction on the growth to specific grid directions.
+The variational phase-field model applied in this study has been based on the model proposed by~\cite{Bourdin2012, Chukwudozie2019} where each of process (e.g. mechanical or hydro) is solved in a staggered manner as in~\ref{fig:Keita_VPF_code} and has been implemented in OGS utilizing its linear algebraic and finite element method platform.
+
+\begin{figure}[!ht]
+\centering
+\includegraphics[width=12cm,height=7cm]{figures/VPF_code.png}
+\caption{Computation scheme with the variational phase-field model}
+\label{fig:Keita_VPF_code}
+\end{figure} 
+
+The mechanical process solves the force equilibrium under the presence of the crack (damage) field in which the damage is accounted differently depending on the state of the load (e.g. compression or tension) in order to distinguish the material's response under different types of loading.
+Various approaches have been proposed for the energy split strategy and the three of the most established approaches~\cite{Amor2009,Miehe2010a,Freddi2010} have been implemented.
+Though the process for the phase-field is an elliptic problem, the solution space is bounded in $[0,1]$ and is constrained by the irreversibility (i.e. fracture is not allowed to heal).
+Therefore, its solution requires a variational inequality solver and it is achieved through PETSc~\cite{petsc-user-ref, petsc-web-page}.
+Once the displacement and the phase-field are solved, the crack opening displacement will be reconstructed following an approximation proposed by~\cite{Yoshioka2020} and the computation result will be passed onto the hydro process where fluid flows both in porous medium and fracture will be solved.
+These processes will be repeated in a staggered manner until the convergence is met (currently its judgement is based on the phase-field process).
+\\
