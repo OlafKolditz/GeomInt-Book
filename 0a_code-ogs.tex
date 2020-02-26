@@ -21,13 +21,14 @@ OpenGeoSys is participating in several international model development, validati
 
 The OGS community provides an ongoing series of benchmark books \cite{BB4} and tutorials \cite{Lehmann:2018}. For more information please refer to the OpenGeoSys webpage \url{www.opengeosys.org}.
 
-\subsection{VPF - Variational Phase-Field model}
+\subsection*{VPF - Variational Phase-Field model}
+
 The variational phase-field model (V-pf) is increasingly becoming a popular numerical method for fracture computation because of its ability to account for arbitrary numbers of pre-existing or propagating cracks in terms of energy minimization, without any a priori assumption on their geometry or restriction on the growth to specific grid directions.
-The variational phase-field model applied in this study has been based on the model proposed by~\cite{Bourdin2012, Chukwudozie2019} where each of process (e.g. mechanical or hydro) is solved in a staggered manner as in~\ref{fig:Keita_VPF_code} and has been implemented in OGS utilizing its linear algebraic and finite element method platform.
+The variational phase-field model applied in this study has been based on the model proposed by~\cite{Bourdin2012, Chukwudozie2019} where each process (e.g. mechanical or hydraulic) is solved in a staggered manner as in~\ref{fig:Keita_VPF_code} and has been implemented in OGS utilizing its linear algebraic and finite element method platform.
 
 \begin{figure}[!ht]
 \centering
-\includegraphics[width=12cm,height=7cm]{figures/VPF_code.png}
+\includegraphics[width=0.9\textwidth]{figures/VPF_code.png}
 \caption{Computation scheme with the variational phase-field model}
 \label{fig:Keita_VPF_code}
 \end{figure} 
@@ -38,4 +39,3 @@ Though the process for the phase-field is an elliptic problem, the solution spac
 Therefore, its solution requires a variational inequality solver and it is achieved through PETSc~\cite{petsc-user-ref, petsc-web-page}.
 Once the displacement and the phase-field are solved, the crack opening displacement will be reconstructed following an approximation proposed by~\cite{Yoshioka2020} and the computation result will be passed onto the hydro process where fluid flows both in porous medium and fracture will be solved.
 These processes will be repeated in a staggered manner until the convergence is met (currently its judgement is based on the phase-field process).
-\\

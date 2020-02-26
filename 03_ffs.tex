@@ -10,7 +10,7 @@
 This numerical method explicitly uses the geometry of a rock surface and calculations on single surface elements are executed. The main advantage of this method is the possibility to closely look inside the mechanisms which control the shear behaviour of the joint (Figure \ref{Fig:FFS-MarkedElements}). The drawback is the high computation time needed due to the more complex calculation scheme.\\
 Starting point were the works by \cite{Fathi2016} and \cite{Casagrande2017}. The last mentioned work uses a FFS approach. The geometry of surface is represented as a triangular surface. The apparent dip angles $\theta^\ast$ for the elements are calculated. An iterative scheme decides whether the surface can slide over its counterpart or whether the surface elements in contact are destroyed. In the case of destruction the geometry is corrected and the next check for sliding versus destruction starts. The two important formulas are the one for the sliding forces: 
 \begin{equation}
-F_{slide}=F_{loc} \cdot \tan (\Phi_b + \theta^\ast)
+F_{slide}=F_{loc} \cdot \tan (\varphi_b + \theta^\ast)
 \end{equation}
 where $F_{loc}$ is the local force acting on one element, $\Phi_b$ is the basic friction and $\theta^\ast$ the apparent dip angle of this element.\\
 The other formula is the one for shear forces, which is the force needed to destroy the surface element:
