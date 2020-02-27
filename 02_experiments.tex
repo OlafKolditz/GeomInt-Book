@@ -90,7 +90,7 @@ The stress intensity factor ($K_I$) on the crack tip of predefined notch is obta
 \begin{multline}
 \label{eq:Fracture_Toughness}
 K_I=
-\frac{4F_{flex}}{B_{flex}}
+\frac{4f_{flex}}{B_{flex}}
 \sqrt{\frac{\pi}{W_{flex}}}
 \left(1.6
 \left(\frac{a_{flex}}{W_{flex}}\right)^\frac{1}{2}
@@ -104,7 +104,7 @@ K_I=
 \right)
 \end{multline}
 
-where, $F_{flex}$ is the flexural load, $a_{flex}$ is the length of the pre-defined notch, $B_{flex}$ and $W_{flex}$ are the thickness and height of the sample under the flexural test, respectively. During the test procedure, the load and crack mouth opening displacement (CMOD) values are measured and plotted. At the load in which the crack starts to propagate into the medium the fracture toughness $K_{Ic}$ is calculated. In order to perform the fracture toughness test, a loading cell with three rolling supports is required (Figure \ref{fig:Amir_Fracture_Toughness_Setup_a}). However, the in-situ condition can only be reached when a material is under controlled temperature and humidity conditions. Therefore, a climate chamber in a laboratory of CAU Kiel has been utilized to reach the desired temperature and humidity (Figure \ref{fig:Amir_Fracture_Toughness_Setup_b}). The temperature can be controlled between 20 to 80 $^{\circ}C$ and relative humidity varies from 0 up to 100. 
+where, $f_{flex}$ is the flexural load, $a_{flex}$ is the length of the pre-defined notch, $B_{flex}$ and $W_{flex}$ are the thickness and height of the sample under the flexural test, respectively. During the test procedure, the load and crack mouth opening displacement (CMOD) values are measured and plotted. At the load in which the crack starts to propagate into the medium the fracture toughness $K_{Ic}$ is calculated. In order to perform the fracture toughness test, a loading cell with three rolling supports is required (Figure \ref{fig:Amir_Fracture_Toughness_Setup_a}). However, the in-situ condition can only be reached when a material is under controlled temperature and humidity conditions. Therefore, a climate chamber in a laboratory of CAU Kiel has been utilized to reach the desired temperature and humidity (Figure \ref{fig:Amir_Fracture_Toughness_Setup_b}). The temperature can be controlled between 20 to 80 $^{\circ}C$ and relative humidity varies from 0 up to 100. 
 
 \begin{figure}[!ht]
 \centering
@@ -169,7 +169,7 @@ The tensile strength of a brittle or quasi-brittle material, such as rock, is on
 \begin{align}
 \label{eq:Splitting_Strength}
 \begin{split}
-\sigma_{sp}=\frac{2F_{sp}}{\pi L_{cyl}D_{cyl}}
+\sigma_{sp}=\frac{2f_{sp}}{\pi L_{cyl}D_{cyl}}
 \end{split}
 \end{align}
 
@@ -291,18 +291,18 @@ The true triaxial apparatus, where the stresses are controlled along three axes,
 \caption{The (a) true triaxial apparatus in geomechanics laboratory of CAU Kiel, and (b) prepared cubic claystone sample with curved edges}
 \end{figure}
 
-The coupled thermo-mechanical loading conditions are considered in order to investigate the materials anisotropic stiffness along three axis, the elastic and plastic deformation under cyclic thermal and mechanical loadings, deviatoric stress field, and material failure. A thermal loading of up to $T_{iso}^{max}=150$ $^{\circ}C$ is considered, which is considered to be higher than the maximum temperature that the claystone samples are subjected to in nuclear waste disposal sites. The maximum isotropic mechanical loading is considered to be $\sigma_{iso}^{max}=100 MPa$. The considered boundary conditions are:
+The coupled thermo-mechanical loading conditions are considered in order to investigate the materials anisotropic stiffness along three axis, the elastic and plastic deformation under cyclic thermal and mechanical loadings, deviatoric stress field, and material failure. A thermal loading of up to $T_{iso}^{max}=150$ $^{\circ}C$ is considered, which is considered to be higher than the maximum temperature that the claystone samples are subjected to in nuclear waste disposal sites. The maximum isotropic mechanical loading is considered to be $\sigma_{iso}^{max}=100 MPa$, where $max$ and $c$ superscripts represent the maximum and constant values. The considered boundary conditions are:
 
 
 \begin{itemize}
   \item Sample MT-01: Mechanical Condition,5 loading cycles, $\sigma_{iso}^{max}=100 MPa$.
-  \item Sample MT-02: Coupled Thermo-Mechanical Condition, 4 loading cycles, $T_{iso}^{max}=150$ $^{\circ}C$ and $\sigma_{iso}^{con}=12 MPa$.
+  \item Sample MT-02: Coupled Thermo-Mechanical Condition, 4 loading cycles, $T_{iso}^{max}=150$ $^{\circ}C$ and $\sigma_{iso}^{c}=12 MPa$.
   \item Sample MT-03: Coupled Thermo-Mechanical Condition, 4 loading cycles, $T_{iso}^{max}=150$ $^{\circ}C$, and $\sigma_{iso}^{max}=100 MPa$.
-  \item Sample MT-04: Coupled Thermo-Mechanical Condition, 4 loading cycles, $\sigma_{dev}^{max}=60 MPa$, $\sigma_{conf}^{con}= 20 MPa$ and $T_{iso}^{con}=150$ $^{\circ}C$ .
+  \item Sample MT-04: Coupled Thermo-Mechanical Condition, 4 loading cycles, $\sigma_{dev}^{max}=60 MPa$, $\sigma_{con}^{c}= 20 MPa$ and $T_{iso}^{c}=150$ $^{\circ}C$ .
 \end{itemize}
 
 
-With the installation of the ultrasonic sensors on the pistons, the apparatus is able to measure the ultrasonic $P$, $S90$ and $S0$ waves along the axis. The anisotropy factor, density ($\rho$), the dynamic Young’s modulus ($E_{Dyn}$), dynamic shear modulus($G_{Dyn}$), and dynamic Poisson’s ratio ($\nu_{Dyn}$) values can all be calculated according to the analytical relation which already exist in the literature \cite{Motraetal2018} as given in Eq. \ref{eq:YoungsModulus_Ultrasonic} and \ref{eq:PoissonsRatio_Ultrasonic}. In order to detect and analyse the ultrasonic signals in Opalinus Claystone, the minimum confining mechanical stresses of 12 $MPa$ is required. The test results of MT-01 (Figure \ref{fig:Amir_TrueTriaxial_MT_01_Result}) depicts the increment of the mean $E_{Dyn}$, $G_{Dyn}$ and $\nu_{Dyn}$ values under the isotopic confinement stresses up to 100 $MPa$, which is due to the layering orientation and structure of claystones and eventually improved contact qualities. It is also noted that the rate of the increment after each loading cycle (slope of the line) is decreased and due to the plastic deformations and improved contact qualities, the materials mechanical properties in initial loading condition of 12 $MPa$ are enhanced. 
+With the installation of the ultrasonic sensors on the pistons, the apparatus is able to measure the ultrasonic $P$, $S90$ and $S0$ waves along the axis. The anisotropy factor, density ($\rho$), the dynamic Young’s modulus ($E_{Dyn}$), dynamic shear modulus ($G_{Dyn}$), and dynamic Poisson’s ratio ($\nu_{Dyn}$) values can all be calculated according to the analytical relation which already exist in the literature \cite{Motraetal2018} as given in Eq. \ref{eq:YoungsModulus_Ultrasonic} and \ref{eq:PoissonsRatio_Ultrasonic}. In order to detect and analyse the ultrasonic signals in Opalinus Claystone, the minimum confining mechanical stresses of 12 $MPa$ is required. The test results of MT-01 (Figure \ref{fig:Amir_TrueTriaxial_MT_01_Result}) depicts the increment of the mean $E_{Dyn}$, $G_{Dyn}$ and $\nu_{Dyn}$ values under the isotopic confinement stresses up to 100 $MPa$, which is due to the layering orientation and structure of claystones and eventually improved contact qualities. It is also noted that the rate of the increment after each loading cycle (slope of the line) is decreased and due to the plastic deformations and improved contact qualities, the materials mechanical properties in initial loading condition of 12 $MPa$ are enhanced. 
 
 
 \begin{figure}[ht!]
@@ -329,7 +329,7 @@ With the installation of the ultrasonic sensors on the pistons, the apparatus is
 \end{figure}
 
 
- Figure \ref{fig:Amir_TrueTriaxial_MT_02_Result} shows the deformation vs. time result of MT-02 in the 1st cycle. The thermal plastic deformation after 5 cycles of loading and unloading was negligible and can be neglected. The MT-02 sample is situated in a way that the loading frame in direction of Z is parallel to the layering orientations of claystone. The volumetric thermal expansion coefficient ($\alpha_V$) is calculated based on the measured volumetric strain ($\epsilon_V=\frac{\Delta V}{V}$) and temperature change ($\Delta T$). The effect of temperature on $\alpha_V$ is shown at Figure \ref{fig:Amir_TrueTriaxial_MT_02_Result_1a}. The rate of $\alpha_V$ is decreased after 80 $^{\circ}C$. The anisotropy in linear thermal expansion coefficient along Z, Y and X axis is shown in Figure \ref{fig:Amir_TrueTriaxial_MT_02_Result_1b}. The anisotropy in the measured linear expansion coefficient ($\alpha_L$) is substantially decreased after 80 $^{\circ}C$.
+ Figure \ref{fig:Amir_TrueTriaxial_MT_02_Result} shows the deformation vs. time result of MT-02 in the 1st cycle. The thermal plastic deformation after 5 cycles of loading and unloading was negligible and can be neglected. The MT-02 sample is situated in a way that the loading frame in direction of Z is parallel to the layering orientations of claystone. The volumetric thermal expansion coefficient ($\alpha_V$) is calculated based on the measured volumetric strain ($\epsilon_V=\frac{\Delta V}{V}$) and temperature change ($\Delta T$). The effect of temperature on $\alpha_V$ is shown at Figure \ref{fig:Amir_TrueTriaxial_MT_02_Result_1a}. The rate of $\alpha_V$ is decreased after 80 $^{\circ}C$. The anisotropy in linear thermal expansion coefficient along Z, Y and X axis is shown in Figure \ref{fig:Amir_TrueTriaxial_MT_02_Result_1b}. The anisotropy in the measured linear expansion coefficient ($\alpha_{Li}$) is substantially decreased after 80 $^{\circ}C$.
 
 \begin{align}
 \label{eq:ThermalExpansion}
@@ -360,10 +360,10 @@ With the installation of the ultrasonic sensors on the pistons, the apparatus is
 \subcaption{}
 \label{fig:Amir_TrueTriaxial_MT_02_Result_1b}
 \end{subfigure}
-\caption{The effect of temperature on (a) $\alpha_V$, and (b) the anisotropy in the linear thermal expansion coefficient ($\alpha_L$)}
+\caption{The effect of temperature on (a) $\alpha_V$, and (b) the anisotropy in the linear thermal expansion coefficient ($\alpha_{Li}$)}
 \end{figure}
 
-The test results of MT-03 investigates the anisotropy of Opalinus claystone samples.Figure \ref{fig:Amir_TrueTriaxial_MT_03_Result} illustrates the $1^{th}$ cycle loading results of $E_{Dyn}$ and $\nu_{Dyn}$ values in X, Y and Z directions under the isotopic confinement stresses up to 100 $MPa$. The $G_{Dyn}$ has a similar behavior to the $E_{Dyn}$ values. The results indicate a weaker stiffness in Z direction, which is parallel to the layering orientation. The thermal loading upto 150 $^{\circ}C$ results in weaker $E_{Dyn}$ values during the heating process, which is the reason for the fluctuation of the results at the confinement stress of 100 $MPa$. The test results of MT-04 is similar to the MT-02 and the same material response is observed. 
+The test results of MT-03 investigates the anisotropy of Opalinus claystone samples.Figure \ref{fig:Amir_TrueTriaxial_MT_03_Result} illustrates the $1^{st}$ cycle loading results of $E_{Dyn}$ and $\nu_{Dyn}$ values in X, Y and Z directions under the isotopic confinement stresses up to 100 $MPa$. The $G_{Dyn}$ has a similar behavior to the $E_{Dyn}$ values. The results indicate a weaker stiffness in Z direction, which is parallel to the layering orientation. The thermal loading upto 150 $^{\circ}C$ results in weaker $E_{Dyn}$ values during the heating process, which is the reason for the fluctuation of the results at the confinement stress of 100 $MPa$. The test results of MT-04 is similar to the MT-02 and the same material response is observed. 
 
 \begin{figure}[ht!]
 \centering
@@ -378,7 +378,7 @@ The test results of MT-03 investigates the anisotropy of Opalinus claystone samp
 \includegraphics[width=6cm,height=4cm]{figures/Amir_TrueTriaxial_MT_03_Result_Nu.png}
 \subcaption{}
 \end{subfigure}
-\caption{The true triaxial results for the MT-03 sample in the $1^{th}$ cycle (a) $E_{Dyn}$ vs. Confinement Stress, and (b) $\nu_{Dyn}$ vs. Confinement Stress}
+\caption{The true triaxial results for the MT-03 sample in the $1^{st}$ cycle (a) $E_{Dyn}$ vs. Confinement Stress, and (b) $\nu_{Dyn}$ vs. Confinement Stress}
 \label{fig:Amir_TrueTriaxial_MT_03_Result}
 \end{figure}
 
@@ -397,7 +397,7 @@ The test results of MT-03 investigates the anisotropy of Opalinus claystone samp
 \label{sec:Shrinkage_Swelling_Exp}
 \Authors{CAU Kiel}
 
-The shrinkage and swelling of claystone results in micro fracking and higher permeability values, which in nuclear waste disposal sites can lead to contamination of groundwater. Micro fracking also decreases the strength of the material subjected to THM  loading processes. Typically, the swelling pressure and heave of claystone is determined using Oedometer tests \cite{Peronetal2009}, where a constrained or unconstrained sample is subjected to the swelling process (Figure \ref{fig:Amir_Shrinkage_Swelling_Setup}). During the test procedure, the swelling pressure, as well as the heave magnitude, are recorded. It is also observed that the swelling pressure in sandy facies of claystone is lower than shaly facies. In contrast to the swelling tests, shrinkage tests are less common and are complicated to perform on rock materials. \cite{Minardietal2016} performed a shrinkage test on claystone with shaly and sandy facies using a desiccator and various salt solutions \ref{fig:Amir_Shrinkage_Minardi}. During the test procedure the axial strain values obtained from the strain gauges, as well as sample weight, are measured.
+The shrinkage and swelling of claystone results in micro fracking and higher permeability values, which in nuclear waste disposal sites can lead to contamination of groundwater. Micro fracking also decreases the strength of the material subjected to THM  loading processes. Typically, the swelling pressure and heave of claystone is determined using Oedometer tests \cite{Peronetal2009}, where a constrained or unconstrained sample is subjected to the swelling process (Figure \ref{fig:Amir_Shrinkage_Swelling_Setup}). During the test procedure, the swelling pressure, as well as the heave magnitude, are recorded. It is observed that the swelling pressure in sandy facies of claystone is lower than shaly facies. In contrast to the swelling tests, shrinkage tests are less common and are complicated to perform on rock materials. \cite{Minardietal2016} performed a shrinkage test on claystone with shaly and sandy facies using a desiccator and various salt solutions \ref{fig:Amir_Shrinkage_Minardi}. During the test procedure the axial strain values obtained from the strain gauges, as well as sample weight, are measured.
 
 
 \begin{figure}[!ht]
@@ -437,10 +437,10 @@ The total suction($\psi_{total}$) value can be measured using the Kelvin’s rel
 
 \begin{equation}
 \label{eq:Total_Suction}
-\psi_{total} = \frac{R_{gas}T}{V_{mol}} \ln(\frac{P_{vapor}^{curvature}}{P_{vapor}^{curvature=0}})
+\psi_{total} = \frac{RT}{V_{mol}} \ln(\frac{P_{vap}^{cur}}{P_{vap}^{cur=0}})
 \end{equation}
 
-where, $(\frac{P_{vapor}^{curvature}}{P_{vapor}^{curvature=0}})$ is the relative humidity, $P_{vapor}$ is the vapor pressure, $R_{gas}$ is the universal gas constant, $T$ is the temperature and $V_{mol}$ is the molecular volume of water. The considered salt solution and its induced suction and relative humidity values in the constant room temperature of 20 $^{\circ}C$ are listed in Table \ref{table:Amir_Shrinkage_SaltSolutions}. The equilibrium inside the desiccator is reached when the strain gauges value or water content of the samples are constant in two consecutive readings. 
+where, $(\frac{P_{vap}^{cur}}{P_{vap}^{cur=0}})$ is the relative humidity, $P_{vap}^{cur=0}$ is the vapor pressure when the surface curvature is equal to zero (flat surface), $R$ is the universal gas constant, $T$ is the temperature and $V_{mol}$ is the molecular volume of water. The considered salt solution and its induced suction and relative humidity values in the constant room temperature of 20 $^{\circ}C$ are listed in Table \ref{table:Amir_Shrinkage_SaltSolutions}. The equilibrium inside the desiccator is reached when the strain gauges value or water content of the samples are constant in two consecutive readings. 
 
 
 \begin{table}[h!]
@@ -645,7 +645,7 @@ Two different stress configurations, as well as fluid injection directions paral
 \subcaption{}
 \label{fig:Amir_Percolation_Stress_1}
 \end{subfigure}
-\caption{The boundary conditions for the $1^{th}$ stress configuration (a) the orientation of the embedded layers, and (b) the initial stress configuration}
+\caption{The boundary conditions for the $1^{st}$ stress configuration (a) the orientation of the embedded layers, and (b) the initial stress configuration}
 \end{figure}
 
 \begin{figure}[!ht]

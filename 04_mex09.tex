@@ -1,6 +1,6 @@
 \section{Model Exercise 3-3 (09): Cycling loading pressure diffusion}
 \label{sec:mex09}
-%------------------------------------------------------------------------------
+\index{cycling loading pressure diffusion}%------------------------------------------------------------------------------
 \Authors{Patrick Schmidt, Keita Yoshioka, Holger Steeb et al.}
 %------------------------------------------------------------------------------
 \subsection{Experimental set-up}
@@ -13,7 +13,7 @@
 A physically sound flow model assuming compressible and viscous fluids in a deformable fracture setting is used to investigate pressure diffusion within fluid-filled fractures. In order to capture local and non-local transient effects a consistent implicit coupling of both domains is necessary to guarantee stability and accuracy. Calculations on non-conformal meshes and two different computational domains motivates a so-called weak coupling scheme implemented in FENICS. A robust numerically scheme is obtained by strongly coupled interface elements implemented in the DUNE framework. 
 \subsubsection*{Evaluation of strong and weak coupling scheme}
 Implementation of both schemes are firstly evaluated for a single fracture under linear conditions and compared with a reference solution obtained by Biot's formulation. The weak coupling scheme is implemented using a fixed-stress and fixed-strain algorithm providing a physical preconditioning and is mathematically similar to a Richardson type iteration. The system becomes numerically stiff for low fluid compressibilities on a local level since the physics are similar to volumetrically coupled problems. Strong and weak coupling schemes are tested on a single fracture with a length of $100 \, \text{m}$ under a constant fluid pressure of $20 \, \text{kPa}$ with regards of accuracy and stability. 
-
+\index{HDF - model validation}%------
 \begin{table*}[htb]
 \centering
 \begin{adjustbox}{max width=\textwidth}
@@ -59,6 +59,7 @@ number of DoF & $1.4 \cdot 10^5$ & [-]& & & \\
 
 \subsubsection*{Non-Linear Evaluation}
 Large deformations in high aspect ratios are reached for small absolute deformation values already and highly influences the fracture flow by local (permeability) and non-local (volumetric) deformation related perturbations. Time dependent pressure/flow stimulation requires a continuous transient change of fracture aperture and deformation dependent pressure diffusion. Validation of the non-linear formulation is using a cylindrical probe with a single fracture under a confining pressure $\sigma_c$ and a harmonic pressure stimulation $p(t)$. In order to study the behaviour the amplitude of stimulation pressure is increased to enforce large deformation changes within a period. Outcome of the validation is a non-linear pressure-flux relationship with a non-constant phase shift.
+\index{non-linear pressure-flux relation}%------
 
 \begin{table*}[htb]
 \centering

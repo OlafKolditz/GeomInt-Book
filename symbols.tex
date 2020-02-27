@@ -30,23 +30,37 @@ $\alpha$              & Intergranular radius                         & $\unit[]{
 $\alpha$              & Van Genuchten parameter                      & $\unit[]{m^{-1}}$                     & \\
 $\alpha_k$            & Kinetic isotope fractionation factor         & $\unit[]{-}$                          & \\
 $\alpha_L$            & Longitudinal dispersion length               & $\unit[]{m}$                          & \\
+\rowcolor{lightgray} % CAU Kiel
+$\alpha_{Li}$          & Linear thermal expansion coefficient          & $\unit[]{K^{-1}}$	                 & \\
 $\alpha_T$            & Transversal dispersion length                & $\unit[]{m}$                          & \\
+\rowcolor{lightgray} % CAU Kiel
+$\alpha_V$            & Volumetric thermal expansion coefficient     & $\unit[]{K^{-1}}$	                 & \\
 
 %-----------------beta---------------------
-$\beta$               & Cubic thermal expansion coefficient          & $\unit[]{K^{-1}}$                     & \\ 
+$\beta$               & Cubic thermal expansion coefficient          & $\unit[]{K^{-1}}$                     & \\
 $\beta_c$             & Burial constant                              & $\unit[]{-}$                          & \\
-
+\rowcolor{cyan!50}
+$\beta^{\mathfrak{f}}$ & Fluid compressibility                      & $\unit[]{1 \cdot Pa^{-1}}$            & \\
 %------------gamma------------------------
 $\gamma$              & Activity coefficient for dissolved species   & $\unit[]{-}$                          & \\
 $\gamma$              & Dimensionless temperature                    & $\unit[]{-}$                          & \\
 $\Gamma$              & Domain boundary                              & $\unit[]{-}$                          & \\
 $\gamma$              & Activity coefficient for dissolved species   & $\unit[]{-}$                          & \\
 $\gamma_l$            & First-order degradation rate                 & $\unit[]{day^{-1}}$                   & \\
-
+\rowcolor{cyan!50}
+$\Gamma^{Fr}_+$       & Positive fracture surface domain             & $\unit[]{m^2}$                        & \\
+\rowcolor{cyan!50}
+$\Gamma^{Fr}_-$       & Negative fracture surface domain             & $\unit[]{m^2}$                        & \\
 %-------------------delta------------------
 $2\delta$             & Fault width                                  & $\unit[]{m}$                          & \\
+\rowcolor{cyan!50}
+$\delta$              & Fracture aperture                            & $\unit[]{m}$ & \\
 $\Delta$              & Half of aspect ratio                         & $\unit[]{-}$                          & \\
 $\Delta h_i$ & Height change & $\unit[]{m}$ & \\
+\rowcolor{lightgray} % CAU Kiel
+$\Delta T$              & Temperature change                         & $\unit[]{K}$                          & \\
+\rowcolor{lightgray} % CAU Kiel
+$\Delta V$              & Volume change                              & $\unit[]{m^{3}}$                      & \\
 
 %------------------epsilon-----------------
 $\boldsymbol\epsilon$ & Strain tensor                                & $\unit[]{-}$                          & \\
@@ -54,12 +68,18 @@ $\dot{\epsilon}$      & Strain rate                                  & $\unit[]{
 $\epsilon$            & Length scale                    & $\unit[]{m}$                          & \\
 $\epsilon$            & Isotope enrichment factor                    & $\unit[]{-}$                          & \\
 $\epsilon$            & Strain                                       & $\unit[]{-}$                          & \\
+\rowcolor{lightgray} % CAU Kiel
+$\epsilon_{flex}$     & Flexural strain                              & $\unit[]{-}$                          & \\
 $\epsilon_v$          & Volume plastic strain                        & $\unit[]{-}$                          & \\
+\rowcolor{lightgray} % CAU Kiel
+$\epsilon_V$          & Volume strain                                & $\unit[]{-}$                          & \\
 
 %---------------zeta-----------
 
 %--------------------eta--------
 $\eta$                & Porosity                                     & $\unit[]{-}$                          & \\
+\rowcolor{cyan!50}
+$\eta^{\mathfrak{f}R}$ & Effective dynamic viscosity                 & $\unit[]{Pa \cdot s}$                  & \\
 $\eta_\mathrm{M}$     & Maxwell viscosity                            & $\unit[]{Pa\cdot d}$                  & \\
 $\eta_\mathrm{K}$     & Kelvin viscosity                             & $\unit[]{Pa\cdot d}$                  & \\
 
@@ -92,7 +112,10 @@ $\mu$                 & Dynamic viscosity                            & $\unit[]{
 $\mu_0$                 & Base dynamic viscosity                            & $\unit[]{Pa\cdot s}$                  & \\
 
 %-------------------ny,nu---------------------
-$\nu$                 & Poisson number	                             & $\unit[]{-}$								                       & \\
+$\nu$                 & Poisson number	                             & $\unit[]{-}$							& \\
+\rowcolor{lightgray} % CAU Kiel
+$\nu_{Dyn}$          & Dynamic Poisson's ratio                       & $\unit[]{-}$                          & \\
+
 $\fourtens{{V}}_\mathrm{M}$     & Maxwell viscosity tensor                           & $\unit[]{Pa\cdot d}$                  & \\
 $\fourtens{{V}}_\mathrm{K}$     & Kelvin viscosity tensor                            & $\unit[]{Pa\cdot d}$                  & \\
 %--------------------xi---------------
@@ -103,6 +126,8 @@ $\fourtens{{V}}_\mathrm{K}$     & Kelvin viscosity tensor                       
 
 %------------------rho-----------------
 $\rho$                & Density                                      & $\unit[]{kg\cdot m^{-3}}$             & \\
+\rowcolor{cyan!50}
+$\rho^{\mathfrak{f}R}$ & Effective fluid density                               & $\unit[]{kg \cdot m^{-3}}$            & \\
 $\varrho_\mrm{SR}$     & Real density of solid                        & $\unit[]{kg\cdot m^{-3}}$             & \\
 $\varrho_\mrm{LR}$     & Real density of liqud                        & $\unit[]{kg\cdot m^{-3}}$             & \\
 $\varrho_\mrm{IR}$     & Real density of ice                        & $\unit[]{kg\cdot m^{-3}}$             & \\
@@ -121,9 +146,18 @@ $\sigma^{sw}_{max}$   & Tested maximum swelling stress               & $\unit[]{
 $\sigma_a$            & Contact stress                               & $\unit[]{Pa}$                         & \\
 $\sigma_c$            & Critical stress                              & $\unit[]{Pa}$                         & \\
 $\sigma_c$ & Compressive strength & $\unit[]{Pa}$ & \\
+\rowcolor{lightgray} % CAU Kiel
+$\sigma_{dev}$        & Deviatoric stress                            & $\unit[]{Pa}$                         & \\
+\rowcolor{lightgray} % CAU Kiel
+$\sigma_{flex}$       & Flexural stress                              & $\unit[]{Pa}$                         & \\
+\rowcolor{lightgray} % CAU Kiel
+$\sigma_{iso}$        & Isotropic stress                             & $\unit[]{Pa}$                         & \\
 $\sigma_{loc}$ & Locally acting stress & $\unit[]{Pa}$ & \\
 $\sigma_n$ & Normal stress & $\unit[]{Pa}$ & \\
+\rowcolor{lightgray} % CAU Kiel
+$\sigma_{sp}$        & Splitting stress                              & $\unit[]{Pa}$                         & \\
 $\sigma_t$ & Tensile strength & $\unit[]{Pa}$ & \\
+
 
 %------------------tau-----------------
 $\tau$ & Shear stress & $\unit[]{Pa}$ & \\
@@ -133,8 +167,9 @@ $\tau_r$ & Residual shear stress & $\unit[]{Pa}$ & \\
 %--------------upsilon,ypsilon-----------
 
 %------------------phi--------------------
-$\phi$                & Porosity                                     & $\unit[]{-}$                                 & \\
-$\phi$                & Friction angle                                     & $\unit[]{deg}$                                 & \\
+$\phi$                & Porosity                                     & $\unit[]{-}$                       & \\
+$\phi$                & Friction angle                               & $\unit[]{deg}$                     & \\
+
 
 $\varphi_b$      & Basic friction angle      & $\unit[]{deg}$ & \\
 
@@ -143,20 +178,12 @@ $\chi$		            & Bishop coefficient
 & $\unit[]{-}$								           & \\
 
 %--------------psi---------------------
-$\psi$                & Dilatancy angle                                     & $\unit[]{deg}$                                 & \\
-
+$\psi$                & Dilatancy angle                             & $\unit[]{deg}$                         & \\
+\rowcolor{lightgray} % CAU Kiel
+$\psi_{total}$       & Total suction                                 & $\unit[]{Pa}$                         & \\
 %-------------------omega------------------
 $\omega$              & Intergranular thickness                      & $\unit[]{m}$                          & \\
-$\omega$              & Saturation index                             & $\unit[]{-}$                           & \\ 
-
-
-
-
-
-
-
-
-
+$\omega$              & Saturation index                             & $\unit[]{-}$                          & \\ 
 
 
 
@@ -165,6 +192,9 @@ $\omega$              & Saturation index                             & $\unit[]{
 \multicolumn{4}{l}{Roman symbols} \\ %--------------------------------------------------------------------------------
 $a$                   & Specific surface area                       & $\unit[]{m^2\cdot m^{-3}}$             & \\
 $a$ & Grid constant & $\unit[]{m}$ & \\
+\rowcolor{lightgray} % CAU Kiel
+$a_{flex}$            & Flexural notch length                       & $\unit[]{m}$                           & \\
+
 $a^{\sigma}$          & Activity of stressed solid                  & $\unit[]{-}$ & \\
 $\dot{a}$             & Effective diameter of ion                   & $\unit[]{m}$ & \\
 $A$                   & Surface area                       & $\unit[]{m^2}$             & \\
@@ -172,8 +202,10 @@ $A_0$ & Active surface area, Grasselli & $\unit[]{-}$ & \\
 $\mbf{b}$                 & Body force vector                 & $\unit[]{N}$ & \\
 $b_h$                 & Fracture hydraulic aperture                 & $\unit[]{m}$ & \\
 $b_m$                 & Fracture mechanical aperture                & $\unit[]{m}$ & \\
-$c$                   & Normalized concentration                    & $\unit[]{-}$                            & \\
-$c$                   & Concentration                               & $\unit[]{kg\cdot m^{-3}}$             & \\
+\rowcolor{lightgray} % CAU Kiel
+$B_{flex}$            & Flexural sample thickness                   & $\unit[]{m}$                           & \\
+$c$                   & Normalized concentration                    & $\unit[]{-}$                           & \\
+$c$                   & Concentration                               & $\unit[]{kg\cdot m^{-3}}$              & \\
 $c$                   & Cohesion                               & $\unit[]{-}$             & \\
 $C_{eq}^h$            & Solubility under hydrostatic pressure $\quad$      & $\unit[]{mol\cdot m^{-3}}$            & \\
 $C_i$                 & Intergranular concentration                 & $\unit[]{mol\cdot m^{-3}}$            & \\
@@ -185,23 +217,36 @@ $Cp$                  & Heat capacity                               & $\unit[]{J
 $C$ & Roughness, Grasselli & $\unit[]{-}$ & \\
 $d$                   & Order parameter                        & $\unit[]{-}$                                      & \\
 $D$                   & Diffusivity coefficient                     & $\unit[]{m^2\cdot s^{-1}}$            & \\
+\rowcolor{lightgray} % CAU Kiel
+$D_{cyl}$             & Diameter of cylindrical sample              & $\unit[]{m}$                         & \\
 $D_f$                 & Intergranular diffusion coefficient         & $\unit[]{m^2\cdot s^{-1}}$            & \\
-$E$                   & Young's modulus                             & $\unit[]{Pa}$                                      & \\
+$E$                   & Young's modulus                             & $\unit[]{Pa}$                         & \\
+\rowcolor{lightgray} % CAU Kiel
+$E_{Dyn}$             & Dynamic Young's modulus                     & $\unit[]{Pa}$                         & \\
+\rowcolor{lightgray} % CAU Kiel
+$E_{flex}$            & Flexural Young's modulus                    & $\unit[]{Pa}$                         & \\
 $e$                   & Void ratio                                  & $\unit[]{-}$                          & \\
+\rowcolor{lightgray} % CAU Kiel
+$f_{flex}$            & Flexural force                              & $\unit[]{N}$                          & \\
 $F_n$ & Normal force & $\unit[]{N}$ & \\
 $F_{slide}$ & Sliding force & $\unit[]{N}$ & \\
 $F_{shear}$ & Shear-off force & $\unit[]{N}$ & \\
-$g$                   & Gravitational coefficient                   & $\unit[]{m\cdot s^{-2}}$                & \\
+\rowcolor{lightgray} % CAU Kiel
+$f_{sp}$             & Splitting force                              & $\unit[]{N}$                          & \\
+
+$g$                   & Gravitational coefficient                   & $\unit[]{m\cdot s^{-2}}$              & \\
 $g$                   & Plastic potential                           & $\unit[]{J}$                          & \\
 $\mathbf g$           & Gravity vector                              & $\unit[]{m\cdot s^{-2}}$              & \\
 $\mathbf{g}$          & Gravitational acceleration                  & $\unit[]{m\cdot s^{-2}}$ & \\
 $g_c$                 & Fracture toughness                           & $\unit[]{N\cdot m^{-1}}$                          & \\
 $G$                   & Gibbs energy                                & $\unit[]{J}$                          & \\
-$G$                   & Gibbs energy                                & $\unit[]{J\cdot mol^{-1}}$                & \\
-$G$                   & Shear modulus                                & $\unit[]{Pa}$                & \\
+$G$                   & Gibbs energy                                & $\unit[]{J\cdot mol^{-1}}$            & \\
+$G$                   & Shear modulus                                & $\unit[]{Pa}$                        & \\
+\rowcolor{lightgray} % CAU Kiel
+$G_{Dyn}$             & Dynamic shear modulus                        & $\unit[]{Pa}$                         & \\
 $G_\mathrm{F}$        & Plastic potential                           & $\unit[]{J}$                          & \\
-$G_\mathrm{M}$        & Maxwell shear modulus                       & $\unit[]{-}$                                      & \\
-$G_\mathrm{K}$        & Kelvin shear modulus                        & $\unit[]{-}$                                      & \\
+$G_\mathrm{M}$        & Maxwell shear modulus                       & $\unit[]{-}$                          & \\
+$G_\mathrm{K}$        & Kelvin shear modulus                        & $\unit[]{-}$                          & \\
 $H$                   & Fault height                     & $\unit[]{m}$                          & \\
 $H_{\text{PW}}$                   & Pipe water level                     & $\unit[]{m}$                          & \\
 $h$                   & Hardening parameter                          & $\unit[]{-}$                          & \\
@@ -223,34 +268,67 @@ $k$                   & Residual stiffness parameter               & $\unit[]{-}
 $\mathbf k$           & Permeability tensor                         & $\unit[]{m^2}$                                 & \\
 $\mathbf k$           & Permeability tensor                         & $\unit[]{m\cdot s^{-1}}$                   & \\
 $\mathbf{K}$          & Intrinsic permeability                      & $\unit[]{m^2}$                        & \\
+\rowcolor{cyan!50}
+$K^\mathfrak{f}$      & Fluid bulk modulus                          & $\unit[]{Pa}$                        & \\
 $k_c$                 & Swelling/recompression index                & $\unit[]{-}$                          & \\
 $K_\mathrm{eq}$       & Equilibrium constant                        & $\unit[]{-}$                                      & \\
 $K_I$ & Fracture toughness & $\unit[]{Pa \cdot m^{0.5}}$ & \\
+\rowcolor{lightgray} % CAU Kiel
+$K_{I}$               & Stress intensity factor                     & $\unit[]{Pa \cdot m^{0.5}}$           & \\
+\rowcolor{lightgray} % CAU Kiel
+$K_{Ic}$              & Fracture toughness                          & $\unit[]{Pa \cdot m^{0.5}}$           & \\
+
 $K_\mathrm{M}$        & Maxwell bulk modulus                        & $\unit[]{-}$                                      & \\
 $K_\mathrm{n}$        & Normal stiffness                            & $\unit[]{Pa \cdot m^{-1}}$                                 & \\
 $K_\mathrm{s}$        & Shear stiffness                             & $\unit[]{Pa \cdot m^{-1}}$                                      & \\
 $K_rel$               & Relative permeability                       & $\unit[]{m^2}$                        & \\
 $k_s$                 & Saturated hydraulic conductivity            & $\unit[]{m\cdot d^{-1}}$              &\\
+\rowcolor{cyan!50}
+$k^\mathfrak{s}_{Fr}$ & Local fracture permeability                 & $\unit[]{m^2}$                        & \\
+\rowcolor{cyan!50}
+$k^\mathfrak{s}_{Fr, t}$ & Local transversal fracture permeability   & $\unit[]{m^2}$                        & \\
 $k^+$                 & Dissolution rate constant                   & $\unit[]{mol\cdot m^-2\cdot s^{-1}}$  & \\
 $k^{\circ{}}$         & Reaction rate constant                      & $\unit[]{mol\cdot m^-2\cdot s^{-1}}$  & \\
+\rowcolor{lightgray} % CAU Kiel
+$L_{cyl}$             & Length of cylindrical sample                & $\unit[]{m}$                         & \\
 %\hline
 $M$                   & Kinetic coefficient               & $\unit[]{mm^2\cdot N^{-1}\cdot s^{-1}}$                          & \\
 $M$                   & Slope of critical state line               & $\unit[]{-}$                          & \\
 $M_w$                 & Molecular mass of water vapor              & $\unit[18.016]{g\cdot mol^{-1}}$                & \\
 $n$                   & Porosity                                   & $\unit[]{m^3\cdot m^{-3}}$                & \\
 $n$                   & Van Genuchten parameter                    & $\unit[]{-}$ \\
+\rowcolor{cyan!50}
+$\mathbf{n}$       & Normal of fracture surface                    & $\unit[]{-}$                         & \\
+\rowcolor{cyan!50}
+$\mathbf{n}^+$       & Normal of positive fracture surface                    & $\unit[]{-}$                         & \\
+\rowcolor{cyan!50}
+$\mathbf{n}^-$       & Normal of negative fracture surface                    & $\unit[]{-}$                         & \\
 $m$                   & Van Genuchten parameter                    & $\unit[]{-}$ \\
 $p$                   & Pressure                                   & $\unit[]{kg \cdot s^{-1} \cdot m^{-1}}$ & \\
 $p$                   & Pressure                                   & $\unit[]{Pa}$                         & \\
+\rowcolor{cyan!50}
+$p$                   & Fluid pressure                             & $\unit[]{Pa}$                         & \\
+\rowcolor{cyan!50}
+$p^+$                 & Fluid pressure at positive fracture surface      & $\unit[]{Pa}$                         & \\
+\rowcolor{cyan!50}
+$p^-$                 & Fluid pressure at negative fracture surface      & $\unit[]{Pa}$                         & \\
 $P$                   & Load                                       & $\unit[]{Pa}$                         & \\
 $P_c$                 & Capillary pressure                         & $\unit[]{Pa}$ & \\
+\rowcolor{cyan!50}
+$P_\mathfrak{f}$      & Averaged fluid pressure                    & $\unit[]{Pa}$                         & \\
 $p_s$                 & Mean stress                                & $\unit[]{Pa}$ & \\
 $p_{scn}$             & Isotropic pre-consolidation pressure $\quad$      & $\unit[]{Pa}$ & \\
+\rowcolor{lightgray} % CAU Kiel
+$P_{vap}$             & Vapor pressure                             & $\unit[]{Pa}$                         & \\
+
 Pe                    & Péclet number                              & $\unit[]{-}$                                  & \\
 $q$                   & Source/sink term                           & $\unit[]{-}$                                      & \\
 $q$                   & Shear stress                               & $\unit[]{Pa}$ & \\
 $q$                   & Heat source                                & $\unit[]{W}$ & \\
-$q$		                & Darcy velocity                             & $\unit[]{m\cdot s^{-1}}$	             & \\
+$q$		                & Darcy velocity                             & $\unit[]{m\cdot s^{-1}}$	             & 
+\\
+\rowcolor{cyan!50}
+$q_{lk}$              & Leak-off                                   & $\unit[]{Pa \cdot s^{-1}}$              & \\
 $\mathbf q$           & Darcy velocity vector                      & $\unit[]{m\cdot s^{-1}}$	             & \\
 $Q$                   & Ion activity product                       & $\unit[]{-}$                                  & \\
 $Q_{\text{leak}}$		                & Leakage flow                             & $\unit[]{m^3\cdot s^{-1}}$	             & \\
@@ -258,23 +336,28 @@ $Q_{\omega}$          & source/sink term                             & $\unit[]{
 $ q_\mathsf{T}$		                & Heat flux through unit area                             & $\unit[]{W \cdot m^{-2}}$	             & \\
 $R$                   & Universal gas constant                     & $\unit[8.31432]{J\cdot mol^{-1}\cdot K^{-1}}$       & \\
 $R_c$                 & Contact area ratio                         & $\unit[]{-}$                          & \\
+
 $\mathrm{Ra}$	& Rayleigh number & $\unit{-}$ \\
 $\mathrm{Ra}_\mathrm{crit}$	& Critical Rayleigh number & $\unit{-}$ \\
 $s$                   & soil suction                               & $\unit[]{kPa}$                        & \\
 $S$                   & Saturation                                 & $\unit[]{-}$                                      & \\
 $S$                   & Storage                                 	 & $\unit[]{1\cdot Pa^{-1}}$                                      & \\
 $S_e$                 & Effective saturation                       & $\unit[]{-}$ & \\
+\rowcolor{lightgray} % CAU Kiel
+$S_{flex}$            & Flexural sample span                       & $\unit[]{m}$                         & \\
 $S_{max}$             & Maximum water saturation                   & $\unit[]{-}$                            & \\
 $S_r$                 & Residual saturation                        & $\unit[]{-}$ & \\
 $S_r$                 & Residual water saturation                  & $\unit[]{-}$ \\
 $SA$                  & Reactive surface area                      & $\unit[]{m^2}$                        & \\
 $t$                   & Time                                       & $\unit[]{s}$                          & \\
-$T$                   & Temperature                                & $\unit[]{K}$                                     & \\
+$T$                   & Temperature                                & $\unit[]{K}$                          & \\
 $T$                   & Absolute temperature                       & $\unit[]{K}$                          & \\
 $T_c$                   & Top temperature (cold)                      & $\unit[]{K}$                          & \\
 $T_h$                   & Bottom temperature (hot)                      & $\unit[]{K}$                          & \\
-$T_\mathrm{init}$                   & Initial temperature                      & $\unit[]{K}$                          & \\
-$T_v$                   & Approximation temperature                      & $\unit[]{K}$                          & \\
+\rowcolor{lightgray} % CAU Kiel
+$T_{iso}$             & Isotropic thermal loading                  & $\unit[]{K}$                         & \\
+$T_\mathrm{init}$                   & Initial temperature                      & $\unit[]{K}$                & \\
+$T_v$                   & Approximation temperature                      & $\unit[]{K}$                     & \\
 $u$	                  & Displacement                               & $\unit[]{m}$                          & \\
 $u_n$ & Normal displacement & $\unit[]{m}$ & \\
 $u_s$ & Shear displacement & $\unit[]{m}$ & \\
@@ -282,8 +365,27 @@ $\mathbf u$	          & Displacement vector                        & $\unit[]{m}
 $v$                   & Velocity                                   & $\unit[]{m \cdot s^{-1}}$               & \\
 $V$                   & Volume                                     & $\unit[]{m^3}$                        & \\
 $V_m$                 & Molar volume                               & $\unit[]{m^3\cdot mol^{-1}}$ & \\
-$V_u$                   & Cell volume                                     & $\unit[]{m^3}$                        & \\
+\rowcolor{lightgray} % CAU Kiel
+$V_{mol}$             & Molecular volume                           & $\unit[]{m^3}$                        & \\
+$V_u$                   & Cell volume                              & $\unit[]{m^3}$                        & \\
 $w$                   & Margules parameter                         & $\unit[]{J\cdot mol^{-1}}$           & \\
+\rowcolor{cyan!50}
+$w_a$                 & Test function of auxiliary element         & $\unit[]{-}$                         & \\
+\rowcolor{lightgray} % CAU Kiel
+$W_{flex}$            & Flexural sample width                      & $\unit[]{m}$                           & \\
+\rowcolor{cyan!50}
+$\mathbf{W}_\mathfrak{f}$ & Averaged relative fluid velocity & $\unit[]{m \cdot s^{-1}}$                           & \\
+\rowcolor{cyan!50}
+$\mathbf{w}_\mathfrak{f}$ & Relative fluid velocity & $\unit[]{m \cdot s^{-1}}$                           & \\
+\rowcolor{cyan!50}
+$\mathbf{w}^-_\mathfrak{f}$ & Relative fluid velocity positive fracture surface & $\unit[]{m \cdot s^{-1}}$                           & \\
+\rowcolor{cyan!50}
+$\mathbf{w}^+_\mathfrak{f}$ & Relative fluid velocity negative fracture surface& $\unit[]{m \cdot s^{-1}}$                           & \\
+\rowcolor{cyan!50}
+$\mathbf{w}^l_\mathfrak{f}$ & Relative longitudinal fluid velocity & $\unit[]{m \cdot s^{-1}}$                           & \\
+\rowcolor{cyan!50}
+$\mathbf{w}^t_\mathfrak{f}$ & Relative transversal fluid velocity & $\unit[]{m \cdot s^{-1}}$                           & \\
+
 $X$                   & Molar fraction                             & $\unit[]{-}$                         & \\
 $Z$			              & Ionic integer charge                       & $\unit[]{-}$                       & \\
 $Z$                   & Charge                                     & $\unit[]{-}$                          & \\
@@ -291,13 +393,23 @@ $Z$                   & Charge                                     & $\unit[]{-}
 \multicolumn{4}{l}{Indices} \\ %--------------------------------------------------------------------------------------
 $_{||}$               & Co-linear direction                        &                                       & \\
 $_{\bot}$             & Orthogonal direction                       &                                       & \\
+\rowcolor{cyan!50}
+$+$                   & Positive fracture surface                            &                                       & \\
+\rowcolor{cyan!50}
+$-$                   & Negative fracture surface                            &                                       & \\
 %$_\mrm{\parallel}$		& Parallel to the plane of isotropy					 &                                       & \\
 %$_\mrm{\bot}$					& Normal to the plane of isotropy						 &                                       & \\
 $e$                   & Efficient value                            &                                       & \\
 $f$                   & Fluid                                      &                                       & \\
 $f$                   & Fracture                                      &                                       & \\
-$w$                   & Water                                      &                                       & \\
+\rowcolor{cyan!50}
+$l$                   & Longitudinal fracture direction                            &                                       & \\
+\rowcolor{cyan!50}
+$R$                   & Effective Value                            &                                       & \\
 $s$                   & Solid                                      &                                       & \\
+\rowcolor{cyan!50}
+$t$                   & Transversal fracture direction                            &                                       & \\
+$w$                   & Water                                      &                                       & \\
 $0$                   & Reference value                            &                                       & \\
 \hline 
 \multicolumn{4}{l}{Operators} \\ %------------------------------------------------------------------------------------
