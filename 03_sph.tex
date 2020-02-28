@@ -1,9 +1,10 @@
 \subsection{SPH - Smoothed-Particle-Hydrodynamics}
-Direct Numerical Simulations (DNS) of effective physical properties of single-phase flow through porous or fractured solid materials can be performed directly on the pore scale of the porous soil or rock. Morphological information, the basis for the subsequent DNS, is obtained as segmented (binarized) voxel-data from $\mu$ X-Ray Computed Tomography (XRCT)\index{XRCT}. In general, numerical simulations of flow processes on XRCT-data at small to moderate Reynolds (Re) numbers could be performed by mesh-based Finite Element, Finite Differences or Finite Volume methods \todo{HS: References}.
+Direct Numerical Simulations (DNS) of effective physical properties of single-phase flow through porous or fractured solid materials can be performed directly on the pore scale of the porous soil or rock. Morphological information, the basis for the subsequent DNS, is obtained as segmented (binarized) voxel-data from $\mu$ X-Ray Computed Tomography (XRCT)\index{XRCT}. In general, numerical simulations of flow processes on XRCT-data at small to moderate Reynolds (Re) numbers could be performed by mesh-based Finite Element, Finite Differences or Finite Volume methods.
+% \todo{HS: References} %
 Here, we haven chosen the mesh-less Smoothed Particle Hydrodynamics methods as an alternative simulation technique. SPH is a Lagrangian simulation tool used to solve Partial Differential Equations (PDE) and was originally
 developed for astrophysical problems \cite{gingold1977smoothed,lucy1977numerical}. In recent years, due to it's flexibility and
 scalability and applicability on HPC architectures, especially in an explicit formulation,
-it became attractive for various problems fluid dynamics like single and multi-phase fluid mechanics with internal interfaces, suspension flow, \todo{Nadine's work} and single and multi-phase flow in porous media \cite{sivanesapillai2016csf,sivanesapillai2016pore,sivanesapillai2014transition,sivanesapillai2018fluid,markauskas2017comparative}.
+it became attractive for various problems fluid dynamics like single and multi-phase fluid mechanics with internal interfaces, suspension flow, and single and multi-phase flow in porous media  \cite{sivanesapillai2016csf,sivanesapillai2016pore,sivanesapillai2014transition,sivanesapillai2018fluid,markauskas2017comparative}.%\todo{Nadine's work} 
 Within the framework of this method, the discretisation of the PDEs spans a set of interacting collocation points $\mathcal{P}_i$ with position vectors $\Tx_i$, referred to as particles. The positions of the particles represent integration points at which field functions $\Phi (\Tx, t) $ are interpolated by convolution with the Dirac-Delta function $\delta$:
 \begin{equation}
 \label{eq:SPH_dirac_delta}
@@ -49,7 +50,7 @@ Therefore, either a linear model or the Tait equation \cite{hayward1967compressi
 \index{Tait Equation}\index{Equation of state}
 \begin{equation}
 \label{eq:SPH_tait_eos}
-    p(\rho^\Gf) \, = \, \frac{\rho_0\,c^2_\Gf}{\gamma} \Bigg[ \Big( \frac{\rho^\Gf}{\rho_0} \Big)^\gamma \, - \, 1 \Bigg]
+    p(\rho^\Gf) \, = \, \frac{\rho_0^\Gf\,c^2_\Gf}{\gamma} \Bigg[ \Big( \frac{\rho^\Gf}{\rho_0^\Gf} \Big)^\gamma \, - \, 1 \Bigg]
 \end{equation}
 is commonly employed, wherein $c_\Gf = \sqrt{K^\GF}{\rho^\Gf}$ is the speed of sound of the fluid with the bulk modulus $K^\Gf$ and $\gamma$ is 
 a constant, specific to the modeled problem (usual $\gamma \, = \, 7 $ for quasi-incompressible fluids).
