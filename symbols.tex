@@ -32,6 +32,9 @@ $\alpha_k$            & Kinetic isotope fractionation factor         & $\unit[]{
 $\alpha_L$            & Longitudinal dispersion length               & $\unit[]{m}$                          & \\
 \rowcolor{lightgray} % CAU Kiel
 $\alpha_{Li}$          & Linear thermal expansion coefficient          & $\unit[]{K^{-1}}$	                 & \\
+\rowcolor{lightgray} % CAU Kiel
+$\alpha_{R}$          & Randomness factor                            & $\unit[]{-}$	                 & \\
+
 $\alpha_T$            & Transversal dispersion length                & $\unit[]{m}$                          & \\
 \rowcolor{lightgray} % CAU Kiel
 $\alpha_V$            & Volumetric thermal expansion coefficient     & $\unit[]{K^{-1}}$	                 & \\
@@ -73,6 +76,16 @@ $\epsilon_{flex}$     & Flexural strain                              & $\unit[]{
 $\epsilon_v$          & Volume plastic strain                        & $\unit[]{-}$                          & \\
 \rowcolor{lightgray} % CAU Kiel
 $\epsilon_V$          & Volume strain                                & $\unit[]{-}$                          & \\
+\rowcolor{lightgray} % CAU Kiel
+$\varepsilon_{\mathbb{R}}$          & Continuum strain                 & $\unit[]{-}$                          & \\
+\rowcolor{lightgray} % CAU Kiel
+$\varepsilon_b$          & Element strain                                & $\unit[]{-}$                          & \\
+\rowcolor{lightgray} % CAU Kiel
+$\varepsilon_f$          & Failure strain                                & $\unit[]{-}$                          & \\
+\rowcolor{lightgray} % CAU Kiel
+$\varepsilon_{i,j,k,m}$  & Element strain direction                     & $\unit[]{-}$                          & \\
+\rowcolor{lightgray} % CAU Kiel
+$\varepsilon_p$          & Peak strain                                  & $\unit[]{-}$                          & \\
 
 %---------------zeta-----------
 
@@ -91,6 +104,8 @@ $\theta^\ast_{max}$ & Maximum apparent dip angle & $\unit[]{deg}$ & \\
 
 %--------------kappa--------------------
 $\kappa$              & Thermal conductivity                         & $\unit[]{W\cdot m^{-1}\,K^{-1}}$      & \\
+\rowcolor{lightgray} % CAU Kiel
+$\kappa_{i,j}$       & Curvature strain                           & $\unit[]{-}$      & \\
 
 %------------------lambda------------------
 $\lambda_c$           & Virgin compression index                     & $\unit[]{-}$                          & \\
@@ -138,6 +153,8 @@ $\rho_0$            & Base fluid density                    & $\unit[]{kg\cdot m
 
 %---------------sigma---------------------
 $\boldsymbol\sigma$   & Cauchy stress tensor                         & $\unit[]{Pa}$                         & \\
+\rowcolor{lightgray} % CAU Kiel
+$\sigma_{\mathbb{R}}$  & Continuum stress                            & $\unit[]{Pa}$                          & \\
 $\sigma_\mathrm{V}$   & Von Mises equivalent stress                  & $\unit[]{Pa}$                         & \\
 $\sigma_\mathrm{con}$ & Confining stress                             & $\unit[]{Pa}$                         & \\
 $\sigma_\mathrm{eff}$ & Effective stress                             & $\unit[]{Pa}$                         & \\
@@ -199,6 +216,9 @@ $a^{\sigma}$          & Activity of stressed solid                  & $\unit[]{-
 $\dot{a}$             & Effective diameter of ion                   & $\unit[]{m}$ & \\
 $A$                   & Surface area                       & $\unit[]{m^2}$             & \\
 $A_0$ & Active surface area, Grasselli & $\unit[]{-}$ & \\
+\rowcolor{lightgray} % CAU Kiel
+$A_{b}$            & Area of element                       & $\unit[]{m^2}$                           & \\
+
 $\mbf{b}$                 & Body force vector                 & $\unit[]{N}$ & \\
 $b_h$                 & Fracture hydraulic aperture                 & $\unit[]{m}$ & \\
 $b_m$                 & Fracture mechanical aperture                & $\unit[]{m}$ & \\
@@ -207,6 +227,11 @@ $B_{flex}$            & Flexural sample thickness                   & $\unit[]{m
 $c$                   & Normalized concentration                    & $\unit[]{-}$                           & \\
 $c$                   & Concentration                               & $\unit[]{kg\cdot m^{-3}}$              & \\
 $c$                   & Cohesion                               & $\unit[]{-}$             & \\
+\rowcolor{lightgray} % CAU Kiel
+$C_{\mathbb{R}}$  & Continuum stiffness                            & $\unit[]{Pa}$                          & \\
+\rowcolor{lightgray} % CAU Kiel
+$C_{i,j,k,m}$    & Element stiffness matrix                          & $\unit[]{Pa}$                          & \\
+
 $C_{eq}^h$            & Solubility under hydrostatic pressure $\quad$      & $\unit[]{mol\cdot m^{-3}}$            & \\
 $C_i$                 & Intergranular concentration                 & $\unit[]{mol\cdot m^{-3}}$            & \\
 $C_p$                 & Pore-space concentration                    & $\unit[]{mol\cdot m^{-3}}$            & \\
@@ -220,19 +245,34 @@ $D$                   & Diffusivity coefficient                     & $\unit[]{m
 \rowcolor{lightgray} % CAU Kiel
 $D_{cyl}$             & Diameter of cylindrical sample              & $\unit[]{m}$                         & \\
 $D_f$                 & Intergranular diffusion coefficient         & $\unit[]{m^2\cdot s^{-1}}$            & \\
+
+\rowcolor{lightgray} % CAU Kiel
+$\D_{i,j}$    &  Curvature stiffness                                & $\unit[]{Pa}$                          & \\
+
 $E$                   & Young's modulus                             & $\unit[]{Pa}$                         & \\
+\rowcolor{lightgray} % CAU Kiel
+$\E_{b}$    &  Element Young's modulus                               & $\unit[]{Pa}$                          & \\
+
 \rowcolor{lightgray} % CAU Kiel
 $E_{Dyn}$             & Dynamic Young's modulus                     & $\unit[]{Pa}$                         & \\
 \rowcolor{lightgray} % CAU Kiel
 $E_{flex}$            & Flexural Young's modulus                    & $\unit[]{Pa}$                         & \\
 $e$                   & Void ratio                                  & $\unit[]{-}$                          & \\
 \rowcolor{lightgray} % CAU Kiel
+$F_{b}$    &         Element forces                                & $\unit[]{N}$                          & \\
+\rowcolor{lightgray} % CAU Kiel
 $f_{flex}$            & Flexural force                              & $\unit[]{N}$                          & \\
 $F_n$ & Normal force & $\unit[]{N}$ & \\
+\rowcolor{lightgray} % CAU Kiel
+$\f_{p}$    &         Peak axial load                                & $\unit[]{N}$                          & \\
 $F_{slide}$ & Sliding force & $\unit[]{N}$ & \\
 $F_{shear}$ & Shear-off force & $\unit[]{N}$ & \\
 \rowcolor{lightgray} % CAU Kiel
 $f_{sp}$             & Splitting force                              & $\unit[]{N}$                          & \\
+\rowcolor{lightgray} % CAU Kiel
+$f_{x}$    &         Axial Force                                     & $\unit[]{N}$                          & \\
+\rowcolor{lightgray} % CAU Kiel
+$f_{y}$    &        Shear Force                                     & $\unit[]{N}$                          & \\
 
 $g$                   & Gravitational coefficient                   & $\unit[]{m\cdot s^{-2}}$              & \\
 $g$                   & Plastic potential                           & $\unit[]{J}$                          & \\
@@ -242,6 +282,9 @@ $g_c$                 & Fracture toughness                           & $\unit[]{
 $G$                   & Gibbs energy                                & $\unit[]{J}$                          & \\
 $G$                   & Gibbs energy                                & $\unit[]{J\cdot mol^{-1}}$            & \\
 $G$                   & Shear modulus                                & $\unit[]{Pa}$                        & \\
+\rowcolor{lightgray} % CAU Kiel
+$G_{b}$    &         Element shear modulus                         & $\unit[]{pa}$                          & \\
+
 \rowcolor{lightgray} % CAU Kiel
 $G_{Dyn}$             & Dynamic shear modulus                        & $\unit[]{Pa}$                         & \\
 $G_\mathrm{F}$        & Plastic potential                           & $\unit[]{J}$                          & \\
@@ -258,6 +301,9 @@ $\triangle h_\mrm{I}$ & Specific enthalpy of fusion                 & $\unit[]{J
 
 $I$                   & Ionic strength                              & $\unit[]{-}$                                      & \\
 $I_1$                   & First principal invariant of the stress tensor                 & $\unit[]{Pa}$                                      & \\
+\rowcolor{lightgray} % CAU Kiel
+$I_{b}$    &         Element moment of Inertia                       & $\unit[]{kg.m^2}$                          & \\
+
 $I_r$                   & Friction slope                              & $\unit[]{-}$                                      & \\
 $I_s$                   & Bottom slope                              & $\unit[]{-}$                                      & \\
 $J_2$                   & Second principal invariant of the deviatoric stress tensor                 & $\unit[]{Pa^2}$                                      & \\
@@ -291,18 +337,28 @@ $k^+$                 & Dissolution rate constant                   & $\unit[]{m
 $k^{\circ{}}$         & Reaction rate constant                      & $\unit[]{mol\cdot m^-2\cdot s^{-1}}$  & \\
 \rowcolor{lightgray} % CAU Kiel
 $L_{cyl}$             & Length of cylindrical sample                & $\unit[]{m}$                         & \\
+\rowcolor{lightgray} % CAU Kiel
+$L_{b}$    &         Element length                               & $\unit[]{m}$                          & \\
 %\hline
 $M$                   & Kinetic coefficient               & $\unit[]{mm^2\cdot N^{-1}\cdot s^{-1}}$                          & \\
 $M$                   & Slope of critical state line               & $\unit[]{-}$                          & \\
+\rowcolor{lightgray} % CAU Kiel
+$M_{b}$    &         Element moment                               & $\unit[]{N.m}$                          & \\
 $M_w$                 & Molecular mass of water vapor              & $\unit[18.016]{g\cdot mol^{-1}}$                & \\
 $n$                   & Porosity                                   & $\unit[]{m^3\cdot m^{-3}}$                & \\
 $n$                   & Van Genuchten parameter                    & $\unit[]{-}$ \\
+
+\rowcolor{lightgray} % CAU Kiel
+$n_{i,j,k,m}$    &    Element alignment                           & $\unit[]{-}$                          & \\
 \rowcolor{cyan!50}
 $\mathbf{n}$       & Normal of fracture surface                    & $\unit[]{-}$                         & \\
 \rowcolor{cyan!50}
 $\mathbf{n}^+$       & Normal of positive fracture surface                    & $\unit[]{-}$                         & \\
 \rowcolor{cyan!50}
 $\mathbf{n}^-$       & Normal of negative fracture surface                    & $\unit[]{-}$                         & \\
+\rowcolor{lightgray} % CAU Kiel
+$N_{b}$    &         Element's total number of bonds              & $\unit[]{-}$                          & \\
+
 $m$                   & Van Genuchten parameter                    & $\unit[]{-}$ \\
 $p$                   & Pressure                                   & $\unit[]{kg \cdot s^{-1} \cdot m^{-1}}$ & \\
 $p$                   & Pressure                                   & $\unit[]{Pa}$                         & \\
@@ -339,6 +395,12 @@ $R_c$                 & Contact area ratio                         & $\unit[]{-}
 
 $\mathrm{Ra}$	& Rayleigh number & $\unit{-}$ \\
 $\mathrm{Ra}_\mathrm{crit}$	& Critical Rayleigh number & $\unit{-}$ \\
+\rowcolor{lightgray} % CAU Kiel
+$(R)^{\prime}$    & First stiffness coefficient                   & $\unit[]{Pa}$                        & \\
+
+\rowcolor{lightgray} % CAU Kiel
+$(R)^{\prime\prime}$ & Second stiffness coefficient               & $\unit[]{Pa}$      & \\
+
 $s$                   & soil suction                               & $\unit[]{kPa}$                        & \\
 $S$                   & Saturation                                 & $\unit[]{-}$                                      & \\
 $S$                   & Storage                                 	 & $\unit[]{1\cdot Pa^{-1}}$                                      & \\
@@ -359,10 +421,30 @@ $T_{iso}$             & Isotropic thermal loading                  & $\unit[]{K}
 $T_\mathrm{init}$                   & Initial temperature                      & $\unit[]{K}$                & \\
 $T_v$                   & Approximation temperature                      & $\unit[]{K}$                     & \\
 $u$	                  & Displacement                               & $\unit[]{m}$                          & \\
+\rowcolor{lightgray} % CAU Kiel
+$u_{b}$    &  Element displacement                                & $\unit[]{m}$                          & \\
 $u_n$ & Normal displacement & $\unit[]{m}$ & \\
 $u_s$ & Shear displacement & $\unit[]{m}$ & \\
 $\mathbf u$	          & Displacement vector                        & $\unit[]{m}$                          & \\
+\rowcolor{lightgray} % CAU Kiel
+$U_{\mathbb{R}}$    &  Continuum strain energy                    & $\unit[]{N.m}$                          & \\
+\rowcolor{lightgray} % CAU Kiel
+$U_{Cell}$    &  Cell strain energy                               & $\unit[]{N.m}$                          & \\
+\rowcolor{lightgray} % CAU Kiel
+$U_t^b$    &  Total sotred strain energy                          & $\unit[]{N.m}$                          & \\
+\rowcolor{lightgray} % CAU Kiel
+$U_a^b$    &  Axial strain energy                                 & $\unit[]{N.m}$                          & \\
+\rowcolor{lightgray} % CAU Kiel
+$U_s^b$    &  Shear strain energy                                 & $\unit[]{N.m}$                          & \\
+\rowcolor{lightgray} % CAU Kiel
+$U_m^b$    &  Moment strain energy                                 & $\unit[]{N.m}$                          & \\
+
+
+
 $v$                   & Velocity                                   & $\unit[]{m \cdot s^{-1}}$               & \\
+\rowcolor{lightgray} % CAU Kiel
+$V_{\mathbb{R}}$    &  Continuum volume                           & $\unit[]{m^3}$                          & \\
+
 $V$                   & Volume                                     & $\unit[]{m^3}$                        & \\
 $V_m$                 & Molar volume                               & $\unit[]{m^3\cdot mol^{-1}}$ & \\
 \rowcolor{lightgray} % CAU Kiel

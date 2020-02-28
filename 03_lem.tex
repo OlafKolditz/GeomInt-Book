@@ -1,10 +1,10 @@
 \subsection{LEM - Lattice-Element-Method}
 
-The application of the lattice element in modeling the fracture initiation and propagation in the geomaterials is well established \cite{Liuetal2007, Pradoetal2003, Vanmieretal2002}. The main advantage of the LEM is to model the stress redistribution and concentration upon the fracking process. The application of the LEM is extended to model the heat transfer in cemented geomaterials \cite{Sattarietal2017} as well as non-cohesive granular particles \cite{Rizvietal2018b}. The thermo-mechanical lattice model based on the integration of the interface element is able to model the expansion and shrinkage processes during the heating and cooling cycles \cite{Sattarietal2019b}. The LEM is also implemented to model the foam concrete behavior under the dynamic loading \cite{Rizvietal2018a}. In the recent decade, the dual lattice model to simulate the coupled hydro-mechanical loadings in geomaterials is developed \cite{Grassl2009}. In these models, the dual mesh grid for the fluid transport is generated. The short description of the implemented coupled thermo-hydro-mechanical lattice is given below.
+The application of the lattice element in modeling the fracture initiation and propagation in the geomaterials is well established \cite{Liuetal2007, Pradoetal2003, Vanmieretal2002}. The main advantage of the LEM over other numerical methods is the ability to model the stress redistribution and concentration upon the fracking process. The application of the LEM is extended to model the heat transfer in cemented geomaterials \cite{Sattarietal2017} as well as non-cohesive granular particles \cite{Rizvietal2018b}. The thermo-mechanical lattice model based on the integration of the interface element is able to model the expansion and shrinkage processes during the heating and cooling cycles \cite{Sattarietal2019b}. The LEM is also implemented to model the foam concrete behavior under the dynamic loading \cite{Rizvietal2018a}. In the recent decade, the dual lattice model to simulate the coupled hydro-mechanical loadings in geomaterials is developed \cite{Grassl2009}. In these models, the dual mesh grid for the fluid transport is generated. The short description of the implemented coupled thermo-hydro-mechanical lattice method is given below.
 
 \subsubsection*{Discretization of the domain}
 
-The domain is discretized into a series of Voronoi cells to represent the individual particles or a continuum depending on the purpose of the investigation. With the application of the vectorized random lattice (VRL), the irregularity factor known as the randomness factor ($\alpha_{R}$), which varies between 0 and 1, is introduced \cite{Moukarzeletal1992}. When the randomness factor is 0, the generated mesh is regular and when it is equal to 1, it reaches the maximum irregularity for VRL model.  Afterward, the Voronoi Tessellation is implemented and polygonal cells are generated (Figure \ref{fig: Amir_LEM_Domain_2D}, \ref{fig: Amir_LEM_Domain_3D}). The Delaunay Triangulation results in the Voronoi cell connectivity, which are the bond elements between two adjacent nodes. 
+The domain is discretized into a series of Voronoi cells to represent the individual particles or a continuum depending on the purpose of the investigation. With the application of the vectorized random lattice (VRL), the irregularity factor known as the randomness factor ($\alpha_{R}$), which varies between 0 and 1, is introduced \cite{Moukarzeletal1992}. When the randomness factor is 0, the generated mesh is regular and when it is equal to 1, it reaches the maximum irregularity for VRL model.  Afterward, the Voronoi Tessellation is implemented and polygonal cells are generated (see Figure \ref{fig:Amir_LEM_Domain_2D}, \ref{fig:Amir_LEM_Domain_3D}). The Delaunay Triangulation process results in the Voronoi cell connectivities, which are defined as the bond elements between two adjacent nodes. 
 
 \begin{figure}[!ht]
 \begin{subfigure}[c]{0.48\textwidth}
@@ -23,7 +23,7 @@ The domain is discretized into a series of Voronoi cells to represent the indivi
 
 \subsubsection*{Mechanical lattice model}
 
-The mechanical lattice model is based on the assumption of the Mode I and II linear elastic fracture mechanics. The simulation of the fracture in LEM is based on the removal of the bond elements between the neighboring Voronoi cells \cite{Rizvietal2019a}. The elements strength threshold is defined based on the critical strain energy or the fracture toughness for Mode I and II. In a different approach, the strength threshold is defined based on the Mohr-Coulombs tension cutoff model \cite{Bolanderetal1998}. The lattice elements are represented by series of spring (1DOF),  Euler-Bernoulli beam (3DOF)(Figure \ref{fig:Amir_LEM_Beam}) or Timoshenko beam elements (4DOF). The regularization of the regular lattice models, such as triangular or square discretized domains, is carried out and a relationship between the continuum and element properties is presented \cite{Ostojastarzewski2002, Karihalooetal2003}. This regularization assumes that the stored strain energy of a continuum, $U_{Continuum}$, is equal to the stored strain energies in each individual Voronoi cells, $U_{Cell}$. 
+The mechanical lattice model is based on the assumption of the Mode I and II linear elastic fracture mechanics. The simulation of the fracture in LEM is based on the removal of the bond elements between the neighboring Voronoi cells \cite{Rizvietal2019a}. The elements strength threshold is defined based on the critical strain energy or the fracture toughness for Mode I and II. In a different approach, the strength threshold is defined based on the Mohr-Coulombs tension cutoff model \cite{Bolanderetal1998}. The lattice elements are represented by series of spring (1DOF),  Euler-Bernoulli beam (3DOF)(Figure \ref{fig:Amir_LEM_Beam}) or Timoshenko beam elements (4DOF). The regularization of the regular lattice model, such as a triangular or square discretization technique, is carried out and a relationship between the continuum and element properties is presented \cite{Ostojastarzewski2002, Karihalooetal2003}. This regularization assumes that the stored strain energy of a continuum, $U_{\mathbb{R}}$, is equal to the stored strain energies in each individual Voronoi cells, $U_{Cell}$. The strain energy stored in a unit cell depends on the total number of each cells bond elements ($N_b$), the elements response forces ($F_b$) and the response displacements ($u_b$). For a continuum, the stored energy depends on the continuum stresses ($\sigma_{\mathbb{R}}$) and continuum strains ($\varepsilon_{\mathbb{R}}$) throughout the continuum volume ($V_{\mathbb{R}}$).
 
 \begin{figure}[!ht]
 \centering
@@ -32,52 +32,60 @@ The mechanical lattice model is based on the assumption of the Mode I and II lin
 \label{fig:Amir_LEM_Beam}
 \end{figure}
 
-\begin{align}
+\begin{equation}
 \label{eq:LEM_Mechanical_1}
-\begin{split}
- U_{Cell}=U_{Continuum}\\
- U_{Cell}=\frac{1}{2}\sum_{b}^{N_b}\left(F.u\right)^b\\
- U_{Continuum}=\frac{1}{2}\int_{V}{\sigma.\varepsilon.dV}
-\end{split}
-\end{align}
+ U_{Cell}=U_{\mathbb{R}}
+\end{equation}
 
-For a spring element in 2D,
-
-\begin{align}
+\begin{equation}
 \label{eq:LEM_Mechanical_2}
-\begin{split}
-U_{Cell}=\frac{1}{2}\sum_{b}^{N_b}\left(F.u\right)^b=\frac{1}{2}\sum_{b=1}^{N_b}{{(L^2).\alpha}^\prime.n_i.n_j.n_k.n_m.\epsilon_{ij}.\varepsilon_{km}}\\
-U_{Continuum}=\frac{1}{2}\varepsilon.C.\varepsilon
-\end{split}
-\end{align}
+ U_{Cell}=\frac{1}{2}\sum_{b=1}^{b=N_b}F_b.u_b
+\end{equation}
 
-For a Euler-Bernoulli beam element in 2D,
-
-\begin{align}
+\begin{equation}
 \label{eq:LEM_Mechanical_3}
-\begin{split}
-U_{Continuum}=\frac{V}{2}\gamma_{ij}C_{ijkm}\gamma_{km}+\frac{V}{2}\kappa_{i}D_{ij}\kappa_j
-\\
-C_{ijkm}=\sum_{b=1}^{N_b} {n_i.n_k \left( n_j.n_m.(R)^\prime)+n_j.n_m.(R)^{\prime\prime} \right)}
-\\
-D_{ij}=\sum_{b=1}^{N_b}{n_i.n_j}.S^\prime
-\end{split}
-\end{align}
+ U_{\mathbb{R}}=\frac{1}{2}\int_{V_{\mathbb{R}}}{\sigma_{\mathbb{R}}.\varepsilon_{\mathbb{R}}.dV}
+\end{equation}
 
-After the regularization of the lattice model and with the minimization of the potential energy of the system, the load Vs. displacement relation in each time step is determined. The bi-linear softening scheme is implemented to model the quasi-brittle material behavior, which is seen in various geomaterials, such as rock and concrete \cite{Inceetal2003}. 
+For a discretized 2D domain with the spring element, the length of the element ($L_b$), alignment orientation ($n_{i,j,k,m}$), first stiffness coefficient ($(R)^\prime$), continuum stiffness matrix $C_{\mathbb{R}}$, and strains of $\varepsilon_{i,j,k,m}$ are correlated as,
 
-\begin{align}
+\begin{equation}
 \label{eq:LEM_Mechanical_4}
-\begin{split}
- U_{Strain}(x)=U_{Axial}(x)+U_{Shear}(x)+U_{Moment}(x)
- \\
- =
- \frac{1}{2}\int_{0}^{L}{\left(\frac{f_x{(x)}^2}{EA}+\frac{f_y{(x)}^2}{GA}+\frac{M{(x)}^2}{EI}\right).dx} 
- E_s=\frac{f_t}{\varepsilon_f-\varepsilon_t}\left(\frac{\varepsilon_f}{\varepsilon}-1\right)
-\end{split}
-\end{align}
+U_{Cell}=\frac{1}{2}\sum_{b=1}^{b=N_b}L_b^2.((R)^\prime.n_i.n_j.n_k.n_m.\varepsilon_{ij}.\varepsilon_{km})_b
+\end{equation}
+
+\begin{equation}
+\label{eq:LEM_Mechanical_5}
+U_{\mathbb{R}}=\frac{1}{2}\varepsilon_{\mathbb{R}}.C_{\mathbb{R}}.\varepsilon_{\mathbb{R}}
+\end{equation}
+
+For a Euler-Bernoulli beam element in 2D, the curvature strain ($\kappa_{i,j}$), curvature stiffness ($D_{i,j}$), stiffens matrix ($C_{i,j,k,m}$) and second stiffness coefficient ($(R)^{\prime\prime}$) are related as,
+
+\begin{equation}
+\label{eq:LEM_Mechanical_6}
+U_{\mathbb{R}}=\frac{V}{2}\varepsilon_{ij}C_{ijkm}\varepsilon_{km}+\frac{V}{2}\kappa_{i}D_{ij}\kappa_j
+\end{equation}
+
+\begin{equation}
+\label{eq:LEM_Mechanical_7}
+C_{ijkm}=\sum_{b=1}^{b=N_b} ({n_i.n_k \left( n_j.n_m.(R)^\prime)+n_j.n_m.(R)^{\prime\prime} \right)})_b
+\end{equation}
 
 
+After the regularization of the lattice model and with the minimization of the potential energy of the system, the load Vs. displacement relation in each time step is determined. For a single element, the stored total strain energy ($U_t^b$) is equal to the sum of axial ($U_a^b$), shear ($U_s^b$) and moment ($U_m^b$) strain energies. Eventually, the total strain energy depends on the axial force ($f_x$), shear force ($f_y$) and moment ($M_b$) along the element's length of $z=0:L_b$, the area of elements ($A_b$), element's shear modulus ($G_b$), element's Young's modulus ($E_b$), and moment of inertia ($I_b$). The bi-linear softening scheme is implemented to model the quasi-brittle material behavior existing in rock and concrete geomaterials \cite{Inceetal2003}. The measured $E_b$ values depends on the peak strain ($\varepsilon_p$), failure  strain ($\varepsilon_f$), current element strain ($\varepsilon_b$) and peak load ($f_p$) where the stiffness degradation starts.
+
+\begin{equation}
+\label{eq:LEM_Mechanical_8}
+ U_t^b(z)=U_a^b(z)+U_s^b(z)+U_m^b(z)=\frac{1}{2}\int_{0}^{L_b}{\left(\frac{f_x{(z)}^2}{E_b A_b}+\frac{f_y{(z)}^2}{G_b A_b}+\frac{M_b{(z)}^2}{E_b I_b}\right).dz} 
+\end{equation}
+
+\begin{equation}
+\label{eq:LEM_Mechanical_9}
+E_b=\frac{f_p}{\varepsilon_f-\varepsilon_p}\left(\frac{\varepsilon_f}{\varepsilon_b}-1\right)
+\end{equation}
+
+
+%%%%% Corrected
 \subsubsection*{Thermo-mechanical lattice model}
 
 The thermo-mechanical lattice model is based on the weak coupling scheme between the thermal and mechanical model, which decreases the computational costs. The thermal lattice model is based on the discrete thermal lattice model (TDEM) \cite{Zhangetal2011, Fengetal2008}, where the Hertzian contact model is implemented to account for the heat conductance ($h_b$) between the particles. The axial compression force increment ($f_x$) results in higher thermal conductance between the particles, which eventually leads in a higher effective thermal conductivity ($K_{ij}^{eff}$). The regularization of the thermal lattice model is based on the relationship between the heat conductivity of elements and the continuum \cite{Rizvietal2018b}. 
