@@ -1,17 +1,23 @@
 \subsection{PFM - Variational Phase-Field Method}
 
 Phase-field models have become one of the most established numerical techniques for fracturing simulation in the last two decades. 
-The approach was first introduced by~\cite{Bourdin2000} as a numerical implementation method to the variational approach to fracture proposed by~\cite{Francfort1998}. 
+The approach was first introduced by Bourdin et al.~\cite{Bourdin2000} as a numerical implementation method to the variational approach to fractures proposed by Francfort et al.~\cite{Francfort1998}. 
 Since the initial inception of the method, models for brittle and cohesive fracture have been further studied by many others~\cite{Bourdin2008, Hakim2009, Amor2009,  Kuhn2010, Verhoosel2010,  Pham2011, Vignollet2014,  Ambati2015, Marigo2016, Wu2017, Tanne2018,  Sargado2018} including advanced numerical solution schemes~\cite{Gerasimov2016, Farrell2017}.
 Lately, its application ranges from ductile fracturing~\cite{Ambati2015, Miehe2015_thermo,Kuhn2016,Alessi2017} to fatigue~\cite{Alessi2018,Seiler2018}, desiccation fracture~\cite{Maurini2013, Cajuhi2017}, and dynamic fracturing~\cite{Bourdin2011, Borden2012,Hofacker2012, Schluter2014, Li2016}.
+\index{ductile fracturing}
+\index{fatigue}
+\index{dynamic fracturing}
+\index{desiccation fracture}
 
 \subsubsection*{Regularisation of the total energy functional}
-In the variational approach to fracture in~\cite{Francfort1998}, the total energy in the system is defined as the sum of the elastic strain energy, the potential of the external forces and the surface energy as:
+In the variational approach to fractures in~\cite{Francfort1998}, the total energy in the system is defined as the sum of the elastic strain energy, the potential of the external forces and the surface energy as:
+\index{total energy functional}
+\index{elastic strain energy}
 \begin{equation}
 \label{eq:defE}
 E(\mathbf{u},\Gamma_\mrm{c}) := \int_{\Omega\setminus \Gamma_\mrm{c}} \psi (\mathbf{u}) \, \mathd \Omega -\int _{\partial_{\mrm{N}} \Omega} \bar{\mbf{t}}\cdot \mathbf{u} \, \mathd \Gamma - \int_{\Omega\setminus \Gamma_\mrm{c}} \varrho \mathbf{b}\cdot \mathbf{u} \, \mathd \Omega + G_\mrm{c} \int_{\Gamma_\mrm{c}} \, \mathd \Gamma,
 \end{equation}
-where $\psi$ is the strain energy density, $\bar{\mbf{t}}$ is the boundary traction force, $\mathbf{u}$ is the displacement,$\varrho$ is the mass density of the porous
+where $\psi$ is the strain energy density, $\bar{\mbf{t}}$ is the boundary traction force, $\mathbf{u}$ is the displacement, $\varrho$ is the mass density of the porous
 medium, $\mathbf{b}$ is the applied specific body force, and $G_\mrm{c}$ is the critical energy release rate. 
 For hydraulic fracturing, the work done by the fluid pressure within the fracture $p_\mrm{f}$ needs to be added to the energy, and the total energy becomes:
 \begin{equation}
@@ -24,7 +30,9 @@ E(\mathbf{u},\Gamma_\mrm{c}) := \int_{\Omega\setminus \Gamma_\mrm{c}} \psi
 + \int_{\Gamma_\mrm{c}} p_\mrm{f} \jump{\mbf{u}} \cdot \mbf{n}_\Gamma \, \mathd \Gamma,
 \end{equation}
 where $\mbf{n}_\Gamma$ is the normal direction to the crack set $\Gamma$. 
-Following~\cite{Bourdin2012}, with introduction of a phase-field order variable (or damage variable) $d$~\eqref{eq:defEwithP} is regularised as:
+Following Bourdin et al.~\cite{Bourdin2012}, with introduction of a phase-field order variable (or damage variable) $d$~\eqref{eq:defEwithP} is regularised as:
+\index{phase-field order variable}
+\index{damage variable}
 \begin{equation}
 \label{eq:regEwithregP}
 \begin{split}
@@ -39,7 +47,8 @@ The variational phase-field model with this choice of the dissipative function i
 Another choice for $w(d)$ is a linear form $w(d) = d$ and is known as \ATone{}.
 A thorough study comparing these two models in terms of fracture nucleation and propagation can be found in~\cite{Tanne2018}.
 Note that in arriving at~\eqref{eq:regEwithregP}, the work done by the fracture pressure in the crack is approximated as $\int_\Omega p \mathbf{u} \cdot \nabla d\, \mathd \Omega$. 
-
+\index{dissipative energy function}
+\index{fracture nucleation}
 
 \subsubsection*{Numerical implementation}
 The solution of~\eqref{eq:regEwithregP} follows the alternate minimisation scheme introduced in \cite{Bourdin2000} with respect to $\mathbf{u}$ and $d$ given a time-evolving $p_\mrm{f}$. 
@@ -62,16 +71,16 @@ The first variation of the energy functional with respect to $\mathbf{u}$ is
 +  \int_\Omega \tilde{p} \delta \tilde{\mathbf{u}} \cdot \nabla d \, \mathd \Omega, \\
 \end{align}
 where $\tilde{\mbf{C}}$ is the constitutive relation that satisfies $\psi = \tilde{\mbf{C}}(\mbfs{\epsilon}):\mbfs{\epsilon}/2$. 
-The first variation of the energy functional with respect to $d$ fo \ATone{} is: 
+The first variation of the energy functional with respect to $d$ of \ATone{} is: 
 
 \begin{align}
 \label{eq:WeakForm_d_AT1}
 \begin{split}
 %\begin{equation}
-\delta \tilde{E}(\mathbf{u},d,p; \delta d) =   
+\delta \tilde{E}(\mathbf{u},d,p; \delta d) &=   
+-\int_{\Omega} d \delta d \tilde{\mbf{C}}(\mbfs{\epsilon}(\tilde{\mathbf{u}})) \dcdot \mbfs{\epsilon} ( \tilde{\mathbf{u}}) \mathd \Omega 
 \\
--\int_{\Omega} d \delta d \tilde{\mbf{C}}(\mbfs{\epsilon}(\tilde{\mathbf{u}})) \dcdot \mbfs{\epsilon} ( \tilde{\mathbf{u}}) \mathd \Omega \\
-+ \frac{3G_\mrm{c}}{8} \int_\Omega \left( \frac{\delta d}{\ell} +2 \ell  \nabla d \cdot \nabla \delta d \right) \, \mathd \Omega
+&+ \frac{3G_\mrm{c}}{8} \int_\Omega \left( \frac{\delta d}{\ell} +2 \ell  \nabla d \cdot \nabla \delta d \right) \, \mathd \Omega
 +  \int_\Omega \tilde{p} \tilde{\mathbf{u}} \cdot \nabla \delta d \, \mathd \Omega, \\
 %\end{equation}
 \end{split}
@@ -83,9 +92,10 @@ and \ATtwo{} is
 \label{eq:WeakForm_d_AT2}
 \begin{split}
 %\begin{equation}
-\delta \tilde{E}(\mathbf{u},d,p; \delta d) =   
--\int_{\Omega} d \delta d \tilde{\mbf{C}}(\mbfs{\epsilon}(\tilde{\mathbf{u}})) \dcdot \mbfs{\epsilon}( \tilde{\mathbf{u}}) \mathd \Omega \\
-+ G_\mrm{c} \int_\Omega \left( \frac{d}{\ell} \delta d + \ell  \nabla d \cdot \nabla \delta d \right) \, \mathd \Omega
+\delta \tilde{E}(\mathbf{u},d,p; \delta d) &=   
+-\int_{\Omega} d \delta d \tilde{\mbf{C}}(\mbfs{\epsilon}(\tilde{\mathbf{u}})) \dcdot \mbfs{\epsilon}( \tilde{\mathbf{u}}) \mathd \Omega 
+\\
+&+ G_\mrm{c} \int_\Omega \left( \frac{d}{\ell} \delta d + \ell  \nabla d \cdot \nabla \delta d \right) \, \mathd \Omega
 +  \int_\Omega \tilde{p} \tilde{\mathbf{u}} \cdot \nabla \delta d \, \mathd \Omega. \\
 %\end{equation}
 \end{split}

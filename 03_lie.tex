@@ -4,25 +4,33 @@ The following implementation is based on \cite{Watanabe2012} and represents a sp
 The implementation is here extended to cohesive zone traction separation laws, cf.~\cite{needleman1990analysisa,needleman1990analysisb,nguyen2001cohesive,Elices2002,Gasser2005,Meschke2007}.
 
 \subsubsection*{Weak form}
-The weak form of the static equilibrium equation $\mdiv \mbfs{\sigma} + \varrho \mathbf{b} = \mbf{0} \quad $ can be written as the principle of virtual work
+The weak form of the static equilibrium equation $\mdiv \mbfs{\sigma} + \varrho \mathbf{b} = \mbf{0}$ can be written as the principle of virtual work
+\index{static equilibrium equation}
+\index{principle of virtual work}
+
 \begin{equation}
-	\int_{\Omega \setminus \Gamma_\mrm{c}} \delta \bm{\epsilon} \dcdot \bm{\sigma} \, \mathrm{d} \Omega - \int_{\Omega \setminus \Gamma_\mrm{c}} \delta \mbf{u} \cdot \varrho \mbf{b} \, \mathrm{d} \Omega - \int_{\partial_\mrm{N}\Omega} \delta \mathbf{u} \cdot \bar{\mathbf{t}}\, \mathrm{d} \Gamma - \int_{\Gamma_{\mathrm{c}}} \underbrace{\left(\delta \mathbf{u^{+}} - \delta \mathbf{u^{-}}\right)}_{\delta [\![\mathbf{u}]\!]} \cdot \mathbf{t}_{\mathrm{c}} \, \mathrm{d} \Gamma = 0,
+\int_{\Omega \setminus \Gamma_\mrm{c}} \delta \bm{\epsilon} \dcdot \bm{\sigma} \, \mathrm{d} \Omega - \int_{\Omega \setminus \Gamma_\mrm{c}} \delta \mbf{u} \cdot \varrho \mbf{b} \, \mathrm{d} \Omega - \int_{\partial_\mrm{N}\Omega} \delta \mathbf{u} \cdot \bar{\mathbf{t}}\, \mathrm{d} \Gamma - \int_{\Gamma_{\mathrm{c}}} \underbrace{\left(\delta \mathbf{u^{+}} - \delta \mathbf{u^{-}}\right)}_{\delta [\![\mathbf{u}]\!]} \cdot \mathbf{t}_{\mathrm{c}} \, \mathrm{d} \Gamma = 0,
 \label{eq:weak_form_equil_eq}
 \end{equation}
+
 where $\delta \mbf{u}$ is the first variation of the displacement field (virtual displacements), $\mathbf{u^{+}}$ and $\mathbf{u^{-}}$ denote displacements of the opposing fracture phases such that $[\![\mathbf{u}]\!] = \mathbf{u^{+}} - \mathbf{u^{-}}$ is the displacement jump across the interface, $\bar{\mathbf{t}}$ and $\mathbf{t}_{\mathrm{c}}$ are the boundary ($\partial_{\mrm{N}}\Omega$) and the interface ($\Gamma_\mrm{c}$) traction, respectively. While the boundary traction $\bar{\mathbf{t}}$ is given by the applied external forces along the contour, the interface traction $\mathbf{t}_{\mathrm{c}}$ follows from a constitutive response of the interface according to the the relative displacement between the opposing surfaces. Note, that the above definition implies stress continuity between the matrix compartments across the interface, $\mathbf{t}_{\mathrm{c}} = \mbfs{\sigma}(\mbf{x}_\Gamma) \mbf{n}^+_\Gamma = - \mbfs{\sigma}(\mbf{x}_\Gamma) \mbf{n}^-_\Gamma$.
 
 \subsubsection*{Constitutive model}
+
 While the matrix material behaves according to linear elasticity and is assumed to be impermeable in the current study, the crack will be fluid saturated and follows an effective stress-type formulation:
+\index{effective stress}
 \begin{equation}
- 	\mbf{t}_\mrm{c} = \mbf{t}'_\mrm{c} - p_\mrm{f} \mbf{n}_\Gamma,
- 	\label{eq:effective_LIE}
+\mbf{t}_\mrm{c} = \mbf{t}'_\mrm{c} - p_\mrm{f} \mbf{n}_\Gamma,
+\label{eq:effective_LIE}
 \end{equation}
 where the fluid pressure in the fault only acts on the normal traction across the fault, not its shear components. For the effective stress, a cohesive-zone law has been implemented based on the following assumptions:
-\begin{itemize}
-	\item Damage is driven by fracture opening $[\![\mathbf{u}]\!]\cdot\mbf{n}_\Gamma$ only, i.e. only mode I fracture propagation is considered.
-	\item The traction-separation law is bilinear.
-	\item Cleavage unloading (in contrast to ductile unloading) is considered in view of modelling brittle fracture. 
-\end{itemize}
+\index{cohesive zone model}
+
+\begin{list}{-}{\leftmargin=1em \itemindent=0em \itemsep=0em}
+\item Damage is driven by fracture opening $[\![\mathbf{u}]\!]\cdot\mbf{n}_\Gamma$ only, i.e. only mode I fracture propagation is considered.
+\item The traction-separation law is bilinear.
+\item Cleavage unloading (in contrast to ductile unloading) is considered in view of modelling brittle fracture. 
+\end{list}
 
 The cohesive zone model is characterized by its peak tensile normal traction or normal tensile strength $t_\mrm{n,p}$, its initial normal and shear stiffness $K_\mrm{n}$, $K_\mrm{s}$, and its fracture toughness/critical energy release rate $G_\mrm{c}$. 
 
@@ -38,9 +46,8 @@ based on current ($b$) and initial ($b_0$) aperture is invoked to prevent fractu
 
 In tension, the model is modified to account for damage
 \begin{equation}
-	\mbf{t} = \mbf{K}^\mrm{d} \jump{\mbf{u}}.
+\mbf{t} = \mbf{K}^\mrm{d} \jump{\mbf{u}}.
 \end{equation}
-
 During monotonously increasing loading, damage evolves linearly with normal fault opening between the limiting values
 \begin{equation}
 	d =
@@ -51,14 +58,15 @@ During monotonously increasing loading, damage evolves linearly with normal faul
 	\label{eq:coh_param}
 \end{equation}
 where $ w_\mrm{n,p} = \frac{t_\mrm{n,p}}{K_\mrm{n}}$ and $ w_\mrm{n,f} = 2 \frac{G_\mrm{c}}{t_\mrm{n,p}}$.
-
+%
 Damage is implemented as a non-decreasing function according to:
 \begin{equation}
 	d^{t+\Delta t} = \text{min}\, \left[1, \text{max}\, \left( \frac{\langle w - w_\mrm{n,p} \rangle}{w_\mrm{n,f} - w_\mrm{n,p}}, d^t \right) \right],
 	\label{eq:d_LIE}
 \end{equation}
 where the Macauley brackets have been used.
-
+\index{Macauley brackets}
+%
 The new tensile normal stiffness is found via
 \begin{align}
 	K_\mrm{n}^\mrm{d} = \frac{t_\mrm{n}}{w_\mrm{n}} = \frac{(1-d) t_\mrm{n,p}}{\underset{0\leq \tau \leq t}{\text{max\,}}w_\mrm{n}(\tau)} = \frac{(1-d) K_\mrm{n} w_\mrm{n,p}}{d(w_\mrm{n,f} - w_\mrm{n,p})+ w_\mrm{n,p}}.
@@ -75,14 +83,15 @@ In case of $d^{t+\Delta t} > d^t$ within the employed incremental-iterative solu
 	&\mwith \frac{\partial d}{\partial w_\mrm{n}} = \frac{1}{w_\mrm{n,f} - w_\mrm{n,p}} \mand \frac{\partial g(d)}{\partial d} = -\frac{w_\mrm{n,p} w_\mrm{n,f}}{[d(w_\mrm{n,f} - w_\mrm{n,p})+ w_\mrm{n,p}]^2}.
 \end{align}
 
-Since the matrix was considered impermeable, a fluid pressure was only required in the cracked domain. For that purpose, Eq.~\eqref{eq:effective_LIE} was modified to read:
+Since the matrix was considered impermeable, a fluid pressure was only required in the cracked domain. For that purpose, equation~\eqref{eq:effective_LIE} was modified to read:
 \begin{equation}
  	\mbf{t}_\mrm{c} = \mbf{t}'_\mrm{c} - d p_\mrm{f} \mbf{n}_\Gamma
  	\label{eq:effective_LIE_damage}
 \end{equation}
 
 \subsubsection*{Numerical implementation}
-The implementation within an extrinsically enriched finite element scheme follows \cite{Watanabe2012}. In addition to the usual nodal displacement degrees of freedom for continuous settings, nodal degrees of freedom equivalent to the displacement jump are introduced as additional unknowns. Hence, in contrast to the other methods used in this paper, the displacement jump is explicitly given as a primary solution of the enriched finite element scheme such that the displacement solution displays a strong discontinuity. Non-linearities are linearized using an incremental iterative Newton-Raphson method resulting in a linear system
+The implementation within an extrinsically enriched finite element scheme follows \cite{Watanabe2012}. In addition to the usual nodal displacement degrees of freedom for continuous settings, nodal degrees of freedom equivalent to the displacement jump are introduced as additional unknowns. Hence, in contrast to the other methods used in this paper, the displacement jump is explicitly given as a primary solution of the enriched finite element scheme such that the displacement solution displays a strong discontinuity. Non-linearities are handled using an incremental iterative Newton-Raphson method resulting in a linear system
+\index{Newton-Raphson method}
 \[
 \begin{bmatrix}
 \mathbf{K_{uu}} & \mathbf{K_{ua}} \\
@@ -104,4 +113,5 @@ The implementation within an extrinsically enriched finite element scheme follow
 \end{Bmatrix},
 \label{eq:LIE_num}
 \]
+
 which is solved until convergence is achieved. Here, $\Delta \mathbf{u}$ and $\Delta \mathbf{a}$ denote the increments of the regular nodal displacement and the additional degrees of freedom related to the displacement jump across the interface, $\mbf{K}_{\bullet \bullet}$ are the sub-matrices of the stiffness matrix of the problem and the right-hand-side consists of the out-of-balance (residual) force vectors.
