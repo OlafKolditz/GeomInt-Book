@@ -41,7 +41,7 @@
 %==============================================================================
 %\part{GeomInt Introduction}
 \todod{Introduction--------------------------------------------------------------------------}
-\include{01_project}
+%%\include{01_project}
 %==============================================================================
 %\part{Experimental Methods}
 \todol{Experimental Platform-------------------------------------------------------------}
@@ -49,18 +49,18 @@
 %==============================================================================
 %\part{Numerical Methods}
 \todol{Numerical Platform----------------------------------------------------------------}
-\include{03_models}
+%%\include{03_models}
 %==============================================================================
 %\part{Model Exercises (Benchmarks)}
 \todol{MEX-------------------------------------------------------------------------------------}
-\include{04_mex}
+%%\include{04_mex}
 %==============================================================================
 %\part{Field Applications}
 \include{05_applications}
 %==============================================================================
 %\part{Field Applications}
 \todol{Data Management--------------------------------------------------------------------}
-\include{06_data-management}
+%%\include{06_data-management}
 %==============================================================================
 %\chapter{Literature}
 %\setcounter{chapter}{0}
@@ -74,18 +74,13 @@
 %==============================================================================
 %\part{Appendices}
 \appendix
-\todol{Code Overview-----------------------------------------------------------------------}
+\todod{Code Overview-----------------------------------------------------------------------}
 \chapter{Code Descriptions}
-\todod{Code Overview -- FFS ---------------------------------------------------------------}
 \include{0a_code-ffs}
-\todod{Code Overview -- LEM -------------------------------------------------------------}
 \include{0a_code-lem}
-\todod{Code Overview -- DEM -------------------------------------------------------------}
 \include{0a_code-dem}
 \include{0a_code-sph}
-\todod{Code Overview -- OGS -------------------------------------------------------------}
 \include{0a_code-ogs}
-\todod{Code Overview -- HDF -------------------------------------------------------------}
 \include{0a_code-hdf}
 %==============================================================================
 \todol{Symbols--------------------------------------------------------------------------------}
@@ -132,11 +127,35 @@ A & B & C & D \\
 \end{table}
 \normalsize
 %------------------------------------------------------------------------------
-\begin{list}{-}{\leftmargin=1em \itemindent=0em \itemsep=0.2em}
+\begin{list}{-}{\leftmargin=1em \itemindent=0em \itemsep=0.1em}
 \item ...
 \end{list}
 %------------------------------------------------------------------------------
 \begin{adjustbox}{max width=\textwidth}
 %\begin{adjustbox}{angle=90}
 \end{adjustbox}
+%------------------------------------------------------------------------------
+\begin{wrapfigure}{r}{2cm}
+\centering
+\includegraphics[width=2cm]{./figures/BGR_Logo.png}
+\end{wrapfigure}
+%------------------------------------------------------------------------------
+\begin{figure}
+\begin{subfigure}[c]{0.5\textwidth}
+\includegraphics[width=0.99\textwidth]{./figures/ExpRockGranite.JPG}
+\subcaption{Granite sample}
+\label{fig:RockGranite}
+\end{subfigure}
+\begin{subfigure}[c]{0.5\textwidth}
+\includegraphics[width=0.99\textwidth]{./figures/ExpRockBasalt.jpg}
+\subcaption{Basalt sample}
+\label{fig:RockBasalt}
+\end{subfigure}
+\caption{Crystalline rock samples under investigation}
+\end{figure}
+%------------------------------------------------------------------------------
+\begin{tabbing}
+symbo \= description \kill
+$h_0$, $h$ : \> length of the sample before and during deformation \\
+\end{tabbing}
 %------------------------------------------------------------------------------
