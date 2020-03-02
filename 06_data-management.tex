@@ -124,8 +124,7 @@ WP &  &  & LEM & DEM & FEM1 & FEM2 & FFS \\
 \end{table}
 \normalsize
 
-\subsection{Meta-Data information}
-\subsection{Codes}
+\subsection{Software Codes}
 \begin{list}{-}{\leftmargin=1em \itemindent=0em \itemsep=0.2em}
 \item LEM
 \item DEM: Itasca (website)
@@ -141,7 +140,6 @@ WP &  &  & LEM & DEM & FEM1 & FEM2 & FFS \\
 \item OGS (Benchmarks): \url{https://www.opengeosys.org/docs/benchmarks/}
 \item FEM@UoS: 
 \end{list}
-\subsection{Analysis}
 
 %========================================================================
 \subsection{MEX 0-1a: Bending fracture test}
@@ -150,6 +148,7 @@ Data management for MEX 0-1a (see section \ref{sec:mex01} for Model-Experiment d
 
 \todo[inline]{[CAU et al.]: Please add data management info for MEX 0-1a: Bending fracture test}
 \todo[inline]{[UFZ](KY): Please add a template for OGS-6 (e.g. \url{https://www.opengeosys.org/docs/benchmarks/phase-field/phasefield/})}
+\todo[inline]{The branch is not merged with the master yet. Files have been provided to datamanagement.}
 
 %-------------------
 \begin{table}[h!]
@@ -279,7 +278,7 @@ Data management for MEX 2-4 (see \ref{sec:mex11}).
 Data management for MEX 3-1 (see \ref{sec:mex07}).
 
 Link to the data set at UFZ data investigation portal (Download only for project members):
-\hyperlink{https://www.ufz.de/record/dmp/archive/7443/}{https://www.ufz.de/record/dmp/archive/7443/}\\
+\url{https://www.ufz.de/record/dmp/archive/7443/}
 
 The CNL data set contains four text files. One text file with the rock properties of the used granite (see Tab. \ref{table:MEX7_rockParam}). Two files with the scan data of the two surfaces. One point cloud can be seen in Fig. \ref{fig:DataCNLGranitePointCloud}. The last file contains the laboratory data. In Fig. \ref{fig:DataCNLGraniteLab} the results for the four shear stress levels can be seen.
 
@@ -301,10 +300,58 @@ The CNL data set contains four text files. One text file with the rock propertie
 \label{fig:DataCNLGraniteLab}
 \end{figure}
 
+\begin{table}[h!]
+\caption{Meta Data according to Dublin Core}
+\label{tab:}
+\small
+\begin{tabular}{R{3cm}|L{7cm}}
+\hline
+\rowcolor{cyan}
+%
+URI & http://www.ufz.de/record/dmp/archive/7443 \\
+Thema  & Crystalline rock, direct shear test \\
+Datenart  & Sammlung verschiedener Daten \\
+Datenqualität  & qualitätsgesicherte Daten \\
+Datenstatus  & bearbeitete Daten \\
+Datenformat  & txt \\
+Urheber  & TU Freiberg, Institut für Geotechnik, Gustav-Zeuner-Str. 1, 09599 Freiberg \\
+Quelle/Ursprung  & Rock mechanical laboratory \\
+Herausgeber  & TU Freiberg, Institut für Geotechnik, Gustav-Zeuner-Str. 1, 09599 Freiberg \\
+Rechteinhaber  & TU Freiberg, Institut für Geotechnik, Gustav-Zeuner-Str. 1, 09599 Freiberg \\
+Beitragende  & TU Freiberg, Institut für Geotechnik, Thomas Frühwirt & Daniel Pötschke \\
+Zeitpunkt oder -bereich der Erzeugung der Daten  & 2018 - 2019 \\
+Sprache des Inhalts  & Englisch \\
+Aktualisierungspolitik  & Der Datenbestand wird nicht erweitert \\
+Zugriffsrechte  & beschränkter Zugriff \\
+%
+\hline
+\end{tabular}
+\end{table}
+
 \subsection{MEX 3-2: CNS test}\label{DataManMex3-2CNS}\index{Constant Normal Stiffness (CNS) experiment}
 
 Data management for MEX 3-2 (see \ref{sec:mex08}).
 \todo[inline]{[TUBAF]: Please add data management info for MEX 3-2: CNS test}
+The data set of the CNS test contains a file with the rock properties of the used basalt (see Tab. \ref{table:MEX7_rockParam}), two files with the scan data of the two surfaces. One point cloud can be seen in Fig. \ref{fig:DataCNSBasaltPointCloud}. The results of the laboratory tests are available as ASCII files and the shear curves and the dilatation are visualized in Fig. \ref{fig:DataCNSBasaltLab}. Additionally three photos of the basalt surface before, after the first and after the fourth shear test are included. 
+
+\begin{figure}[!ht]
+\begin{center}
+\includegraphics[width=0.5\textwidth]{./figures/MEX3-2PointCloud.png}
+\end{center}
+\caption{Point cloud representing the surface of a basalt sample from Thuringia. The size is 196 mm by 149 mm and the cloud contains approx. 252000 points.}
+\label{fig:DataCNSBasaltPointCloud}
+\end{figure}
+
+\begin{figure}[!ht]
+\begin{tabular}{cc}
+\includegraphics[width=0.45\textwidth]{./figures/CNSShearCurvesAll.png}     
+& 
+\includegraphics[width=0.45\textwidth]{./figures/CNSDilatationAll.png} 
+\end{tabular}
+\caption{CNL test results}
+\label{fig:DataCNSBasaltLab}
+\end{figure}
+
 
 \subsection{MEX 3-3: Cyclic loading}
 

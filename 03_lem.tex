@@ -105,7 +105,7 @@ In a steady state, the amount of the heat in- and outflow ($q_b$) from a Voronoi
 
 \begin{equation}
 \label{eq:LEM_Thermal_2}
-\rho_{i}c_{i}v_{i}\frac{dT_{i}}{dt}-\nabla .\left(k\nabla T_i\right)-\rho_i{\dot{q}}_i=0
+\rho_{i}c_{i}v_{i}\frac{dT_{i}}{dt}-\nabla .\left(k_i\nabla T_i\right)-\rho_i{\dot{q}}_i=0
 \end{equation}
 
 \begin{equation}
@@ -114,7 +114,7 @@ In a steady state, the amount of the heat in- and outflow ($q_b$) from a Voronoi
 \end{equation}
 
  
-where, $t$ is time, $\rho_{i}$ is density, $c_{i}$ is heat capacity and $v_{i}$ is the volume of each Voronoi cell ($i$). In a transient case,
+where, $\dot{q}$ is heat density (assumption: $\dot{q}=0$), $t$ is time, $\rho_{i}$ is density, $c_{i}$ is heat capacity and $v_{i}$ is the volume of each Voronoi cell ($i$). In a transient case,
 
 \begin{equation}
 \label{eq:LEM_Thermal_4}

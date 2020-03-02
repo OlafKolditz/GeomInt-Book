@@ -224,6 +224,8 @@ $b_h$                 & Fracture hydraulic aperture                 & $\unit[]{m
 $b_m$                 & Fracture mechanical aperture                & $\unit[]{m}$ & \\
 \rowcolor{lightgray} % CAU Kiel
 $B_{flex}$            & Flexural sample thickness                   & $\unit[]{m}$                           & \\
+\rowcolor{lightgray} % CAU Kiel
+$c$            & Specific heat capacity of a cell           & $\unit[]{J.K^-1}$                           & \\
 $c$                   & Normalized concentration                    & $\unit[]{-}$                           & \\
 $c$                   & Concentration                               & $\unit[]{kg\cdot m^{-3}}$              & \\
 $c$                   & Cohesion                               & $\unit[]{-}$             & \\
@@ -251,7 +253,7 @@ $\D_{i,j}$    &  Curvature stiffness                                & $\unit[]{P
 
 $E$                   & Young's modulus                             & $\unit[]{Pa}$                         & \\
 \rowcolor{lightgray} % CAU Kiel
-$\E_{b}$    &  Element Young's modulus                               & $\unit[]{Pa}$                          & \\
+$E_{b}$    &  Element Young's modulus                               & $\unit[]{Pa}$                          & \\
 
 \rowcolor{lightgray} % CAU Kiel
 $E_{Dyn}$             & Dynamic Young's modulus                     & $\unit[]{Pa}$                         & \\
@@ -294,6 +296,8 @@ $H$                   & Fault height                     & $\unit[]{m}$         
 $H_{\text{PW}}$                   & Pipe water level                     & $\unit[]{m}$                          & \\
 $h$                   & Hardening parameter                          & $\unit[]{-}$                          & \\
 $h$ & Height of sample & $\unit[]{m}$ & \\
+\rowcolor{lightgray} % CAU Kiel
+$h_b$            & Thermal conductance                         & $\unit[]{W.K^-1}$                           & \\
 $h_c$                   & Thickness of colmation layer                     & $\unit[]{m}$                          & \\
 $h_f$                 & Freshwater hydraulic head                   & $\unit[]{m}$                            & \\
 $h_s$                 & Saltwater hydraulic head                    & $\unit[]{m}$                            & \\
@@ -316,7 +320,11 @@ $\mathbf k$           & Permeability tensor                         & $\unit[]{m
 $\mathbf{K}$          & Intrinsic permeability                      & $\unit[]{m^2}$                        & \\
 \rowcolor{cyan!50}
 $K^\mathfrak{f}$      & Fluid bulk modulus                          & $\unit[]{Pa}$                        & \\
+\rowcolor{lightgray} % CAU Kiel
+$k_b$            & Thermal conductivity                         & $\unit[]{W.K^-1.m^-1}$                           & \\
 $k_c$                 & Swelling/recompression index                & $\unit[]{-}$                          & \\
+\rowcolor{lightgray} % CAU Kiel
+$K_{eff}$            & Effective thermal conductivity            & $\unit[]{W.K^-1.m^-1}$                           & \\
 $K_\mathrm{eq}$       & Equilibrium constant                        & $\unit[]{-}$                                      & \\
 $K_I$ & Fracture toughness & $\unit[]{Pa \cdot m^{0.5}}$ & \\
 \rowcolor{lightgray} % CAU Kiel
@@ -335,10 +343,13 @@ $k^\mathfrak{s}_{Fr}$ & Local fracture permeability                 & $\unit[]{m
 $k^\mathfrak{s}_{Fr, t}$ & Local transversal fracture permeability   & $\unit[]{m^2}$                        & \\
 $k^+$                 & Dissolution rate constant                   & $\unit[]{mol\cdot m^-2\cdot s^{-1}}$  & \\
 $k^{\circ{}}$         & Reaction rate constant                      & $\unit[]{mol\cdot m^-2\cdot s^{-1}}$  & \\
-\rowcolor{lightgray} % CAU Kiel
-$L_{cyl}$             & Length of cylindrical sample                & $\unit[]{m}$                         & \\
+
 \rowcolor{lightgray} % CAU Kiel
 $L_{b}$    &         Element length                               & $\unit[]{m}$                          & \\
+\rowcolor{lightgray} % CAU Kiel
+$L_b^\prime$    &    Element contact length                        & $\unit[]{m}$                          & \\
+\rowcolor{lightgray} % CAU Kiel
+$L_{cyl}$             & Length of cylindrical sample                & $\unit[]{m}$                         & \\
 %\hline
 $M$                   & Kinetic coefficient               & $\unit[]{mm^2\cdot N^{-1}\cdot s^{-1}}$                          & \\
 $M$                   & Slope of critical state line               & $\unit[]{-}$                          & \\
@@ -358,6 +369,8 @@ $\mathbf{n}^+$       & Normal of positive fracture surface                    & 
 $\mathbf{n}^-$       & Normal of negative fracture surface                    & $\unit[]{-}$                         & \\
 \rowcolor{lightgray} % CAU Kiel
 $N_{b}$    &         Element's total number of bonds              & $\unit[]{-}$                          & \\
+\rowcolor{lightgray} % CAU Kiel
+$N_{c}$            & Number of Voronoi cells in the boundary      & $\unit[]{-}$                           & \\
 
 $m$                   & Van Genuchten parameter                    & $\unit[]{-}$ \\
 $p$                   & Pressure                                   & $\unit[]{kg \cdot s^{-1} \cdot m^{-1}}$ & \\
@@ -376,7 +389,6 @@ $p_s$                 & Mean stress                                & $\unit[]{Pa
 $p_{scn}$             & Isotropic pre-consolidation pressure $\quad$      & $\unit[]{Pa}$ & \\
 \rowcolor{lightgray} % CAU Kiel
 $P_{vap}$             & Vapor pressure                             & $\unit[]{Pa}$                         & \\
-
 Pe                    & Péclet number                              & $\unit[]{-}$                                  & \\
 $q$                   & Source/sink term                           & $\unit[]{-}$                                      & \\
 $q$                   & Shear stress                               & $\unit[]{Pa}$ & \\
@@ -386,10 +398,19 @@ $q$		                & Darcy velocity                             & $\unit[]{m\c
 \rowcolor{cyan!50}
 $q_{lk}$              & Leak-off                                   & $\unit[]{Pa \cdot s^{-1}}$              & \\
 $\mathbf q$           & Darcy velocity vector                      & $\unit[]{m\cdot s^{-1}}$	             & \\
+\rowcolor{lightgray} % CAU Kiel
+$q_{ave}$               & Average Heat flux                        & $\unit[]{W.m^-2}$                           & \\
+\rowcolor{lightgray} % CAU Kiel
+$q_{b}$               & Heat flow                                  & $\unit[]{W}$                           & \\
+\rowcolor{lightgray} % CAU Kiel
+$q_{cell}^b$         & Heat flow from boundary Voronoi cells       & $\unit[]{W}$                           & \\
 $Q$                   & Ion activity product                       & $\unit[]{-}$                                  & \\
 $Q_{\text{leak}}$		                & Leakage flow                             & $\unit[]{m^3\cdot s^{-1}}$	             & \\
 $Q_{\omega}$          & source/sink term                             & $\unit[]{kg\cdot m^{-3}\cdot s{-1}}$  & \\
 $ q_\mathsf{T}$		                & Heat flux through unit area                             & $\unit[]{W \cdot m^{-2}}$	             & \\
+\rowcolor{lightgray} % CAU Kiel
+$\dot{q}$               &  Heat density                        & $\unit[]{W.kg^-1}$                           & \\
+
 $R$                   & Universal gas constant                     & $\unit[8.31432]{J\cdot mol^{-1}\cdot K^{-1}}$       & \\
 $R_c$                 & Contact area ratio                         & $\unit[]{-}$                          & \\
 
@@ -420,6 +441,8 @@ $T_h$                   & Bottom temperature (hot)                      & $\unit
 $T_{iso}$             & Isotropic thermal loading                  & $\unit[]{K}$                         & \\
 $T_\mathrm{init}$                   & Initial temperature                      & $\unit[]{K}$                & \\
 $T_v$                   & Approximation temperature                      & $\unit[]{K}$                     & \\
+\rowcolor{lightgray} % CAU Kiel
+$\dot{T}$           &  Temperature gradient                    & $\unit[]{K.m^-1}$                           & \\
 $u$	                  & Displacement                               & $\unit[]{m}$                          & \\
 \rowcolor{lightgray} % CAU Kiel
 $u_{b}$    &  Element displacement                                & $\unit[]{m}$                          & \\
@@ -440,7 +463,8 @@ $U_s^b$    &  Shear strain energy                                 & $\unit[]{N.m
 $U_m^b$    &  Moment strain energy                                 & $\unit[]{N.m}$                          & \\
 
 
-
+\rowcolor{lightgray} % CAU Kiel
+$v$            & Volume of a Voronoi cell                          & $\unit[]{m^3}$                           & \\
 $v$                   & Velocity                                   & $\unit[]{m \cdot s^{-1}}$               & \\
 \rowcolor{lightgray} % CAU Kiel
 $V_{\mathbb{R}}$    &  Continuum volume                           & $\unit[]{m^3}$                          & \\
@@ -468,6 +492,8 @@ $\mathbf{w}^l_\mathfrak{f}$ & Relative longitudinal fluid velocity & $\unit[]{m 
 \rowcolor{cyan!50}
 $\mathbf{w}^t_\mathfrak{f}$ & Relative transversal fluid velocity & $\unit[]{m \cdot s^{-1}}$                           & \\
 
+\rowcolor{lightgray} % CAU Kiel
+$\hat{x}_{cell}$      & Relative coordinates                        & $\unit[]{m}$                & \\
 $X$                   & Molar fraction                             & $\unit[]{-}$                         & \\
 $Z$			              & Ionic integer charge                       & $\unit[]{-}$                       & \\
 $Z$                   & Charge                                     & $\unit[]{-}$                          & \\
