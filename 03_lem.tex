@@ -86,16 +86,10 @@ E_b=\frac{f_p}{\varepsilon_f-\varepsilon_p}\left(\frac{\varepsilon_f}{\varepsilo
 
 \subsubsection*{Thermo-mechanical lattice model}
 
-The thermo-mechanical lattice model is based on the weak coupling scheme between the thermal and mechanical model, which decreases the computational costs. The thermal lattice model is based on the discrete thermal lattice model (TDEM) \cite{Zhangetal2011, Fengetal2008}, where the Hertzian contact model is implemented to account for the heat conductance ($h_b$) between the particles. The axial compression force increment ($f_x$) results in higher thermal conductance between the particles, which eventually leads in a higher effective thermal conductivity ($K_{eff}$). The regularization of the thermal lattice model is based on the relationship between the heat conductivity of elements and the continuum \cite{Rizvietal2018b}. The $h_b$ depends on the contact length ($L_b^\prime$) (or area in 3D domain) and contact forces. For the regularization process the elements thermal conductivities ($k_{b}$) are determined in a way that the given continuum thermal conductivity is equal to the calculated initial $K_{eff}$ value. For a 2D domain with a total number of $N_t$ elements,
-
+The thermo-mechanical lattice model is based on the weak coupling scheme between the thermal and mechanical models, which decreases the computational costs. The thermal lattice model is based on the discrete thermal lattice model (TDEM) \cite{Zhangetal2011, Fengetal2008}, where the Hertzian contact model is implemented to account for the heat conductance ($h_b$) between the particles. The axial compression force increment ($f_x$) results in higher thermal conductance between the particles, which eventually leads in a higher effective thermal conductivity ($K_{eff}$). The regularization of the thermal lattice model is based on the relationship between the heat conductivity of elements and the continuum \cite{Rizvietal2018b}. The $h_b$ depends on the contact length ($L_b^\prime$) (or area in 3D domain), contact forces and assigned elements thermal conductivities ($k_{b}$).
 
 \begin{equation}
 \label{eq:LEM_Thermal_1}
-K_{eff}=\frac{1}{A}\sum_{b=1}^{b=N_t}{k_b(L_b^2)n_i n_j}
-\end{equation}
-
-\begin{equation}
-\label{eq:LEM_Thermal_2}
 h_b = k_{b} \left( (L_b^\prime)+ \left(\frac{3f_x L_b}{4E_b}\right)^\frac{1}{3} \right)
 \end{equation}
 
@@ -104,38 +98,38 @@ In a steady state, the amount of the heat in- and outflow ($q_b$) from a Voronoi
 \begin{figure}[!ht]
 \centering
 \includegraphics[width=0.75\textwidth]{figures/Amir_LEM_Thermal.png}
-\caption{The heat flux into $i$th cell from surrounding boundaries}
+\caption{The heat flow into $i_{th}$ cell from surrounding boundaries}
 \label{fig:Amir_LEM_Thermal}
 \end{figure}
 
 
 \begin{equation}
-\label{eq:LEM_Thermal_3}
+\label{eq:LEM_Thermal_2}
 \rho_{i}c_{i}v_{i}\frac{dT_{i}}{dt}-\nabla .\left(k\nabla T_i\right)-\rho_i{\dot{q}}_i=0
 \end{equation}
 
 \begin{equation}
-\label{eq:LEM_Thermal_4}
-\nabla .\left(k\nabla T_i\right)=\sum_{b=1}^{b=N_b}{q_b=0}
+\label{eq:LEM_Thermal_3}
+\nabla .\left(k\nabla T_i\right)=\sum_{b=1}^{b=N_b}{q_b}=\sum_{b=1}^{b=N_b}{h_b(T_i - T_j)_b=0}
 \end{equation}
 
  
-where, $t$ is time, $\rho_{i}$ is density, $c_{i}$ is heat capacity and $v_{i}$ is the volume of each Voronoi cell ($i$). In a transient case, the temperature gradient ($\dot{T}=\frac{dT}{dt}$) is equal to,
+where, $t$ is time, $\rho_{i}$ is density, $c_{i}$ is heat capacity and $v_{i}$ is the volume of each Voronoi cell ($i$). In a transient case,
 
 \begin{equation}
-\label{eq:LEM_Thermal_5}
+\label{eq:LEM_Thermal_4}
 \sum_{b=1}^{b=N_b}{q_b=}\rho_{i}c_{i}v_{i}\frac{dT_i}{dt}
 \end{equation}
 
-The validation of the effective thermal conductivity is carried out with the average volume technique, where $q_{ave}$ is the average heat flow, $q_{Cell}^{b}$ is the heat flow through the assigned cells located in the boundary ($N_C$) and  $\hat{x}_{cell}$ is the reference coordinates of each cell.
+The effective thermal conductivity is calculated based on the average volume technique, where $q_{ave}$ is the average heat flow, $q_{Cell}^{b}$ is the heat flow through the assigned cells located in the boundary ($N_C$), $\dot{T}$ is the temperature gradient and  $\hat{x}_{cell}$ is the relative coordinates of each cell.
 
 \begin{equation}
-\label{eq:LEM_Thermal_6}
+\label{eq:LEM_Thermal_5}
 q_{ave}=\frac{\sum_{b=1}^{b=N_C}q_{Cell}^b.\hat{x}_{Cell}}{V}
 \end{equation}
 
 \begin{equation}
-\label{eq:LEM_Thermal_7}
+\label{eq:LEM_Thermal_6}
 q_{ave}=K_{eff}.\dot{T}
 \end{equation}
 
