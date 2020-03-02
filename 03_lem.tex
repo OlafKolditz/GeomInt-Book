@@ -135,23 +135,26 @@ q_{ave}=K_{eff}.\dot{T}
 
 The thermal strain is calculated based on the linear expansion of the lattice elements and the given heat expansion coefficient. The implementation of the thermal expansion into the mechanical model results in a fully coupled thermo-mechanical model \cite{Sattarietal2019b}.
 
-
-%%%%% Corrected
-
 \subsubsection*{Hydro-mechanical lattice model} \label{Section:HMLattice}
 
-The existing hydro-mechanical lattice models are based on the assumption of the dual lattice network, where the mechanical lattice elements transfer the mechanical loads between the two nodes and the conduct elements perpendicular to the alignment of the mechanical elements transfer the fluid or gas flow between the conduct nodes \cite{Grassl2009, Grassletal2013}. The implemented hydro-mechanical lattice model is based on the mass conservation ($m$) of the fluids in the continuum. The hydraulic aperture ($a$), fluid viscosity ($\nu_f$), flow length ($L'$), hydraulic resistance ($R_a$), saturation degree ($Sr$), bulk modulus ($K_f$) are the main parameters used to determine the hydraulic pressures ($P$) and transferred fluid masses ($\Delta m$) between the conduct nodes. 
+The existing hydro-mechanical lattice models are based on the assumption of the dual lattice network, where the mechanical lattice elements transfer the mechanical loads between the two nodes and the conduct elements perpendicular to the alignment of the mechanical elements transfer the fluid or gas flow between the conduct nodes \cite{Grassl2009, Grassletal2013}. The implemented hydro-mechanical lattice model is based on the mass conservation ($m_f$) of the fluids in the continuum. The hydraulic aperture ($a_h$), fluid density ($\rho_f$),  fluid viscosity ($\nu_f$), flow length ($L_b^\prime$), hydraulic resistance ($R_h$), saturation degree ($Sr$) and bulk modulus ($K_f$) are the main parameters used to determine the hydraulic pressures ($P_f$) and transferred fluid masses ($\Delta m_f$) between the conduct nodes. 
 
-\begin{align}
+\begin{equation}
 \label{eq:LEM_Hydro_1}
-\begin{split}  
-m^{t+1}=m^t+\Delta m\\
-m^{t_0}={\rm Sr}^{t_0}V_{cavity}\rho_f\left(1+\frac{P^{t_0}}{K_f}\right)\\
-\Delta m_{ij}=f\left(Sr\right).\frac{P_j-P_i-\rho_fg\left(y_j-y_i\right)}{R_a}.\Delta t
-\end{split}
-\end{align} 
+m_f^{t+1}=m_f^t+\Delta m_f
+\end{equation}
 
-According to the finite-discrete element method (FDEM) \cite{Lisjaketal2017}, the fluid mass is stored within defined physical and artificial cavities. Each conduct node represents an artificial cavity connected through conductive elements (Figure \ref{fig:Amir_LEM_Hydro}), where the hydraulic conductivity is governed based on the parallel plate cubic flow rule. 
+\begin{equation}
+\label{eq:LEM_Hydro_2}
+m_f^{t=0}={\rm Sr}^{t=0}V_{cav}\rho_f\left(1+\frac{P_f^{t=0}}{K_f}\right)
+\end{equation}
+
+\begin{equation}
+\label{eq:LEM_Hydro_3}
+\Delta m_{f,ij}=f\left(Sr\right).\frac{P_{f,j}-P_{f,i}-\rho_fg\left(Z_j-Z_i\right)}{R_h}.\Delta t
+\end{equation}
+
+where, $Z$ is the relative coordinate of the $i,j$ conduct nodes, $V_{cav}$ is the volume of the cavity, $g$ is the gravity and $f(Sr)$ is the saturation function which is equal to 0 and 1 in a dry and saturated conditions, respectively. According to the finite-discrete element method (FDEM) \cite{Lisjaketal2017}, the fluid mass is stored within defined physical and artificial cavities. Each conduct node represents an artificial cavity connected through conductive elements (Figure \ref{fig:Amir_LEM_Hydro}), where the hydraulic conductivity is governed based on the parallel plate cubic flow rule. 
 
 \begin{figure}[!ht]
 \centering
@@ -160,30 +163,26 @@ According to the finite-discrete element method (FDEM) \cite{Lisjaketal2017}, th
 \label{fig:Amir_LEM_Hydro}
 \end{figure}
 
-\begin{align}
-\label{eq:LEM_Hydro_2}
-\begin{split}
-R_a = \frac{12\nu_f}{a^3} L'  
-= 12 \nu_f \int_{s_i}^{s_j} \frac{1}{a (s^3)} ds 
-= \frac{6 \nu_f (a_j+a_i)}{(a_i a_j)^2} L'
-\end{split}
-\end{align} 
+\begin{equation}
+\label{eq:LEM_Hydro_4}
+R_h = \frac{12\nu_f}{a_h^3} L_b^\prime = 12 \nu_f \int_{z_i}^{z_j} \frac{1}{a_h (z^3)}dz= \frac{6 \nu_f (a_{h,j}+a_{h,i})}{(a_{h,i} a_{h,j})^2} L_b^\prime
+\end{equation}
+
 
 When an artificial cavity is saturated, the amount of excessive fluid mass flowing inside the cavity builds the pore pressure, which then is transmitted into the mechanical nodes. If the cavity is not saturated, then the pore pressure is assumed to be zero. 
 
-\begin{align}
-\label{eq:LEM_Hydro_3}
-\begin{split}
-P^t=P^{t-1}+K_f\frac{\Delta m}{\rho_fV_{cavity}^t}\ \ \ \ \ \ \ \ \ \ \ if\ \ \ \ {\rm Sr}^t=1
-\end{split}
-\end{align} 
+\begin{equation}
+\label{eq:LEM_Hydro_5}
+P_f^t=P_f^{t-1}+K_f\frac{\Delta m_f}{\rho_fV_{cav}^t}\ \ \ \ \ \ \ \ \ \ \ if\ \ \ \ {\rm Sr}^t=1
+\end{equation}
 
-With the implementation of the pore pressures into the mechanical lattice nodes, the pore pressure diffusion and the change of the hydraulic conductivity with the crack opening and closure are measured. The flow simulation is accessible under both the pressure- or flowrate controlled boundary condition.
+
+With the implementation of the pore pressures into the mechanical lattice nodes, the pore pressure diffusion and the change of the hydraulic conductivity with the crack opening and closure are measured. The flow simulation is implemented under both the pressure- and flowrate controlled boundary conditions.
 
 
 \subsubsection*{Shrinkage and swelling lattice model} 
 
-The simulation of the shrinkage and swelling using the lattice element method is based on the particle shrinkage model \cite{Simaetal2013}, which is mainly considered in the discrete models. In contrast to the DEM, the shrinkage in LEM is implemented into the lattice elements (Figure \ref{fig:Amir_LEM_Shrinkage}). To do so, the interface elements to represent the bond between the particles are generated (\cite{Sattarietal2019b}). The shrinkage and swelling coefficients ($\alpha_s$) are temperature dependent. According to the initial water content ($\omega_0$) and the change of the water content ($\omega_f $) during the shrinkage and swelling process, the linear strain in the lattice elements is determined and implemented into the mechanical model. 
+The simulation of the shrinkage and swelling using the lattice element method is based on the particle shrinkage model \cite{Simaetal2013}, which is mainly considered in the discrete models. In contrast to the DEM, the shrinkage in LEM is implemented into the lattice elements (Figure \ref{fig:Amir_LEM_Shrinkage}). To do so, the interface elements to represent the bond between the particles are generated (\cite{Sattarietal2019b}). The shrinkage and swelling coefficients ($\alpha_s$) are temperature dependent. According to the initial water content ($\omega^{t=0}$) and the change of the water content during the shrinkage and swelling process, the linear strain in the lattice elements is determined and implemented into the mechanical model. 
 
 \begin{figure}[!ht]
 \centering
@@ -192,22 +191,22 @@ The simulation of the shrinkage and swelling using the lattice element method is
 \label{fig:Amir_LEM_Shrinkage}
 \end{figure}
 
-\begin{align}
+\begin{equation}
 \label{eq:LEM_Shrinkage_1}
-\begin{split}
-L_t=L_{t=0}e^{(-\alpha_s\frac{t}{T})}\\
-\alpha_s=-\frac{1}{3}\ln{(1-\frac{\omega_0-\omega_f}{1+e_0}}.G_s)
-\end{split}
-\end{align} 
+L_b^t=L_b^{t=0}e^{-\alpha_s.\frac{t}{t=\infty}}
+\end{equation}
 
-The shrinkage and swelling coefficient are time, temperature and depth dependent. Therefore, graphs representing the evaporation rate as well as the soil water characteristic curves to assess the applied suction and the water content during the wetting and drying paths are required \cite{Voetal2017}. 
-
-\begin{align}
+\begin{equation}
 \label{eq:LEM_Shrinkage_2}
-\begin{split}
-\bar{\bar{\sigma}}=C:\bar{\bar{\varepsilon}}-Sr.P\bar{\bar{\delta}}\\
-div\left(\frac{k}{\rho_fg}\nabla P\right)=C_M\frac{\partial P}{\partial t}+r
-\end{split}
-\end{align} 
+\alpha_s=-\frac{1}{3}\ln{(1-\frac{\omega^{t=0}-\omega^{t}}{1+e_0}}.G_s)
+\end{equation}
 
-The elements shrinkage and expansion results in the axial compression and tensile stresses in the lattice elements, which when exceeds their predefined strength threshold they are removed and the micro fracking process under shrinkage and swelling conditions is simulated.
+
+The shrinkage and swelling coefficient are time, temperature and depth dependent. Therefore, graphs representing the evaporation rate as well as the soil water characteristic curves to assess the applied suction and the water content during the wetting and drying paths are required \cite{Voetal2017}. $\bar{\bar{\sigma}}$ and $\bar{\bar{\varepsilon}}$ are the stress and strain tensors, respectively. 
+
+\begin{equation}
+\label{eq:LEM_Shrinkage_3}
+\bar{\bar{\sigma}}=C:\bar{\bar{\varepsilon}}-Sr.P_f\bar{\bar{\delta}}
+\end{equation}
+
+The elements shrinkage and expansion results in the axial compression and tensile stresses in the lattice elements, which when they exceed their predefined strength threshold are removed and the micro fracking process under shrinkage and swelling conditions is simulated.

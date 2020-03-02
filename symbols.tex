@@ -34,6 +34,8 @@ $\alpha_L$            & Longitudinal dispersion length               & $\unit[]{
 $\alpha_{Li}$          & Linear thermal expansion coefficient          & $\unit[]{K^{-1}}$	                 & \\
 \rowcolor{lightgray} % CAU Kiel
 $\alpha_{R}$          & Randomness factor                            & $\unit[]{-}$	                 & \\
+\rowcolor{lightgray} % CAU Kiel
+$\alpha_{s}$           & Shrinkage and swelling coefficient       & $\unit[]{-}$	                 & \\
 
 $\alpha_T$            & Transversal dispersion length                & $\unit[]{m}$                          & \\
 \rowcolor{lightgray} % CAU Kiel
@@ -60,6 +62,8 @@ $2\delta$             & Fault width                                  & $\unit[]{
 $\delta$              & Fracture aperture                            & $\unit[]{m}$ & \\
 $\Delta$              & Half of aspect ratio                         & $\unit[]{-}$                          & \\
 $\Delta h_i$ & Height change & $\unit[]{m}$ & \\
+\rowcolor{lightgray} % CAU Kiel
+$\Delta m$              & mass change                              & $\unit[]{kg}$                      & \\
 \rowcolor{lightgray} % CAU Kiel
 $\Delta T$              & Temperature change                         & $\unit[]{K}$                          & \\
 \rowcolor{lightgray} % CAU Kiel
@@ -130,6 +134,8 @@ $\mu_0$                 & Base dynamic viscosity                            & $\
 $\nu$                 & Poisson number	                             & $\unit[]{-}$							& \\
 \rowcolor{lightgray} % CAU Kiel
 $\nu_{Dyn}$          & Dynamic Poisson's ratio                       & $\unit[]{-}$                          & \\
+\rowcolor{lightgray} % CAU Kiel
+$\nu_{f}$          & Fluid dynamic viscosity                 & $\unit[]{m^2.s^{-1}}$                          & \\
 
 $\fourtens{{V}}_\mathrm{M}$     & Maxwell viscosity tensor                           & $\unit[]{Pa\cdot d}$                  & \\
 $\fourtens{{V}}_\mathrm{K}$     & Kelvin viscosity tensor                            & $\unit[]{Pa\cdot d}$                  & \\
@@ -141,6 +147,8 @@ $\fourtens{{V}}_\mathrm{K}$     & Kelvin viscosity tensor                       
 
 %------------------rho-----------------
 $\rho$                & Density                                      & $\unit[]{kg\cdot m^{-3}}$             & \\
+\rowcolor{lightgray} % CAU Kiel
+$\rho_{f}$          & Fluid density               & $\unit[]{kg.m^{-3}}$                          & \\
 \rowcolor{cyan!50}
 $\rho^{\mathfrak{f}R}$ & Effective fluid density                               & $\unit[]{kg \cdot m^{-3}}$            & \\
 $\varrho_\mrm{SR}$     & Real density of solid                        & $\unit[]{kg\cdot m^{-3}}$             & \\
@@ -201,7 +209,8 @@ $\psi_{total}$       & Total suction                                 & $\unit[]{
 %-------------------omega------------------
 $\omega$              & Intergranular thickness                      & $\unit[]{m}$                          & \\
 $\omega$              & Saturation index                             & $\unit[]{-}$                          & \\ 
-
+\rowcolor{lightgray} % CAU Kiel
+$\omega$          & Water content                 & $\unit[]{-}$                          & \\
 
 
 %
@@ -211,7 +220,8 @@ $a$                   & Specific surface area                       & $\unit[]{m
 $a$ & Grid constant & $\unit[]{m}$ & \\
 \rowcolor{lightgray} % CAU Kiel
 $a_{flex}$            & Flexural notch length                       & $\unit[]{m}$                           & \\
-
+\rowcolor{lightgray} % CAU Kiel
+$a_{h}$            & Hydraulic aperture                      & $\unit[]{m}$                           & \\
 $a^{\sigma}$          & Activity of stressed solid                  & $\unit[]{-}$ & \\
 $\dot{a}$             & Effective diameter of ion                   & $\unit[]{m}$ & \\
 $A$                   & Surface area                       & $\unit[]{m^2}$             & \\
@@ -225,7 +235,7 @@ $b_m$                 & Fracture mechanical aperture                & $\unit[]{m
 \rowcolor{lightgray} % CAU Kiel
 $B_{flex}$            & Flexural sample thickness                   & $\unit[]{m}$                           & \\
 \rowcolor{lightgray} % CAU Kiel
-$c$            & Specific heat capacity of a cell           & $\unit[]{J.K^-1}$                           & \\
+$c$            & Specific heat capacity of a cell           & $\unit[]{J.K^{-1}}$                           & \\
 $c$                   & Normalized concentration                    & $\unit[]{-}$                           & \\
 $c$                   & Concentration                               & $\unit[]{kg\cdot m^{-3}}$              & \\
 $c$                   & Cohesion                               & $\unit[]{-}$             & \\
@@ -261,6 +271,9 @@ $E_{Dyn}$             & Dynamic Young's modulus                     & $\unit[]{P
 $E_{flex}$            & Flexural Young's modulus                    & $\unit[]{Pa}$                         & \\
 $e$                   & Void ratio                                  & $\unit[]{-}$                          & \\
 \rowcolor{lightgray} % CAU Kiel
+$e_{0}$            & Initial void ratio                      & $\unit[]{-}$                           & \\
+
+\rowcolor{lightgray} % CAU Kiel
 $F_{b}$    &         Element forces                                & $\unit[]{N}$                          & \\
 \rowcolor{lightgray} % CAU Kiel
 $f_{flex}$            & Flexural force                              & $\unit[]{N}$                          & \\
@@ -292,12 +305,15 @@ $G_{Dyn}$             & Dynamic shear modulus                        & $\unit[]{
 $G_\mathrm{F}$        & Plastic potential                           & $\unit[]{J}$                          & \\
 $G_\mathrm{M}$        & Maxwell shear modulus                       & $\unit[]{-}$                          & \\
 $G_\mathrm{K}$        & Kelvin shear modulus                        & $\unit[]{-}$                          & \\
+\rowcolor{lightgray} % CAU Kiel
+$G_{s}$            & Specific gravity                      & $\unit[]{kg.m^{-3}}$                           & \\
+
 $H$                   & Fault height                     & $\unit[]{m}$                          & \\
 $H_{\text{PW}}$                   & Pipe water level                     & $\unit[]{m}$                          & \\
 $h$                   & Hardening parameter                          & $\unit[]{-}$                          & \\
 $h$ & Height of sample & $\unit[]{m}$ & \\
 \rowcolor{lightgray} % CAU Kiel
-$h_b$            & Thermal conductance                         & $\unit[]{W.K^-1}$                           & \\
+$h_b$            & Thermal conductance                         & $\unit[]{W.K^{-1}}$                           & \\
 $h_c$                   & Thickness of colmation layer                     & $\unit[]{m}$                          & \\
 $h_f$                 & Freshwater hydraulic head                   & $\unit[]{m}$                            & \\
 $h_s$                 & Saltwater hydraulic head                    & $\unit[]{m}$                            & \\
@@ -321,10 +337,12 @@ $\mathbf{K}$          & Intrinsic permeability                      & $\unit[]{m
 \rowcolor{cyan!50}
 $K^\mathfrak{f}$      & Fluid bulk modulus                          & $\unit[]{Pa}$                        & \\
 \rowcolor{lightgray} % CAU Kiel
-$k_b$            & Thermal conductivity                         & $\unit[]{W.K^-1.m^-1}$                           & \\
+$k_b$            & Thermal conductivity                         & $\unit[]{W.K^{-1}.m^{-1}}$                           & \\
 $k_c$                 & Swelling/recompression index                & $\unit[]{-}$                          & \\
 \rowcolor{lightgray} % CAU Kiel
-$K_{eff}$            & Effective thermal conductivity            & $\unit[]{W.K^-1.m^-1}$                           & \\
+$K_{eff}$            & Effective thermal conductivity            & $\unit[]{W.K^{-1}.m^{-1}}$                           & \\
+\rowcolor{lightgray} % CAU Kiel
+$K_{f}$            & Fluids bulk modulus                     & $\unit[]{Pa}$                           & \\
 $K_\mathrm{eq}$       & Equilibrium constant                        & $\unit[]{-}$                                      & \\
 $K_I$ & Fracture toughness & $\unit[]{Pa \cdot m^{0.5}}$ & \\
 \rowcolor{lightgray} % CAU Kiel
@@ -351,6 +369,9 @@ $L_b^\prime$    &    Element contact length                        & $\unit[]{m}
 \rowcolor{lightgray} % CAU Kiel
 $L_{cyl}$             & Length of cylindrical sample                & $\unit[]{m}$                         & \\
 %\hline
+\rowcolor{lightgray} % CAU Kiel
+$m_{f}$            & Fluids mass                & $\unit[]{kg}$                           & \\
+
 $M$                   & Kinetic coefficient               & $\unit[]{mm^2\cdot N^{-1}\cdot s^{-1}}$                          & \\
 $M$                   & Slope of critical state line               & $\unit[]{-}$                          & \\
 \rowcolor{lightgray} % CAU Kiel
@@ -385,6 +406,9 @@ $P$                   & Load                                       & $\unit[]{Pa
 $P_c$                 & Capillary pressure                         & $\unit[]{Pa}$ & \\
 \rowcolor{cyan!50}
 $P_\mathfrak{f}$      & Averaged fluid pressure                    & $\unit[]{Pa}$                         & \\
+\rowcolor{lightgray} % CAU Kiel
+$P_{f}$            & Fluids pressure                & $\unit[]{Pa}$                           & \\
+
 $p_s$                 & Mean stress                                & $\unit[]{Pa}$ & \\
 $p_{scn}$             & Isotropic pre-consolidation pressure $\quad$      & $\unit[]{Pa}$ & \\
 \rowcolor{lightgray} % CAU Kiel
@@ -399,7 +423,7 @@ $q$		                & Darcy velocity                             & $\unit[]{m\c
 $q_{lk}$              & Leak-off                                   & $\unit[]{Pa \cdot s^{-1}}$              & \\
 $\mathbf q$           & Darcy velocity vector                      & $\unit[]{m\cdot s^{-1}}$	             & \\
 \rowcolor{lightgray} % CAU Kiel
-$q_{ave}$               & Average Heat flux                        & $\unit[]{W.m^-2}$                           & \\
+$q_{ave}$               & Average Heat flux                        & $\unit[]{W.m^{-2}}$                           & \\
 \rowcolor{lightgray} % CAU Kiel
 $q_{b}$               & Heat flow                                  & $\unit[]{W}$                           & \\
 \rowcolor{lightgray} % CAU Kiel
@@ -409,11 +433,12 @@ $Q_{\text{leak}}$		                & Leakage flow                             & 
 $Q_{\omega}$          & source/sink term                             & $\unit[]{kg\cdot m^{-3}\cdot s{-1}}$  & \\
 $ q_\mathsf{T}$		                & Heat flux through unit area                             & $\unit[]{W \cdot m^{-2}}$	             & \\
 \rowcolor{lightgray} % CAU Kiel
-$\dot{q}$               &  Heat density                        & $\unit[]{W.kg^-1}$                           & \\
+$\dot{q}$               &  Heat density                        & $\unit[]{W.kg^{-1}}$                           & \\
 
 $R$                   & Universal gas constant                     & $\unit[8.31432]{J\cdot mol^{-1}\cdot K^{-1}}$       & \\
 $R_c$                 & Contact area ratio                         & $\unit[]{-}$                          & \\
-
+\rowcolor{lightgray} % CAU Kiel
+$R_{h}^b$         & Hydraulic resistance      & $\unit[]{s^{-1}}$                           & \\
 $\mathrm{Ra}$	& Rayleigh number & $\unit{-}$ \\
 $\mathrm{Ra}_\mathrm{crit}$	& Critical Rayleigh number & $\unit{-}$ \\
 \rowcolor{lightgray} % CAU Kiel
@@ -429,6 +454,8 @@ $S_e$                 & Effective saturation                       & $\unit[]{-}
 \rowcolor{lightgray} % CAU Kiel
 $S_{flex}$            & Flexural sample span                       & $\unit[]{m}$                         & \\
 $S_{max}$             & Maximum water saturation                   & $\unit[]{-}$                            & \\
+\rowcolor{lightgray} % CAU Kiel
+$Sr$         & Saturation degree      & $\unit[]{-}$                           & \\
 $S_r$                 & Residual saturation                        & $\unit[]{-}$ & \\
 $S_r$                 & Residual water saturation                  & $\unit[]{-}$ \\
 $SA$                  & Reactive surface area                      & $\unit[]{m^2}$                        & \\
@@ -442,7 +469,7 @@ $T_{iso}$             & Isotropic thermal loading                  & $\unit[]{K}
 $T_\mathrm{init}$                   & Initial temperature                      & $\unit[]{K}$                & \\
 $T_v$                   & Approximation temperature                      & $\unit[]{K}$                     & \\
 \rowcolor{lightgray} % CAU Kiel
-$\dot{T}$           &  Temperature gradient                    & $\unit[]{K.m^-1}$                           & \\
+$\dot{T}$           &  Temperature gradient                    & $\unit[]{K.m^{-1}}$                           & \\
 $u$	                  & Displacement                               & $\unit[]{m}$                          & \\
 \rowcolor{lightgray} % CAU Kiel
 $u_{b}$    &  Element displacement                                & $\unit[]{m}$                          & \\
@@ -470,6 +497,8 @@ $v$                   & Velocity                                   & $\unit[]{m 
 $V_{\mathbb{R}}$    &  Continuum volume                           & $\unit[]{m^3}$                          & \\
 
 $V$                   & Volume                                     & $\unit[]{m^3}$                        & \\
+\rowcolor{lightgray} % CAU Kiel
+$V_{cav}$         & Volume of the cavity      & $\unit[]{m^3}$                           & \\
 $V_m$                 & Molar volume                               & $\unit[]{m^3\cdot mol^{-1}}$ & \\
 \rowcolor{lightgray} % CAU Kiel
 $V_{mol}$             & Molecular volume                           & $\unit[]{m^3}$                        & \\
