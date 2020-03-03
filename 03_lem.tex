@@ -3,6 +3,7 @@
 The application of the lattice element in modeling the fracture initiation and propagation in the geomaterials is well established \cite{Liuetal2007, Pradoetal2003, Vanmieretal2002}. The main advantage of the LEM over other numerical methods is the ability to model the stress redistribution and concentration upon the fracking process. The application of the LEM is extended to model the heat transfer in cemented geomaterials \cite{Sattarietal2017} as well as non-cohesive granular particles \cite{Rizvietal2018b}. The thermo-mechanical lattice model based on the integration of the interface element is able to model the expansion and shrinkage processes during the heating and cooling cycles \cite{Sattarietal2019b}. The LEM is also implemented to model the foam concrete behavior under the dynamic loading \cite{Rizvietal2018a}. In the recent decade, the dual lattice model to simulate the coupled hydro-mechanical loadings in geomaterials is developed \cite{Grassl2009}. In these models, the dual mesh grid for the fluid transport is generated. The short description of the implemented coupled thermo-hydro-mechanical lattice method is given below.
 
 \subsubsection*{Discretization of the domain}
+\label{Section:DiscretizationLattice}
 
 The domain is discretized into a series of Voronoi cells to represent the individual particles or a continuum depending on the purpose of the investigation. With the application of the vectorized random lattice (VRL), the irregularity factor known as the randomness factor ($\alpha_{R}$), which varies between 0 and 1, is introduced \cite{Moukarzeletal1992}. When the randomness factor is 0, the generated mesh is regular and when it is equal to 1, it reaches the maximum irregularity for VRL model.  Afterward, the Voronoi Tessellation is implemented and polygonal cells are generated (see Figure \ref{fig:Amir_LEM_Domain_2D}, \ref{fig:Amir_LEM_Domain_3D}). The Delaunay Triangulation process results in the Voronoi cell connectivities, which are defined as the bond elements between two adjacent nodes. 
 
@@ -22,6 +23,7 @@ The domain is discretized into a series of Voronoi cells to represent the indivi
 \end{figure}
 
 \subsubsection*{Mechanical lattice model}
+\label{Section:MechanicalLattice}
 
 The mechanical lattice model is based on the assumption of the Mode I and II linear elastic fracture mechanics. The simulation of the fracture in LEM is based on the removal of the bond elements between the neighboring Voronoi cells \cite{Rizvietal2019a}. The elements strength threshold is defined based on the critical strain energy or the fracture toughness for Mode I and II. In a different approach, the strength threshold is defined based on the Mohr-Coulombs tension cutoff model \cite{Bolanderetal1998}. The lattice elements are represented by series of spring (1DOF),  Euler-Bernoulli beam (3DOF)(Figure \ref{fig:Amir_LEM_Beam}) or Timoshenko beam elements (4DOF). The regularization of the regular lattice model, such as a triangular or square discretization technique, is carried out and a relationship between the continuum and element properties is presented \cite{Ostojastarzewski2002, Karihalooetal2003}. This regularization assumes that the stored strain energy of a continuum, $U_{\mathbb{R}}$, is equal to the stored strain energies in each individual Voronoi cells, $U_{Cell}$. The strain energy stored in a unit cell depends on the total number of each cells bond elements ($N_b$), the elements response forces ($F_b$) and the response displacements ($u_b$). For a continuum, the stored energy depends on the continuum stresses ($\sigma_{\mathbb{R}}$) and continuum strains ($\varepsilon_{\mathbb{R}}$) throughout the continuum volume ($V_{\mathbb{R}}$).
 
@@ -85,6 +87,7 @@ E_b=\frac{f_p}{\varepsilon_f-\varepsilon_p}\left(\frac{\varepsilon_f}{\varepsilo
 \end{equation}
 
 \subsubsection*{Thermo-mechanical lattice model}
+\label{Section:ThermalLattice}
 
 The thermo-mechanical lattice model is based on the weak coupling scheme between the thermal and mechanical models, which decreases the computational costs. The thermal lattice model is based on the discrete thermal lattice model (TDEM) \cite{Zhangetal2011, Fengetal2008}, where the Hertzian contact model is implemented to account for the heat conductance ($h_b$) between the particles. The axial compression force increment ($f_x$) results in higher thermal conductance between the particles, which eventually leads in a higher effective thermal conductivity ($K_{eff}$). The regularization of the thermal lattice model is based on the relationship between the heat conductivity of elements and the continuum \cite{Rizvietal2018b}. The $h_b$ depends on the contact length ($L_b^\prime$) (or area in 3D domain), contact forces and assigned elements thermal conductivities ($k_{b}$).
 
@@ -181,6 +184,7 @@ With the implementation of the pore pressures into the mechanical lattice nodes,
 
 
 \subsubsection*{Shrinkage and swelling lattice model} 
+\label{Section:ShrinkageLattice}
 
 The simulation of the shrinkage and swelling using the lattice element method is based on the particle shrinkage model \cite{Simaetal2013}, which is mainly considered in the discrete models. In contrast to the DEM, the shrinkage in LEM is implemented into the lattice elements (Figure \ref{fig:Amir_LEM_Shrinkage}). To do so, the interface elements to represent the bond between the particles are generated (\cite{Sattarietal2019b}). The shrinkage and swelling coefficients ($\alpha_s$) are temperature dependent. According to the initial water content ($\omega^{t=0}$) and the change of the water content during the shrinkage and swelling process, the linear strain in the lattice elements is determined and implemented into the mechanical model. 
 

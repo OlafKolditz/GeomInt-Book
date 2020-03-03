@@ -56,7 +56,15 @@ The serve as the center coordinates of the Voronois. After 10$^5$ insertion atte
 
 \subsubsection*{Lattice-Element-Model (LEM)}
 
-The lattice element method (LEM) with the refined mesh is implemented to model the three-point bending test according to the experimental data given in Table \ref{table:ME1_TPB_experiment}. The regularization of the parameters is carried out to assure the mesh independence results. The total number of the elements is around 500,000 elements, where the distance between the two nodes in the refined boundary is 1.2mm, granting the experimental notch width. The considered Young Modulus is 35GPa to match the experimental linear elastic response.
+The lattice element method (LEM) with the refined mesh is implemented to model the three-point bending test according to the experimental data given in Table \ref{table:ME1_TPB_experiment}. The regularization of the parameters is carried out to assure the mesh independence results (Section \ref{Section:MechanicalLattice}). The total number of the elements is around 500,000 elements, where the distance between the two nodes in the refined boundary is 1.2mm, granting the experimental notch width (Figure \ref{fig:Amir_ME1_LEM_Setup}). The considered Young Modulus is 35GPa to match the experimental linear elastic response.
+
+\begin{figure}[!ht]
+\centering
+\includegraphics[width=11cm,height=5cm]{figures/Amir_ME1_LEM_Setup.png}
+\caption{The lattice setup for the simulation of the fracture toughness}
+\label{fig:Amir_ME1_LEM_Setup}
+\end{figure}
+
 
 \subsubsection*{Finite-Element-Model: Variational Phase-Field (VPF)}
 
@@ -118,12 +126,12 @@ The crack does not extend quite as far as in the VPF method, but the absolute ex
 \label{fig:ME1-xdis-dem}
 \end{figure}
 
-After modeling the crack mouth opening displacement (CMOD) under applied bending load using LEM, the horizontal displacement of the nodes are shown in Figure \ref{fig:Amir_ME1_LEM_Displacement_Crystalline}. The developed crack pattern is visible in mid section of the simulation, where the neighboring nodes are moving in the opposite directions. 
+After modeling the crack mouth opening displacement (CMOD) under applied bending load using LEM, the horizontal displacement of the nodes are shown in Figure \ref{fig:Amir_ME1_LEM_Displacement_Crystalline}. The developed crack pattern is visible in mid-section of the simulation, where the neighboring nodes on crack tip are moving in the opposite directions. 
 
 \begin{figure}[!ht]
 \centering
 \includegraphics[width=1\textwidth]{figures/Amir_ME1_LEM_Displacement_Crystalline.png}
-\caption{The node displacements in X-axis with the applied bending load during the fracking process}
+\caption{The node displacements in X-axis during the fracking process under the applied bending load}
 \label{fig:Amir_ME1_LEM_Displacement_Crystalline}
 \end{figure}
 
