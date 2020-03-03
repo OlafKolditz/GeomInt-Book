@@ -71,6 +71,8 @@ $\Delta V$              & Volume change                              & $\unit[]{
 
 %------------------epsilon-----------------
 $\boldsymbol\epsilon$ & Strain tensor                                & $\unit[]{-}$                          & \\
+$\mbfs{\epsilon}_\mrm{el}$ & Elastic train tensor                                & $\unit[]{-}$                          & \\
+$\mbfs{\epsilon}_\mrm{pl}$ & Plastic train tensor                                & $\unit[]{-}$                          & \\
 $\dot{\epsilon}$      & Strain rate                                  & $\unit[]{s^{-1}}$                     & \\
 $\epsilon$            & Length scale                    & $\unit[]{m}$                          & \\
 $\epsilon$            & Isotope enrichment factor                    & $\unit[]{-}$                          & \\
@@ -114,6 +116,7 @@ $\kappa_{i,j}$       & Curvature strain                           & $\unit[]{-}$
 %------------------lambda------------------
 $\lambda_c$           & Virgin compression index                     & $\unit[]{-}$                          & \\
 $\lambda$             & Lam$\acute{e}$ coefficients                  & $\unit[]{GPa}$                        & \\
+$\lambda$             & Plastic multiplier                & $\unit[]{-}$                        & \\
 $\lambda_p$           & Hardening parameter                          & $\unit[]{-}$                          & \\
 $\lambda$             & Thermal conductivity                         & $\unit[]{W\cdot m^{-1}\,K^{-1}}$          & \\
 $\lambda_\mathsf{arith}$             & Arithmetic effective thermal conductivity                         & $\unit[]{W\cdot m^{-1}\,K^{-1}}$          & \\
@@ -203,7 +206,8 @@ $\chi$		            & Bishop coefficient
 & $\unit[]{-}$								           & \\
 
 %--------------psi---------------------
-$\psi$                & Dilatancy angle                             & $\unit[]{deg}$                         & \\
+$\psi$                & Dilatancy angle                             & $\unit[]{deg}$  & \\   
+$\psi$                & Strain energy density                   & $\unit[]{J\cdot m^{-3}}$    & \\
 \rowcolor{lightgray} % CAU Kiel
 $\psi_{total}$       & Total suction                                 & $\unit[]{Pa}$                         & \\
 %-------------------omega------------------
@@ -230,6 +234,8 @@ $A_0$ & Active surface area, Grasselli & $\unit[]{-}$ & \\
 $A_{b}$            & Area of element                       & $\unit[]{m^2}$                           & \\
 
 $\mbf{b}$                 & Body force vector                 & $\unit[]{N}$ & \\
+$b$                 & Fracture aperture                 & $\unit[]{m}$ & \\
+$b_0$                 & Initial fracture aperture                 & $\unit[]{m}$ & \\
 $b_h$                 & Fracture hydraulic aperture                 & $\unit[]{m}$ & \\
 $b_m$                 & Fracture mechanical aperture                & $\unit[]{m}$ & \\
 \rowcolor{lightgray} % CAU Kiel
@@ -298,8 +304,8 @@ $G$                   & Gibbs energy                                & $\unit[]{J
 $G$                   & Gibbs energy                                & $\unit[]{J\cdot mol^{-1}}$            & \\
 $G$                   & Shear modulus                                & $\unit[]{Pa}$                        & \\
 \rowcolor{lightgray} % CAU Kiel
-$G_{b}$    &         Element shear modulus                         & $\unit[]{pa}$                          & \\
-
+$G_{b}$    &         Element shear modulus                         & $\unit[]{Pa}$                          & \\
+$G_{c}$    &         Fracture toughness                         & $\unit[]{Pa \cdot m}$                          & \\
 \rowcolor{lightgray} % CAU Kiel
 $G_{Dyn}$             & Dynamic shear modulus                        & $\unit[]{Pa}$                         & \\
 $G_\mathrm{F}$        & Plastic potential                           & $\unit[]{J}$                          & \\
@@ -361,7 +367,8 @@ $k^\mathfrak{s}_{Fr}$ & Local fracture permeability                 & $\unit[]{m
 $k^\mathfrak{s}_{Fr, t}$ & Local transversal fracture permeability   & $\unit[]{m^2}$                        & \\
 $k^+$                 & Dissolution rate constant                   & $\unit[]{mol\cdot m^-2\cdot s^{-1}}$  & \\
 $k^{\circ{}}$         & Reaction rate constant                      & $\unit[]{mol\cdot m^-2\cdot s^{-1}}$  & \\
-
+$\ell$    &         Regularization length                               & $\unit[]{m}$                          & \\
+$\ell_c$    &         Internal length of continuum                              & $\unit[]{m}$                          & \\
 \rowcolor{lightgray} % CAU Kiel
 $L_{b}$    &         Element length                               & $\unit[]{m}$                          & \\
 \rowcolor{lightgray} % CAU Kiel
@@ -460,6 +467,8 @@ $S_r$                 & Residual saturation                        & $\unit[]{-}
 $S_r$                 & Residual water saturation                  & $\unit[]{-}$ \\
 $SA$                  & Reactive surface area                      & $\unit[]{m^2}$                        & \\
 $t$                   & Time                                       & $\unit[]{s}$                          & \\
+$\mathbf{t}$                   & Traction force vector                                       & $\unit[]{N}$                          & \\
+$\mathbf{t}_c$                   & Traction force vector at interface                                       & $\unit[]{N}$                          & \\
 $T$                   & Temperature                                & $\unit[]{K}$                          & \\
 $T$                   & Absolute temperature                       & $\unit[]{K}$                          & \\
 $T_c$                   & Top temperature (cold)                      & $\unit[]{K}$                          & \\

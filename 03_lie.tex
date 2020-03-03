@@ -20,7 +20,7 @@ where $\delta \mbf{u}$ is the first variation of the displacement field (virtual
 While the matrix material behaves according to linear elasticity and is assumed to be impermeable in the current study, the crack will be fluid saturated and follows an effective stress-type formulation:
 \index{effective stress}
 \begin{equation}
-\mbf{t}_\mrm{c} = \mbf{t}'_\mrm{c} - p_\mrm{f} \mbf{n}_\Gamma,
+\mbf{t}_\mrm{c} = \mbf{t}'_\mrm{c} - p \mbf{n}_\Gamma,
 \label{eq:effective_LIE}
 \end{equation}
 where the fluid pressure in the fault only acts on the normal traction across the fault, not its shear components. For the effective stress, a cohesive-zone law has been implemented based on the following assumptions:
@@ -85,7 +85,7 @@ In case of $d^{t+\Delta t} > d^t$ within the employed incremental-iterative solu
 
 Since the matrix was considered impermeable, a fluid pressure was only required in the cracked domain. For that purpose, equation~\eqref{eq:effective_LIE} was modified to read:
 \begin{equation}
- 	\mbf{t}_\mrm{c} = \mbf{t}'_\mrm{c} - d p_\mrm{f} \mbf{n}_\Gamma
+ 	\mbf{t}_\mrm{c} = \mbf{t}'_\mrm{c} - d p \mbf{n}_\Gamma
  	\label{eq:effective_LIE_damage}
 \end{equation}
 
