@@ -15,16 +15,116 @@
 
 Constant normal stiffness (CNS) direct shear tests follow the same basic principles like CNL tests (\ref{sec:mex07}). Additionally to the initial normal load an extra load is added when the rock joint opens. This situation is comparable to a rock joint in the underground where surrounding rock masses have to be deformed to open a joint. This deformation causes the extra loads. In \ref{fig:MEX8_CNS} the stiffness term is represented as a spring with a constant stiffness. The difficulty is how to estimate this stiffness. If the focused joint is surrounded by intact rock material it will be higher than for a jointed, weathered surrounding. A CNL test is a CNS test for which the stiffness is zero. This situation marks the lower boundary of the stiffness and is a valid boundary condition for rock joints close to the surface. The upper boundary of the stiffness is the stiffness of the intact rock. The real situation will be somewhere in between this extreme cases.\\
 The expected result is that for higher stiffness values the shear forces increase due to the increasing normal load when the joints starts to open.\\
-The input data for this model exercise are similar to the data for the CNL test. Basic rock parameters for the basalt sample [table], the surface scan data [also for CNL: How to provide this - external download link?] and the boundary conditions of the lab investigations. The aim is to use this input to make good back calculations of the lab data. A good modelling approach for CNS tests can also used for CNL tests by simply setting the stiffness as zero.
+The input data for this model exercise are explained in \ref{DataManMex3-2CNS}. The aim is to use this input to make good back calculations of the lab data. A good modelling approach for CNS tests can also used for CNL tests by simply setting the stiffness as zero.
 
 
 %------------------------------------------------------------------------------
 \subsection{Model approach}
 %------------------------------------------------------------------------------
-Additionally to the model approach for CNL tests an estimation of the dilation is needed. The normal stress has to be updated once the dilation is known.\\
+The model approach basically follows the approach of the CNL test, see \ref{sec:mex07}.\\
+Additionally an estimation of the dilation is needed. The normal stress has to be updated once the dilation is known. The dilatation is modeled using a geometric approach where the dip angle of the worn surface is used as inclination angle.
 
 %------------------------------------------------------------------------------
 \subsection{Results and discussion}
 %------------------------------------------------------------------------------
-
 \todo[inline]{[TUBAF] Please complete section}
+The results show that in the lab testings an entire edge was destructed, see Fig. \ref{fig:MEX3-2_AbrasionPic}. Thus the simulation was done with 2 different scenarios: One with the original geometry and one with an adapted geometry where this edge was manually removed. The orientation of the edge in the left upper or right bottom corner is a result of different definitions using matrices and the plotting as surface or image.\\
+\begin{figure}[!ht]
+\begin{center}
+\includegraphics[width=0.5\textwidth]{./figures/MEX3-2_AbrasionPicVsSim.PNG}
+\end{center}
+\caption{}
+\label{fig:MEX3-2_AbrasionPic}
+\end{figure}
+
+
+Figure \ref{fig:MEX3-2_AbrasionPic} shows a visual comparison between the abrasion visible from the rock surface and the location of damage from the simulation. It can be concluded, that the used FFS approach (\ref{chap:NumPlatf:FFS}) is able to roughly locate the occurrence of abrasion.\\
+
+\begin{figure}[!ht]
+\begin{center}
+\includegraphics[width=0.5\textwidth]{./figures/MEX3-2_AbrasionDiffStiffness.PNG}
+\end{center}
+\caption{}
+\label{fig:MEX3-2_AbrasionStiffness}
+\end{figure}
+
+In Fig. \ref{fig:MEX3-2_AbrasionStiffness} a comparison between the simulated abrasion for different stiffness values during the CNS test series can be seen. As expected the area of damage increases with increasing stiffness. This result acts as a verification of the code.\\
+
+
+\begin{figure}
+\begin{subfigure}[c]{0.5\textwidth}
+\includegraphics[width=0.99\textwidth]{./figures/MEX3-2_SurfaceOrig.png}
+\subcaption{Original geometry}
+%\label{fig:}
+\end{subfigure}
+\begin{subfigure}[c]{0.5\textwidth}
+\includegraphics[width=0.99\textwidth]{./figures/MEX3-2_SurfaceWithout.png}
+\subcaption{Adapted geometry}
+%\label{fig:}
+\end{subfigure}
+\caption{The used geometries for the CNS test.}
+\label{fig:MEX3-2_Surface}
+\end{figure}
+
+In Fig. \ref{fig:MEX3-2_Surface} the used geometries for the the original morphology and the adapted one with the destructed edge can be seen.
+
+\begin{figure}
+\begin{subfigure}[c]{0.5\textwidth}
+\includegraphics[width=0.99\textwidth]{./figures/MEX3-2_025ShearCurveOrig.png}
+\subcaption{Original geometry}
+%\label{fig:}
+\end{subfigure}
+\begin{subfigure}[c]{0.5\textwidth}
+\includegraphics[width=0.99\textwidth]{./figures/MEX3-2_025ShearCurveWithout.png}
+\subcaption{Adapted geometry}
+%\label{fig:}
+\end{subfigure}
+\caption{Shear curves for $K_n=0.25\,\unit{MPa}$}
+\label{fig:MEX3_2_025ShearCurve}
+\end{figure}
+
+\begin{figure}
+\begin{subfigure}[c]{0.5\textwidth}
+\includegraphics[width=0.99\textwidth]{./figures/MEX3-2_025DilationOrig.png}
+\subcaption{Original geometry}
+%\label{fig:}
+\end{subfigure}
+\begin{subfigure}[c]{0.5\textwidth}
+\includegraphics[width=0.99\textwidth]{./figures/MEX3-2_025DilationWithout.png}
+\subcaption{Adapted geometry}
+%\label{fig:}
+\end{subfigure}
+\caption{Dilatation curves for $K_n=0.25\,\unit{MPa}$}
+\label{fig:MEX3-2_025Dilation}
+\end{figure}
+
+\begin{figure}
+\begin{subfigure}[c]{0.5\textwidth}
+\includegraphics[width=0.99\textwidth]{./figures/MEX3-2_2ShearCurveOrig.png}
+\subcaption{Original geometry}
+%\label{fig:}
+\end{subfigure}
+\begin{subfigure}[c]{0.5\textwidth}
+\includegraphics[width=0.99\textwidth]{./figures/MEX3-2_2ShearCurveWithout.png}
+\subcaption{Adapted geometry}
+%\label{fig:}
+\end{subfigure}
+\caption{Shear curves for $K_n=2.0\,\unit{MPa}$}
+\label{fig:MEX3_2_2ShearCurve}
+\end{figure}
+
+\begin{figure}
+\begin{subfigure}[c]{0.5\textwidth}
+\includegraphics[width=0.99\textwidth]{./figures/MEX3-2_2DilationOrig.png}
+\subcaption{Original geometry}
+%\label{fig:}
+\end{subfigure}
+\begin{subfigure}[c]{0.5\textwidth}
+\includegraphics[width=0.99\textwidth]{./figures/MEX3-2_2DilationWithout.png}
+\subcaption{Adapted geometry}
+%\label{fig:}
+\end{subfigure}
+\caption{Dilatation curves for $K_n=2.0\,\unit{MPa}$}
+\label{fig:MEX3-2_2Dilation}
+\end{figure}
+
