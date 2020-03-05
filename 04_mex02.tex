@@ -1,13 +1,13 @@
 \section{Model Exercise 2-1a (02): Fluid driven percolation in salt}
 \label{sec:mex02}
 %------------------------------------------------------------------------------
-\Authors{Amir Sattari, Matthias Nest, Keita Yoshioka et al.}
+\Authors{Amir Sattari, Mathias Nest, Keita Yoshioka et al.}
 %------------------------------------------------------------------------------
 Model Exercise 2 (ME 2) investigates the fluid driven percolation (hydraulic fracking) in salt and clay stone samples under anisotropic confining stresses. The pressurized oil is injected through the pre-drilled cavity until the sudden pressure drop or increase in flow rate is observed. The main goal of this test is to determine the stress dependent fracking path and the required fracking pressure which should be higher than the minimum principle stress applied to the system. For the simulation of the fluid driven percolation, the continuum and discreet methods are considered.
 %------------------------------------------------------------------------------
 \subsection{Experimental set-up}
 %------------------------------------------------------------------------------
-The experimental tests on saltstone samples have been conducted at TU Freiberg \cite{Kamlot2009}. The cubic samples with a side length dimension of 100 §mm§ are prepared and placed in the true tri-axial apparatus \ref{fig:Amir_ME2_Saltstone_Setup}. The cubic samples are prepared with a drilled cavity length and diameter of 40 and 16 $mm$, respectively. The pressurized fluid is injected through a tubing from upper boundary and the fracking and change of flow rate is tracked. The applied two anisotropic stress configurations and the fracking paths are shown in  Figure \ref{fig:Amir_ME2_stress_state_a} and \ref{fig:Amir_ME2_stress_state_b}. The figure \ref{fig:Amir_ME2_Pressure_Time_a} and \ref{fig:Amir_ME2_Pressure_Time_b} depict the change of pressure inside of the borehole with time under the constant flow rate sequels.
+The experimental tests on rock salt samples have been conducted at the IfG Leipzig \cite{Kamlot2009}. The cubic samples with a side length dimension of 100 $mm$ are prepared and placed in the true tri-axial apparatus \ref{fig:Amir_ME2_Saltstone_Setup}. The cubic samples are prepared with a drilled cavity with a length of 40 $mm$ and a diameter of 16 $mm$. The pressurized fluid is injected through a tubing from the top and the fracking and change of flow rate is tracked. The applied two anisotropic stress configurations and the fracking paths are shown in  Figure \ref{fig:Amir_ME2_stress_state_a} and \ref{fig:Amir_ME2_stress_state_b}. The figure \ref{fig:Amir_ME2_Pressure_Time_a} and \ref{fig:Amir_ME2_Pressure_Time_b} depict the change of pressure inside of the borehole with time under the constant flow rate sequels.
 
 \begin{figure}[!ht]
 \centering
@@ -51,7 +51,7 @@ The experimental tests on saltstone samples have been conducted at TU Freiberg \
 Different numerical methods (DEM, LEM, PFM) are implemented to investigate the applicability of each model to simulate the fracking path, fracking pressure and flow rate changes in the saltstone samples. Below, the description of each model and the discussion of the results are provided. The stress dependent fracking path due to anisotropic stress configurations are captured by both continuum and discrete models. 
 %------------------------------------------------------------------------------
 \subsubsection*{Discrete-Element-Model (DEM)}
-Figure \ref{fig:ME2_DEM_model_setup} shows the elements and interfaces/grain boundaries used for DEM simulation of the modeling exercise 2. For both of the stress states, the identical elements and interfaces were used. Simulation results from the first stress configuration are shown in \ref{fig:ME2_DEM_stress1_result}.
+Figure \ref{fig:ME2_DEM_model_setup} shows the elements and interfaces/grain boundaries used for the DEM simulation of this modeling exercise. For both of the stress states, the identical elements and interfaces were used. Simulation results from the first stress configuration are shown in Fig. \ref{fig:ME2_DEM_stress1_result}.
 
 \begin{figure}[!ht]
 \centering
