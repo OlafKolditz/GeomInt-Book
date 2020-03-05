@@ -160,6 +160,17 @@ The uploaded protected MATLAB file in a *.p format requires a MATLAB version wit
 
 
 \subsection*{UFZ}
+The source code can be found in OpenGeoSys project on github and  the input files for the three point bending test performed on the Rockville Granite samples have been uploaded.
+The files include the unstructured finite element mesh files in vtu format and an OGS input file in xml format.
+As homogeneous properties such as Youngu's modulus are assigned int the computational domain, the spatially constant material properties are specified in the OGS input file rather than in the mesh file.
+The load and crack mouth opening displacment computed from the simulations are shown in~\ref{fig:Keita_ME1_VPF_Rockville} as described in section \ref {sec:mex01}.
+
+\begin{figure}[!ht]
+\centering
+\includegraphics[width=0.75\textwidth]{figures/VPF_ME1_NF_CMOD.png}
+\caption{The load vs. CMOD from the VPF simulation results}
+\label{fig:Keita_ME1_VPF_Rockville}
+\end{figure}
 
 \subsection*{ifg}
 
@@ -273,9 +284,16 @@ The input files for OGS, which were used to simulate the three point bending tes
 The files include the unstructured finite element mesh files in vtu format and OGS input files in xml format.
 Also in the mesh files, the material properties are defined per element. 
 Particularly for the orthogonal and the parallel Lamentations in the samples are represented through a contrast in the fracture toughness in the samples and can be found in the mesh files.
-The load and crack mouth opening displacment computed from the simulations are shown in
-in section \ref {sec:mex01b}.
+The load and crack mouth opening displacment computed from the simulations are shown in~\ref{fig:Keita_ME1_VPF_Claystone} as described in section \ref {sec:mex01b}.
 \subsection{MEX 1-1a:}
+
+
+\begin{figure}[!ht]
+\centering
+\includegraphics[width=0.75\textwidth]{figures/VPF_ME1_ex_NF_CMOD.png}
+\caption{The load vs. crack mouth opening displacement (CMOD) response simulations for orhtogonal and parallel lamination by VPF.}
+\label{fig:Keita_ME1_VPF_Claystone}
+\end{figure}
 
 Data management for MEX 1-1a (see \ref{sec:mex05}).
 \todo[inline]{[CAU et al.]: Please add data management info for MEX 1-1a}
@@ -313,6 +331,13 @@ Access permissions &  \\
 Data management for MEX 1-1b (see \ref{sec:mex05}).
 \todo[inline]{[CAU et al.]: Please add data management info for MEX 1-1b}
 
+\subsection*{CAU Kiel}
+The required LEM code and the input variables for simulating the swelling process of the sandy Opalinus claystone are uploaded to the IfG (Kiel) NextCloud server. The data is accessible through the following link:\\
+\hyperlink{https://nextcloud.ifg.uni-kiel.de/index.php/s/JmZseQqrsbgWNqC}{https://nextcloud.ifg.uni-kiel.de/index.php/s/JmZseQqrsbgWNqC}\\
+
+The uploaded protected MATLAB file in a *.p format requires a MATLAB version with a built-in Voronoi Tessellation and Delaunay Triangulation functions.
+
+
 \begin{table}[h!]
 \caption{MEX 1-1b: Meta Data according to Dublin Core}
 \label{tab:}
@@ -345,17 +370,28 @@ Access permissions &  \\
 
 Data management for MEX 1-2 (see \ref{sec:mex06}).
 
-The experimental results of the shrinkage and swelling of the Opalinus Claystone are uploaded to the IfG (Kiel) NextCloud server. The data is accessible through the following link:\\
+
+\subsection*{CAU Kiel}
+
+The experimental results of the drying and wetting paths of the sandy Opalinus claystone are uploaded to the IfG (Kiel) NextCloud server. The data is accessible through the following link:\\
 \hyperlink{https://nextcloud.ifg.uni-kiel.de/index.php/s/q6g25nWyWJKqzNB}{https://nextcloud.ifg.uni-kiel.de/index.php/s/q6g25nWyWJKqzNB}\\
 
-The results obtained from the manual reading of the data are prepared in the *.xlsx Format. The data set includes the reading time, the axial strain of the parallel strain gauge, the axial strain of the perpendicular strain gauge, considered salt solution, corresponding suction value and the water content of the sample during the drying and wetting paths. Figure \ref{fig:Amir_Shrinkage_Strain_Data} depicts the plotted suction vs. axial strains of the claystone sample during the wetting and drying paths (section \ref{sec:Shrinkage_Swelling_Exp} and \ref{sec:mex06}).
+The experimental data (*.xlsx) of drying and wetting paths are uploaded to the server. The data includes the reading number, time (day), stain values in perpendicular and parallel orientations, weight of the sample and measured water content values. Figure \ref{fig:Amir_ME6_Strain_Data} shows the change of the strains under the applied suction values.
 
-%\begin{figure}[!ht]
-%\centering
-%\includegraphics[width=0.5\textwidth]{figures/Amir_Shrinkage_Strain_Data.png}
-%\caption{The relation between the applied suction and the resultant axial strains}
-%\label{fig:Amir_Shrinkage_Strain_Data}
-%\end{figure}
+
+\begin{figure}[!ht]
+\centering
+\includegraphics[width=0.75\textwidth]{figures/Amir_ME6_Strain_Data.png}
+\caption{The suction vs. linear strains}
+\label{fig:Amir_ME6_Strain_Data}
+\end{figure}
+
+
+The required LEM code and the input variables for simulating the drying and wetting paths of the sandy Opalinus claystone are uploaded to the IfG (Kiel) NextCloud server. The data is accessible through the following link:\\
+\hyperlink{https://nextcloud.ifg.uni-kiel.de/index.php/s/fDNoPoXpXMqeAsK}{https://nextcloud.ifg.uni-kiel.de/index.php/s/fDNoPoXpXMqeAsK}\\
+
+The uploaded protected MATLAB file in a *.p format requires a MATLAB version with a built-in Voronoi Tessellation and Delaunay Triangulation functions.
+
 
 \begin{table}[h!]
 \caption{MEX 1-2: Meta Data according to Dublin Core}
@@ -502,16 +538,6 @@ The required LEM code and the input variables of the percolation test on Opalinu
 
 The uploaded protected MATLAB file in a *.p format requires a MATLAB version with a built-in Voronoi Tessellation and Delaunay Triangulation functions. The input variables are prepared in two files for two different stress configurations.
 
-%Figure \ref{fig:fig:Amir_ME2_LEM_a_model_Frack_Data} shows the relation between the load vs. CMOD as described in section \ref {sec:mex01}.
-
-%\begin{figure}[!ht]
-%\centering
-%\includegraphics[width=0.75\textwidth]{figures/Amir_ME2_LEM_a%_model_Frack_Data.png}
-%\caption{The fracking surfaces shown in red}
-%\label{fig:Amir_ME2_LEM_a_model_Frack_Data}
-%\end{figure}
-
-
 
 \begin{table}[h!]
 \caption{MEX 2-1b: Meta Data according to Dublin Core}
@@ -540,10 +566,6 @@ Access permissions &  \\
 \hline
 \end{tabular}
 \end{table}
-
-
-
-
 
 
 \subsection{MEX 2-2: Closure and healing of cracks}
