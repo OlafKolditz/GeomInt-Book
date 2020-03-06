@@ -5,9 +5,9 @@
 %------------------------------------------------------------------------------
 \subsection{Experimental set-up}
 %------------------------------------------------------------------------------
-Model Exercise 1 (ME 1) is concerned with fracture propagation by external loads (i.e. without internal hydraulic force). Experimental data are taken from Three Point Bending (TPB) tests conducted on Rockville Granite samples (cite Tarokh). TPB experiments are performed by applying a load on the top of the samples and the load is adjusted by keeping the rate of the Crack Mouth Opening Displacement (CMOD) fixed at 0.05 $\mu$m/s.
+Model Exercise 1 (ME 1) is concerned with fracture propagation by external loads (i.e. without internal hydraulic force). Experimental data are taken from Three Point Bending (TPB) tests conducted on Rockville Granite samples \cite{Tarokh2016161}. TPB experiments are performed by applying a load on the top of the samples and the load is adjusted by keeping the rate of the Crack Mouth Opening Displacement (CMOD) fixed at 0.05 $\mu$m/s.
 The schematic of TPB is shown in Figure \ref{fig:ME1_TPB_experiment}.
-\todo[inline]{[UFZ](KY) Please add Tarokh reference}
+
 \begin{figure}[!ht]
 \centering
 \includegraphics[width=1\textwidth]{figures/TPB_exp.png}
@@ -43,7 +43,7 @@ The experimental force-displacement results from cite Tarokh for two samples are
 %------------------------------------------------------------------------------
 \subsubsection*{Discrete-Element-Model (DEM)}
 
-Two models were set up to represent granite samples with different grain structures. As reported in reference cite Tarokh, the average grain size of the Rockville granite in the experiment was 10 mm. 
+Two models were set up to represent granite samples with different grain structures. As reported in reference \cite{Tarokh2016161}, the average grain size of the Rockville granite in the experiment was 10 mm. 
 As they are embedded in more finely grained material, a discrete element model with a Voronoi-block diameter of 5.4 mm has been chosen. For the Voronoi-discretization random points were inserted in the sample volume. 
 The serve as the center coordinates of the Voronois. After 10$^5$ insertion attempts, this lead to 1236 grains for the first sample, and 1226 for the second sample, see Fig. \ref{fig:ME1_TPB_DEM_domain}. Finally a notch was cut from the models. The behaviour of the model follows from the properties of both the grains (bulk modulus $K$ and shear modulus $G$), and the interface parameters (normal stiffness $k_n$, shear stiffness $k_s$, and tensile strength $\sigma_z$). These can be combined in several ways to reproduce the experimental results in Fig. \ref{fig:ME1_TPB_force_disp}. In this model we have chosen $K$ = 14.1 GPa, $G$ = 11.7 GPa, $k_n$ = 1700 GPa/m, $k_s$ = 170 GPa/m, and $\sigma_z$ = 2.5 MPa. 
 

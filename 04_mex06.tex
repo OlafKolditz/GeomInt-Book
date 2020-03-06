@@ -39,12 +39,14 @@ The simulation results from each of the model methods, discrete element method (
 
 \subsubsection*{Lattice element model}
 
-With the application of the integrated interface element \cite{Sattarietal2019b} the drying and wetting processes in the Opalinus claystone are simulated. The linear strain of the elements are calculated based on the experimental data. The initial hydraulic conductivity values are approximated according to the technical Report, Mont Terri 2008-04 as,
+With the application of the integrated interface element \cite{Sattarietal2019b} the drying and wetting processes in the Opalinus claystone are simulated. The linear strain of the elements are calculated based on the experimental data. The initial hydraulic conductivity($k_h$) values are approximated according to the technical Report, Mont Terri 2008-04 as,
 
 \begin{align}
 \label{eq:LEM_ME6_1}
 \begin{split}
-K_\parallel=2\times{10}{^{-13}}\\\\\\\\\\K_\bot=0.6\times{10}{^{-13}}
+k_{h,\parallel}=2\times{10}{^{-13}}
+\quad , \quad
+k_{h,\bot}=0.6\times{10}{^{-13}}
 \end{split}
 \end{align}
 
@@ -53,11 +55,15 @@ While considering the cubic law for flow transfer through the porous medium, the
 \begin{align}
 \label{eq:LEM_ME6_2}
 \begin{split}
-e=\sqrt(K\times12\times\upsilon/g)\\\\\e_\parallel=4.95\times{10}{^{-10}}\\\\\\\ e_\bot=2.71\times{10}{^{-10}}
+a_h=\sqrt{\frac{12k_h\nu_f}{g}}
+\quad , \quad
+a_{h,\parallel}=4.95\times{10}{^{-10}}
+\quad , \quad
+a_{h,\bot}=2.71\times{10}{^{-10}}
 \end{split}
 \end{align}
 
-where $\upsilon=1.004\times{10}{^{-6}}$ and g=9.8. The domain is generated using the vectorizable lattice element with defined layers as described in previous sections (Figure \ref{fig:Amir_ME6_Lattice_Setup}). The interface length is defined based on \ref{eq:LEM_ME6_2}.
+where $\nu_f=1.004\times{10}{^{-6}}$ and $g=9.8$. The domain is generated using the vectorizable lattice element with defined layers as described in previous sections (Figure \ref{fig:Amir_ME6_Lattice_Setup}). The interface length is defined based on \ref{eq:LEM_ME6_2}.
 
 \begin{figure}[!ht]
 \centering

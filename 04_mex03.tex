@@ -32,7 +32,7 @@ For rock salt, we prepared cylindrical samples with a height of 20 cm and a diam
 \label{fig:ME3-perme-exp}
 \end{figure}
 
-The flow rate can be converted into permeabilities, which are shown in Fig. \ref{fig:ME3-perme-exp}. For all three cases a reduction of the permeability is found,  showing that the cracks are narrowing and slowly closing. 
+The flow rate can be converted into permeabilities, which are shown in Fig. \ref{fig:ME3-perme-exp}. For all three cases a reduction of the permeability is found,  showing that the cracks are narrowing and slowly closing. The abrupt and discontinuous manner of the change of the flow rate makes it difficult to identify time-scales of the processes involved. In the case of 10 MPa confining stress one can distinguish two phases. Between 3 and 24 hours after the start of the experiment, one can fit (admittedly only very crude) a time-scale of about 4.5 hours. Some larger pathways seem to close abruptly. After that, the pathways narrow only very slowly, presumably by creep processes, on a time-scale of about 1000 hours. In the cases of 30 MPa and 50 MPa we find time-scales of 30 hours and 11 hours, respectively. At least here, faster creep under higher stress is found as expected for the general trend.
 
 \begin{figure}[!ht]
 \centering
@@ -50,18 +50,48 @@ The Opalinus clay samples were prepared slightly differently, see Fig. \ref{fig:
 \label{fig:ME3-clay-flows}
 \end{figure}
 
-The results are shown in Fig. \ref{fig:ME3-clay-flows}. Initially, a stress of 7 MPa was applied, and the gas flow decreased from 38 ml/min to 24 ml/min in the course of about 100 hours. Then the stress was reduced to 5 MPa, which lead to an increased flow of 26 ml/min. Again, a decreasing rate was observed, reaching 6 ml/min after 400 hours. Finally the stress was increased to 9 MPa, and the rate dropped from 4.4 to 1.8 ml/min. So in all three cases the microfractures from the sample preperation were closing slowly, as a first step towards healing. The difference to the previous experiment with rock salt is stark. The clay reacted much more smoothly, and good fits to exponential decays could be obtained. In addition, the general trend, that the time scales decrease as the stresses are increased, is observed as expected. 
+The results are shown in Fig. \ref{fig:ME3-clay-flows}. Initially, a stress of 7 MPa was applied, and the gas flow decreased from 38 ml/min to 24 ml/min in the course of about 100 hours. Then the stress was reduced to 5 MPa, which lead to an increased flow of 26 ml/min. Again, a decreasing rate was observed, reaching 6 ml/min after 400 hours. Finally the stress was increased to 9 MPa, and the rate dropped from 4.4 to 1.8 ml/min. So in all three cases the microfractures from the sample preperation were closing slowly, as a first step towards healing. The difference to the previous experiment with rock salt is stark. The clay reacted much more smoothly, and good fits to exponential decays could be obtained. The reason is the much smaller grain size in the clay, which permits much smaller displacements. In addition, the general trend, that the time scales decrease as the stresses are increased, is observed as expected. 
 
 %------------------------------------------------------------------------------
 \subsection{Model approaches}
 %------------------------------------------------------------------------------
 \subsubsection*{Discrete-Element-Model (DEM)}
 
+The closure of cracks and the healing of rock salt after plastic deformation has been rarely looked upon and studied in detail. The purpose of this exercise is therefore to develop a phenomenological model, which can be incorporated into the 3DEC software. The mechanistic idea behind the process is shown in Fig. \ref{fig:ME3-crack-stre} Cracks have a rough surface, with high deviatoric stresses where they are in contact. This concentration of stress can lead to the abrupt abrasions observed above, and also to an increased creep rate. 
+
 \begin{figure}[!ht]
 \centering
-\includegraphics[width=9cm]{figures/mex3-crack-stresses.png}
+\includegraphics[width=8cm]{figures/mex3-crack-stresses.png}
 \caption{Locations of high deviatoric stress in a crack. The deviatoric stress drives creep, which leads to a closing of the crack.}
 \label{fig:ME3-crack-stre}
+\end{figure}
+
+In 3DEC the fluid flow is modelled using fluid knots, where apertures between two grains are defined. The size of the aperture depends on an elastic spring constant, the pressure, and two cut-off values, see Fig. \ref{fig:ME3-dem-apert}. There, $a_{max}$ and $a_{res}$ are the maximally and minimally allowed fluid apertures, and $a_0$ is the aperture when the normal stress $\sigma_N$ is equal to the fluid pressure $p$. In the following simulation we used $a_{res}$ = $a_0$ = 10$^{-7}$ m. The narrowing of the crack is then modelled by decreasing $a_{max}$ with time. 
+
+\begin{figure}[!ht]
+\centering
+\includegraphics[width=8cm]{figures/mex3-aperture.png}
+\caption{Schematic representation of the relation between aperture on grain boundaries and effective stress in 3DEC.}
+\label{fig:ME3-dem-apert}
+\end{figure}
+
+The net effect of this approach is hard to predict, because the total fluid flow through the sample depends on a complex network of fluid knots with different orientations and normal stresses. Two approaches were tried: 
+
+\begin{equation}
+a_{max,n+1} = c \cdot a_{max,n} \quad \mbox{ with } 0<c<1
+\end{equation}
+and
+\begin{equation}
+a_{max,n+1} = a_{max,n} - \Delta a \quad .
+\end{equation}
+
+Model as from ... 
+
+\begin{figure}[!ht]
+\centering
+\includegraphics[width=8cm]{figures/mex3-flowrate-run3beide.png}
+\caption{Pressure driven percolation and subsequent crack closure.}
+\label{fig:ME3-flowrate-beide}
 \end{figure}
 
 \todo[inline]{[IfG]: Please add DEM simulation results}

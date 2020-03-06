@@ -12,7 +12,7 @@ Starting point were the works by \cite{Fathi2016} and \cite{Casagrande2017}. The
 \begin{equation}
 F_{slide}=F_{loc} \cdot \tan (\varphi_b + \theta^\ast)
 \end{equation}
-where $F_{loc}$ is the local force acting on one element, $\Phi_b$ is the basic friction and $\theta^\ast$ the apparent dip angle of this element.\\
+where $F_{loc}$ is the local force acting on one element, $\varphi_b$ is the basic friction and $\theta^\ast$ the apparent dip angle of this element.\\
 The other formula is the one for shear forces, which is the force needed to destroy the surface element:
 \begin{equation}\label{eq:shear}
 F_{shear}=A \cdot (c + \sigma_{loc}*tan(\Phi))
@@ -32,6 +32,6 @@ The idea of the newly developed approach is to have a physically consistent calc
 \begin{equation}
 F_n= \sum_i E * a^2 * \frac{\Delta h_i}{h}
 \end{equation}
-For all $i$ surface elements in contact the relative height change $\frac{\Delta h}{h_i}$, the ground area $a^2$ and the Young's modulus $E$ were used. For a specific rock joint the two surfaces are moved towards each other until the force created by the elastic deformation equals the force which is applied to the fracture.\\
+For all $i$ surface elements in contact the relative height change $\frac{\Delta h_i}{h}$, the ground area $a^2$ and the Young's modulus $E$ were used. For a specific rock joint the two surfaces are moved towards each other until the force created by the elastic deformation equals the force which is applied to the fracture.\\
 \ \\
 Another simplification compared to \cite{Casagrande2017} is the usage of quadratic grid elements. This allows to store the height values in a matrix form which is easy to handle.  
