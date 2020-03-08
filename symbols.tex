@@ -57,6 +57,7 @@ $\Gamma^{Fr}_+$       & Positive fracture surface domain             & $\unit[]{
 \rowcolor{cyan!50}
 $\Gamma^{Fr}_-$       & Negative fracture surface domain             & $\unit[]{m^2}$                        & \\
 %-------------------delta------------------
+$\delta$              & Dirac delta function                         & $\unit[]{-}$                          & \\
 $2\delta$             & Fault width                                  & $\unit[]{m}$                          & \\
 \rowcolor{cyan!50}
 $\delta$              & Fracture aperture                            & $\unit[]{m}$ & \\
@@ -151,6 +152,7 @@ $\fourtens{{V}}_\mathrm{K}$     & Kelvin viscosity tensor                       
 %------------------rho-----------------
 $\rho$                & Density                                      & $\unit[]{kg\cdot m^{-3}}$             & \\
 \rowcolor{lightgray} % CAU Kiel
+$\rho^{\mathcal{f}}$          & Fluid density               & $\unit[]{kg\cdot m^{-3}}$                          & \\
 $\rho_{f}$          & Fluid density               & $\unit[]{kg.m^{-3}}$                          & \\
 \rowcolor{cyan!50}
 $\rho^{\mathfrak{f}R}$ & Effective fluid density                               & $\unit[]{kg \cdot m^{-3}}$            & \\
@@ -245,6 +247,7 @@ $c$            & Specific heat capacity of a cell           & $\unit[]{J.K^{-1}}
 $c$                   & Normalized concentration                    & $\unit[]{-}$                           & \\
 $c$                   & Concentration                               & $\unit[]{kg\cdot m^{-3}}$              & \\
 $c$                   & Cohesion                               & $\unit[]{-}$             & \\
+$c_{\mathcal{f}}$                   & Speed of sound                                & $\unit[]{m\cdot s^{-1}}$            & \\
 \rowcolor{lightgray} % CAU Kiel
 $C_{\mathbb{R}}$  & Continuum stiffness                            & $\unit[]{Pa}$                          & \\
 \rowcolor{lightgray} % CAU Kiel
@@ -349,6 +352,7 @@ $k_c$                 & Swelling/recompression index                & $\unit[]{-
 $K_{eff}$            & Effective thermal conductivity            & $\unit[]{W.K^{-1}.m^{-1}}$                           & \\
 \rowcolor{lightgray} % CAU Kiel
 $K_{f}$            & Fluids bulk modulus                     & $\unit[]{Pa}$                           & \\
+$K^{\mathcal{f}}$            & Fluid bulk modulus                     & $\unit[]{Pa}$                           & \\
 $K_\mathrm{eq}$       & Equilibrium constant                        & $\unit[]{-}$                                      & \\
 
 \rowcolor{lightgray} % CAU Kiel
@@ -506,6 +510,7 @@ $U_m^b$    &  Moment strain energy                                 & $\unit[]{N.
 \rowcolor{lightgray} % CAU Kiel
 $v$            & Volume of a Voronoi cell                          & $\unit[]{m^3}$                           & \\
 $v$                   & Velocity                                   & $\unit[]{m \cdot s^{-1}}$               & \\
+$v_{\mathcal{f}}$                   & Fluid velocity                                   & $\unit[]{m \cdot s^{-1}}$               & \\
 \rowcolor{lightgray} % CAU Kiel
 $V_{\mathbb{R}}$    &  Continuum volume                           & $\unit[]{m^3}$                          & \\
 
@@ -516,6 +521,8 @@ $V_m$                 & Molar volume                               & $\unit[]{m^
 \rowcolor{lightgray} % CAU Kiel
 $V_{mol}$             & Molecular volume                           & $\unit[]{m^3}$                        & \\
 $V_u$                   & Cell volume                              & $\unit[]{m^3}$                        & \\
+$W$                   & SPH kernel function                          & $\unit[]{}$           
+& \\
 $w$                   & Margules parameter                         & $\unit[]{J\cdot mol^{-1}}$           & \\
 \rowcolor{cyan!50}
 $w_a$                 & Test function of auxiliary element         & $\unit[]{-}$                         & \\
@@ -536,7 +543,8 @@ $\mathbf{w}^t_\mathfrak{f}$ & Relative transversal fluid velocity & $\unit[]{m \
 
 \rowcolor{lightgray} % CAU Kiel
 $\hat{x}_{cell}$      & Relative coordinates                        & $\unit[]{m}$                & \\
-$X$                   & Molar fraction                             & $\unit[]{-}$                         & \\
+$\mathbf{x}$                   & Position vector                             & $\unit[]{m}$                         & \\
+          $X$                   & Molar fraction                             & $\unit[]{-}$                         & \\
 $Z$			              & Ionic integer charge                       & $\unit[]{-}$                       & \\
 $Z$                   & Charge                                     & $\unit[]{-}$                          & \\
 \hline 
