@@ -82,7 +82,11 @@ The LEM is implemented to investigate the anisotropy of claystone in two cases, 
 
 \subsubsection*{Finite-Element-Approach: Variational Phase-Field (VPF)}
 
-Extended experiment: parallel to the lamination Fig.~\ref{fig:ME1_ext_vpf_para_init} and orthogonal to the lamination Fig.~\ref{fig:ME1_ext_vpf_orth_init}.
+The anisotropy claystone sample simulations were also performed with the variational phase-field model.
+The material strength contrast in the laminations is realized through a contrast in the fracture toughness. 
+For the "weaker" layer, the fracture toughness of 20 $Pa \cdot m$ is assigned while 100 $Pa \cdot m$ is for the "stronger" layer.
+Consistently to the LEM simulations, the strength was alternated every 1 $mm$. 
+Initial strength set-up for the lamination parallel and orthogonal can be found in Fig.~\ref{fig:ME1_ext_vpf_para_init} and Fig.~\ref{fig:ME1_ext_vpf_orth_init} respectively.
 Fracture simulation results are in Figs.~\ref{fig:ME1_ext_vpf_para_result} and~\ref{fig:ME1_ext_vpf_orth_result}, and the force vs. CMOD is in Fig~\ref{fig:ME1_ext_vpf_FvsCMOD}.
 
 \begin{figure}[!ht]
@@ -115,7 +119,7 @@ Fracture simulation results are in Figs.~\ref{fig:ME1_ext_vpf_para_result} and~\
 
 \begin{figure}[!ht]
 \centering
-\includegraphics[width=1\textwidth]{figures/ME1_ext_NFvsCMOD.png}
+\includegraphics[width=1\textwidth]{figures/VPF_ME1_ex_NF_CMOD.png}
 \caption{Force vs. CMOD}
 \label{fig:ME1_ext_vpf_FvsCMOD}
 \end{figure}
