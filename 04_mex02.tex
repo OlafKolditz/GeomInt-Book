@@ -120,7 +120,31 @@ The dual lattice model, described in the section \ref{Section:HMLattice}, is imp
 %------------------------------------------------------------------------------
 \subsubsection*{Finite-Element-Model: Variational-Phase-Field (VPF)}
 %------------------------------------------------------------------------------
-\todo[inline]{[UFZ](KY): Please add results}
+A computational domain for the variational phase-field model is depicted in Fig~\ref{fig:VPF_init}.
+Relying on the symmetry of the domain, 1/4 of the domain was simulated. 
+The whole domain was discretized with first-order tetrahedral elements.
+The total element count is 27,917,126 with 5,432,325 nodes.
+Two scenarios of boundary loading as in Figs~\ref{fig:Amir_ME2_stress_state_a} and~\ref{fig:Amir_ME2_stress_state_b} were simulated  .
+
+\begin{figure}[!ht]
+\centering
+\includegraphics[width=1.0\textwidth]{figures/VPF_init.png}
+\caption{A computational domain for the variational phase-field model.}
+\label{fig:VPF_init}
+\end{figure}
+
+\begin{figure}[!ht]
+\includegraphics[width=1\textwidth]{figures/VPF_ME2_case1.png}
+\label{fig:Keita_ME2_VPF_case1}
+\caption{The simulation of fluid driven percolation for case1. Created fracture and the vertical stress are shown.}
+\end{figure}
+
+\begin{figure}[!ht]
+\includegraphics[width=1\textwidth]{figures/VPF_ME2_case2.png}
+\caption{The simulation of fluid driven percolation for case2. Created fracture and the horizontal stress are shown.}
+\label{fig:Keita_ME2_VPF_case2}
+\end{figure}
+
 %------------------------------------------------------------------------------
 \subsection{Results and discussion}
 

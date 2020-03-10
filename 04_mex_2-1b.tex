@@ -146,57 +146,22 @@ With the implemented lattice model, the effect of the Opalinus claystone anisotr
 
 
 \subsubsection*{Finite-Element-Model: Variational Phase-Field (VPF)}
-
-A computational domain for the variational phase-field model is depicted in Fig~\ref{fig:VPF_init}.
-Relying on the symmetry of the domain, 1/4 of the domain was simulated. 
-The whole domain was discretized with first-order tetrahedral elements.
-The total element count is 27,917,126 with 5,432,325 nodes.
-Two scenarios of boundary loading were simulated and simulated crack developments are shown in Figs~\ref{fig:Keita_ME2_VPF_case1} and~\ref{fig:Keita_ME2_VPF_case2} and the corresponding pressure responses are in Fig~\ref{fig:Keita_ME2_VPF_pres}.
+Using the variational phase-field model presented in this study, impacts of the anisotropy induced by the lamination parallel and orhtogonal of the Opalinus claystone were studied through 3D computational domains (Figs~\ref{fig:VPF_ME2_B_init}
 
 \begin{figure}[!ht]
-\centering
-\includegraphics[width=1.0\textwidth]{figures/VPF_init.png}
-\caption{A computational domain for the variational phase-field model.}
-\label{fig:VPF_init}
-\end{figure}
-
-\begin{figure}[!ht]
+\label{fig:VPF_ME2_B_init}
 \begin{subfigure}[c]{0.48\textwidth}
-\includegraphics[width=1\textwidth]{figures/Keita_ME2_case1.png}
+\centering
+\includegraphics[width=5cm,height=5cm]{figures/ME2b_init_para.png}
 \subcaption{}
-\label{fig:Keita_ME2_VPF_case1_zoomout}
 \end{subfigure}
 \hfill
 \begin{subfigure}[c]{0.48\textwidth}
-\includegraphics[width=1\textwidth]{figures/Keita_ME2_case1_zoomin.png}
-\subcaption{}
-\label{fig:Keita_ME2_VPF_case1_zeemin}
-\end{subfigure}
-\caption{The simulation of fluid driven percolation for case1. Created fracture and the vertical stress are shown.}
-\label{fig:Keita_ME2_VPF_case1}
-\end{figure}
-
-\begin{figure}[!ht]
-\begin{subfigure}[c]{0.48\textwidth}
-\includegraphics[width=1\textwidth]{figures/Keita_ME2_case2.png}
-\subcaption{}
-\label{fig:Keita_ME2_VPF_case2_zoomout}
-\end{subfigure}
-\hfill
-\begin{subfigure}[c]{0.48\textwidth}
-\includegraphics[width=1\textwidth]{figures/Keita_ME2_case2_zoomin.png}
-\subcaption{}
-\label{fig:Keita_ME2_VPF_case2_zeemin}
-\end{subfigure}
-\caption{The simulation of fluid driven percolation for case2. Created fracture and the horizontal stress are shown.}
-\label{fig:Keita_ME2_VPF_case2}
-\end{figure}
-
-\begin{figure}[!ht]
 \centering
-\includegraphics[width=1.0\textwidth]{figures/Keita_ME2_pressures.png}
-\caption{Pressure responses from the variational phase-field simulations.}
-\label{fig:Keita_ME2_VPF_pres}
+\includegraphics[width=5cm,height=5cm]{figures/ME2b_init_orth.png}
+\subcaption{}
+\end{subfigure}
+\caption{3D computation domain of VPF for (a) $1^{st}$ stress configuration, and (b) $2^{nd}$ stress configuration.}
 \end{figure}
 
 %------------------------------------------------------------------------------

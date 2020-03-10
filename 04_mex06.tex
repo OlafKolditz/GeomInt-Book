@@ -80,7 +80,7 @@ The samples dimension is 100x10 $mm$ $(DxH)$. The equilibrium inside the desicca
 %------------------------------------------------------------------------------
 \subsection{Model approaches}
 
-The simulation results from each of the model methods, discrete element method (DEM), lattice element method (LEM) and phase field method (PFM) are described and the accuracy of numerical results for modeling the shrinkage process with change of linear or volumetric strains as well as the change of anisotropic hydraulic conductivity are investigated. 
+The simulation results from each of the model methods, discrete element method (DEM), lattice element method (LEM) and variational phase field model (VPF) are described and the accuracy of numerical results for modeling the shrinkage process with change of linear or volumetric strains as well as the change of anisotropic hydraulic conductivity are investigated. 
 
 \subsubsection*{Discrete-Element-Model (DEM)}
 \todo{[IfG] Contribution planned?}
@@ -132,8 +132,10 @@ where $\nu_f=1.004\times{10}{^{-6}}$ and $g=9.8$. The domain is generated using 
 
 
 \subsubsection*{Finite-Element-Method: Variational-Phase-Field (VPF)}
-\todo{[UFZ] Contribution planned?}
-FEM mesh~\ref{fig:ME5_VPF_setup}.
+While couplnng of unsaturated flow (Richards flow) and variational phase-field based formulation of fracture mechanics is underway in OGS, the contribution from VPF is being planned. 
+Once the model becomes available, strain changes driven by shrinkage or swelling of the sample which is subject to the pore--pressure and the partial saturation changes is modeled utilizing the current Richard--Mechanics implementation in OGS. Then desiccation cracking will be simulated through the variational phase-field using the strain energy contributed from the shrinkage and swelling.
+A tentative FEM mesh prepared is shown in~\ref{fig:ME5_VPF_setup}.
+The alternating hydraulic conductivities and the material strength will need to be assigned accordingly to the LEM simulation.
 
 \begin{figure}[!ht]
 \centering
