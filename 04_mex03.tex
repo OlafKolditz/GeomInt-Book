@@ -85,8 +85,6 @@ and
 a_{max,n+1} = a_{max,n} - \Delta a \quad .
 \end{equation}
 
-Model as from ... 
-
 \begin{figure}[!ht]
 \centering
 \includegraphics[width=8cm]{figures/mex3-flowrate-run3beide.png}
@@ -94,7 +92,10 @@ Model as from ...
 \label{fig:ME3-flowrate-beide}
 \end{figure}
 
-\todo[inline]{[IfG]: Please add DEM simulation results}
+
+The model setup used for this simulation was the same as in section \ref{sec:mex02}. The first two phases of the simulation agree with the simulation of the pressure driven percolation. A fluid pressure was applied to the internal cavity, and after a while liquid started to leak out (see phase I in Fig. \ref{fig:ME3-flowrate-beide}). After about 2.5 s the leak rate converged to a near constant level (phase II). From this point on, the simulation was run (phase III) in two different versions, corresponding to the two different equations above for the decrease of $a_{max}$. 
+
+For the linear decrease of the maximum aperture we find a decrease of the flow rate that is not exponential as in the experiment (nor is it linear). For the exponential decrease we used $c$ = 0.9659 and applied this value every 100000th fluid timestep. (The full simulation required more than 10 million timesteps.) In this case a very good exponential fit with a time scale of 0.63 s could be obtained. It should be noted that in this simple setup, two time scales are actually mixed, which in reality are separated: In reality, creep (and thus the narrowing of the cracks) works much slower than the fluid dynamics. But as this exercise is a proof of concept, and serves to obtain a basic understanding of how how to model the phenomenon of crack closure, we accepted this approximation. 
 
 \subsubsection*{Finite-Element-Model: Variational Phase-Field (VPF)}
 
@@ -108,13 +109,28 @@ Model as from ...
 \begin{subfigure}[c]{0.49\textwidth}
 \includegraphics[width=1\textwidth]{figures/ME3_CrackWidth.png}
 \subcaption{ME3 VPF crack width}
-\label{fig:ME3_VPF_crack widht}
+\label{fig:ME3_VPF_crack width}
 \end{subfigure}
+\label{fig:VPF_ME2_creep}
 \caption{ME3 VPF preliminary}
 \end{figure}
 
-\todo[inline]{[UFZ](KY): Please describe VPF simulation results}
-
+Implementation of the crack healing through creep model within the OGS variational phase-field model is being planned.
+Crack opening (fracture width) is not a directly computed variable within the variational phase-field model, instead it is computed currently by taking a line integral~\cite{Yoshioka2020} as:
+\begin{equation}
+\left \llbracket \vec{u}\cdot \vec{n}_\Gamma \right\rrbracket
+\approx \int_{l} \vec{u} \cdot \nabla v .
+\label{eq:width_line_integral}
+\end{equation}
+where $l$ is the line that follows the normal direction to the crack $\Gamma$.
+With a creep model, the displacement will be decomposed into the elastic $\vec{u}^e$ and the creep part $\vec{u}^c$ as $\vec{u} = \vec{u}^e+\vec{u}^c$, and the crack opening can be computed then by
+\begin{equation}
+\left \llbracket \vec{u}\cdot \vec{n}_\Gamma \right\rrbracket
+\approx \int_{l} \vec{u}^e \cdot \nabla v .
+\label{eq:width_line_integral}
+\end{equation}
+As $\vec{u}^c$ evolves with time, the crack opening will be subject to change and be able to simulate the aperture change observed in the experiments.
+A preliminary attempt to calculate the fracture aperture from the elastic response only is shown in  Fig~\ref{fig:VPF_ME2_creep}.
 %------------------------------------------------------------------------------
 \subsection{Results and discussion}
 %------------------------------------------------------------------------------

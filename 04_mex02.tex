@@ -145,11 +145,28 @@ Two scenarios of boundary loading as in Figs~\ref{fig:Amir_ME2_stress_state_a} a
 \label{fig:Keita_ME2_VPF_case2}
 \end{figure}
 
+\begin{figure}[!ht]
+\includegraphics[width=1\textwidth]{figures/VPF_ME2_pres_vol.png}
+\caption{Injection ressure responses from the cases against the injected volume.}
+\label{fig:Keita_ME2_VPF_pres_vol}
+\end{figure}
+
 %------------------------------------------------------------------------------
 \subsection{Results and discussion}
 
- The stress dependent fracking path in saltstone samples due to the defined anisotropic stress configurations is investigated. To do so,  The experimental data are taken from the literature and the validation of the numerical models is performed. The VPF results .... 
- \todo[inline]{Amir: Keita Please add discussion}. 
+ The stress dependent fracking path in saltstone samples due to the defined anisotropic stress configurations is investigated. To do so,  The experimental data are taken from the literature and the validation of the numerical models is performed. 
+ The VPF results of  $1^{st}$ and $2^{nd}$ stress configurations are shown in Figs~\ref{fig:Keita_ME2_VPF_case1} and~\ref{fig:Keita_ME2_VPF_case2} respectively.
+ It should be noted that in the variational phase-field method, crack nucleation or propagation is not prescribed and they will be chosen as the result of the minimization of the energy.
+ The implementation in this study adopts an anisotropic energy formulation -- compression and tension split -- to be able to distinguish the compressional contribution from the tensile one.
+ Thus, even though the entire system in these experiments are under compression, the evolution of the phase-field (damage) is promoted where the material experiences tension.
+ 
+ For $1^{st}$ case, with the vertical stress being the least stress, a more or less horizontal crack propagates towards the boundary of the sample.
+ As the stress concentration is induced at the bottom of the injection borehole, the crack was initiated at that point (enough tensile strain is achieved) with some angle and gradually turned to align with the horizontal plane (Fig~\ref{fig:Keita_ME2_VPF_case1}).
+ The plane orthogonal to the minimum stress direction for $2^{nd}$ is the vertical plane.
+ Crack propagation on that plane can be observed and its propagation is hinged by the presence of the casing tube in the borehole (Fig~\ref{fig:Keita_ME2_VPF_case2}).
+ In both cases, similar pressure responses against the injected volume can be observed (Fig.~\ref{fig:Keita_ME2_VPF_pres_vol}). 
+ The peak pressures observed in these cases are 12.6 and 7.7 $MPa$ and these values are proportional to the fracture toughness values input to the simulation.
+ As the fracture toughness of the salt stone samples were not available in the original literature, 100 $Pa \cdot m$ was used in the simulations. 
  
  The implemented lattice model depicts the fracking paths in Fig.  \ref{fig:Amir_ME2_LEM_a_model_Fracture} and \ref{fig:Amir_ME2_LEM_b_model_Fracture}. For a $1^{st}$ and $2^{nd}$ stress configurations the fracking pressure is found to be 13.2 and 7.1 $MPa$, respectively. Both values are slightly higher than the given fracking pressure from the literature. However, the fracking pressures in both cases are higher than the minimum principle stresses. The fracking paths shown with red surfaces match the experimental results, where the $1^{st}$ stress configurations results in horizontal fracking paths and the $2^{nd}$ stress configurations results in vertical fracking paths. The discrete element method is also able to simulate the fracking path similar to the experimental results. The application of the numerical methods for quantitative comparison of the simulation results with the experimental data needs further investigation. 
 
