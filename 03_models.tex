@@ -25,18 +25,21 @@ An essential scientific goal of the GeomInt project is the analysis of potential
 In the following we briefly introduce some extensions of the Finite-Element-Method which particularly are suited for fractured-porous media analysis and fracturing processes.
 %--------------------------
 \input{03_lie.tex}
+\label{subsec:fem-lie}
 %--------------------------
 \input{03_hdf.tex}
 %--------------------------
 \input{03_vpf.tex}
+\label{subsec:fem-vpf}
 %--------------------------
 \input{03_nld.tex}
+\label{subsec:fem-nld}
 %--------------------------
 \clearpage
-\todo[inline]{[UFZ](KY) Please refer to your comparison paper \cite{Yoshioka2019}}
-\begin{wrapfigure}{l}{5cm}
+\begin{wrapfigure}{l}{7cm}
 \centering
-\includegraphics[width=5cm]{figures/Schematic_figure_LIE_PF_NLD}
+\includegraphics[width=7cm]{figures/Schematic_figure_LIE_PF_NLD}
 \caption{Smeared and explicit numerical representations of fracture. Figure reproduced from~\cite{Yoshioka2019}}
 \label{fig:ogsfem-overview}
 \end{wrapfigure}
+Fig. \ref{fig:ogsfem-overview} shows a conceptual illustration of three different approaches for modeling displacement discontinuities: (a) cohesive zone model using lower-dimensional (i.e. co-dimension 1) interface elements with local enrichment to represent a strong displacement discontinuity (see section \ref{subsec:fem-lie}); (b) phase-field models of brittle fracture in which a crack surface density per unit volume is introduced for regularisation (see section \ref{subsec:fem-vpf}); and (c) non-local elasto-plastic damage models, in which a kernel function with a specified support region is used to characterize a fracture process zone (see section \ref{subsec:fem-nld}). In the latter two approaches the discontinuities are smeared over a zone characterized by a length-scale parameter. All models (a-c) are implemented in OpenGeoSys.
