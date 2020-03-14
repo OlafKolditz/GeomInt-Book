@@ -56,41 +56,33 @@ Figure \ref{fig:ME4-3dec-comp} shows that there is a stark difference. The high 
 
 \subsubsection*{Lattice-Element-Method (LEM)}
 
-In order to simulate the compressibility effect with lattice model, the similar setup as shown in Fig. \ref{fig:ME4-dem-setup} is considered. The initial reservoir pressure is set to be 12 $MPa$, which is higher than minimum principal stress of 8 $MPa$. The bulk modulus of brine is assumed to be 2 $GPa$ and the volume of reservoir to be 13 $L$. The total number of mechanical and conduct lattice elements are approximately 6000 and 45000, respectively. The rate of pressure drop in the reservoirs storing the brine and gas (methane) is investigated. The hydro model explained in section \ref{Section:HMLattice} is implemented to grant the mass conservation in the domain. The boundary reservoir pressure is not constant and with the fluid/gas transport in the medium it gradually drops. Due to the high bulk modulus of brine it is expected that the pressure drop in the brine reservoir to be higher than gas reservoir. However, the gas is leaked in higher rate where the kinematic viscosity is higher. Fig. \ref{fig:Amir_ME4_Brine_Frack} and Fig. \ref{fig:Amir_ME4_Brine_Flow} depict the fracking path (red) and flow rate in the flow channels (blue) for a brine reservoir. For a gas reservoir, Fig. \ref{fig:Amir_ME4_Gas_Frack} and Fig. \ref{fig:Amir_ME4_Gas_Flow} show the fracking path (red) and flow rate in the flow channels (blue). The amount of flow transport in the domain and in a same time step for a gas is higher than brine. \hl{Figure ???} illustrates the time dependent pressure drop for gas and brine reservoirs. As expected, the rate of pressure drop in the brine reservoir is much higher than gas reservoir.
+In order to simulate the compressibility effect with the lattice model, the similar setup as shown in Fig. \ref{fig:ME4-dem-setup} is considered. The initial reservoir pressure is set to be 12 $MPa$, which is higher than minimum principal stress of 8 $MPa$. The bulk modulus of brine is assumed to be 2 $GPa$ and the volume of reservoir to be 13 $L$. The total number of mechanical and conduct lattice elements are approximately 10000 and 80000, respectively. The rate of pressure drop in the reservoirs storing the brine and gas (methane) is investigated. The hydro model explained in section \ref{Section:HMLattice} is implemented to grant the mass conservation in the domain. The boundary reservoir pressure is not constant and with the fluid/gas transport in the medium it gradually drops. Due to the high bulk modulus of brine it is expected that the pressure drop in the brine reservoir to be higher than gas reservoir. However, the gas is leaked in higher rate where the kinematic viscosity is higher. Fig. \ref{fig:Amir_ME4_Brine_Flow} and Fig. \ref{fig:Amir_ME4_Gas_Flow} depict the flow potential in the conduct surfaces (blue) for a brine and gas reservoirs, respectively. Although minor cracks are observed, the borehole pressure was not enough to cause major fracking pathways. The amount of gas transport in the domain is higher than brine. Fig. \ref{fig:Amir_ME4_Pressure} illustrates the time dependent pressure drop for gas and brine reservoirs. As expected, the rate of pressure drop in the brine reservoir is much higher than gas reservoir. However, the pressure drop in comparison to DEM model is more subtle. 
 
 \begin{figure}[!ht]
-\begin{subfigure}[c]{0.48\textwidth}
-\centering
-\includegraphics[width=5cm,height=5cm]{figures/Amir_ME4_Brine_Frack.png}
-\subcaption{}
-\label{fig:Amir_ME4_Brine_Frack}
-\end{subfigure}
-\hfill
 \begin{subfigure}[c]{0.48\textwidth}
 \centering
 \includegraphics[width=5cm,height=5cm]{figures/Amir_ME4_Brine_Flow.png}
 \subcaption{}
 \label{fig:Amir_ME4_Brine_Flow}
 \end{subfigure}
-\caption{The (a) fracking path and (b) flow path for a brine reservoir}
-\end{figure}
-
-\begin{figure}[!ht]
-\begin{subfigure}[c]{0.48\textwidth}
-\centering
-\includegraphics[width=5cm,height=5cm]{figures/Amir_ME4_Gas_Frack.png}
-\subcaption{}
-\label{fig:Amir_ME4_Gas_Frack}
-\end{subfigure}
 \hfill
 \begin{subfigure}[c]{0.48\textwidth}
 \centering
-\includegraphics[width=5cm,height=5cm]{figures/Amir_ME4_Gas_Flow.png}
+\includegraphics[width=5cm,height=5.2cm]{figures/Amir_ME4_Gas_Flow.png}
 \subcaption{}
 \label{fig:Amir_ME4_Gas_Flow}
 \end{subfigure}
-\caption{The (a) fracking path and (b) flow path for a gas reservoir}
+\caption{The flow potential for a (a) brine, and (b) gas reservoirs (cross-section view)}
 \end{figure}
+
+\begin{figure}[!ht]
+\centering
+\includegraphics[width=8cm,height=5cm]{figures/Amir_ME4_Pressure.png}
+\caption{The comparison between the pressure drop in gas and brine reservoirs}
+\label{fig:Amir_ME4_Pressure}
+\end{figure}
+
+
 
 \subsubsection*{Finite-Element-Method: Variational Phase-Field}
 

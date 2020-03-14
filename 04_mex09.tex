@@ -113,14 +113,14 @@ highlighted in green scales for varying pressure amplitudes normalized with resp
 
 \subsubsection*{Model by variational phase-field model}
 The hydromechanical coupling with varying fluid compressibility and rock mass in the variational phase-field implementation and the resulting crack opening computation in OGS is tested under the same condition.
-The Hydromechanical coupling in OGS is achieved via a staggered approach with fixed stress.  
+The hydromechanical coupling in OGS is achieved via a staggered approach with fixed stress.  
 Crack opening in the variational phase-field mode is not direct variable but is a reconstruction from the diffused variables~\cite{Yoshioka2020}.
 The axisymmetric model with the same settings is prepared as shown in~\ref{fig:ME3-3_pressrue_VPF_init}.
 
 \begin{figure}
 \centering
 \includegraphics[width=1\linewidth]{figures/VPF_ME3-3_init.png}
-\caption{Finite element mesh set up for aariational phase-field simulation.}
+\caption{Finite element mesh set up for variational phase-field simulation.}
 \label{fig:ME3-3_pressrue_VPF_init}
 \end{figure}
 
@@ -137,8 +137,7 @@ The axisymmetric model with the same settings is prepared as shown in~\ref{fig:M
 \label{fig:ME9_width_VPF}
 \end{figure}
 
-\todo[inline]{[UFZ] Keita: Please extend the VPF discussion a bit}
-\todo[inline]{[UFZ] I extended a bit. This MEX is being tackled. Currently the model is having convergence difficult with lower formation compressibilities and it is being investigated...}
+\todo[inline]{[UFZ] This MEX is being tackled. Currently the model is having convergence difficulties with lower formation compressibilities and it is being further investigated.}
 
 %------------------------------------------------------------------------------
 \subsection{Results and discussion}
