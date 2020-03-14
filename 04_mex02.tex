@@ -1,7 +1,7 @@
 \section{Model Exercise 2-1a (02): Fluid driven percolation in salt}
 \label{sec:mex02}
 %------------------------------------------------------------------------------
-\Authors{Amir Sattari, Mathias Nest, Keita Yoshioka et al.}
+\Authors{Amir Shoarian Sattari, Mathias Nest, Keita Yoshioka et al.}
 %------------------------------------------------------------------------------
 Model Exercise 2 (ME 2) investigates the fluid driven percolation (hydraulic fracking) in salt and clay stone samples under anisotropic confining stresses. The pressurized oil is injected through the pre-drilled cavity until the sudden pressure drop or increase in flow rate is observed. The main goal of this test is to determine the stress dependent fracking path and the required fracking pressure which should be higher than the minimum principle stress applied to the system. For the simulation of the fluid driven percolation, the continuum and discreet methods are considered.
 %------------------------------------------------------------------------------
@@ -79,44 +79,30 @@ Figure \ref{fig:ME2_DEM_model_setup} shows the elements and interfaces/grain bou
 
 \subsubsection*{Lattice-Element-Model (LEM)}
 
-The dual lattice model, described in the section \ref{Section:HMLattice}, is implemented to simulate the fluid driven percolation in the saltstone samples. The applied hydraulic pressures are transformed into the mechanical model using the weak coupling scheme and subsequently the elements failure and change of hydraulic aperture are determined and transformed back to the hydro model. The considered mass conservation law results in the prediction of flow rate and change of reservoirs pressure as well as the flow and fracking paths, which are then compared to the experimental data. The total number of mechanical and conduct lattice elements are approximately 10000 and 80000, respectively (\ref{fig:Amir_ME2_LEM_a_model}).  The experimental setup shown in Fig. \ref{fig:Amir_ME2_stress_state_a} is simulated using  the dual LEM and the developed fractures and flow path are shown in Fig. \ref{fig:Amir_ME2_LEM_a_model_Fracture} and \ref{fig:Amir_ME2_LEM_a_model_Flow}. Similarly, the fracture surfaces and flow paths under the second stress configuration \ref{fig:Amir_ME2_stress_state_b} are illustrated in Fig. \ref{fig:Amir_ME2_LEM_b_model_Fracture} and \ref{fig:Amir_ME2_LEM_b_model_Flow}, respectively. In these simulations the Young's modulus is assumed to be 30 $GPa$. In Fig. \ref{fig:Amir_ME2_LEM_a_model_Fracture}, the fracking path propagation in the horizontal direction (on the top surface) similar to the experimental result (Figure \ref{fig:Amir_ME2_stress_state_a}) is observed. 
+The dual lattice model, described in the section \ref{Section:HMLattice}, is implemented to simulate the fluid driven percolation in the saltstone samples. The applied hydraulic pressures are transformed into the mechanical model using the weak coupling scheme and subsequently the elements failure and change of hydraulic aperture are determined and transformed back to the hydro model. The considered mass conservation law results in the prediction of flow rate and change of reservoirs pressure as well as the flow and fracking paths, which are then compared to the experimental data. The total number of mechanical and conduct lattice elements are approximately 6000 and 45000, respectively (\ref{fig:Amir_ME2_LEM_a_model}).  The experimental setup shown in Fig. \ref{fig:Amir_ME2_stress_state_a} is simulated using  the dual LEM and the developed fracture surfaces are shown in Fig. \ref{fig:Amir_ME2_LEM_a_model_Fracture}. Similarly, the fracture surfaces under the second stress configuration (Fig. \ref{fig:Amir_ME2_stress_state_b}) are illustrated in Fig. \ref{fig:Amir_ME2_LEM_b_model_Fracture}. In these simulations the Young's modulus is assumed to be 30 $GPa$. While comparing the experimental and the numerical results, the frack propagation along the horizontal axis (visible on the surface frack path) for the $1^{st}$ stress configuration (Fig. \ref{fig:Amir_ME2_LEM_a_model_Fracture}) is observed. In Fig. \ref{fig:Amir_ME2_LEM_b_model_Fracture}, the fracking path propagation in the vertical direction (visible on the surface frack path) similar to the experimental result (Fig. \ref{fig:Amir_ME2_stress_state_b}) is observed.  
 
 \begin{figure}[!ht]
 \centering
-\includegraphics[width=0.5\textwidth]{figures/Amir_ME2_LEM_a_model.png}
+\includegraphics[width=4cm,height=5cm]{figures/Amir_ME2_LEM_a_model.png}
 \caption{The boundary condition in the lattice model, cross-section view}
 \label{fig:Amir_ME2_LEM_a_model}
 \end{figure}
 
 \begin{figure}[!ht]
 \begin{subfigure}[c]{0.48\textwidth}
-\includegraphics[width=1\textwidth]{figures/Amir_ME2_LEM_a_model_Fracture.png}
+\includegraphics[width=5cm,height=5cm]{figures/Amir_ME2_LEM_a_model_Fracture.png}
 \subcaption{}
 \label{fig:Amir_ME2_LEM_a_model_Fracture}
 \end{subfigure}
 \hfill
 \begin{subfigure}[c]{0.48\textwidth}
-\includegraphics[width=1\textwidth]{figures/Amir_ME2_LEM_a_model_Flow.png}
-\subcaption{}
-\label{fig:Amir_ME2_LEM_a_model_Flow}
-\end{subfigure}
-\caption{ The simulation of fluid driven percolation shown in \ref{fig:Amir_ME2_stress_state_a}: The cross-section of the (a) fracking surfaces (red), and (b) flow path surfaces (blue)}
-\end{figure}
-
-\begin{figure}[!ht]
-\begin{subfigure}[c]{0.48\textwidth}
-\includegraphics[width=1\textwidth]{figures/Amir_ME2_LEM_b_model_Fracture.png}
+\includegraphics[width=5cm,height=5cm]{figures/Amir_ME2_LEM_b_model_Fracture.png}
 \subcaption{}
 \label{fig:Amir_ME2_LEM_b_model_Fracture}
 \end{subfigure}
-\hfill
-\begin{subfigure}[c]{0.48\textwidth}
-\includegraphics[width=1\textwidth]{figures/Amir_ME2_LEM_b_model_Flow.png}
-\subcaption{}
-\label{fig:Amir_ME2_LEM_b_model_Flow}
-\end{subfigure}
-\caption{ The simulation of fluid driven percolation shown in \ref{fig:Amir_ME2_stress_state_b}: The cross-section of the (a) fracking surfaces (red), and (b) flow path surfaces (blue)}
+\caption{The simulation of the fluid driven percolation and developed frack surfaces (red) for the (a) $1^{st}$, and (b) $2^{nd}$ stress configurations}
 \end{figure}
+
 %------------------------------------------------------------------------------
 \subsubsection*{Finite-Element-Model: Variational-Phase-Field (VPF)}
 %------------------------------------------------------------------------------
@@ -155,7 +141,7 @@ Two scenarios of boundary loading as in Figs~\ref{fig:Amir_ME2_stress_state_a} a
 \subsection{Results and discussion}
 
  The stress dependent fracking path in saltstone samples due to the defined anisotropic stress configurations is investigated. To do so,  The experimental data are taken from the literature and the validation of the numerical models is performed. 
- The VPF results of  $1^{st}$ and $2^{nd}$ stress configurations are shown in Figs~\ref{fig:Keita_ME2_VPF_case1} and~\ref{fig:Keita_ME2_VPF_case2} respectively.
+ The VPF results of  $1^{st}$ and $2^{nd}$ stress configurations are shown in Figs~\ref{fig:Keita_ME2_VPF_case1} and~\ref{fig:Keita_ME2_VPF_case2}, respectively.
  It should be noted that in the variational phase-field method, crack nucleation or propagation is not prescribed and they will be chosen as the result of the minimization of the energy.
  The implementation in this study adopts an anisotropic energy formulation -- compression and tension split -- to be able to distinguish the compressional contribution from the tensile one.
  Thus, even though the entire system in these experiments are under compression, the evolution of the phase-field (damage) is promoted where the material experiences tension.
