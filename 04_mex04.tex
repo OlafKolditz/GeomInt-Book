@@ -15,7 +15,7 @@ Gases, which can be described approximately with the ideal gas equation
 \begin{equation}
 pV=nRT
 \end{equation}
-show a far smaller change in pressure. In this model exercise we explore this difference in a setup similar to the one in MEX 2, under the assumption, that there is only a finite amount of substance available to spread into the rock salt. Another way to put this is, that a lab-scale model of the in-situ experiment MEX 11 is set up. 
+show a far smaller change in pressure. In this model exercise we explore this difference in a setup similar to the one in \hl{MEX 2}, under the assumption, that there is only a finite amount of substance available to spread into the rock salt. Another way to put this is, that a lab-scale model of the in-situ experiment \hl{MEX 11} is set up. 
 
 The basic reasoning behind the exercise is as follows: The total mass of the brine or gas is conserved, and consists of the mass in the reservoir $M_R$, the mass on the interfaces of the grains $M_I$, and the mass $M_L$ that has leaked out of the sample.
 \begin{equation}
@@ -36,7 +36,7 @@ $M_I$ is part of the model, $M_L$ can be calculated using absorbing boundaries a
 \subsubsection*{Discrete-Element-Method (DEM)}
 
 For the numerical model in 3DEC the same setup was used as in MEX 2, see Fig. \ref{fig:ME4-dem-setup}. An initial reservoir pressure $p_R$ of 12 MPa, between principal stress $\sigma_2$ and $\sigma_3$, was chosen, to allow percolation. The bulk modulus of the brine was set to 2 GPa. Various reservoir volumes were tested, and  $V_R$ = 13 litres was found to give the clearest difference between gas and liquid.
-For the simulation the masses $M_I$ and $M_L$ were calculated every 25 timesteps. From this, the mass in the reservoir was calculated, and converted into a pressure by the constitutive relations above. The new reservoir pressure was then applied as an updated boundary condition as shown in Fig. \ref{fig:ME4-dem-setup} d). 
+For the simulation the masses $M_I$ and $M_L$ were calculated every 25 time steps. From this, the mass in the reservoir was calculated, and converted into a pressure by the constitutive relations above. The new reservoir pressure was then applied as an updated boundary condition as shown in Fig. \ref{fig:ME4-dem-setup} d). 
 
 \begin{figure}[!ht]
 \centering
@@ -52,7 +52,7 @@ For the simulation the masses $M_I$ and $M_L$ were calculated every 25 timesteps
 \label{fig:ME4-3dec-vertcuts}
 \end{figure}
 
-Figure \ref{fig:ME4-3dec-comp} shows that there is a stark difference. The high bulk modulus of the brine leads to a very fast drop in pressure, while the gas pressure stays almost constant for quite a while. It should be mentioned that the timesteps do not correspond to a physical timescale, because the rate of the fluid flow between adjacent fluid knots in the model was artificially increased, and not derived from the aperture between two grains. Still, the qualitative difference persists. The brine pressure drops so fast, that the liquid becomes stuck inside the cube (Fig. \ref{fig:ME4-3dec-vertcuts} left), while the gas pressure decreases only after a significant amount leaked from the sample (Fig. \ref{fig:ME4-3dec-vertcuts} right). In addition, it should be noted that the brine pressure does not fall below 9.3 MPa, although the minimal principal stress is only 8 MPa. This is because of two effects: First, in order for pressure driven percolation to take place, the fluid pressure has to overcome the normal stress on the grain boundaries, which is a composition of all three external stresses due to the tilted orientations. Second, the fluid has to overcome the tensile strength, set to 1 MPa, of the joints, too. 
+Figure \ref{fig:ME4-3dec-comp} shows that there is a stark difference. The high bulk modulus of the brine leads to a very fast drop in pressure, while the gas pressure stays almost constant for quite a while. It should be mentioned that the time steps do not correspond to a physical timescale, because the rate of the fluid flow between adjacent fluid knots in the model was artificially increased, and not derived from the aperture between two grains. Still, the qualitative difference persists. The brine pressure drops so fast, that the liquid becomes stuck inside the cube (Fig. \ref{fig:ME4-3dec-vertcuts} left), while the gas pressure decreases only after a significant amount leaked from the sample (Fig. \ref{fig:ME4-3dec-vertcuts} right). In addition, it should be noted that the brine pressure does not fall below 9.3 MPa, although the minimal principal stress is only 8 MPa. This is because of two effects: First, in order for pressure driven percolation to take place, the fluid pressure has to overcome the normal stress on the grain boundaries, which is a composition of all three external stresses due to the tilted orientations. Second, the fluid has to overcome the tensile strength, set to 1 MPa, of the joints, too. 
 
 \subsubsection*{Lattice-Element-Method (LEM)}
 
@@ -82,12 +82,9 @@ In order to simulate the compressibility effect with the lattice model, the simi
 \label{fig:Amir_ME4_Pressure}
 \end{figure}
 
-
-
 \subsubsection*{Finite-Element-Method: Variational Phase-Field}
 
 The simulation set-up will be identical to Fig.~\ref{fig:VPF_init} except that the injection fluid will be compressible fluid (ideal gas). 
-
 
 \subsection{Results and discussion}
 %------------------------------------------------------------------------------

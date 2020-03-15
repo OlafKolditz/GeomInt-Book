@@ -59,7 +59,7 @@ As software components are part of non-commercial, scientific program platforms 
 
 The handling of data obtained from the in-situ experiments in the underground laboratories through synergies with other projects is also regulated separately (access authorisation for these data, storage location, publication, handling of the data after the end of the project). Such an approach is necessary because specific parts of these data can be used for the scientific purposes of GeomInt, but they are generated in other projects with partly other partners.
 
-\begin{figure}
+\begin{figure}[!ht]
 \includegraphics[width=\textwidth]{figures/geomint-web-01.png}
 \includegraphics[width=\textwidth]{figures/geomint-web-02.png}
 \caption{GeomInt DMS Portal}
@@ -70,11 +70,11 @@ The handling of data obtained from the in-situ experiments in the underground la
 
 In this section, exemplary data sets of every project partner are described. A table of these data sets including description and link are available only for project partners at the website (Fig. \ref{fig:geomint-web}). Some data sets can be found on the UFZ data investigation portal \hyperlink{https://www.ufz.de/drp/}{https://www.ufz.de/drp/}. These data sets are uploaded to the data management portal at UFZ (DMP@UFZ).
 
-\begin{table}[h!]
+\begin{table}[!ht]
 \footnotesize
 \centering
 \caption{MEX Data Management}
-\label{tab:schedule}
+\label{tab:dms-mex}
 \begin{tabular}{|C{0.6cm}|L{3.7cm}|C{0.7cm}|C{0.7cm}|C{0.7cm}|C{0.7cm}|C{0.7cm}|C{0.7cm}|} 
 \hline 
 \rowcolor{cyan!50}
@@ -158,7 +158,6 @@ The uploaded protected MATLAB file in a *.p format requires a MATLAB version wit
 \label{fig:Amir_ME1_LEM_Displacement_Crystalline_Data}
 \end{figure}
 
-
 \subsection*{UFZ}
 The source code can be found in OpenGeoSys project on github and  the input files for the three point bending test performed on the Rockville Granite samples have been uploaded.
 The files include the unstructured finite element mesh files in vtu format and an OGS input file in xml format.
@@ -174,7 +173,6 @@ The load and crack mouth opening displacment computed from the simulations are s
 
 \subsection*{ifg}
 
-
 Data management for MEX 0-1a (see section \ref{sec:mex01} for Model-Experiment description).
 
 \todo[inline]{[CAU et al.]: Please add data management info for MEX 0-1a: Bending fracture test}
@@ -182,11 +180,11 @@ Data management for MEX 0-1a (see section \ref{sec:mex01} for Model-Experiment d
 \todo[inline]{The branch is not merged with the master yet. Files have been provided to datamanagement.}
 
 %-------------------
-\begin{table}[h!]
+\begin{table}[!ht]
 \footnotesize
 \centering
 \caption{MEX 0-1a: Data Management}
-\label{tab:schedule}
+\label{tab:dms-mex0-1}
 \begin{tabular}{|L{0.5cm}|L{1cm}|L{2cm}|L{3cm}|L{1cm}|} 
 \hline
 %..................
@@ -202,9 +200,9 @@ Data management for MEX 0-1a (see section \ref{sec:mex01} for Model-Experiment d
 \normalsize
 %-------------------
 
-\begin{table}[h!]
+\begin{table}[!ht]
 \caption{MEX 0-1a: Meta Data according to Dublin Core}
-\label{tab:}
+\label{tab:dms-mex0-1a}
 \small
 \begin{tabular}{R{3cm}|L{7cm}}
 \hline
@@ -239,9 +237,9 @@ The experimental results of the three-Point fracture toughness test on the Opali
 
 The data set, which includes the time, applied force ($N$) and the displacement of the sample at the loading point ($mm$), is provided in a *.txt file. The crack mouth opening displacement (CMOD), which is determined from the image processing technique (section \ref {sec:Fracture_Toughness_Exp}), is given in a *.xlsx file. The data includes the time and the calculated CMOD (mm). 
 
-\begin{table}[h!]
+\begin{table}[!ht]
 \caption{MEX 0-1b: Meta Data according to Dublin Core}
-\label{tab:}
+\label{tab:dms-mex0-1b}
 \small
 \begin{tabular}{R{3cm}|L{7cm}}
 \hline
@@ -298,9 +296,9 @@ The load and crack mouth opening displacment computed from the simulations are s
 Data management for MEX 1-1a (see \ref{sec:mex05}).
 \todo[inline]{[CAU et al.]: Please add data management info for MEX 1-1a}
 
-\begin{table}[h!]
+\begin{table}[!ht]
 \caption{MEX 1-1a: Meta Data according to Dublin Core}
-\label{tab:}
+\label{tab:dms-mex1-1a}
 \small
 \begin{tabular}{R{3cm}|L{7cm}}
 \hline
@@ -338,9 +336,9 @@ The required LEM code and the input variables for simulating the swelling proces
 The uploaded protected MATLAB file in a *.p format requires a MATLAB version with a built-in Voronoi Tessellation and Delaunay Triangulation functions.
 
 
-\begin{table}[h!]
+\begin{table}[!ht]
 \caption{MEX 1-1b: Meta Data according to Dublin Core}
-\label{tab:}
+\label{tab:dms-mex1-1b}
 \small
 \begin{tabular}{R{3cm}|L{7cm}}
 \hline
@@ -370,14 +368,12 @@ Access permissions &  \\
 
 Data management for MEX 1-2 (see \ref{sec:mex06}).
 
-
 \subsection*{CAU Kiel}
 
 The experimental results of the drying and wetting paths of the sandy Opalinus claystone are uploaded to the IfG (Kiel) NextCloud server. The data is accessible through the following link:\\
 \hyperlink{https://nextcloud.ifg.uni-kiel.de/index.php/s/q6g25nWyWJKqzNB}{https://nextcloud.ifg.uni-kiel.de/index.php/s/q6g25nWyWJKqzNB}\\
 
 The experimental data (*.xlsx) of drying and wetting paths are uploaded to the server. The data includes the reading number, time (day), stain values in perpendicular and parallel orientations, weight of the sample and measured water content values. Figure \ref{fig:Amir_ME6_Strain_Data} shows the change of the strains under the applied suction values.
-
 
 \begin{figure}[!ht]
 \centering
@@ -386,16 +382,14 @@ The experimental data (*.xlsx) of drying and wetting paths are uploaded to the s
 \label{fig:Amir_ME6_Strain_Data}
 \end{figure}
 
-
 The required LEM code and the input variables for simulating the drying and wetting paths of the sandy Opalinus claystone are uploaded to the IfG (Kiel) NextCloud server. The data is accessible through the following link:\\
 \hyperlink{https://nextcloud.ifg.uni-kiel.de/index.php/s/fDNoPoXpXMqeAsK}{https://nextcloud.ifg.uni-kiel.de/index.php/s/fDNoPoXpXMqeAsK}\\
 
 The uploaded protected MATLAB file in a *.p format requires a MATLAB version with a built-in Voronoi Tessellation and Delaunay Triangulation functions.
 
-
-\begin{table}[h!]
+\begin{table}[!ht]
 \caption{MEX 1-2: Meta Data according to Dublin Core}
-\label{tab:}
+\label{tab:dms-mex1-2}
 \small
 \begin{tabular}{R{3cm}|L{7cm}}
 \hline
@@ -430,9 +424,9 @@ Link to the data set at UFZ data investigation portal (Download only for project
 
 The data set contains all project files that are relevant to reproduce the simulation results described in Section \ref{sec:mex10} and its corresponding subsections. For every simulation run with OGS-6, the data set comprises a project file (\texttt{*.prj}), a geometry file (\texttt{*.gml}) and the computational mesh (\texttt{*.vtu}). For simulations run with OGS-5, the project is split into files for boundary conditions (\texttt{*.bc}), initial conditions (\texttt{*.ic}), fluid properties (\texttt{*.mfp}), material properties (\texttt{*.mmp}), solid properties (\texttt{*.msp}), numerical parameters (\texttt{*.num}), output parameters (\texttt{*.out}), process definitions (\texttt{*.pcs}), tabulated functional dependencies (\texttt{*.rfd}), source terms (\texttt{*.sc}), and output parameters (\texttt{*.out}). In addition, seperate files are provided for the geometry (\texttt{*.gli}) and the computational mesh (\texttt{*.msh}).
 
-\begin{table}[h!]
+\begin{table}[!ht]
 \caption{MEX 1-4: Meta Data according to Dublin Core}
-\label{tab:}
+\label{tab:dms-mex1-4}
 \small
 \begin{tabular}{R{3cm}|L{7cm}}
 \hline
@@ -470,9 +464,9 @@ The first case applies the boundary loading of 12 MPa, 21 MPa, and 8 MPa in x-, 
 The second case is loaded with 4 MPa, 15 MPa, and 19 MPa in x-, y-, and z-direction respectively and the input file is named ''me2\_insitu\_case2.prj".
 The remaining files are vtu files that describe the computing domain and the boundaries as shown in~\ref{fig:VPF_init}.
 
-\begin{table}[h!]
+\begin{table}[!ht]
 \caption{MEX 2-1a: Meta Data according to Dublin Core}
-\label{tab:}
+\label{tab:dms-mex2-1a}
 \small
 \begin{tabular}{R{3cm}|L{7cm}}
 \hline
@@ -503,7 +497,7 @@ Access permissions &  \\
 The required LEM code and the input variables of the percolation test on saltstone samples are uploaded to the IfG (Kiel) NextCloud server. The data is accessible through the following link:\\
 \hyperlink{https://nextcloud.ifg.uni-kiel.de/index.php/s/9JZZcpS4S3JJT9S}{https://nextcloud.ifg.uni-kiel.de/index.php/s/9JZZcpS4S3JJT9S}\\
 
-The uploaded protected MATLAB file in a *.p format requires a MATLAB version with a built-in Voronoi Tessellation and Delaunay Triangulation functions. The input variables are prepared in two files for two different stress configurations. Figure \ref{fig:fig:Amir_ME2_LEM_b_model_Fracture_Data} shows the relation between the load vs. CMOD as described in section \ref {sec:mex01}.
+The uploaded protected MATLAB file in a *.p format requires a MATLAB version with a built-in Voronoi Tessellation and Delaunay Triangulation functions. The input variables are prepared in two files for two different stress configurations. Figure \ref{fig:Amir_ME2_LEM_b_model_Fracture_Data} shows the relation between the load vs. CMOD as described in section \ref {sec:mex01}.
 
 \begin{figure}[!ht]
 \centering
@@ -511,7 +505,6 @@ The uploaded protected MATLAB file in a *.p format requires a MATLAB version wit
 \caption{The fracking surfaces under percolation tests shown in red}
 \label{fig:Amir_ME2_LEM_b_model_Fracture_Data}
 \end{figure}
-
 
 \subsection{MEX 2-1b: Pressure driven percolation on the Opalinus claystone (CAU Kiel)}
 
@@ -532,16 +525,14 @@ illustrates an example of the plotted borehole pressure vs. flow volume for the 
 \label{fig:Amir_Percolation_Flow_a_Data}
 \end{figure}
 
-
 The required LEM code and the input variables of the percolation test on Opalinus claystone samples are uploaded to the IfG (Kiel) NextCloud server. The data is accessible through the following link:\\
 \hyperlink{https://nextcloud.ifg.uni-kiel.de/index.php/s/tFKKjxnSpgNG25b}{https://nextcloud.ifg.uni-kiel.de/index.php/s/tFKKjxnSpgNG25b}\\
 
 The uploaded protected MATLAB file in a *.p format requires a MATLAB version with a built-in Voronoi Tessellation and Delaunay Triangulation functions. The input variables are prepared in two files for two different stress configurations.
 
-
-\begin{table}[h!]
+\begin{table}[!ht]
 \caption{MEX 2-1b: Meta Data according to Dublin Core}
-\label{tab:}
+\label{tab:dms-mex2-1b}
 \small
 \begin{tabular}{R{3cm}|L{7cm}}
 \hline
@@ -567,7 +558,6 @@ Access permissions &  \\
 \end{tabular}
 \end{table}
 
-
 \subsection{MEX 2-2: Closure and healing of cracks}
 
 Data management for MEX 2-2 (see \ref{sec:mex03}).
@@ -583,9 +573,9 @@ The measured gas flow is converted into permeabilities, which are stored as time
 \label{fig:ME3-perme-exp-dmp}
 \end{figure}
 
-\begin{table}[h!]
+\begin{table}[!ht]
 \caption{MEX 2-2: Meta Data according to Dublin Core}
-\label{tab:}
+\label{tab:dms-mex2-2}
 \small
 \begin{tabular}{R{3cm}|L{7cm}}
 \hline
@@ -629,12 +619,11 @@ The uploaded protected MATLAB file in a *.p format requires a MATLAB version wit
 \label{fig:Amir_ME4_Pressure_Data}
 \end{figure}
 
-
 \todo[inline]{[IfG et al.]: Please add data management info for MEX 2-3}
 
-\begin{table}[h!]
+\begin{table}[!ht]
 \caption{MEX 2-3: Meta Data according to Dublin Core}
-\label{tab:}
+\label{tab:dms-mex2-3}
 \small
 \begin{tabular}{R{3cm}|L{7cm}}
 \hline
@@ -665,9 +654,9 @@ Access permissions &  \\
 Data management for MEX 2-4 (see \ref{sec:mex11}).
 \todo[inline]{[IfG]: Please add data management info for MEX 2-4}
 
-\begin{table}[h!]
+\begin{table}[!ht]
 \caption{MEX 2-4: Meta Data according to Dublin Core}
-\label{tab:}
+\label{tab:dms-mex2-4}
 \small
 \begin{tabular}{R{3cm}|L{7cm}}
 \hline
@@ -720,9 +709,9 @@ The CNL data set contains four text files. One text file with the rock propertie
 \label{fig:DataCNLGraniteLab}
 \end{figure}
 
-\begin{table}[h!]
+\begin{table}[!ht]
 \caption{MEX 3-1: Meta Data according to Dublin Core}
-\label{tab:}
+\label{tab:dms-mex3-1}
 \small
 \begin{tabular}{R{3cm}|L{7cm}}
 \hline
@@ -773,9 +762,9 @@ The data set of the CNS test contains a file with the rock properties of the use
 \label{fig:DataCNSBasaltLab}
 \end{figure}
 
-\begin{table}[h!]
+\begin{table}[!ht]
 \caption{MEX 3-2: Meta Data according to Dublin Core}
-\label{tab:}
+\label{tab:dms-mex3-2}
 \small
 \begin{tabular}{R{3cm}|L{7cm}}
 \hline
@@ -811,9 +800,9 @@ Link to the data set stored at the Gitlab server located at the Institute of App
 
 The uploaded data set contains two compiled executables for simulations to fit experimental data for the Reichen Zeche fracture characterization tests and to reproduce the non-linear response throughout harmonic testing of a single fracture on the laboratory scale like described in section \ref{sec:mex09}. The folder includes executables, input files and the used discretization in terms of meshing files, required to perform the simulations. README.txt files provide further informations how to start the simulations.
 
-\begin{table}[h!]
+\begin{table}[!ht]
 \caption{MEX 3-3: Meta Data according to Dublin Core}
-\label{tab:}
+\label{tab:dms-mex3-3}
 \small
 \begin{tabular}{R{3cm}|L{7cm}}
 \hline
