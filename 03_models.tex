@@ -1,12 +1,30 @@
 \chapter{Numerical Platform}
 \label{cha:num}
-An essential scientific goal of the GeomInt project is the analysis of potentials and limitations of different numerical approaches for the modelling of discontinuities in the rocks under consideration in order to improve the understanding of methods and their synergies with regard to theoretical and numerical fundamentals. As numerical methods, the continuum approaches ``Extended Finite Element Method'' (XFEM) and ``Phase-Field Method'' (PFM), the non-continuous discontinuum methods "Discrete Element Method" (DEM) and ``Smoothed Particle Hydrodynamics'' (SPH) as well as the hybrid method ``Lattice Element Method'' (LEM) will be systematically investigated and appropriately extended based on experimental results (Fig. \ref{fig:num-overview}).
+An essential scientific goal of the GeomInt project is the analysis of potentials and limitations of different numerical approaches for the modelling of discontinuities in the rocks under consideration in order to improve the understanding of methods and their synergies with regard to theoretical and numerical fundamentals. As numerical methods, 
+the ``Lattice Element Method'' (LEM),
+the non-continuous discontinuum methods "Discrete Element Method" (DEM),
+the ``Smoothed Particle Hydrodynamics'' (SPH),
+the ''Forces on Fracture Surfaces'' (FFS) 
+as well as the continuum approaches ``Phase-Field Method'' (PFM), ''Lower-Interface-Method'' (LIE), ''Non-Local Deformation'' (NLD) and the ''Hybrid-Dimensional Finite-Element-Method'' (HDF) will be systematically investigated and appropriately extended based on experimental results (Fig. \ref{fig:num-overview}).
+
 \begin{figure}[ht!]
-\centering
-\includegraphics[width=1\textwidth]{figures/geomint-mod-overview}
-\caption{Overview of the GeomInt Numerical Platform}
+\begin{subfigure}[c]{0.6\textwidth}
+\includegraphics[width=0.99\textwidth]{figures/geomint-mod-overview}
+%\subcaption{caption 1}
+\label{fig:sub1}
+\end{subfigure}
+\begin{subfigure}[c]{0.38\textwidth}
+\includegraphics[width=0.99\textwidth]{figures/geomint-concept-mod.png}
+%\subcaption{caption 2}
+\label{fig:sub2}
+\end{subfigure}
+\caption{Overview of the Numerical Platform (left) as part of the GeomInt research concept (right), see section \ref{sec:geomint}}
 \label{fig:num-overview}
 \end{figure}
+
+The numerical methods in Figure \ref{fig:num-overview} are displayed in accordance to the scale-ability, i.e. increasing temporal and spatial scales from right to left.
+\index{scaling concept}
+
 %--------------------------
 \input{03_sota.tex}
 %--------------------------
@@ -16,7 +34,6 @@ An essential scientific goal of the GeomInt project is the analysis of potential
 %--------------------------
 \input{03_lem.tex}
 %--------------------------
-\subsection{DEM - Distinct-Element-Method}
 \input{03_dem.tex}
 %--------------------------
 \input{03_sph}
@@ -35,7 +52,6 @@ In the following we briefly introduce some extensions of the Finite-Element-Meth
 \input{03_nld.tex}
 \label{subsec:fem-nld}
 %--------------------------
-\clearpage
 \begin{wrapfigure}{l}{7cm}
 \centering
 \includegraphics[width=7cm]{figures/Schematic_figure_LIE_PF_NLD}

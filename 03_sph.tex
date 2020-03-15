@@ -1,14 +1,14 @@
 \subsection{SPH - Smoothed-Particle-Hydrodynamics}
-\index{Smoothed-Particle-Hydrodynamics (SPH)}
+\index{SPH Smoothed Particle Hydrodynamics}
+
 Direct Numerical Simulations (DNS) of effective physical properties of single-phase flow through porous or fractured solid materials can be performed directly on the pore scale of the porous soil or rock. Morphological information, the basis for the subsequent DNS, is obtained as segmented (binarized) voxel-data from $\mu$ X-Ray Computed Tomography (XRCT). In general, numerical simulations of flow processes on XRCT-data at small to moderate Reynolds (Re) numbers could be performed by mesh-based Finite Element, Finite Differences or Finite Volume methods.
 % \todo{HS: References} %
-\index{direct numerical simulation (DNS)}
-\index{Reynolds number (Re)}
-\index{XRCT}
+\index{DNS Direct Numerical Simulation}
+\index{RE Reynolds number}
+\index{XRCT application}
 
-Here, we haven chosen the mesh-less Smoothed Particle Hydrodynamics methods as an alternative simulation technique. SPH is a Lagrangian simulation tool used to solve Partial Differential Equations (PDE) and was originally developed for astrophysical problems \cite{gingold1977smoothed,lucy1977numerical}. In recent years, due to it's flexibility and
-scalability and applicability on HPC architectures, especially in an explicit formulation,
-it became attractive for various problems fluid dynamics like single and multi-phase fluid mechanics with internal interfaces, suspension flow, and single and multi-phase flow in porous media  \cite{sivanesapillai2016csf,sivanesapillai2016pore,sivanesapillai2014transition,sivanesapillai2018fluid,markauskas2017comparative}.%\todo{Nadine's work} 
+Here, we haven chosen the mesh-less Smoothed Particle Hydrodynamics methods as an alternative simulation technique. SPH is a Lagrangian simulation tool used to solve Partial Differential Equations (PDE) and was originally developed for astrophysical problems \cite{gingold1977smoothed,lucy1977numerical}. In recent years, due to it's flexibility and scalability and applicability on HPC architectures, especially in an explicit formulation, it became attractive for various problems fluid dynamics like single and multi-phase fluid mechanics with internal interfaces, suspension flow, and single and multi-phase flow in porous media  \cite{sivanesapillai2016csf,sivanesapillai2016pore,sivanesapillai2014transition,sivanesapillai2018fluid,markauskas2017comparative}.%\todo{Nadine's work} 
+
 Within the framework of this method, the discretisation of the PDEs spans a set of interacting collocation points $\mathcal{P}_i$ with position vectors $\Tx_i$, referred to as particles. The positions of the particles represent integration points at which field functions $\Phi (\Tx, t) $ are interpolated by convolution with the Dirac-Delta function $\delta$:
 \index{Lagrangian methods}
 \index{collocation method}
@@ -16,21 +16,20 @@ Within the framework of this method, the discretisation of the PDEs spans a set 
 
 \begin{equation}
 \label{eq:SPH_dirac_delta}
-\Phi (\Tx, t) \, = \, \int_\Omega \Phi (\Tx', t) \delta(\Tx - \Tx') \dv.
+\Phi (\Tx, t) \, = \, \int_\Omega \Phi (\Tx', t) \; \delta(\Tx - \Tx') \; \dv.
 \end{equation}
 
-Replacing $\delta(\Tx -  \Tx')$ with the kernel function $ W(\Tx - \Tx', h)$ results in the approximation
+Replacing $\delta(\Tx - \Tx')$ with the kernel function $ W(\Tx - \Tx', h)$ results in the approximation
 
 \begin{equation}
 \label{eq:SPH_replacement_kernel}
-\Phi (\Tx, t) \, \approx \, \int_\Omega \Phi (\Tx', t) W(\Tx  -  \Tx', h) \dv,
+\Phi (\Tx, t) \, \approx \, \int_\Omega \Phi (\Tx', t) \; W(\Tx  -  \Tx', h) \; \dv,
 \end{equation}
 
 where the support $h$ of the kernel determines a sphere of influence and likewise declares neighbouring particles $\mathcal{P}_j$ with position vector $\Tx_j$. Subsequently, the discretisation (numerical integration) of the integral formulation converts continuous field functions into discrete particle properties  $\Phi (\Tx_i) = \Phi_i$, kernel representations into spatial discretisation and equation \glref{eq:SPH_replacement_kernel} yields 
-
 \begin{equation}
 \label{eq:SPH_discrete_field_function}
-\Phi_i \, = \, \sum_j^N \Phi_j W(\Tx_i  -  \Tx_j, h) V_j \, .
+\Phi_i \, = \, \sum_j^N \Phi_j \; W(\Tx_i - \Tx_j, h) \; V_j \; .
 \end{equation}
 
 Herein, $V_j$ is introduced as the discrete representation of $ \dv$ and $j \, = \, 1,2, \dots, N $ indicates the neighbour particles within the kernel support of particle $\mathcal{P}_i$. Analogously, differential operators turn into short-range interaction forces. For more technical details, also accounting to the necessary time integration we refer to \cite{monaghan2012smoothed,sivanesapillai2016pore,ye-2019}.
@@ -46,23 +45,23 @@ A SPH implementation of single-phase flow of a Newtonian fluid is based on the s
 and the balance of mass
 \begin{equation}
 \label{eq-50_sph}
- \dot{\rho}^\Gf \, = \, -\rho^\Gf \div \Tv_\Gf \, ,
+\dot{\rho}^\Gf \, = \, -\rho^\Gf \div \Tv_\Gf \, ,
 \end{equation}
 which are known as the Navier-Stokes equations.
 \index{Navier-Stokes equations}
 We adopted the notation used in mixture theory 
 \cite{steeb-2019b,steeb-2019a}
-where a subscript is used for kinematical quantities and a superscript elsewhere.
+where a subscript is used for kinematic quantities and a superscript elsewhere.
 $\rho^\Gf (\Tx, t)$ is the mass density field, $\Tv_\Gf $ is the velocity vector, $\mu^\Gf $ is the dynamic viscosity, $p (\Tx, t)$ is the pressure field and $\Tb$ are body force densities.
 The ``dot'' operator, cf. Equations \glref{eq-40_sph} and \glref{eq-50_sph},
 is denoting the material or substantial time derivative $\cdot{(\bullet)} = \partial_t{\bullet} + \grad(\bullet) \cdot \Tv_\Gf$.
 In order to solve the quasi-incompressible (weakly compressible) character of the Navier-Stokes equations an equation of state for the pressure in the form
 $p(\rho^\Gf)$ has to be formulated.
-\index{weakly incompressible SPH}
-\index{quasi-incompressible SPH}
+\index{SPH weakly incompressible}
+\index{SPH quasi-incompressible}
 Therefore, either a linear model or the Tait equation \cite{hayward1967compressibility}
 \index{Tait equation}
-\index{equation of state (EoS)}
+\index{EoS Equation of State}
 
 \begin{equation}
 \label{eq:SPH_tait_eos}

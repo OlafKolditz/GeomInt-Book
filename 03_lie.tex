@@ -1,6 +1,6 @@
 \subsection{LIE - Lower-Interface-Elements}
 %--------------------------
-The following implementation is based on \cite{Watanabe2012} and represents a special case of extended finite element methods~\cite{Moees1999,Belytschko2009,belytschko2001arbitrary} in that the enrichment is limited to element boundaries. 
+The following implementation is based on Watanabe et al. (2012)~\cite{Watanabe2012} and represents a special case of extended finite element methods~\cite{Moees1999,Belytschko2009,belytschko2001arbitrary} in that the enrichment is limited to element boundaries. 
 The implementation is here extended to cohesive zone traction separation laws, cf.~\cite{needleman1990analysisa,needleman1990analysisb,nguyen2001cohesive,Elices2002,Gasser2005,Meschke2007}.
 
 \subsubsection*{Weak form}
@@ -85,13 +85,13 @@ In case of $d^{t+\Delta t} > d^t$ within the employed incremental-iterative solu
 
 Since the matrix was considered impermeable, a fluid pressure was only required in the cracked domain. For that purpose, equation~\eqref{eq:effective_LIE} was modified to read:
 \begin{equation}
- 	\mbf{t}_\mrm{c} = \mbf{t}'_\mrm{c} - d p \mbf{n}_\Gamma
+ 	\mbf{t}_\mrm{c} = \mbf{t}'_\mrm{c} - dp \; \mbf{n}_\Gamma
  	\label{eq:effective_LIE_damage}
 \end{equation}
 
 \subsubsection*{Numerical implementation}
 The implementation within an extrinsically enriched finite element scheme follows \cite{Watanabe2012}. In addition to the usual nodal displacement degrees of freedom for continuous settings, nodal degrees of freedom equivalent to the displacement jump are introduced as additional unknowns. Hence, in contrast to the other methods used in this paper, the displacement jump is explicitly given as a primary solution of the enriched finite element scheme such that the displacement solution displays a strong discontinuity. Non-linearities are handled using an incremental iterative Newton-Raphson method resulting in a linear system
-\index{Newton-Raphson method}
+\index{Newton-Raphson scheme}
 \[
 \begin{bmatrix}
 \mathbf{K_{uu}} & \mathbf{K_{ua}} \\
