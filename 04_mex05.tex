@@ -44,7 +44,7 @@ a_h=\sqrt{\frac{12k_h\nu_f^{k}}{g}}=3.67\times10^{-8}
 \end{align}
 
 where $\nu_f^{k}=1.004\times{10}{^{-6} [m^2.s^-1]}$. The calculated parameters then are transformed into lattice model to simulate the swelling and change of the permeability with swelling process. The salt re-crystallization and closure of micro-pathways is not investigated here. The expansion of the elements based on the shrinkage and swelling model described in section \ref{Section:ShrinkageLattice} is carried out. The expansion of the elements results in decrease of the hydraulic aperture and therefore lower permeability values. However, during the swelling process the micro fracking is also observed. The elements expansion lead to higher axial confinement stresses between the Voronoi cells, which is represented by interface elements.  Eventually, the outcome of the simulation is compared to the experimental results. The domain is generated using the vectorizable lattice element (Fig. \ref{fig:Amir_ME5_Lattice_Setup}). The dimension of the sample is given as 100x200 $mm$ $[LxD]$. the fracking paths during the swelling process are shown in Fig.
-\ref{fig:Amir_ME5_Lattice_Frack}. Fig. \ref{fig:Amir_ME5_Lattice_Drying}) Depicts the change of hydraulic conductivity along different axis. 
+\ref{fig:Amir_ME5_Lattice_Frack}. Fig. \ref{fig:Amir_ME5_Lattice_Drying}) Depicts the change of hydraulic conductivity along different axis. The change of hydraulic conductivity along z-axis is the lowest due to the imposed boundary condition in this direction. Before initiation of the micro-fracking pathways, the hydraulic conductivity values are decreased. However, after initiation of micro-cracks the hydraulic conductivity values are increased as started at 0.025 $\%$ axial strain of the elements. The embedded anisotropy in lattice model resulted in different hydraulic conductivity values in x and y-axis.
 
 \begin{figure}[!ht]
 \begin{subfigure}[c]{0.5\textwidth}
@@ -65,11 +65,10 @@ where $\nu_f^{k}=1.004\times{10}{^{-6} [m^2.s^-1]}$. The calculated parameters t
 
 \begin{figure}[!ht]
 \centering
-\includegraphics[width=8cm,height=5cm]{figures/Amir_ME6_Lattice_Setup.png}
-\caption{The change of hydraulic conductivity along the axis for salt clay}
+\includegraphics[width=8cm,height=5cm]{figures/Amir_ME5_Lattice_Drying.png}
+\caption{The change of hydraulic conductivity along the axis for salt clay, swelling process}
 \label{fig:Amir_ME5_Lattice_Drying}
 \end{figure} 
-
 
 
 \todo[inline]{[CAU] Please add LEM results}
@@ -78,4 +77,4 @@ where $\nu_f^{k}=1.004\times{10}{^{-6} [m^2.s^-1]}$. The calculated parameters t
 %------------------------------------------------------------------------------
 \subsection{Results and discussion}
 
-The swelling of the salt clay under isostatic stress conditions of 4 bar, and a brine pressure of 1 bar is investigated. The flow rate, change of the samples volume as well as the permeability change during the swelling process is measured. The experimental results indicate the sudden increase in the flow volume after 8 days of the test procedure. Initially, the slats re-crystallization may result in opening and closure of the pathways as indicated from experimental data. The closure of the pathways in salt clay sample is observed, which results in decrease of the permeability. The lattice model using the elements swelling coefficient is implemented to simulate the change of the permeability during the test procedure. The integrated interface element method is used here to assess the change of the hydraulic aperture. The anisotropy of salt clay is neglected in this study. Therefore, the initial permeability and hydraulic aperture along different axis are assumed to be equal. 
+The swelling of the salt clay under isostatic stress conditions of 4 bar, and a brine pressure of 1 bar is investigated. The flow rate, change of the samples volume as well as the permeability change during the swelling process is measured. The experimental results indicate the sudden increase in the flow volume after 8 days of the test procedure. Initially, the slat minerals re-crystallization may result in opening and closure of the pathways as indicated from experimental data. Eventually, the closure of the pathways in salt clay sample is observed, which resulted in decrease of the permeability. The lattice model using the elements swelling coefficient is implemented to simulate the change of the permeability during the test procedure. The integrated interface element method is used here to assess the change of the hydraulic aperture. The anisotropy of salt clay is neglected in this study. Therefore, the initial permeability and hydraulic aperture along different axis are assumed to be equal. The numerical result indicate the decrease of the hydraulic conductivity before the micro-fracking paths formation. The results do not correspond to the experimental data, as in the experimental data, increase of the permeability values were not observed. Further qualitative investigation of the results and validation of the lattice model is required. 
