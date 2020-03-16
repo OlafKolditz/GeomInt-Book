@@ -56,7 +56,7 @@ The serve as the center coordinates of the Voronois. After 10$^5$ insertion atte
 
 \subsubsection*{Lattice-Element-Model (LEM)}
 
-The lattice element method (LEM) with the refined mesh is implemented to model the three-point bending test according to the experimental data given in Table \ref{table:ME1_TPB_experiment}. The regularization of the parameters is carried out to assure the mesh independence results (Section \ref{Section:MechanicalLattice}). The total number of the elements is around 500,000 elements, where the distance between the two nodes in the refined boundary is 1.2mm, granting the experimental notch width (Figure \ref{fig:Amir_ME1_LEM_Setup}). The considered Young Modulus is 35GPa to match the experimental linear elastic response.
+The lattice element method (LEM) with the refined mesh is implemented to model the three-point bending test according to the experimental data given in Table \ref{table:ME1_TPB_experiment}. The regularization of the parameters is carried out to assure the mesh independence results (Section \ref{Section:MechanicalLattice}). The total number of the elements is around 500,000 elements, where the mesh distance in the refined domain is 1.2mm, granting the experimental notch width (Figure \ref{fig:Amir_ME1_LEM_Setup}). The considered Young Modulus is 35GPa to match the experimental linear elastic response.
 
 \begin{figure}[!ht]
 \centering
@@ -96,8 +96,7 @@ Simulation results from all the simulations are shown in \ref{fig:ME1_comparison
 All the models exhibit linear elastic behaviors, before failure sets in as in the experimental data.
 First, we can see that all the models reproduce the linear elastic response.
 It is straightforward for the variational phase-field model as it only requires the descriptions of the linear elastic properties (i.e. the Young's modulus and the Poisson's ratio).
-However, for the lattice or discrete element methods, these bulk properties need to be obtained through the micro mechanical properties such as (xxx) and they are obtained as.... 
-In lattice element method the strain energy stored in unit cell should be equal to the continuum strain energy. Therefore, for a Euler Bernoulli beam elements and while considering 
+However, for the lattice or discrete element methods, these bulk properties need to be obtained through the micro mechanical properties. In lattice method the strain energy stored in unit cell should be equal to the continuum strain energy. Therefore, for a Euler Bernoulli beam elements and while considering 
 the stored energies, the micro to macro (bulk) transformation of properties is carried out, see \cite{Ostojastarzewski2002}.
 
 The main difference between the discrete/lattice element method and the variational phase-field model is the responses after the failure.

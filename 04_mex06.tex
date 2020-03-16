@@ -4,7 +4,7 @@
 \Authors{Amir Shoarian Sattari, Keita Yoshioka}
 %------------------------------------------------------------------------------
 
-The simulation of the drying and wetting processes and evolution of the micro pathways in Opalinus claystone are the focus of the this model exercise (MEX 1-2). In this matter, the experimental data are used to model the shrinkage and swelling processes. Additionally, the change of hydraulic conductivity both in parallel and perpendicular to the embedded layering orientations is investigated. It is shown that due to the inherent anisotropy of claystone material, the materials behavior in parallel and perpendicular orientations are different.  
+The simulation of the drying and wetting processes and evolution of the micro pathways in Opalinus claystone are the focus of the this model exercise (MEX 1-2). In this matter, the experimental data are used to model the shrinkage and swelling processes. Additionally, the change of hydraulic conductivity both in parallel and perpendicular to the embedded layering orientations is investigated. It is shown that due to the inherent anisotropy of claystone material, the materials linear strain in parallel and perpendicular orientations are different.  
 
 %------------------------------------------------------------------------------
 \subsection{Experimental set-up}
@@ -57,7 +57,7 @@ $LiBr$ & 6.6 & 367.5\\
 \label{table:Amir_Shrinkage_SaltSolutions}
 \end{table}
 
-The samples dimension is 100x10 $mm$ $(DxH)$. The equilibrium inside the desiccator is reached when the change of the samples water content is equal to zero. Fig. \ref{fig:Amir_ME6_Strain} depicts the change of suction and axial linear strains in parallel and perpendicular directions. Similarly, Fig.\ref{fig:Amir_ME6_Water} shows the change of water content with applied suction using salt solutions. In drying path, the results indicate a higher strains for a strain perpendicular to the embedded layers. When the suction is higher than 150 $MPa$, the strains in perpendicular direction are almost 4.5 larger than parallel ones. Interestingly, in the wetting path, the differences between the strain gauges are much less. According to the water content data, the air-entry pressure for a sandy Opalinus claystone is around 25 $MPa$.
+The samples dimension is 100x10 $mm$ $(DxL)$. The equilibrium inside the desiccator is reached when the change of the samples water content is equal to zero. Fig. \ref{fig:Amir_ME6_Strain} depicts the change of suction and axial linear strains in parallel and perpendicular directions. Similarly, Fig.\ref{fig:Amir_ME6_Water} shows the change of water content with applied suction using salt solutions. In drying path, the results indicate a higher strains for a strain perpendicular to the embedded layers. When the suction is higher than 150 $MPa$, the strains in perpendicular direction are almost 4.5 larger than parallel ones. Interestingly, in the wetting path, the differences between the strain gauges are much less. According to the water content data, the air-entry pressure for a sandy Opalinus claystone is around 25 $MPa$.
 
 \begin{figure}[!ht]
 \begin{subfigure}[b]{1\textwidth}
@@ -80,7 +80,7 @@ The samples dimension is 100x10 $mm$ $(DxH)$. The equilibrium inside the desicca
 %------------------------------------------------------------------------------
 \subsection{Model approaches}
 
-The simulation results from both of the model methods, lattice element method (LEM) and variational phase field model (VPF) are described and the accuracy of numerical results for modeling the shrinkage process with change of linear or volumetric strains as well as the change of anisotropic hydraulic conductivity are investigated. 
+The simulation results from both of the model methods, lattice element method (LEM) and variational phase field model (VPF), are described and the accuracy of numerical results for modeling the shrinkage process with change of linear or volumetric strains as well as the change of anisotropic hydraulic conductivity are investigated. 
 
 \subsubsection*{Lattice element model}
 
@@ -108,7 +108,7 @@ a_{h,\bot}=2.71\times{10}{^{-10}}
 \end{split}
 \end{align}
 
-where $\nu_f=1.004\times{10}{^{-6} [m^2.s^-1]}$ and $g=9.8$. The domain is generated using the vectorizable lattice element with defined layers as described in previous sections (Fig. \ref{fig:Amir_ME6_Lattice_Setup}). The interface length is defined based on Eq. \ref{eq:LEM_ME6_2}. The interface strength between two layers is assumed to be 5 times weaker than the bond between a same layer. Therefore, a fracking along the layers (X and Z direction) is expected, Which results in higher hydraulic conductivity values as the wetting and drying process continues (Fig. \ref{fig:Amir_ME6_Lattice_Frack}). Fig. \ref{fig:Amir_ME6_Lattice_Drying}) depicts the change of hydraulic conductivity along three axis of X, Y and Z. As expected, the change of the hydraulic conductivity during the drying process is the lowest along the Y axis, where the drying process is perpendicular to the embedded layering orientation. 
+where $\nu_f=1.004\times{10}{^{-6} [m^2.s^-1]}$ and $g=9.8$. The domain is generated using the vectorizable lattice element with defined layers as described in previous sections (Fig. \ref{fig:Amir_ME6_Lattice_Setup}). The interface length is defined based on Eq. \ref{eq:LEM_ME6_2}. The interface strength between two layers is assumed to be 5 times weaker than the bond between a same layer. Therefore, fracking along the layers in X and Z directions is expected, Which results in higher hydraulic conductivity values as the wetting and drying process continues (Fig. \ref{fig:Amir_ME6_Lattice_Frack}). Fig. \ref{fig:Amir_ME6_Lattice_Drying}) depicts the change of hydraulic conductivity along three axis of X, Y and Z. As expected, the change of the hydraulic conductivity during the drying process is the lowest along the Y axis, where the drying process is perpendicular to the embedded layering orientation. 
 
 \begin{figure}[!ht]
 \begin{subfigure}[c]{0.5\textwidth}
@@ -119,7 +119,7 @@ where $\nu_f=1.004\times{10}{^{-6} [m^2.s^-1]}$ and $g=9.8$. The domain is gener
 \end{subfigure}
 \begin{subfigure}[c]{0.5\textwidth}
 \centering
-\includegraphics[width=5cm,height=5cm]{figures/Amir_ME6_Lattice_Setup.png}
+\includegraphics[width=5cm,height=5cm]{figures/Amir_ME6_Lattice_Frack.png}
 \subcaption{}
 \label{fig:Amir_ME6_Lattice_Frack}
 \end{subfigure}
