@@ -26,15 +26,12 @@
 \listoftodos
 \clearpage
 \include{title}
-%\begin{comment}
 %==============================================================================
 \tableofcontents
 \include{schedule}
 \include{acknow}
 \include{contribution}
 %==============================================================================
-%\include{preface}
-%\include{contribution}
 \cleardoublepage
 \pagenumbering{arabic}
 \setcounter{page}{1}
@@ -46,29 +43,29 @@
 \include{01_project}
 %==============================================================================
 %\part{Experimental Methods}
-%\todod{2. Experimental Platform---------------------------------------------------------}
-%\include{02_experiments}
+\todod{2. Experimental Platform---------------------------------------------------------}
+\include{02_experiments}
 %==============================================================================
 %\part{Numerical Methods}
-%\todod{3. Numerical Platform-------------------------------------------------------------}
+\todod{3. Numerical Platform-------------------------------------------------------------}
 \include{03_models}
-\todod{OK: Proof-reading finished until here}
 %==============================================================================
-\todo[inline]{OK: Proof-reading started from here}
 %\part{Model Exercises (Benchmarks)}
 \todom{4. MEX---------------------------------------------------------------------------------}
 \include{04_mex}
+\todod{OK: Proof-reading finished until here}
 %==============================================================================
 %\part{Field Applications}
 %%\include{05_applications}
 %==============================================================================
-%\part{Field Applications}
-%\todom{5. Data Management----------------------------------------------------------------}
-%\include{06_data-management}
+%\part{Data Management}
+\todo[inline]{OK: Proof-reading started from here}
+\todom{5. Data Management----------------------------------------------------------------}
+\include{06_data-management}
 %==============================================================================
 %\part{Outlook}
 \todol{6. Synthesis and Outlook---------------------------------------------------------}
-%\include{07_outlook}
+\include{07_outlook}
 %==============================================================================
 %\part{Appendices}
 \appendix
@@ -90,12 +87,10 @@
 \include{symbols}
 \todol{Glossary--------------------------------------------------------------------------------}
 \chapter{Glossary}
-\include{abbreviations}
+%\include{abbreviations}
 \printglossary[title={List of Symbols}]
 \todol{Index----------------------------------------------------------------------------------}
 \printindex
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%\end{comment}
 %==============================================================================
 \end{document}
 

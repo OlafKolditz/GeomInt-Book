@@ -3,13 +3,27 @@
 
 \section{Synthesis - Directions}
 
-The main result of the primarily methodologically oriented joint project GeomInt is the development of a broad experimental and numerical platform for the realistic analysis and prediction of discontinuities in important reservoir and barrier rocks. Model comparisons for damage and fracture processes driven by different processes provide information on the optimal areas of application of the numerical methods.
-Future activities aim to demonstrate the practical applicability of the developed experimental-numerical instruments under real conditions on the site scale. In addition, in-depth tests on a smaller scale and in-depth model developments for specific process components will close any gaps in knowledge that still exist.
+As a result of the GeomInt research project (Chapter \ref{cha:geomint}) a broad combined experimental and numerical platform for the investigation of discontinuities due to swelling and shrinking processes (WP1, section \ref{sec:lab-wp1}), pressure-driven percolation (WP2, section \ref{sec:lab-wp2}) and stress redistribution (WP3, section \ref{sec:lab-wp3}) for important reservoir and barrier rocks (clay, salt, crystalline) has been developed. Model comparisons for damage and fracture processes driven by different processes provide information on the optimal areas of application of the numerical methods (section \ref{sec:synthesis-num}). 
 
-As a result of the GeomInt research project (Chapter \ref{cha:geomint}) a broad experimental and numerical platform for the investigation of discontinuities due to swelling and shrinking processes (WP1), pressure-driven percolation (WP2) and stress redistribution (WP3) has been developed. The most important barrier and reservoir rocks (clay, salt, crystalline) will be recorded. A comprehensive validation of the platforms (\glqq{}Proof-of-Concept\grqq) was carried out by model experiments (MEX) for the damage and fracture processes driven by different processes (see chapter \ref{cha:mex}).
-In future work - the basic idea concerning the investigation of the three relevant process types for the formation of pathways in different rock types -- shall be preserved. The proven project structure (WP1-3) is also to be retained (Fig. \ref{fig:geomint2}).
+\begin{wrapfigure}{l}{6cm}
+\centering
+\includegraphics[width=5.9cm]{figures/geomint-mex.png}
+\caption{Central MEX concept}
+\label{fig:synthesis-mex}
+\end{wrapfigure}
+A comprehensive validation of the platforms (\glqq{}Proof-of-Concept\grqq) was carried out by ''Model-Experiment-Exercises'' experiments (MEX) for the damage and fracture processes driven by different processes such as swelling and shrinking, pressure-driven percolation and stress redistribution (see chapter \ref{cha:mex}).
+The MEX concept is the central synthesis element of GeomInt as it is directly linking models (MOD) with lab experiments (LAB) and paving the way towards the analysis of in-situ experiments (URL) which has been started in the current project phase and will be continued in future activities though (Fig. \ref{fig:synthesis-mex}, see also section \ref{sec:poc}).
 
-The project results allow an improved understanding of the processes, the methods used and the application-oriented systems for realistic time and length scales in order to make the planning and implementation of geotechnical uses of the underground safer, more reliable and efficient. An important part of future work is the transferability of the experimental-numerical concepts and methods to other geotechnological applications (e.g. deep geothermal energy, energy storage, repository problems, methods for hydraulic stimulation, conventional and unconventional resource extraction or tunnel construction). Ongoing activities also aimed to intensify the internationalization started in the previous project in cooperation with complementary research projects (e.g. DECOVALEX 2023, Mt. Terri project).
+The project results allow an improved understanding of the processes, the methods used and the application-oriented systems for realistic time and length scales in order to make the planning and implementation of geotechnical uses of the underground safer, more reliable and efficient. An important part of future work is the transferability of the experimental-numerical concepts and methods to other geotechnological applications (e.g. deep geothermal energy, energy storage, repository problems, methods for hydraulic stimulation, conventional and unconventional resource extraction or tunnel construction). Ongoing activities also aimed to intensify the internationalization started in the previous project in cooperation with complementary research projects (e.g. EURAD, DECOVALEX 2023, Mt. Terri project).
+%
+In future directions - the basic idea concerning the investigation of the three relevant process types for the formation of pathways in different rock types -- shall be preserved. The proven project structure (WP1-3) is also to be retained (Fig. \ref{fig:geomint2}).
+
+\subsection{Numerical Methods Competencies}
+\label{sec:synthesis-num}
+
+Significant emphasis in GeomInt was directed on the development of numerical methods for modelling of discontinuities in various rock types as well as the analysis of advantages / disadvantages of particular methods for specific fracture pattern at various scales (Fig. \ref{fig:num-overview}). The numerical methods have been described in detail in Chapter \ref{cha:num}. The ''competencies'' of the numerical methods under use will be compactly summarized in the following set of tables.
+
+Tab. \ref{tab:num-comp} provides an overview of the capabilities of the numerical methods for simulation of fracturing processes, i.e. (i) crack representation by elements explicitly/separative or by damage variables, (ii) failure criteria, (iii) used mesh types and (iv) fracture aperture calculation.
 
 %Table
 \begin{table}[h!]
@@ -36,11 +50,15 @@ FEM-HDF & Element explicit     &  &  &  \\
 \tiny Legende: NA - not applicable
 \normalsize
 
+The second Tab. \ref{tab:hm-processes} recalls fracturing processes within the adjacent rock mass (i.e. fractured porous medium) for the various rock types (brittle/ductile) investigated in the related work packages (WPs). In the context of hydro-mechanical (HM) coupled processes fluid migration from the fracture into the rock matrix (and vice versa) must be considered for both pre-defined and undefined cracks.
+
+\clearpage
+
 %Table
 \begin{table}[h!]
 \centering
 \caption{Hydro-Mechanics (fracture mechanics) processes}
-\label{tab:num-comp}
+\label{tab:hm-processes}
 \footnotesize
 \begin{tabular}{llllll}
 \hline
@@ -57,6 +75,9 @@ Crystalline (WP3) & yes & yes & maybe & no  & maybe \\
 \tiny Legende: PD - pre-defined, UD - undefined, Visc. - viscous, diss. - dissipation
 \normalsize
 
+Finally an evaluation of the competencies of all used methods is provided in Tab. \ref{tab:competencies} based mainly on the results of the MEX studies.
+An important part of the MEX concept was the application of multiple (at least) methods to these exercises (e.g. for MEX 0-1A three methods, LEM, DEM and FEM-VPF have been applied). For the analysis of lab scale experiments all present methods (discontinuous and continuous) could be applied successfully. The advantages of the discontinuous methods (LEM, DEM) lies in the simulation of small scale processes, e.g. fracture initiation and propagation, and because they rely on the fundamental fracture mechanical phenomena. Discontinuous methods exhibit some difficulties when it comes to coupled processes and at larger scales where continuum methods (FEM\#) are rather strong. We also added 3D capabilities and HPC implementation status to the table.
+
 \newcommand{\done}{\textcolor{green}{\checkmark}}
 \newcommand{\perh}{\textcolor{orange}{\checkmark}}
 \newcommand{\none}{\textcolor{red}{$\times$}}
@@ -64,7 +85,7 @@ Crystalline (WP3) & yes & yes & maybe & no  & maybe \\
 \begin{table}[h!]
 \centering
 \caption{Methods competencies}
-\label{tab:num-comp}
+\label{tab:competencies}
 \footnotesize
 \begin{tabular}{llllllll}
 \hline
@@ -85,6 +106,92 @@ FEM-HDF &  &  &  &  &  &  & \\
 \tiny Legende: PD - pre-defined, UD - undefined, Visc. - viscous, diss. - dissipation, 3D - three-dimensional simulation, HPC - High-Performance-Computing 
 \normalsize
 
+\bigskip
+The application of a specific numerical methods is driven by the specific purpose:
+\begin{list}{-}{\leftmargin=1em \itemindent=0em \itemsep=0em}
+\item fracturing process details, i.e. initiation and propagation
+\item process coupling, i.e. THMC
+\item scale of application
+\end{list}
+
+An important result of GeomInt is the significant further development of individual methods and their extension of application areas \cite{Sattarietal2019b,schmidt2019,Yoshioka2020}, respectively. Therefore, the GeomInt numerical platform as a whole advanced significantly.
+
+\clearpage
+
+\subsection{Proof-of-Concepts}
+\label{sec:poc}
+
+Even though the focus of GeomInt was directed on further improvement of modeling and experimental methods, numerical simulation of real-world geotechnical applications is sort of standard meanwhile.
+The Proof-of-Concept (PoC) for modelling consists of multiple steps (calibration, validation, verification). Without doubt calibrated models can be provided for individual, site-specific applications - also thanks to the increasing computational power available. The challenge is still, can we reliably transfer models over multiple scales or for various rock types. The latter challenge is subject to GeomInt.
+
+\begin{wrapfigure}{l}{0.5\textwidth}
+\vspace{-4mm}
+\centering
+\includegraphics[width=0.49\textwidth]{figures/geoenergy-map}
+\caption{OGS applications in the North German Basin}
+\label{fig:ogs-ngb}
+\end{wrapfigure}
+Fig. \ref{fig:ogs-ngb} depicts a number of geotechnical applications in the North-German-Basin (NGB) including shallow and deep geothermal systems, energy storage in aquifers and caverns as well as geological sequestration of carbon dioxide in the subsurface.
+All applications studies have been conducted with the OpenGeoSys platform using various T-H-M-C coupled models, i.e. using weak or strong coupling of related thermo-hydro-mechanical-chemical processes. This comprehensive numerical modeling of various geoenergy applications in the NGB may serve as a validation of the THMC concept.
+
+\begin{wrapfigure}{r}{0.5\textwidth}
+\vspace{-5mm}
+\centering
+\includegraphics[width=0.49\textwidth]{figures/mt-vr-01a}
+\caption{Numerical simulation of various MT experiments \cite{Rink20143857}}
+\label{fig:mt-terri}
+\end{wrapfigure}
+The second Proof-of-Concept study is related to the Underground Research Laboratory (URL) in Mt. Terri where numerous (MT) experiments are conducted simultaneously \cite{Bossart2017405,Bossart20173}. Fig. \ref{fig:mt-terri} shows the tunnels system of the extended URL and a number of ongoing and planned experiments. Numerical simulation is used for both analysis of experimental results and design of new experiments, i.e. for their optimal planning. Again OGS is used for the indicated experiments and therefore providing a unified context for numerical simulation. Moreover, all models are included into a Virtual Reality (VR) context (see next section).
+
+\subsection*{Information Technology - Digitization}
+
+\begin{wrapfigure}{l}{0.5\textwidth}
+\vspace{-5mm}
+\centering
+\includegraphics[width=0.49\textwidth]{figures/hpc-concept1}
+\caption{High-Performance-Computing}
+\label{fig:workflows}
+\end{wrapfigure}
+\lipsum[2]
+
+\begin{wrapfigure}{r}{0.5\textwidth}
+\vspace{-5mm}
+\centering
+\includegraphics[width=0.49\textwidth]{figures/vr-labs}
+\caption{Virtual Reality Labs}
+\label{fig:workflows}
+\end{wrapfigure}
+\lipsum[2]
+
+\begin{wrapfigure}{l}{0.5\textwidth}
+\vspace{-5mm}
+\centering
+\includegraphics[width=0.49\textwidth]{figures/workflow-geotechnics}
+\caption{Analysis Workflows}
+\label{fig:workflows}
+\end{wrapfigure}
+\lipsum[2]
+
+\subsection*{International Collaboration}
+
+\begin{wrapfigure}{l}{0.25\textwidth}
+\vspace{-5mm}
+\centering
+\includegraphics[width=0.24\textwidth]{figures/d2023}
+\caption{}
+\label{fig:workflows}
+\end{wrapfigure}
+\lipsum[2]
+
+\begin{wrapfigure}{r}{0.25\textwidth}
+\vspace{-5mm}
+\centering
+\includegraphics[width=0.24\textwidth]{figures/eurad}
+\caption{}
+\label{fig:workflows}
+\end{wrapfigure}
+\lipsum[2]
+
 \subsection*{Webpage}
 
 The webpage of GeomInt (Fig. \ref{fig:geomint-web}) is the entry point an reference of the project. It contains an overview of the project as well as quarterly updated news of ongoing activities. GeomInt publications are listed and an access point to the data management system is provided (see Chapter \ref{cha:dms}).
@@ -95,97 +202,6 @@ The webpage of GeomInt (Fig. \ref{fig:geomint-web}) is the entry point an refere
 \caption{Webpage of the GeomInt project $\Rightarrow$ \url{www.ufz.de/geomint}}
 \label{fig:geomint-web}
 \end{figure}
-
-\clearpage
-
-\subsection*{Proof-of-Concept}
-
-\begin{list}{-}{\leftmargin=1em \itemindent=0em \itemsep=0em}
-\item Mt. Terri
-\item NGB
-\end{list}
-
-\begin{wrapfigure}{l}{0.5\textwidth}
-\vspace{-5mm}
-\centering
-\includegraphics[width=0.49\textwidth]{figures/mt-vr-01a}
-\caption{}
-\label{fig:workflows}
-\end{wrapfigure}
-\lipsum[3]
-
-\begin{wrapfigure}{r}{0.5\textwidth}
-\vspace{-5mm}
-\centering
-\includegraphics[width=0.49\textwidth]{figures/geoenergy-map}
-\caption{}
-\label{fig:workflows}
-\end{wrapfigure}
-\lipsum[2]
-
-\clearpage
-
-\subsection*{Information Technology - Digitization}
-
-\begin{list}{-}{\leftmargin=1em \itemindent=0em \itemsep=0em}
-\item HPC
-\item VR
-\item Workflows
-\end{list}
-
-\begin{wrapfigure}{l}{0.5\textwidth}
-\vspace{-5mm}
-\centering
-\includegraphics[width=0.49\textwidth]{figures/hpc-concept1}
-\caption{}
-\label{fig:workflows}
-\end{wrapfigure}
-\lipsum[2]
-
-\begin{wrapfigure}{r}{0.5\textwidth}
-\vspace{-5mm}
-\centering
-\includegraphics[width=0.49\textwidth]{figures/vr-labs}
-\caption{}
-\label{fig:workflows}
-\end{wrapfigure}
-\lipsum[2]
-
-\begin{wrapfigure}{l}{0.5\textwidth}
-\vspace{-5mm}
-\centering
-\includegraphics[width=0.49\textwidth]{figures/workflow-geotechnics}
-\caption{}
-\label{fig:workflows}
-\end{wrapfigure}
-\lipsum[2]
-
-\subsection*{International Collaboration}
-
-\begin{list}{-}{\leftmargin=1em \itemindent=0em \itemsep=0em}
-\item DECOVALEX
-\item EURAD
-\end{list}
-
-\begin{wrapfigure}{l}{0.5\textwidth}
-\vspace{-5mm}
-\centering
-\includegraphics[width=0.49\textwidth]{figures/d2023}
-\caption{}
-\label{fig:workflows}
-\end{wrapfigure}
-\lipsum[2]
-
-\begin{wrapfigure}{r}{0.5\textwidth}
-\vspace{-5mm}
-\centering
-\includegraphics[width=0.49\textwidth]{figures/eurad}
-\caption{}
-\label{fig:workflows}
-\end{wrapfigure}
-\lipsum[2]
-
-\clearpage
 
 \begin{figure}[ht!]
 \centering
