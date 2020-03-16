@@ -11,6 +11,80 @@ In future work - the basic idea concerning the investigation of the three releva
 
 The project results allow an improved understanding of the processes, the methods used and the application-oriented systems for realistic time and length scales in order to make the planning and implementation of geotechnical uses of the underground safer, more reliable and efficient. An important part of future work is the transferability of the experimental-numerical concepts and methods to other geotechnological applications (e.g. deep geothermal energy, energy storage, repository problems, methods for hydraulic stimulation, conventional and unconventional resource extraction or tunnel construction). Ongoing activities also aimed to intensify the internationalization started in the previous project in cooperation with complementary research projects (e.g. DECOVALEX 2023, Mt. Terri project).
 
+%Table
+\begin{table}[h!]
+\centering
+\caption{Numerical methods comparison}
+\label{tab:num-comp}
+\footnotesize
+\begin{tabular}{lllll}
+\hline
+%\rowcolor{cyan}
+Methods & Crack representation & Failure criteria   & Mesh & Fracture aperture \\
+\hline
+LEM     & Element separation   & Element strength   & Lattice        & Direct \\
+DEM     & Element separation   & Element strength   & Discrete       & Direct \\
+SPH     & Particle based       & NA                 & NA             & Particle based \\
+FEM-LIE & Element explicit     & Cohesive law       & Conforming     & Direct \\
+FEM-VPF & Damage variable      & Fracture mechanics & Non-conf.      & Indirect \\
+FEM-NLD & Damage variable      & Stress based       & Non-conf.      & Indirect \\
+FEM-HDF & Element explicit     &  &  &  \\
+\hline
+\end{tabular}
+\end{table}
+\vspace{-5mm}
+\tiny Legende: NA - not applicable
+\normalsize
+
+%Table
+\begin{table}[h!]
+\centering
+\caption{Hydro-Mechanics (fracture mechanics) processes}
+\label{tab:num-comp}
+\footnotesize
+\begin{tabular}{llllll}
+\hline
+%\rowcolor{cyan}
+Rock type         & Crack PD & Crack UD & Leak-off & Non-brittle & Visc. diss.\\
+\hline
+Clay (WP1)        & yes & yes & maybe & yes & yes \\
+Salt/Clay (WP2)   & yes & yes & yes   & yes & yes \\
+Crystalline (WP3) & yes & yes & maybe & no  & maybe \\
+\hline
+\end{tabular}
+\end{table}
+\vspace{-5mm}
+\tiny Legende: PD - pre-defined, UD - undefined, Visc. - viscous, diss. - dissipation
+\normalsize
+
+\newcommand{\done}{\textcolor{green}{\checkmark}}
+\newcommand{\perh}{\textcolor{orange}{\checkmark}}
+\newcommand{\none}{\textcolor{red}{$\times$}}
+%Table
+\begin{table}[h!]
+\centering
+\caption{Methods competencies}
+\label{tab:num-comp}
+\footnotesize
+\begin{tabular}{llllllll}
+\hline
+%\rowcolor{cyan}
+Method  & Crack PD & Crack UD & Leak-off & Non-brittle & Visc. diss. & 3D & HPC \\
+\hline
+LEM     & \done & \done & \perh & \done & \done & \perh & \perh \\
+DEM     & \done & \done & \perh & \done & \done & \perh & \done \\
+SPH     & \done & \perh & \done & \perh & \done & \done & \done \\
+FEM-LIE & \done & \none & \done & \done & \perh & \none & \none \\
+FEM-VPF & \done & \done & \done & \done & \perh & \done & \done \\
+FEM-NLD & \done & \done & \perh & \done & \perh & \none & \done \\
+FEM-HDF &  &  &  &  &  &  & \\
+\hline
+\end{tabular}
+\end{table}
+\vspace{-5mm}
+\tiny Legende: PD - pre-defined, UD - undefined, Visc. - viscous, diss. - dissipation, 3D - three-dimensional simulation, HPC - High-Performance-Computing 
+\normalsize
+
 \subsection*{Webpage}
 
 The webpage of GeomInt (Fig. \ref{fig:geomint-web}) is the entry point an reference of the project. It contains an overview of the project as well as quarterly updated news of ongoing activities. GeomInt publications are listed and an access point to the data management system is provided (see Chapter \ref{cha:dms}).
