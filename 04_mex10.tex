@@ -28,7 +28,7 @@ The model "Richards Flow" (RF) is based on the classical Richards equation for u
 \begin{equation}\label{eq:richards}
 \phi \rho_f \frac{\partial S}{\partial p_c}\frac{\partial p_c}{\partial t} + \nabla \cdot \left(\rho_f \frac{k_\text{rel}\textbf{k}}{\mu_f}(\nabla p_f-\rho_f \textbf{g})\right)= Q_f \qquad ,
 \end{equation}
-where $\phi$ is the porosity, $\rho_f$ the fluid density, $S$ the fluid saturation, $p_c$ the capillary pressure, $t$ the time, $k_\text{rel}$ the relative permeability, $\textbf{k}$ the intrinsic permeability, $\mu_f$ the dynamic viscosity of water, $p_f=-p_c$ the fluid pressure, $\textbf{g}$ the vector of gravitational acceleration, and $Q_f$ a source term. Note that this approximation neglects the change of gas pressure. Equation \eqref{eq:richards} is parametrized using the classical van Genuchten approach  \cite{vangenuchten1980} for the capillary pressure
+where $\phi$ is the porosity, $\rho_f$ the fluid density, $S$ the fluid saturation, $p_c$ the capillary pressure, $t$ the time, $k_\text{rel}$ the relative permeability, $\textbf{k}$ the intrinsic permeability, $\mu_f$ the dynamic viscosity of the fluid, $p_f=-p_c$ the fluid pressure, $\textbf{g}$ the vector of gravitational acceleration, and $Q_f$ a source term. Note that this approximation neglects the change of gas pressure. Equation \eqref{eq:richards} is parametrized using the classical van Genuchten approach  \cite{vangenuchten1980} for the capillary pressure
 \begin{equation}\label{eq:cap_p}
 p_c = \max \left(p_d\left(S_\text{eff}^{-1/m}-1\right)^{1-m};p_{c,max}\right)
 \end{equation}
@@ -73,7 +73,7 @@ As mentioned above, the niche is located in the anticline of the Mont Terri RL. 
 \begin{pmatrix} k_\perp & 0 \\ 0 & k_\parallel \end{pmatrix}
 \begin{pmatrix} \cos \gamma & \sin \gamma \\ -\sin \gamma & \cos \gamma \end{pmatrix} \qquad ,
 \end{equation}
-where $\gamma=-32.96^{\circ}$ is the angle of inclination. This transform yields a local coordinate system that forms the orthogonal basis $\textbf{R}$ with the set of vectors $e_1=(0.8391,-0.5440)^T$ and $e_2=(0.5440,0.8391)^T$.
+where $\gamma=-32.96^{\circ}$ is the angle of inclination. This transform yields a local coordinate system that forms an orthogonal basis with the set of vectors $e_1=(0.8391,-0.5440)^T$ and $e_2=(0.5440,0.8391)^T$.
 
 The primary variable entering the Richards equation as an unknown is the fluid pressure in the porous medium. This quantity is directly related to air humidity via the Kelvin equation \cite{bond2013}. The initial and boundary conditions for the simulation were set as follows:
 \begin{tabbing}
@@ -81,7 +81,7 @@ Initial condition \hspace{2cm} \=	$p_0 = -900 \, \text{Pa}$ \\
 Boundary condition 	\>				$p_\infty = -900 \, \text{Pa}$ \\
 					\>				$p_t = \frac{1}{2}p_\text{min}\left[\sin\left(2 \pi \left( \frac{t}{T}+ \frac{\phi_0}{360}\right)\right) - 1\right]$ \\
 \end{tabbing}
-where $p_\infty$ is the pressure at the outer boundary for the undisturbed rock and $p_t$ is the seasonal boundary condition at the walls of the niche that reflects the variation of humidity inside the niche (Figure \ref{fig:bc}). Further, $p_\text{min}$ is the minimum pressure reached for the saturation deficit at dry air conditions, $T=365\text{ d}$ is the duration of one seasonal period and $\phi_0=270$ is the phase shift angle to start the simulations with a 'wet'  boundary at the tunnel walls. For the present simulations, $p_\text{min}$ was set to $2.87 \cdot 10^7$ Pa, which corresponds to $S_\text{eff}=0.65$. The total simulation time is $T_\text{tot}= 20T$. To properly resolve the unsteady boundary condition $p_t$ in time, a temporal discretization of $\Delta t = 21400$ s was used unless specified otherwise. 
+where $p_\infty$ is the pressure at the outer boundary for the undisturbed rock and $p_t$ is the seasonal boundary condition at the walls of the niche that reflects the variation of humidity inside the niche (Figure \ref{fig:bc}). Further, $p_\text{min}$ is the minimum pressure reached for the saturation deficit at dry air conditions, $T=365\text{ d}$ is the duration of one seasonal period and $\phi_0=270^{\circ}$ is the phase shift angle to start the simulations with a 'wet'  boundary at the tunnel walls. For the present simulations, $p_\text{min}$ was set to $2.87 \cdot 10^7$ Pa, which corresponds to $S_\text{eff}=0.65$. The total simulation time is $T_\text{tot}= 20T$. To properly resolve the unsteady boundary condition $p_t$ in time, a temporal discretization of $\Delta t = 21400$ s was used unless specified otherwise. 
 
 \begin{figure}
 \includegraphics[width=\textwidth, trim=0.4cm 0 0 0, clip]{./figures/MEX10_setup_and_grid.png}
