@@ -1,7 +1,8 @@
 \sectionmark{MEX 3-1: CNL Test}
-\section{Model Exercise 3-1: Constant normal load (CNL) direct shear test}
+\section[MEX 3-1: CNL direct shear test]{Model-Experiment-Exercise MEX 3-1:\\Constant normal load (CNL) direct shear test}
 \sectionmark{MEX 3-1: CNL Test}% using this twice is not nice style...
 \label{sec:mex07}\index{CNL Constant Normal Load experiment}
+\index{CNL Constant Normal Load test}
 %------------------------------------------------------------------------------
 \Authors{Daniel P\"otschke, Thomas Fr\"uhwirt}
 %------------------------------------------------------------------------------
@@ -17,6 +18,7 @@
 Direct shear tests are conducted in rock mechanical laboratories to investigate the shear characteristics of rock fractures/joints. The samples are blocks or cylin\-ders which are separated in two parts by a fracture. This fracture can be a natural one or an artificial one. Artificial fractures can be created by shearing of the intact sample or by a Brazilian test.
 %
 A schematic illustration of direct shear test can be seen in Figure \ref{fig:MEX7_CNL}. During a direct shear test a normal force acts on the rock fracture. One part of the sample is fixed and the other one is sheared against it. The shear forces are measured while the two parts are separated against each other at a specific shear rate.
+\index{Brazilian test}
 
 In this model exercise a constant normal load (CNL) boundary condition has been applied. This means the normal stress acting on the fracture remains constant during the shear displacement. An analogy in the nature would be a rock boulder at a slope or a dam where in both cases the self weight of the top part creates the normal stress at the contact region/fracture.
 %
@@ -59,13 +61,16 @@ The task in this model exercise is to use the rock parameters from table \ref{ta
 %------------------------------------------------------------------------------
 \subsection{Model approach}
 %------------------------------------------------------------------------------
-A detailed description of the code can be found in the appendix.\\
-The modelling of the direct shear tests is done by a self developed code using MATLAB. This includes the usage of matrices to represent the geometry of a rough surface. This is a simplification which speeds up the numerical process.\\ 
-A function set does all the necessary steps from input through the calculations itself to the output. For comparison a couple of existing models where implemented as a reference.\\
+A detailed description of the code can be found in the appendix.
+%
+The modelling of the direct shear tests is done by a self developed code using MATLAB. This includes the usage of matrices to represent the geometry of a rough surface. This is a simplification which speeds up the numerical process.
+%
+A function set does all the necessary steps from input through the calculations itself to the output. For comparison a couple of existing models where implemented as a reference.
+
 \begin{itemize}
-\item Barton-Bandis model (\cite{BartonBandis1985}), which is widely used and due to its simplicity easy to understand.
-\item Xia model (\cite{Xia2014}), which uses quantitative roughness parameters with the drawback of complexity.
-\item Casagrande algorithm (\cite{Casagrande2017}), a semi analytical approach which was used for the algorithm development within the GeomInt project.
+\item Barton-Bandis model \cite{BartonBandis1985}, which is widely used and due to its simplicity easy to understand.
+\item Xia model \cite{Xia2014}, which uses quantitative roughness parameters with the drawback of complexity.
+\item Casagrande algorithm \cite{Casagrande2017}, a semi analytical approach which was used for the algorithm development within the GeomInt project.
 \end{itemize}
 
 \begin{figure}[!ht]
@@ -115,4 +120,4 @@ The New shear law and the Barton-Bandis model allow to calculate complete shear 
 \label{fig:MEX7_New-Lab-BB}
 \end{figure}
 
-
+\index{Barton-Bandis model}

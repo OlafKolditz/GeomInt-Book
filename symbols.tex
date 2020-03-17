@@ -34,12 +34,14 @@ $\alpha_V$            & Volumetric thermal expansion coefficient     & $\unit[]{
 %-----------------beta---------------------
 \rowcolor{lightgray}
 $\beta$               & Cubic thermal expansion coefficient          & $\unit[]{K^{-1}}$                     & \\
+$\beta$               & fitting parameter           & $\unit[]{-}$                     & \\
 $\beta_c$             & Burial constant                              & $\unit[]{-}$                          & \\
 $\beta^{\mathfrak{f}}$ & Fluid compressibility                       & $\unit[]{Pa^{-1}}$                    & \\
 %------------gamma------------------------
 $\gamma$              & Activity coefficient for dissolved species   & $\unit[]{-}$                          & \\
 \rowcolor{red!50}
 $\gamma$              & Dimensionless temperature                    & $\unit[]{-}$                          & \\
+$\gamma$              & angle of inclination                    & $\unit[]{-}$                          & \\
 $\gamma_l$            & First-order degradation rate                 & $\unit[]{day^{-1}}$                   & \\
 $\Gamma$              & Domain boundary                              & $\unit[]{-}$                          & \\
 $\Gamma^{Fr}_-$       & Negative fracture surface domain             & $\unit[]{m^2}$                        & \\
@@ -51,7 +53,9 @@ $2\delta$             & Fracture width                               & $\unit[]{
 $\Delta$              & Half of aspect ratio                         & $\unit[]{-}$                          & \\
 $\Delta X$            & Change of quantity $X$                       & $\unit[]{[X]}$                        & \\
 %------------------epsilon-----------------
+$\epsilon$            & error tolerance                                       & $\unit[]{-}$                          & \\
 $\epsilon$            & Strain                                       & $\unit[]{-}$                          & \\
+
 $\dot{\epsilon}$      & Strain rate                                  & $\unit[]{s^{-1}}$                     & \\
 $\boldsymbol\epsilon$ & Strain tensor                                & $\unit[]{-}$                          & \\
 $\mbfs{\epsilon}_\mrm{el}$ & Elastic train tensor                    & $\unit[]{-}$                          & \\
@@ -171,6 +175,7 @@ $\tau_r$               & Residual shear stress                       & $\unit[]{
 %--------------upsilon,ypsilon-----------
 %------------------phi--------------------
 $\phi$                 & Porosity                                    & $\unit[]{-}$                          & \\
+$\phi_{0}$           & phase shift  angle                                  & $\unit[]{-}$                          & \\
 $\phi$, ($\Phi$)       & Friction angle                              & $\unit[]{deg}$                        & \\
 $\varphi_b$            & Basic friction angle                        & $\unit[]{deg}$                        & \\
 %---------------------chi------------------
@@ -231,7 +236,7 @@ $C_{\mathbb{R}}$       & Continuum stiffness                         & $\unit[]{
 %---d-D----------------
 $d$                    & Order parameter                             & $\unit[]{-}$                          & \\
 $d_{i,j}$              & Curvature stiffness                         & $\unit[]{Pa}$                         & \\
-$D$                    & Diffusivity coefficient                     & $\unit[]{m^2\cdot s^{-1}}$            & \\
+$D$                    & Diffusivity coefficient                    & $\unit[]{m^2\cdot s^{-1}}$            & \\
 $D_\mathrm{cyl}$       & Diameter of cylindrical sample              & $\unit[]{m}$                          & \\
 $D_f$                  & Intergranular diffusion coefficient         & $\unit[]{m^2\cdot s^{-1}}$            & \\
 \hline 
@@ -290,6 +295,7 @@ $\triangle h_\mrm{I}$  & Specific enthalpy of fusion                 & $\unit[]{
 \hline 
 %---i-I----------------
 $I$                    & Ionic strength                              & $\unit[]{-}$                          & \\
+$\boldsymbol{I}$                    & Identity tensor                           & $\unit[]{-}$                          & \\
 $I(L)$                 & intensity values of X-rays                  & $\unit[]{-}$                          & \\
 $I_1$                  & First principal invariant of the stress tensor $\unit[]{Pa}$                        & \\
 $I_{b}$                & Element moment of inertia                   & $\unit[]{kg.m^2}$                     & \\
@@ -312,6 +318,8 @@ $k_c$                  & Swelling/recompression index                & $\unit[]{
 $k_h$                  & Hydraulic conductivity                      & $\unit[]{m^1.s^{-1}}$                 & \\
 \rowcolor{cyan!50}
 $k^\mathfrak{s}_{Fr}$  & Local fracture permeability                 & $\unit[]{m^2}$                        & \\
+$k_{\perp}$  &  permeability perpendicular to the bedding plane               & $\unit[]{m^2}$                        & \\
+$k_{\parallel}$  &  permeability parallel to the bedding plane               & $\unit[]{m^2}$                        & \\
 \rowcolor{cyan!50}
 $k^\mathfrak{s}_{Fr,t}$ & Local transversal fracture permeability    & $\unit[]{m^2}$                        & \\
 \rowcolor{red!50} % CAU Kiel
@@ -344,6 +352,7 @@ $L_\mathrm{cyl}$       & Length of cylindrical sample                & $\unit[]{
 \hline
 %---m-M----------------
 $m$                   & Mass                                         & $\unit[]{kg}$                         & \\
+$m$                   & fitting parameter                                         & $\unit[]{-}$                         & \\
 $m$                   & Van Genuchten parameter                      & $\unit[]{-}$                          & \\
 $M$                   & Kinetic coefficient                        & $\unit[]{mm^2\cdot N^{-1}\cdot s^{-1}}$ & \\
 $M$                   & Slope of critical state line                 & $\unit[]{-}$                          & \\
@@ -395,6 +404,7 @@ $Q_{f}$          & source/sink term                             & $\unit[]{kg\cd
 \hline 
 %---r-R----------------
 $R$                   & Universal gas constant ($\unit[8.31432]{}$)  & $\unit[]{J\cdot mol^{-1}\cdot K^{-1}}$ & \\
+$R$                 & transformation matrix                           & $\unit[]{-}$                          & \\
 $R_c$                 & Contact area ratio                           & $\unit[]{-}$                          & \\
 $R_{h}^b$             & Hydraulic resistance                         & $\unit[]{s^{-1}}$                     & \\
 $(R)^{\prime}$        & First stiffness coefficient                  & $\unit[]{Pa}$                         & \\
@@ -420,6 +430,8 @@ $t$                   & Time                                         & $\unit[]{
 $\mathbf{t}$          & Traction force vector                        & $\unit[]{N}$                          & \\
 $\mathbf{t}_c$        & Traction force vector at interface           & $\unit[]{N}$                          & \\
 $T$                   & Temperature                                  & $\unit[]{K}$                          & \\
+$T$                   & period                                  & $\unit[]{d}$                          & \\
+$T_{tot}$                   & total simulation time                                  & $\unit[]{d}$                          & \\
 $T_c$                 & Top temperature (cold)                       & $\unit[]{K}$                          & \\
 $T_h$                 & Bottom temperature (hot)                     & $\unit[]{K}$                          & \\
 $T_\text{iso}$        & Isotropic thermal loading                    & $\unit[]{K}$                          & \\

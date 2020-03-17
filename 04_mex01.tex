@@ -1,12 +1,14 @@
-\section{Model Exercise 0-1a (01): Bending fracture test}
+\section[MEX 0-1a: Bending fracture test]{Model-Experiment-Exercise MEX 0-1a:\\Bending fracture test}
 \label{sec:mex01}
+\index{bending fracture test}
 %------------------------------------------------------------------------------
-\Authors{Keita Yoshioka, Amir Shoarian Sattari, Mathias Nest et al.}
+\Authors{Keita Yoshioka, Amir Shoarian Sattari, Mathias Nest}
 %------------------------------------------------------------------------------
 \subsection{Experimental set-up}
 %------------------------------------------------------------------------------
 Model Exercise 1 (ME 1) is concerned with fracture propagation by external loads (i.e. without internal hydraulic force). Experimental data are taken from Three Point Bending (TPB) tests conducted on Rockville Granite samples \cite{Tarokh2016161}. TPB experiments are performed by applying a load on the top of the samples and the load is adjusted by keeping the rate of the Crack Mouth Opening Displacement (CMOD) fixed at 0.05 $\mu$m/s.
 The schematic of TPB is shown in Figure \ref{fig:ME1_TPB_experiment}.
+\index{three-point bending test}
 
 \begin{figure}[!ht]
 \centering
@@ -30,7 +32,7 @@ $w$ & $L$ (span) & $H$ & $E$ &  $\nu$ &  UCS  & $\sigma_T$  \\
 }
 \label{tabl:Numerical_param_for_sneddon_crack}
 \end{table}
-The experimental force-displacement results from cite Tarokh for two samples are shown in Figure \ref{fig:ME1_TPB_force_disp}.
+The experimental force-displacement results from \cite{Tarokh2016161} for two samples are shown in Figure \ref{fig:ME1_TPB_force_disp}.
 
 \begin{figure}[!ht]
 \centering
@@ -65,7 +67,6 @@ The lattice element method (LEM) with the refined mesh is implemented to model t
 \label{fig:Amir_ME1_LEM_Setup}
 \end{figure}
 
-
 \subsubsection*{Finite-Element-Model: Variational Phase-Field (VPF)}
 
 The finite element mesh constructed for the 50.8 mm test is shown in Fig.~\ref{fig:ME1_TPB_VF_domain}, which consists of 1,682,308 three dimensional tetrahedral elements with 316,636 nodes.
@@ -96,16 +97,15 @@ Simulation results from all the simulations are shown in \ref{fig:ME1_comparison
 All the models exhibit linear elastic behaviors, before failure sets in as in the experimental data.
 First, we can see that all the models reproduce the linear elastic response.
 It is straightforward for the variational phase-field model as it only requires the descriptions of the linear elastic properties (i.e. the Young's modulus and the Poisson's ratio).
-However, for the lattice or discrete element methods, these bulk properties need to be obtained through the micro mechanical properties. In lattice method the strain energy stored in unit cell should be equal to the continuum strain energy. Therefore, for a Euler Bernoulli beam elements and while considering 
-the stored energies, the micro to macro (bulk) transformation of properties is carried out, see \cite{Ostojastarzewski2002}.
+However, for the lattice or discrete element methods, these bulk properties need to be obtained through the micro mechanical properties. In lattice method the strain energy stored in unit cell should be equal to the continuum strain energy. Therefore, for a Euler-Bernoulli beam elements and while considering the stored energies, the micro to macro (bulk) transformation of properties is carried out, see \cite{Ostojastarzewski2002}.
+\index{Euler-Bernoulli beam}
 
 The main difference between the discrete/lattice element method and the variational phase-field model is the responses after the failure.
 While the current implementation in the variational phase-field used in this study is based on the linear elastic brittle fracture mechanics, and plasticity or softening is not 
 considered \footnote{The linear elastic fracture mechanics formulation is not necessary constrained by the variational phase-field formulation. Models that include ductility, plasticity, 
 and softening behaviors exist. For example, see \cite{Alessi2018}}.
 For this reason, the result from the variational phase-field model fails elastically and the force ceases to zero quickly after the peak.
-On the other hand, the lattice and discrete element methods can model a softening of the bulk material. The implemented softening 
-scheme in lattice element is based on bi-linear softening behavior found in \cite{Inceetal2003}.
+On the other hand, the lattice and discrete element methods can model a softening of the bulk material. The implemented softening scheme in lattice element is based on bi-linear softening behavior found in \cite{Inceetal2003}.
 This post-failure behavior agrees with the real rock response better than the approach based on the linear elastic fracture mechanics.
 
 \begin{figure}[!ht]
@@ -115,8 +115,7 @@ This post-failure behavior agrees with the real rock response better than the ap
 \label{fig:ME1_comparison}
 \end{figure}
 
-All three methods reproduce a similar pattern of horizontal displacements. The VPF ... The result from the DEM is shown in Fig. \ref{fig:ME1-xdis-dem}. 
-The crack does not extend quite as far as in the VPF method, but the absolute extend ... 
+All three methods reproduce a similar pattern of horizontal displacements. The result from the DEM is shown in Fig. \ref{fig:ME1-xdis-dem}. 
 
 \begin{figure}[!ht]
 \centering
@@ -134,9 +133,8 @@ After modeling the crack mouth opening displacement (CMOD) under applied bending
 \label{fig:Amir_ME1_LEM_Displacement_Crystalline}
 \end{figure}
 
-The article by Tarokh et al. also reports measurements of acoustic emissions, which serve to localize inter-granular micro-cracks. In the DEM method this could be 
-reproduced by using the event of tensile contact failures to call a FISH function which writes the location of that contact into a file. The result, the red dots in 
-figure \ref{fig:ME1-dem-ae}, agrees very well with the experimental result for the process zone (dashed rectangle).
+The article by Tarokh et al. (2016) \cite{Tarokh2016161} also reports measurements of acoustic emissions, which serve to localize inter-granular micro-cracks. In the DEM method this could be 
+reproduced by using the event of tensile contact failures to call a FISH function which writes the location of that contact into a file. The result, the red dots in figure \ref{fig:ME1-dem-ae}, agrees very well with the experimental result for the process zone (dashed rectangle).
 
 \begin{figure}[!ht]
 \centering

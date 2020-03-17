@@ -1,7 +1,7 @@
-\section[MEX 2-3: Pressure driven percolation]{Model Exercise 2-3 (04): Effect of compressibility on pressure driven percolation}
+\section[MEX 2-3: Pressure driven percolation]{Model-Experiment-Exercise 2-3:\\Effect of compressibility on pressure driven percolation}
 \label{sec:mex04}
 %------------------------------------------------------------------------------
-\Authors{Mathias Nest, Amir Shoarian Sattari, Keita Yoshioka et al.}
+\Authors{Mathias Nest, Amir Shoarian Sattari, Keita Yoshioka}
 %------------------------------------------------------------------------------
 \subsection{Model set-up}
 %------------------------------------------------------------------------------
@@ -15,13 +15,14 @@ Gases, which can be described approximately with the ideal gas equation
 \begin{equation}
 pV=nRT
 \end{equation}
-show a far smaller change in pressure. In this model exercise we explore this difference in a setup similar to the one in \hl{MEX 2}, under the assumption, that there is only a finite amount of substance available to spread into the rock salt. Another way to put this is, that a lab-scale model of the in-situ experiment \hl{MEX 11} is set up. 
+\index{ideal gas law}
+show a far smaller change in pressure. In this model exercise we explore this difference in a setup similar to the one in \MEXtwo~, under the assumption, that there is only a finite amount of substance available to spread into the rock salt. Another way to put this is, that a lab-scale model of the in-situ experiment \MEXeleven~ is set up. 
 
 The basic reasoning behind the exercise is as follows: The total mass of the brine or gas is conserved, and consists of the mass in the reservoir $M_R$, the mass on the interfaces of the grains $M_I$, and the mass $M_L$ that has leaked out of the sample.
 \begin{equation}
 M = M_R + M_I + M_L \quad \mbox{= conserved}
 \end{equation}
-$M_I$ is part of the model, $M_L$ can be calculated using absorbing boundaries at the surface of the sample, at from the knowledge of the total amount $M$ that is present initially, the mass that remains in the reservoir $M_R$ can be calculated. This way, it is not necessary to model the reservoir (gas cylinder or brine container) explicitly. From the changing $M_R$ under the assumption of a fixed reservoir volume the change of the pressure in the reservoir, which drives the pressure driven percolation, can be calculated. Initially, at time $t=0$, $M_I=M_L=0$, and the pressure in the reservoir is high enough to open pathways between grains. Then, pressures and the extent of the distribution of the substances is monitored. 
+$M_I$ is part of the model, $M_L$ can be calculated using absorbing boundaries at the surface of the sample, and from the knowledge of the total amount $M$ that is present initially, the mass that remains in the reservoir $M_R$ can be calculated. This way, it is not necessary to model the reservoir (gas cylinder or brine container) explicitly. From the changing $M_R$ under the assumption of a fixed reservoir volume the change of the pressure in the reservoir, which drives the pressure driven percolation, can be calculated. Initially, at time $t=0$, $M_I=M_L=0$, and the pressure in the reservoir is high enough to open pathways between grains. Then, pressures and the extent of the distribution of the substances is monitored. 
 
 \begin{figure}[!ht]
 \centering
@@ -86,6 +87,7 @@ In order to simulate the compressibility effect with the lattice model, the simi
 
 The simulation set-up will be identical to Fig.~\ref{fig:VPF_init} except that the injection fluid will be compressible fluid (ideal gas). 
 
-\subsection{Results and discussion}
+\subsection{Discussion (preliminary)}
 %------------------------------------------------------------------------------
-\todo[inline]{[IfG] Please add discussion}
+
+The results above show, that at present at best a phenomenological description is possible with the available set of methods. A significant amount of implementation work, and increases of the speed and accuracy are required to capture the effect.

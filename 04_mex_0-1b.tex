@@ -1,10 +1,12 @@
-\section{Model Exercise 0-1b (01): Bending fracture test (OPA)}
+\section[MEX 0-1b: Bending fracture test (OPA)]{Model-Experiments-Exercise MEX 0-1b (01):\\Bending fracture test (OPA)}
 \label{sec:mex01b}
 \Authors{Amir Shoarian Sattari, Keita Yoshioka}
 
 \subsection{Experimental set-up and results}
 
 In this model exercise, the effect of the anisotropy on the fracture toughness of the Opalinus claystones experimentally and numerically is investigated. The description of the experimental setup and the test procedure is explained in section \ref{sec:Fracture_Toughness_Exp}, where a fracture toughness test on a sample with the dimension of 140x30x30 $(mm)$ $(LxWXT)$ is carried out. The notch dimension is 2x10x30 $(mm)$ $(LxWXT)$ and the span length is 120 $mm$. The anisotropy of a claystone depends mainly on the orientation of the embedded layers. When the loading direction is perpendicular ($\bot$) to the layering orientation the materials strength is highest. In contrast, when the loading direction is parallel ($\parallel$) to the layering orientation, the materials strength is the lowest. The peak load attained from the experimental data ($\bot$) is 598 $N$ and the bending stiffness is around 3.3 $GPa$ (Figure \ref{fig:Amir_Fracture_Toughness_Result_20}). The crack mouth opening before the failure is 24 $\mu m$. The 4K video with the 30fps is used to track the reference points on the claystone. Afterward, the image analyzing technique is implemented to determine the CMOD. The 30fps video was not able to detect the brittle failure of the sample and therefore in the experimental data, the post failure response is not well represented. The measured fracture toughness ($\bot$) is $0.746\ MPa.\sqrt\ m$. The anisotropy effect of claystone is observed based on the fracking pattern of different samples under mechanical loading without temperature and humidity control (Figure \ref{fig:Amir_Fracture_Toughness_Fracture_a}). The propagation of fracks parallel to the layering orientation, where the sample is weakest, is observed (Figure \ref{fig:Amir_Fracture_Toughness_Fracture_b}). Similarly, inside the climate chamber, and under 50 and 80 $^{\circ}C$ temperature conditions, the fracture toughness of the claystone is measured ( Table \ref{table:Amir_Fracture_Toughness_Table1}).
+\index{anisotropy}
+\index{fracture toughness}
 
 \begin{figure}[!ht]
 \centering
@@ -49,13 +51,11 @@ Fracture Toughness $MPa.\sqrt m$. & 0.697 & 0.601 & 0.582\\
 \label{table:Amir_Fracture_Toughness_Table1}
 \end{table}
 
-
 \subsection{Model approach}
 
 \subsubsection*{Lattice-Element-Model (LEM)}
 
 The LEM is implemented to investigate the anisotropy of claystone in two cases, where the loading direction is parallel or perpendicular to the layering orientation. The LEM setup ($\bot$) is generated in 2D with the back calculation of the outputs from the fracture toughness \ref{sec:Fracture_Toughness_Exp} and splitting \ref{sec:Brazilian_Disk_Exp} experimental results. The materials strength in perpendicular direction is considered to be 5 times higher than parallel case. The fracture paths for both ($\bot$) and ($\parallel$) cases are shown in Figure \ref{fig:Amir_ME1_LEM_Perpendicular} and \ref{fig:Amir_ME1_LEM_Parallel}, respectively. Figure \ref{fig:Amir_ME1_LEM_Claystone} illustrates the comparison between the experimental and numerical data. As discussed before, the post failure behavior does not match due to the experimental shortage of capturing the true load-displacements.
-
 
 \begin{figure}[!ht]
 \centering
@@ -128,7 +128,7 @@ Fracture simulation results are in Figs.~\ref{fig:ME1_ext_vpf_para_result} and~\
 
 The lattice model is able to capture the existing anisotropy in the Opalinus claystone material. The fracking path dependence on the orientation of the embedded layers is shown in Figure \ref{fig:Amir_ME1_LEM_Perpendicular} and \ref{fig:Amir_ME1_LEM_Parallel}, which matches the experimental data given in Figure \ref{fig:Amir_Fracture_Toughness_Fracture_b}. Due to the layering orientation and stress distributions (in $\bot$ case), the fracking path has zigzag pattern following the weakest interface bonds. As mentioned before, the post failure results do not match experimental data due to the experimental tests limitation. The lattice model is validated with the experimental data exist for the ($\bot$) case and is extended to model the ($\parallel$) case, where the loading direction is parallel to the embedded layers. According to the Figure \ref{fig:Amir_Fracture_Toughness_Fracture_a}, the frack path is a straight line through the weak interface bond. More investigation needs to be done to determine and investigate the Opalinus claystone fracture toughness under different loading to the embedded layers orientation and the effect of the humidity and temperature on the fracture toughness. 
 
-The simulations by V-pf show similar trends observed in the lattice model.
+The simulations by VPF show similar trends observed in the lattice model.
 For the lamination parallel case ($\parallel$), the crack is nucleated at a lamination with the lower fracture toughness and propagated straight through.
 The force response is also brittle and it declined very quickly after the failure.
 The lamination orthogonal case ($\bot$) shows more step--wise crack growth (Fig~\ref{fig:ME1_ext_vpf_para_result}. 
