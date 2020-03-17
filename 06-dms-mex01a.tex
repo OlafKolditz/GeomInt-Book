@@ -1,5 +1,7 @@
 \subsection{MEX 0-1a: Bending fracture test}
 
+Participating institutions of MEX 0.1a (see section \ref{sec:mex01}): CAU, UFZ, IfG*\footnote{IfG as a user of commercial codes has specific data management rules}
+
 \subsubsection*{CAU Kiel}
 
 The required LEM code and the input variables of the three-Point fracture toughness test on the Rockville Granite samples are uploaded to the IfG (Kiel) NextCloud server. The data is accessible through the following link:\\
@@ -7,22 +9,15 @@ The required LEM code and the input variables of the three-Point fracture toughn
 
 The uploaded protected MATLAB file in a *.p format requires a MATLAB version with a built-in Voronoi Tessellation and Delaunay Triangulation functions. The input variables are prepared in a single file for the simulation of the fracture toughness in Rockville Granite. Figure \ref{fig:Amir_ME1_LEM_Displacement_Crystalline_Data} shows the relation between the load vs. CMOD as described in section \ref {sec:mex01}.
 
-\begin{figure}[!ht]
-\centering
-\includegraphics[width=0.75\textwidth]{figures/Amir_ME1_LEM_Displacement_Crystalline_Data.png}
-\caption{The load vs. CMOD from the lattice simulation}
-\label{fig:Amir_ME1_LEM_Displacement_Crystalline_Data}
-\end{figure}
-
 \begin{table}[!ht]
-\caption{MEX 0-1a: Bending fracture test}
+\caption{MEX 0-1a (CAU) Meta Data: Bending fracture test}
 \label{tab:dms-mex0-1a}
 \small
-\begin{tabular}{R{3cm}|L{7cm}}
+\begin{tabular}{R{2.75cm}|L{8.5cm}}
 \hline
 %
 Data label & GeomInt | CAU | Bending fracture test, Granite \\
-URI &  https://nextcloud.ifg.uni-kiel.de/index.php/s/pRmBPJ9gK5Se6ci (Numerics)\\
+URL &  https://nextcloud.ifg.uni-kiel.de/index.php/s/pRmBPJ9gK5Se6ci (Numerics)\\
 Subject  &  Bending fracture test, Granite\\
 Type of data  &  executable MATLAB P-file, input parameters\\
 Dataquality  &  quality assured data \\
@@ -42,10 +37,17 @@ Access permissions & full access\\
 \end{tabular}
 \end{table}
 
+\begin{figure}[!ht]
+\centering
+\includegraphics[width=0.75\textwidth]{figures/Amir_ME1_LEM_Displacement_Crystalline_Data.png}
+\caption{The load vs. CMOD from the lattice simulation}
+\label{fig:Amir_ME1_LEM_Displacement_Crystalline_Data}
+\end{figure}
+
 \subsubsection*{UFZ}
 The source code can be found in OpenGeoSys project on github and  the input files for the three point bending test performed on the Rockville Granite samples have been uploaded.
-The files include the unstructured finite element mesh files in vtu format and an OGS input file in xml format.
-As homogeneous properties such as Youngu's modulus are assigned int the computational domain, the spatially constant material properties are specified in the OGS input file rather than in the mesh file.
+The files include the unstructured finite element mesh files in \texttt{vtu} format and an OGS input file in \texttt{xml} format.
+As homogeneous properties such as Young's modulus are assigned int the computational domain, the spatially constant material properties are specified in the OGS input file rather than in the mesh file.
 The load and crack mouth opening displacment computed from the simulations are shown in~\ref{fig:Keita_ME1_VPF_Rockville} as described in section \ref {sec:mex01}.
 
 \begin{figure}[!ht]
@@ -55,36 +57,66 @@ The load and crack mouth opening displacment computed from the simulations are s
 \label{fig:Keita_ME1_VPF_Rockville}
 \end{figure}
 
-\subsubsection*{IfG}
-
-Data management for MEX 0-1a (see section \ref{sec:mex01} for Model-Experiment description).
-
-\todo[inline]{[UFZ](KY): Please add a template for OGS-6 (e.g. \url{https://www.opengeosys.org/docs/benchmarks/phase-field/phasefield/})}
-\todo[inline]{The branch is not merged with the master yet. Files have been provided to datamanagement.}
-
 \begin{table}[!ht]
-\caption{MEX 0-1a: Meta Data according to Dublin Core}
+\caption{MEX 0-1a (UFZ): Meta Data according to Dublin Core}
 \label{tab:dms-mex0-1a}
 \small
-\begin{tabular}{R{3cm}|L{7cm}}
+\begin{tabular}{R{3.5cm}|L{7.5cm}}
 \hline
 %
-Data label &  \\
-URI &  \\
-Subject  &  \\
-Type of data  &  \\
-Dataquality  &  \\
+Data label & MEX 0-1a (UFZ) \\
+URL & \url{http://www.ufz.de/record/dmp/archive/7706} \\ 
+Subject  & Bending fracture test \\
+Type of data  & Data set (structured data in a defined format) \\
+Data quality  & Quality assured data by benchmarking \\
+Status of data  & Processed data \\
+Data format  & OGS files \\
+Creators  & Yoshioka, Keita  \\
+Source/Origin & Open source \\
+Publisher  & Helmholtz Centre for Environmental Research UFZ \\
+Rights holders & Helmholtz Centre for Environmental Research UFZ \\
+Contributors & Yoshioka, Keita \\
+Time/period of creation & 2019-2020 \\
+Language of content & English \\
+Update policy & To be merged to OGS benchmarks (see below) \\
+Access permissions & Free access \\
+%
+\hline
+\end{tabular}
+\end{table}
+
+MEX 0-1a (UFZ) will be also provided as an OGS benchmark case at:\\
+\small
+\url{https://www.opengeosys.org/docs/benchmarks/phase-field/phasefield/}
+\normalsize
+
+%\todo[inline]{The branch is not merged with the master yet. Files have been provided to datamanagement.}
+
+\todo[inline]{[IfG] Please complete Meta Data  description}
+
+\begin{table}[!ht]
+\caption{MEX 0-1a (IfG): Meta Data according to Dublin Core}
+\label{tab:dms-mex0-1a}
+\small
+\begin{tabular}{R{3.5cm}|L{7.5cm}}
+\hline
+%
+Data label & MEX 0-1a (IfG) \\
+URL &  \\ 
+Subject  & Bending fracture test, crystalline rock \\
+Type of data  & Data set (structured data in a defined format) \\
+Data quality  & Quality assured data by benchmarking \\
 Status of data  &  \\
-Dataformat  & \\
-Creators  &  \\
-Source/Origin &  \\
-Publisher  &  \\
-Rights holders &  \\
-Contributors &  \\
-Time or Period of creation &  \\
-Language of the content &  \\
+Data format  &  \\
+Creators  & Nest, Mathias  \\
+Source/Origin & Commercial code \\
+Publisher  & Institut f\"u Gebirgsmechanik IfG \\
+Rights holders & Institut f\"u Gebirgsmechanik IfG \\
+Contributors & Nest, Mathias \\
+Time/period of creation & 2019-2020 \\
+Language of content & English \\
 Update policy &  \\
-Access permissions &  \\
+Access permissions & Limited access \\
 %
 \hline
 \end{tabular}
