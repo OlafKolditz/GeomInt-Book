@@ -2,15 +2,37 @@
 
 Participating institutions of MEX 0-1b (see section \ref{sec:mex01b}): CAU, UFZ
 
+\begin{table}[ht!]
+\caption{MEX 0-1b: Data overview}
+\label{tab:dms-mex01b-overview}
+\small
+\begin{tabular}{l|l|l|l|L{4.7cm}|l}
+\hline
+\rowcolor{cyan}
+Type & Spec. & Owner & Access     & Comment                       & Stat \\ 
+\hline
+EXP  &   Ben    & CAU   & Open       & Output files are uploaded          & \cellcolor{green} \\
+\hline \hline
+MOD  & LEM   & CAU   & Open       & Executable MATLAB P-file               & \cellcolor{yellow} \\
+     &       &       & Open       & Input files will be uploaded  & \cellcolor{yellow} \\
+\hline
+MOD  & FEM   & UFZ   & Open       & Branch to be merged into OGS  & \cellcolor{yellow} \\
+     &       &       & Open       & Input files available         & \cellcolor{green} \\
+%
+\hline
+\end{tabular}
+\end{table}
+\normalsize
+
 \subsubsection*{CAU Kiel}
 
-The experimental results of the three-Point fracture toughness test on the Opalinus Claystone samples are uploaded to the IfG (Kiel) NextCloud server. The data is accessible through the following link:\\
-\hyperlink{https://nextcloud.ifg.uni-kiel.de/index.php/s/pJxp2eNEJb6PfiS}{https://nextcloud.ifg.uni-kiel.de/index.php/s/pJxp2eNEJb6PfiS}\\
+The experimental results of the three-point fracture toughness test on the Opalinus Claystone samples are uploaded to the IfG (Kiel) NextCloud server. The data is accessible through the following link:\\
+\url{https://nextcloud.ifg.uni-kiel.de/index.php/s/pJxp2eNEJb6PfiS}
 
 The data set, which includes the time, applied force ($N$) and the displacement of the sample at the loading point ($mm$), is provided in a *.txt file. The crack mouth opening displacement (CMOD), which is determined from the image processing technique (section \ref {sec:Fracture_Toughness_Exp}), is given in a *.xlsx file. The data includes the time and the calculated CMOD (mm). 
 
 The required LEM code and the input variables of the three-Point fracture toughness test on the Opalinus Claystone samples are uploaded to the IfG (Kiel) NextCloud server. The data is accessible through the following link:\\
-\hyperlink{https://nextcloud.ifg.uni-kiel.de/index.php/s/ZBFN2rSZ99kPY9M}{https://nextcloud.ifg.uni-kiel.de/index.php/s/ZBFN2rSZ99kPY9M}\\
+\url{https://nextcloud.ifg.uni-kiel.de/index.php/s/ZBFN2rSZ99kPY9M}
 
 The uploaded protected MATLAB file in a *.p format requires a MATLAB version with a built-in Voronoi Tessellation and Delaunay Triangulation functions. The input variables are prepared in two different files for a parallel and perpendicular embedded layer orientations. Figure \ref{fig:Amir_ME1_LEM_Claystone_Data} shows the comparison between the experimental and numerical data as described in section \ref {sec:mex01b}.
 
@@ -20,34 +42,6 @@ The uploaded protected MATLAB file in a *.p format requires a MATLAB version wit
 \caption{The load vs. crack mouth opening displacement (CMOD) response of the Opalinus claystone}
 \label{fig:Amir_ME1_LEM_Claystone_Data}
 \end{figure}
-
-\begin{table}[!ht]
-\caption{MEX 0-1b Meta Data: Bending fracture test, Opalinus Claystone}
-\label{tab:dms-mex0-1b}
-\small
-\begin{tabular}{R{3cm}|L{7cm}}
-\hline
-%
-Data label & GeomInt | CAU |  Bending fracture test, Opalinus claystone \\
-URI &  https://nextcloud.ifg.uni-kiel.de/index.php/s/pJxp2eNEJb6PfiS (Experiments), https://nextcloud.ifg.uni-kiel.de/index.php/s/ZBFN2rSZ99kPY9M (Numerics)\\
-Subject  &  Bending fracture test, Opalinus claystone\\
-Type of data  &  Experimental data, executable MATLAB P-file, input parameters\\
-Dataquality  &  quality assured data \\
-Status of data  &  unprocessed data\\
-Dataformat  & txt, xlsx, MATLAB executable P-file\\
-Creators  &  Kiel University, Institute of Geomechanics and Geotechnics, Ludewig-Meyn-Stra\ss e 10, 24118, Kiel\\
-Source/Origin & In-house code \\
-Publisher  &  Kiel University, Institute of Geomechanics and Geotechnics, Ludewig-Meyn-Stra\ss e 10, 24118, Kiel \\
-Rights holders &  Kiel University, Institute of Geomechanics and Geotechnics, Ludewig-Meyn-Stra\ss e 10, 24118, Kiel \\
-Contributors &   Kiel University, Institute of Geomechanics and Geotechnics: Amir Shoarian Sattari, Frank Wuttke\\
-Time or Period of creation &  2018-2019\\
-Language of the content &  English\\
-Update policy &  stored data is final\\
-Access permissions & full access\\
-%
-\hline
-\end{tabular}
-\end{table}
 
 \subsubsection*{UFZ}
 The input files for OGS, which were used to simulate the three point bending test performed on the orthogonal and parallel laminations of Opalinus claystone samples, have been uploaded.
@@ -59,19 +53,60 @@ The load and crack mouth opening displacment computed from the simulations are s
 \begin{figure}[!ht]
 \centering
 \includegraphics[width=0.75\textwidth]{figures/VPF_ME1_ex_NF_CMOD.png}
-\caption{The load vs. crack mouth opening displacement (CMOD) response simulations for orhtogonal and parallel lamination by VPF.}
+\caption{The load vs. crack mouth opening displacement (CMOD) response simulations for orthogonal and parallel lamination by VPF.}
 \label{fig:Keita_ME1_VPF_Claystone}
 \end{figure}
 
+MEX 0-1b (UFZ) will be also provided as an OGS benchmark case at:\\
+\small
+\url{www.opengeosys.org/docs/benchmarks/phase-field/phasefield/}
+\normalsize
+
+\clearpage
+%---------------------------------------------------------
+\subsubsection*{Meta Data Overview (according to Dublin Core)}
+%---------------------------------------------------------
+
 \begin{table}[!ht]
-\caption{MEX 0-1b (UFZ): Meta Data according to Dublin Core}
+\caption{MEX 0-1b (CAU)}
+\label{tab:dms-mex0-1b}
+\small
+\begin{tabular}{R{3.5cm}|L{7.5cm}}
+\hline
+%
+Data label & GeomInt, MEX 0-1b, CAU, Bending fracture test, Opalinus clay \\
+URL (Experiments) & \url{https://nextcloud.ifg.uni-kiel.de/index.php/s/pJxp2eNEJb6PfiS} \\
+URL (Numerics) & \url{https://nextcloud.ifg.uni-kiel.de/index.php/s/ZBFN2rSZ99kPY9M} \\
+Subject  &  Bending fracture test, Opalinus claystone\\
+Type of data  &  Experimental data, executable MATLAB P-file, input parameters\\
+Subject  &  Bending fracture test, Opalinus claystone\\
+Type of data  &  Experimental data, executable MATLAB P-file, input parameters\\
+Data quality  &  Quality assured data \\
+Status of data  &  Unprocessed data\\
+Data format  & txt, xlsx, MATLAB executable P-file\\
+Creators  &  Kiel University, Institute of Geomechanics and Geotechnics, Ludewig-Meyn-Stra\ss e 10, 24118, Kiel\\
+Source/Origin & In-house code \\
+Publisher  &  Kiel University, Institute of Geomechanics and Geotechnics, Ludewig-Meyn-Stra\ss e 10, 24118, Kiel \\
+Rights holders &  Kiel University, Institute of Geomechanics and Geotechnics, Ludewig-Meyn-Stra\ss e 10, 24118, Kiel \\
+Contributors &   Kiel University, Institute of Geomechanics and Geotechnics: Amir Shoarian Sattari, Frank Wuttke\\
+Time/period of creation &  2018-2019\\
+Language of the content &  English\\
+Update policy &  Stored data is final\\
+Access permissions & Full access\\
+%
+\hline
+\end{tabular}
+\end{table}
+
+\begin{table}[!ht]
+\caption{MEX 0-1b (UFZ)}
 \label{tab:dms-mex0-1a}
 \small
 \begin{tabular}{R{3.5cm}|L{7.5cm}}
 \hline
 %
 Data label & MEX 0-1b (UFZ) \\
-URL & \colorbox{red}{to be filled} \\ 
+URL & \url{www.opengeosys.org/docs/benchmarks/phase-field/phasefield/} \\ 
 Subject  & Bending fracture test, Opalinus clay \\
 Type of data  & Data set (structured data in a defined format) \\
 Data quality  & Quality assured data by benchmarking \\
@@ -90,8 +125,3 @@ Access permissions & Free access \\
 \hline
 \end{tabular}
 \end{table}
-
-MEX 0-1b (UFZ) will be also provided as an OGS benchmark case at:\\
-\small
-\url{https://www.opengeosys.org/docs/benchmarks/phase-field/phasefield/}
-\normalsize

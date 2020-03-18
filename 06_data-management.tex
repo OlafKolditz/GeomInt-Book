@@ -29,7 +29,7 @@ The GeomInt project partners agreed to set up a user agreement which includes sp
 
 The user agreement includes guidelines and definitions for the following aspects 
 
-\begin{list}{-}{\leftmargin=1em \itemindent=0em \itemsep=0.2em}
+\begin{list}{-}{\leftmargin=1em \itemindent=0em \itemsep=0.1em}
 \item Which data will be generated in the project and has to be managed?
 \item How will data be provided and exchanged?
 \item What are the rights of use for the partners and for third parties?
@@ -39,7 +39,7 @@ The user agreement includes guidelines and definitions for the following aspects
 
 As part of the user agreement, a data management plan, which is a formal document that describes how project data is managed during the research period and after completion of the project, was developed. The goal of a DMP plan is to consider the aspects of data management (metadata creation, data preservation and analysis) before the start of the project. Following points are discussed in the GeomInt DMP:
 
-\begin{enumerate}{\leftmargin=1em \itemindent=0em \itemsep=0.2em}
+\begin{enumerate}{\leftmargin=1em \itemindent=0em \itemsep=0.1em}
 \item Generation and management methods (data infrastructure, external data, data integration, data formats, quality control, user groups, data processing stages, versioning, documentation and meta data, geocoding)
 \item Data Legal Management
 \item Data exchange and provision, citation rules
@@ -60,86 +60,105 @@ As software components are part of non-commercial, scientific program platforms 
 
 The handling of data obtained from the in-situ experiments in the underground laboratories through synergies with other projects is also regulated separately (access authorisation for these data, storage location, publication, handling of the data after the end of the project). Such an approach is necessary because specific parts of these data can be used for the scientific purposes of GeomInt, but they are generated in other projects with partly other partners.
 
-\begin{figure}[!ht]
-\includegraphics[width=\textwidth]{figures/geomint-web-01.png}
-\includegraphics[width=\textwidth]{figures/geomint-web-02.png}
-\caption{GeomInt DMS Portal}
-\label{fig:geomint-web}
-\end{figure}
-
 \section{GeomInt DMP}
 
-In this section, exemplary data sets of every project partner are described. A table of these data sets including description and link are available only for project partners at the website (Fig. \ref{fig:geomint-web}). Some data sets can be found on the UFZ data investigation portal \hyperlink{https://www.ufz.de/drp/}{https://www.ufz.de/drp/}. These data sets are uploaded to the data management portal at UFZ (DMP@UFZ).
+In this section, exemplary data sets of every project partner are described. A table of these data sets including description and link are available only for project partners at the website (Fig. \ref{fig:geomint-dms-web}). Some data sets can be found on the UFZ data investigation portal \url{https://www.ufz.de/drp/}. These data sets are uploaded to the data management portal at UFZ (DMP@UFZ).
+
+\begin{figure}[!ht]
+\includegraphics[width=\textwidth]{figures/geomint-web-01.png}
+\includegraphics[width=\textwidth]{figures/geomint-dms-01.png}
+\caption{GeomInt DMS Portal \url{https://www.ufz.de/geomint/index.php?de=46799}}
+\label{fig:geomint-dms-web}
+\end{figure}
+
+The GeomInt data management system (DMS) is organised in three sections (Fig. \ref{fig:geomint-dms-ove}):
+\begin{list}{-}{\leftmargin=1em \itemindent=0em \itemsep=0em}
+\item Experimental data (Fig. \ref{fig:geomint-dms-ove} left)
+\item Simulation data (Fig. \ref{fig:geomint-dms-ove} right),
+\item and data connected to URLs (Fig. \ref{fig:geomint-dms-ove} bottom right)
+\end{list}
+
+\begin{figure}[!ht]
+\includegraphics[width=\textwidth]{figures/geomint-dms-ove.png}
+\caption{GeomInt DMS Portal: Data areas for experimental, simulation and URL related information}
+\label{fig:geomint-dms-ove}
+\end{figure}
+
+Table \ref{tab:dms-mex} summarizes the MEX related data concerning experiments and simulations.
+A selection will be described in the following sections.
 
 \begin{table}[!ht]
 \footnotesize
 \centering
 \caption{MEX Data Management}
 \label{tab:dms-mex}
-\begin{tabular}{|C{0.6cm}|L{3.7cm}|C{0.7cm}|C{0.7cm}|C{0.7cm}|C{0.7cm}|C{0.7cm}|C{0.7cm}|} 
+\begin{tabular}{|C{0.7cm}|L{3.7cm}|C{0.7cm}|C{0.7cm}|C{0.7cm}|C{0.7cm}|C{0.7cm}|C{0.7cm}|} 
 \hline 
 \rowcolor{cyan!50}
 MEX & TOP & EXP & \multicolumn{5}{c|}{MOD} \\ 
 \hline
 \rowcolor{cyan!50}
-WP &  &  & LEM & DEM & FEM1 & FEM2 & FFS \\ 
+WP &  &  & LEM & DEM & FEM & HDF & FFS \\ 
 \hline \hline
 %-------------------
-0-1a & Bending fracture test & REF & \cellcolor{yellow} \checkmark & \cellcolor{yellow} \checkmark & \cellcolor{yellow} \checkmark &  &  \\ 
+0-1a & Bending fracture test & \cellcolor{lightgray} LIT & \cellcolor{lightgray} \checkmark & \cellcolor{lightgray} \checkmark & \cellcolor{lightgray} \checkmark &  &  \\ 
 \hline 
-0-1b & Bending fracture test (aniso) & \cellcolor{yellow} & \cellcolor{yellow} & \cellcolor{yellow} & \cellcolor{yellow} &  &  \\ 
+0-1b & Bending fracture test (aniso) & \cellcolor{lightgray} & \cellcolor{lightgray} & \cellcolor{lightgray} & \cellcolor{lightgray} &  &  \\ 
 \hline 
 0-2 & Humidity controlled bending & \multicolumn{6}{c|}{Concept} \\ 
 \hline \hline
 %-------------------
-1-1a & Swelling of clay & \cellcolor{yellow} & \cellcolor{yellow} & \cellcolor{yellow} & \cellcolor{yellow} &  &  \\ 
+1-1a & Swelling of clay & \cellcolor{lightgray} & \cellcolor{lightgray} & \cellcolor{lightgray} & \cellcolor{lightgray} &  &  \\ 
 \hline
-1-1b & Swelling of clay & \cellcolor{yellow} &  & \cellcolor{yellow} &  &  &  \\ 
+1-1b & Swelling of clay & \cellcolor{lightgray} &  & \cellcolor{lightgray} &  &  &  \\ 
 \hline
-1-2 & Shrinkage of clay & \cellcolor{yellow} & \cellcolor{yellow} & \cellcolor{yellow} & \cellcolor{yellow} &  &  \\ 
+1-2 & Shrinkage of clay & \cellcolor{lightgray} & \cellcolor{lightgray} & \cellcolor{lightgray} & \cellcolor{lightgray} &  &  \\ 
 \hline
-1-3 & Desiccation of clay & \cellcolor{yellow} &  &  &  &  &  \\ 
+1-3 & Desiccation of clay & \cellcolor{lightgray} &  &  &  &  &  \\ 
 \hline
-1-4 & CD/LP experiment &  &  &  & \cellcolor{green} &  &  \\ 
+1-4 & CD/LP experiment &  &  &  & \cellcolor{lightgray} &  &  \\ 
 \hline \hline
 %-------------------
-2-1a & Pressure driven percolation &  & \cellcolor{yellow} & \cellcolor{yellow} & \cellcolor{green} &  &  \\ 
+2-1a & Pressure driven percolation &  & \cellcolor{lightgray} & \cellcolor{lightgray} & \cellcolor{lightgray} &  &  \\ 
 \hline
-2-1b & Pressure driven percolation & \cellcolor{yellow} & \cellcolor{yellow} & \cellcolor{yellow} & \cellcolor{yellow} &  &  \\ 
+2-1b & Pressure driven percolation & \cellcolor{lightgray} & \cellcolor{lightgray} & \cellcolor{lightgray} & \cellcolor{lightgray} &  &  \\ 
 \hline
-2-2 & Healing / closure & \cellcolor{yellow} & \cellcolor{yellow} & \cellcolor{yellow} & \cellcolor{yellow} &  &  \\ 
+2-2 & Healing / closure & \cellcolor{lightgray} & \cellcolor{lightgray} & \cellcolor{lightgray} & \cellcolor{lightgray} &  &  \\ 
 \hline
-2-3 & Compressible fluids & \cellcolor{yellow} & \cellcolor{yellow} & \cellcolor{yellow} &  &  &  \\ 
+2-3 & Compressible fluids & \cellcolor{lightgray} & \cellcolor{lightgray} & \cellcolor{lightgray} &  &  &  \\ 
 \hline
-2-4 & URL Springen & \cellcolor{yellow} &  & \cellcolor{yellow} &  &  &  \\ 
+2-4 & URL Springen & \cellcolor{lightgray} &  & \cellcolor{lightgray} &  &  &  \\ 
 \hline \hline
 %-------------------
-3-1 & CNL test & \cellcolor{green} &  &  &  &  & \cellcolor{green} \\ 
+3-1 & CNL test & \cellcolor{lightgray} &  &  &  &  & \cellcolor{lightgray} \\ 
 \hline
-3-2 & CNS test & \cellcolor{green} &  &  &  &  & \cellcolor{green} \\ 
+3-2 & CNS test & \cellcolor{lightgray} &  &  &  &  & \cellcolor{lightgray} \\ 
 \hline
-3-3 & Cyclic loading &  &  &  &  & \cellcolor{yellow} &  \\ 
+3-3 & Cyclic loading &  &  &  &  & \cellcolor{lightgray} &  \\ 
 \hline \hline
 %-------------------
 \end{tabular}
 \end{table}
 \normalsize
 
-\subsection{Software Codes}
+The following codes (and related input files) are used (see Chapter \ref{cha:codes} for detailed code introductions).
+
+\subsection*{Software Codes}
 \begin{list}{-}{\leftmargin=1em \itemindent=0em \itemsep=0em}
-\item LEM: in-house code
-\item DEM: commercial code by Itasca Ltd.
-\item SPH: in-house code
+\item LEM: In-house developed MATLAB code available in executable P-file format (not uploaded yet)
+\item DEM: Commercial code by Itasca Ltd.
+\item SPH: In-house code
 \item OGS (OpenGeoSys): \url{https://www.opengeosys.org/releases/}
-\item FEM@UoS: 
+\item HDF: In-house code
 \end{list}
-\subsection{Input files}
+
+\subsection*{Input files}
 \begin{list}{-}{\leftmargin=1em \itemindent=0em \itemsep=0em}
-\item LEM: in-house code
+\item LEM: Available in .txt format (not uploaded yet)
 \item DEM: Itasca Ltd. (user's manuals)
-\item SPH: in-house code
+\item SPH/HDF: In-house documentation
 \item OGS (Benchmarks): \url{https://www.opengeosys.org/docs/benchmarks/}
-\item FEM@UoS: in-house code
+\item HDF: In-house documentation
 \end{list}
 
 \clearpage

@@ -1,6 +1,28 @@
-\subsection{MEX 2-1a: Pressure driven percolation, Saltstone}
+\subsection{MEX 2-1a: Pressure driven percolation in salt}
 
-Participating institutions of MEX 2-1a (see section \ref{sec:mex02}): CAU, UFZ, IfG
+Participating institutions of MEX 2-1a (see section \ref{sec:mex02}): CAU, IfG, UFZ
+
+\begin{table}[ht!]
+\caption{MEX 2-1a: Data overview}
+\label{tab:dms-mex21a-overview}
+\small
+\begin{tabular}{l|l|l|l|L{4.7cm}|l}
+\hline
+\rowcolor{cyan}
+Type & Spec. & Owner & Access     & Comment                       & Stat \\ 
+\hline 
+EXP  & LIT   & \cite{Kamlot2009} & Restricted & Literature available online & \cellcolor{green} \\
+\hline \hline
+MOD  & LEM   & CAU   & License    & Executable MATLAB P-file      & \cellcolor{yellow} \\
+     &       &       & Free       & I/O available                 & \cellcolor{yellow} \\
+\hline
+MOD  & FEM   & UFZ   & Open source & via OpenGeoSys portal        & \cellcolor{yellow} \\
+     & VFP   &       & Free        & I/O available                & \cellcolor{green} \\
+%
+\hline
+\end{tabular}
+\end{table}
+\normalsize
 
 \subsubsection*{UFZ}
 
@@ -12,8 +34,30 @@ The first case applies the boundary loading of 12 MPa, 21 MPa, and 8 MPa in x-, 
 The second case is loaded with 4 MPa, 15 MPa, and 19 MPa in x-, y-, and z-direction respectively and the input file is named ''me2\_insitu\_case2.prj".
 The remaining files are vtu files that describe the computing domain and the boundaries as shown in~\ref{fig:VPF_init}.
 
+MEX 2-1a (UFZ) will be also provided as an OGS benchmark case at:\\
+\small
+\url{https://www.opengeosys.org/docs/benchmarks/phase-field/phasefield/}
+\normalsize
+
+\subsubsection*{CAU Kiel}
+
+The required LEM code and the input variables of the percolation test on saltstone samples are uploaded to the IfG (Kiel) NextCloud server. The data is accessible through the following link:\\
+\url{https://nextcloud.ifg.uni-kiel.de/index.php/s/9JZZcpS4S3JJT9S}
+
+The uploaded protected MATLAB file in a *.p format requires a MATLAB version with a built-in Voronoi Tessellation and Delaunay Triangulation functions. The input variables are prepared in two files for two different stress configurations. Fig. \ref{fig:Amir_ME2_LEM_b_model_Fracture_Data} shows the frack surfaces under the percolation test as described in section \ref {sec:mex02}.
+
+\begin{figure}[!ht]
+\centering
+\includegraphics[width=0.7\textwidth]{figures/Amir_ME2_LEM_b_model_Fracture_Data.png}
+\caption{The frack surfaces (red) under the percolation test, Saltstone}
+\label{fig:Amir_ME2_LEM_b_model_Fracture_Data}
+\end{figure}
+
+%---------------------------------------------------------
+\subsubsection*{Meta Data Overview (according to Dublin Core)}
+%---------------------------------------------------------
 \begin{table}[!ht]
-\caption{MEX 2-1a (UFZ): Meta Data according to Dublin Core}
+\caption{MEX 2-1a (UFZ)}
 \label{tab:dms-mex2-1a-ufz}
 \small
 \begin{tabular}{R{3.5cm}|L{7.5cm}}
@@ -40,49 +84,30 @@ Access permissions & Free access \\
 \end{tabular}
 \end{table}
 
-MEX 2-1a (UFZ) will be also provided as an OGS benchmark case at:\\
-\small
-\url{https://www.opengeosys.org/docs/benchmarks/phase-field/phasefield/}
-\normalsize
-
-\subsubsection*{CAU Kiel}
-
-The required LEM code and the input variables of the percolation test on saltstone samples are uploaded to the IfG (Kiel) NextCloud server. The data is accessible through the following link:\\
-\hyperlink{https://nextcloud.ifg.uni-kiel.de/index.php/s/9JZZcpS4S3JJT9S}{https://nextcloud.ifg.uni-kiel.de/index.php/s/9JZZcpS4S3JJT9S}\\
-
-The uploaded protected MATLAB file in a *.p format requires a MATLAB version with a built-in Voronoi Tessellation and Delaunay Triangulation functions. The input variables are prepared in two files for two different stress configurations. Fig. \ref{fig:Amir_ME2_LEM_b_model_Fracture_Data} shows the frack surfaces under the percolation test as described in section \ref {sec:mex02}.
-
-\begin{figure}[!ht]
-\centering
-\includegraphics[width=4cm,height=4cm]{figures/Amir_ME2_LEM_b_model_Fracture_Data.png}
-\caption{The frack surfaces (red) under the percolation test, Saltstone}
-\label{fig:Amir_ME2_LEM_b_model_Fracture_Data}
-\end{figure}
-
 \begin{table}[!ht]
-\caption{MEX 2-1a: Pressure driven percolation, Saltstone}
+\caption{MEX 2-1a (CAU)}
 \label{tab:dms-mex2-1a-cau}
 \small
-\begin{tabular}{R{3cm}|L{7cm}}
+\begin{tabular}{R{3.5cm}|L{7.5cm}}
 \hline
 %
 Data label & GeomInt | CAU | Percolation test, Saltstone\\
-URI &  https://nextcloud.ifg.uni-kiel.de/index.php/s/9JZZcpS4S3JJT9S (Numerics)
+URI &  \url{https://nextcloud.ifg.uni-kiel.de/index.php/s/9JZZcpS4S3JJT9S} (Numerics)
 \\
-Subject  &  Percolation test, Saltstone\\
-Type of data  & executable MATLAB P-file, input parameters\\
-Dataquality  &  quality assured data \\
-Status of data  &  unprocessed data\\
+Subject  &  Percolation test (Saltstone)\\
+Type of data  & Executable MATLAB P-file, input parameters\\
+Dataquality  &  Quality assured data \\
+Status of data  &  Unprocessed data\\
 Dataformat  & txt, MATLAB executable P-file\\
 Creators  &  Kiel University, Institute of Geomechanics and Geotechnics, Ludewig-Meyn-Stra\ss e 10, 24118, Kiel\\
 Source/Origin & In-house code \\
 Publisher  &  Kiel University, Institute of Geomechanics and Geotechnics, Ludewig-Meyn-Stra\ss e 10, 24118, Kiel \\
 Rights holders &  Kiel University, Institute of Geomechanics and Geotechnics, Ludewig-Meyn-Stra\ss e 10, 24118, Kiel \\
 Contributors &   Kiel University, Institute of Geomechanics and Geotechnics: Amir Shoarian Sattari, Frank Wuttke\\
-Time or Period of creation &  2018-2020\\
+Time/period of creation &  2018-2020\\
 Language of the content &  English\\
-Update policy &  stored data is final\\
-Access permissions & full access\\
+Update policy &  Stored data is final\\
+Access permissions & Full access\\
 %
 \hline
 \end{tabular}
