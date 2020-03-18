@@ -3,13 +3,14 @@
 
 \Authors{Olaf Kolditz, Uwe-Jens G\"orke, Heinz Konietzky, Jobst Ma{\ss}mann, Mathias Nest, Holger Steeb, Frank Wuttke, Thomas Nagel}
 
+\vspace{-6mm}
 \section{Synthesis - Directions}
 
 As a result of the GeomInt research project (Chapter \ref{cha:geomint}) a broad combined experimental and numerical platform for the investigation of discontinuities due to swelling and shrinking processes (WP1, section \ref{sec:lab-wp1}), pressure-driven percolation (WP2, section \ref{sec:lab-wp2}) and stress redistribution (WP3, section \ref{sec:lab-wp3}) for important reservoir and barrier rocks (clay, salt, crystalline) has been developed. Model comparisons for damage and fracture processes driven by different processes provide information on the optimal areas of application of the numerical methods (section \ref{sec:synthesis-num}). 
 
-\begin{wrapfigure}{l}{6cm}
+\begin{wrapfigure}{l}{4.5cm}
 \centering
-\includegraphics[width=5.9cm]{figures/geomint-mex.png}
+\includegraphics[width=4.4cm]{figures/geomint-mex.png}
 \caption{Central MEX concept}
 \label{fig:synthesis-mex}
 \end{wrapfigure}
@@ -36,7 +37,7 @@ Tab. \ref{tab:num-comp} provides an overview of the capabilities of the numerica
 \begin{tabular}{lllll}
 \hline
 %\rowcolor{cyan}
-Methods & Crack representation & Failure criteria   & Mesh & Fracture aperture \\
+Methods & Crack representation & Failure criteria   & Mesh & Fracture apert. \\
 \hline
 LEM     & Element separation   & Element strength   & Lattice        & Direct \\
 DEM     & Element separation   & Element strength   & Discrete       & Direct \\
@@ -44,7 +45,7 @@ SPH     & Particle based       & NA                 & NA             & Particle 
 FEM-LIE & Element explicit     & Cohesive law       & Conforming     & Direct \\
 FEM-VPF & Damage variable      & Fracture mechanics & Non-conf.      & Indirect \\
 FEM-NLD & Damage variable      & Stress based       & Non-conf.      & Indirect \\
-FEM-HDF & Element explicit     & Cohesive law       & Conforming and non-conf.  & Direct  \\
+FEM-HDF & Element explicit     & Cohesive law       & Non- \& conf.  & Direct  \\
 \hline
 \end{tabular}
 \end{table}
@@ -184,7 +185,7 @@ Intelligent use of Information Technology will foster the development and implem
 \centering
 \includegraphics[width=0.24\textwidth]{figures/mont-terri}
 %\caption{}
-\label{fig:workflows}
+\label{fig:syn-mt-terri}
 \end{wrapfigure}
 GeomInt benefited to a huge extend from international cooperation and produced an impact vice versa. Clay samples of both the shaly an sandy facies from the URL Mt. Terri were the basis for experimental work with Opalinus clay. GeomInt models for variuos MT experiments embedded into a VR context helped the ''Proof-of-Concept'' for experimental analysis and design of future campaigns.
 
@@ -193,7 +194,7 @@ GeomInt benefited to a huge extend from international cooperation and produced a
 \centering
 \includegraphics[width=0.24\textwidth]{figures/decovalex-2019}
 %\caption{}
-\label{fig:workflows}
+\label{fig:syn-decovalex}
 \end{wrapfigure}
 GeomInt's MEX concept is mainly derived from the DECOVALEX benchmarking tasks idea by closely combining own experimental with modelling works. Using different (continuous and discontinuous) numerical methods helped the general process understanding and elaboration of particular methods' dis-/advantages as well. GeomInt partners will participate the new DECOVALEX 2023 phase. 
 
@@ -202,7 +203,7 @@ GeomInt's MEX concept is mainly derived from the DECOVALEX benchmarking tasks id
 \centering
 \includegraphics[width=0.24\textwidth]{figures/eurad}
 %\caption{}
-\label{fig:workflows}
+\label{fig:syn-eurad}
 \end{wrapfigure}
 GeomInt's concept and project results will be deployed for the new European Joint Program on Radioactive Waste Management EURAD. In addition to Opalinus clay (OPA), EURAD is dealing with various European clays such as Callodo-Oxfordian (COx) and Boom clay and providing a European knowledge base for clays as barrier rock for waste isolation and energy storage.
 
@@ -214,7 +215,7 @@ The webpage of GeomInt (Fig. \ref{fig:geomint-web}) is the entry point an refere
 \centering
 \includegraphics[width=0.95\textwidth]{figures/geomint-web.png}
 \caption{Webpage of the GeomInt project $\Rightarrow$ \url{www.ufz.de/geomint}}
-\label{fig:geomint-web}
+\label{fig:syn-geomint-web}
 \end{figure}
 
 \begin{figure}[ht!]
@@ -247,7 +248,7 @@ Future research will contain following aspects:
 \centering
 \includegraphics[width=0.49\textwidth]{figures/CDA_open_niche}
 \caption{URL Mt. Terri: CD-A experiment: desaturation cracks at the ventilated open niche (Photo: BGR)}
-\label{fig:cd-a}
+\label{fig:syn-cd-a}
 \end{wrapfigure}
 The focus of the work in the continuation is the Mt. Terri CD-A experiment. In autumn 2019, two 11\,m long niches were excavated and extensively instrumented. While one niche is ventilated and thus exposed to seasonal fluctuations in humidity, the second niche is kept closed by a bulkhead. First geophysical measurements as well as observations of drying cracks on the walls already indicate the influence of desaturation in the ventilated niche, while the closed niche, where a constantly high humidity has been established, does not show any such cracks. Based on the experimental analyses, the anisotropic swelling and shrinking behaviour under these boundary conditions is analysed and characterised in the laboratory. The analysis is the basis for further modelling on larger scales. 
 The numerical methods \cite{Yoshioka2019,Parisio2019102} developed in GeomInt are to be used and, if necessary, further refined in order to model and analyse the observed differences between the two niches. In a first step, the two-dimensional HM calculations of the CD/LP experiment (in \cite{Kolditz2020b}) performed within GeomInt will be extended by the newly developed non-linear transversal-isotropic approaches in mechanics and in the swelling and shrinking model. Furthermore, the possibility of modelling shrinkage cracks in the HM context is investigated on the mechanical side by the phase field method and plastic models and on the hydraulic side with multicontinua models. In a second step, this approach will be applied to the CD-A experiment and quantitatively analyzed by comparison with measured data, so that a basic validation of the model approach on field scale is possible. 
@@ -261,7 +262,7 @@ The numerical methods \cite{Yoshioka2019,Parisio2019102} developed in GeomInt ar
 \centering
 \includegraphics[width=0.49\textwidth]{figures/GeomInt_AP2_CAU}
 \caption{Pathways through pressure-driven percolation, clay rock (Photo: CAU Kiel)}
-\label{fig:cd-a}
+\label{fig:syn-percolation}
 \end{wrapfigure}
 In the GeomInt continuation, the laboratory-experimental focus is on the investigation of anisotropy effects. This material state determines all physical properties, especially for claystone. For the characterization of the anisotropic material behavior, in particular fracture behavior and pathability under temperature, saturation and pressure changes are to be analyzed. Selected investigations, e.g. fracture toughness analyses, fluid-driven percolation tests or high-pressure cube pressure tests are to be carried out with special consideration of the material anisotropy. Any additional material samples that may be required could be provided by ongoing drilling activities in the new galleries in the Mt. Terri rock laboratory. The aim is to determine the anisotropic fracture and strength parameters, conductivities or fracture paths required for further simulations during fluid percolation under in-situ conditions.
 
@@ -311,8 +312,6 @@ In the context of the follow-up project, the synthesis activities are to be stre
 \centering
 \includegraphics[width=0.49\textwidth]{figures/cd-a}
 \caption{Virtualization of the CD-A experiment (Source: BGR/UFZ)}
-\label{fig:cd-a}
+\label{fig:vis-cd-a}
 \end{wrapfigure}
-The procedure will be explained using the example of the CD-A experiment in the underground laboratory at Mt. Terri (see section \ref{sec:wp1-plan}). In the first project phase, the constitutive model was developed and implemented \cite{Vowinckel2019}. In order to use the models as realistically as possible, they are built into the underground laboratory using virtualization (see figure \ref{fig:cd-a}). The model has already been used for the planning of the CD-A experiment to determine the optimal distance between the niches (no significant interaction within 20 years). A further increase of the process complexity (nonlinear mechanics in the HM context) requires the unconditional use of HPC methods to simulate a large number of variants. The model results should be continuously compared with the running experiments and also integrated into the existing virtualization context. This is the basic idea of continuous data and model integration.
-
-
+The procedure will be explained using the example of the CD-A experiment in the underground laboratory at Mt. Terri (see section \ref{sec:wp1-plan}). In the first project phase, the constitutive model was developed and implemented \cite{Vowinckel2020}. In order to use the models as realistically as possible, they are built into the underground laboratory using virtualization (see figure \ref{fig:vis-cd-a}). The model has already been used for the planning of the CD-A experiment to determine the optimal distance between the niches (no significant interaction within 20 years). A further increase of the process complexity (nonlinear mechanics in the HM context) requires the unconditional use of HPC methods to simulate a large number of variants. The model results should be continuously compared with the running experiments and also integrated into the existing virtualization context. This is the basic idea of continuous data and model integration.
