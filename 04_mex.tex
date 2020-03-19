@@ -12,7 +12,8 @@ The basic idea of Model-Experiment-Exercises (MEX) is to link modelling and expe
 In order to illustrate the MEX concept, Fig. \ref{fig:mex-concept-generic} depicts the dependencies between laboratory (LAB) and field experiments (URL) as well as modelling work (MOD). Lab experiments (LAB) will be analysed by models (MOD) in order to calibrate parameters and validate them [1]. This step in the analysis loop should proof that the models are able to represent the experiments (validation). Models will be also used for planning experimental work in order to improve the general process understanding [2] (experimental design). Both lab experiments and models must be scaleable to field experiments [3].
 
 \begin{figure}
-\includegraphics[width=0.85\textwidth]{figures/geomint-mex-b.png}
+\centering
+\includegraphics[width=0.7\textwidth]{figures/geomint-mex-b.png}
 \caption{MEX in WPs}
 \label{fig:mex-concept-wps}
 \end{figure}
@@ -28,6 +29,76 @@ Before WP related MEX are described, a prerequisite of two exercises dealing wit
 %\centering
 %\includegraphics[width=18cm,angle=90]{figures/mex-overview.png}
 %\end{figure}
+
+Fig. \ref{fig:mex-overview} illustrates an overview of the forthcoming Model-Experiment-Exercises (MEX) combining both theoretical work and experiments at various scales.
+The MEX concept is the central synthesis element of GeomInt as it is directly linking models (MOD) with lab experiments (LAB) and paving the way towards the analysis of in-situ experiments (URL) (see also chapter \ref{cha:out}).
+
+\clearpage
+
+\begin{figure}[!ht]
+\centering
+\includegraphics[width=0.85\textwidth]{figures/geomint-mex-overview.png}
+\caption{Overview of Model-Experiment-Exercises (MEX)}
+\label{fig:mex-overview}
+\end{figure}
+
+MEX are organized mainly along the projects work packages (lines) as well as experiments (LAB/URL) and various modelling approaches (columns) (Tab. \ref{tab:mex-overview}).
+
+\begin{table}[!hb]
+\footnotesize
+\centering
+\caption{Model-Experiment-Exercises (MEX) matrix}
+\label{tab:mex-overview}
+\begin{tabular}{|C{0.7cm}|L{3.7cm}|C{0.7cm}|C{0.7cm}|C{0.7cm}|C{0.7cm}|C{0.7cm}|C{0.7cm}|} 
+\hline 
+\rowcolor{cyan!50}
+MEX & TOP & EXP & \multicolumn{5}{c|}{MOD} \\ 
+\hline
+\rowcolor{cyan!50}
+WP &  &  & LEM & DEM & FEM & HDF & FFS \\ 
+\hline \hline
+%-------------------
+0-1a & Bending fracture test & LIT & \cellcolor{lightgray} & \cellcolor{lightgray}  & \cellcolor{lightgray} &  &  \\ 
+\hline 
+0-1b & Bending fracture test (aniso) & \cellcolor{lightgray} LAB & \cellcolor{lightgray} & \cellcolor{lightgray} & \cellcolor{lightgray} &  &  \\ 
+\hline 
+0-2 & Humidity controlled bending & \multicolumn{6}{c|}{Concept} \\ 
+\hline \hline
+%-------------------
+1-1a & Swelling of clay & \cellcolor{lightgray} LAB & \cellcolor{lightgray} & \cellcolor{lightgray} & \cellcolor{lightgray} &  &  \\ 
+\hline
+1-1b & Swelling of clay & \cellcolor{lightgray} LAB &  & \cellcolor{lightgray} &  &  &  \\ 
+\hline
+1-2 & Shrinkage of clay & \cellcolor{lightgray} LAB & \cellcolor{lightgray} & \cellcolor{lightgray} & \cellcolor{lightgray} &  &  \\ 
+\hline
+1-3 & Desiccation of clay & \multicolumn{6}{c|}{Concept} \\ 
+\hline
+1-4 & CD/LP experiment & \cellcolor{lightgray} URL &  &  & \cellcolor{lightgray} &  &  \\ 
+\hline \hline
+%-------------------
+2-1a & Pressure driven percolation & LIT & \cellcolor{lightgray} & \cellcolor{lightgray} & \cellcolor{lightgray} &  &  \\ 
+\hline
+2-1b & Pressure driven percolation & \cellcolor{lightgray} LAB & \cellcolor{lightgray} & \cellcolor{lightgray} & \cellcolor{lightgray} &  &  \\ 
+\hline
+2-2 & Healing / closure & \cellcolor{lightgray} LAB & \cellcolor{lightgray} & \cellcolor{lightgray} & \cellcolor{lightgray} &  &  \\ 
+\hline
+2-3 & Compressible fluids & LIT & \cellcolor{lightgray} & \cellcolor{lightgray} &  &  &  \\ 
+\hline
+2-4 & URL Springen & \cellcolor{lightgray} URL &  & \cellcolor{lightgray} &  &  &  \\ 
+\hline \hline
+%-------------------
+3-1 & CNL test & \cellcolor{lightgray} LAB &  &  &  &  & \cellcolor{lightgray} \\ 
+\hline
+3-2 & CNS test & \cellcolor{lightgray} LAB &  &  &  &  & \cellcolor{lightgray} \\ 
+\hline
+3-3 & Cyclic loading & \cellcolor{lightgray} LAB &  &  &  & \cellcolor{lightgray} &  \\ 
+\hline \hline
+%-------------------
+\end{tabular}
+\tiny
+Legende: (EXP) experimental data from literature (LIT), LAB and field experiments (URL). Various modelling approaches (MOD): lattice (LEM), distinct (DEM), finite elements (FEM), hybrid-dimensional (HDF), and forces on fracture surfaces (FFS) are developed and compared against experimental results.
+\end{table}
+\normalsize
 
 \clearpage
 %------------------------------------------------------------------------------
