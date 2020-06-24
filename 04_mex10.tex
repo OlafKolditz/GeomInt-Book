@@ -99,7 +99,8 @@ where $p_\infty$ is the pressure at the outer boundary for the undisturbed rock 
 The simulation is set up as a two-dimensional problem. The total extent of the domain is 50 by 50 meters and the domain is discretized by a total of 5463 nodes with elements of triangular shape (Figure \ref{fig:bc}b) unless specified otherwise. This spatial discretization is the exact same mesh as used by \cite{ziefle2018}. A summary of the boundary conditions for the computational domain and the material parameters is given in Figure \ref{fig:setup}a. The seasonal change in pressure boundary conditions at the surface of the niche is shown as a function of time in Figure \ref{fig:bc}. The numerical parameters for the nonlinear and linear solver are listed in Table \ref{tab:solver}.
 
 \begin{table}
- \caption{Numerical parameters of the solvers used in OGS-5 and OGS-6, where $\bf{r}$ and $\bf{b}$ are the residual and the right-hand side vector, respectively, and $\epsilon$ the error tolerance. Further the abbreviations for the solvers and preconditioners mean Conjugate Gradient on the Normal Equations (CGNR), Biconjugate gradient Stabilized Method (BiCGSTAB), and Incomplete LU Factorization Technique (ILUT), respectively.\label{tab:solver}}
+\caption{Numerical parameters of the solvers used in OGS-5 and OGS-6, where $\bf{r}$ and $\bf{b}$ are the residual and the right-hand side vector, respectively, and $\epsilon$ the error tolerance. Further the abbreviations for the solvers and preconditioners mean Conjugate Gradient on the Normal Equations (CGNR), Biconjugate gradient Stabilized Method (BiCGSTAB), and Incomplete LU Factorization Technique (ILUT), respectively.}
+\label{tab:solver}
 \begin{center}
 \begin{tabular}{ l | c | c || l | c | c }
 \multicolumn{3}{c||}{Nonlinear solver}			 & 	 \multicolumn{3}{ c}{Linear solver} \\
