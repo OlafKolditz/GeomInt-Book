@@ -2,6 +2,7 @@
 \documentclass[openright]{book} %%% use \documentstyle for old LaTeX compilers
 %new packages >> mypackages (after approval)
 \input{mypackages} %order matters
+\usepackage[T1]{fontenc}
 %new packages >> mypackages (after approval)
 \input{mycommands}
 \newcommand{\MEXone}{MEX 0-1a}
@@ -53,6 +54,9 @@
 %==============================================================================
 %\part{GeomInt Introduction}
 %\todod{1. Introduction-----------------------------------------------------------------------}
+\selectlanguage{german}
+\include{01_projekt}
+\selectlanguage{english}
 \include{01_project}
 %==============================================================================
 %\part{Experimental Methods}
@@ -67,16 +71,16 @@
 %\todom{4. MEX---------------------------------------------------------------------------------}
 \include{04_mex}
 %==============================================================================
-%\part{Field Applications}
-%%\include{05_applications}
-%==============================================================================
 %\part{Data Management}
 %\todom{5. Data Management----------------------------------------------------------------}
 \include{06_data-management}
 %==============================================================================
 %\part{Outlook}
 %\todol{6. Synthesis and Outlook---------------------------------------------------------}
-\include{07_outlook}
+%\include{07_outlook}
+\selectlanguage{german}
+\include{4-Stand}
+\selectlanguage{english}
 %==============================================================================
 %\part{Appendices}
 %\appendix
@@ -88,7 +92,7 @@
 \bibliographystyle{plain}
 %\bibliographystyle{plainnat}
 \footnotesize
-\bibliography{literature}
+\bibliography{literature,literature-skizze}
 \normalsize
 %==============================================================================
 %\todod{Code Overview-----------------------------------------------------------------------}
