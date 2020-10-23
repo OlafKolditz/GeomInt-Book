@@ -20,6 +20,7 @@
 \newcommand{\MEXthirteen}{MEX 0-2}
 \input{comment.sty} %OK Blöcke auskommentieren
 \usepackage{makeidx}
+\usepackage[normalem]{ulem}
 \makeindex
 %------------------------------------------------------------------------------
 \makeatletter
@@ -39,12 +40,12 @@
 %==============================================================================
 %\listoftodos
 %\clearpage
-\include{title}
+%\include{title}
 %==============================================================================
-\tableofcontents
-%\include{schedule}
-\include{acknow}
-\include{contribution}
+%\tableofcontents
+%%\include{schedule}
+%\include{acknow}
+%\include{contribution}
 %==============================================================================
 \cleardoublepage
 \pagenumbering{arabic}
@@ -55,31 +56,32 @@
 %\part{GeomInt Introduction}
 %\todod{1. Introduction-----------------------------------------------------------------------}
 \selectlanguage{german}
-\include{01_projekt}
+%\include{01_projekt}
 \selectlanguage{english}
-\include{01_project}
+%\include{01_project}
 %==============================================================================
 %\part{Experimental Methods}
 %\todod{2. Experimental Platform---------------------------------------------------------}
-\include{02_experiments}
+%\include{02_experiments}
 %==============================================================================
 %\part{Numerical Methods}
 %\todod{3. Numerical Platform-------------------------------------------------------------}
-\include{03_models}
+\setcounter{chapter}{2}
+\include{03_models_new}
 %==============================================================================
 %\part{Model Exercises (Benchmarks)}
 %\todom{4. MEX---------------------------------------------------------------------------------}
-\include{04_mex}
+%\include{04_mex}
 %==============================================================================
 %\part{Data Management}
 %\todom{5. Data Management----------------------------------------------------------------}
-\include{06_data-management}
+%\include{06_data-management}
 %==============================================================================
 %\part{Outlook}
 %\todol{6. Synthesis and Outlook---------------------------------------------------------}
-\include{07_outlook}
+%\include{07_outlook}
 \selectlanguage{german}
-\include{4-Stand}
+%\include{4-Stand}
 \selectlanguage{english}
 %==============================================================================
 %\part{Appendices}
@@ -96,13 +98,13 @@
 \normalsize
 %==============================================================================
 %\todod{Code Overview-----------------------------------------------------------------------}
-\include{codes}
+%\include{codes}
 %==============================================================================
 %\todol{Symbols--------------------------------------------------------------------------------}
-\include{symbols}
+%\include{symbols}
 %\todol{Glossary--------------------------------------------------------------------------------}
 \chapter{Index}
-%\include{abbreviations}
+%%\include{abbreviations}
 \printglossary[title={List of Symbols}]
 %\todol{Index----------------------------------------------------------------------------------}
 \printindex
@@ -150,17 +152,17 @@ A & B & C & D \\
 %------------------------------------------------------------------------------
 \begin{wrapfigure}{r}{2cm}
 \centering
-\includegraphics[width=2cm]{./figures/BGR_Logo.png}
+%\includegraphics[width=2cm]{./figures/BGR_Logo.png}
 \end{wrapfigure}
 %------------------------------------------------------------------------------
 \begin{figure}
 \begin{subfigure}[c]{0.5\textwidth}
-\includegraphics[width=0.99\textwidth]{./figures/ExpRockGranite.JPG}
+%\includegraphics[width=0.99\textwidth]{./figures/ExpRockGranite.JPG}
 \subcaption{Granite sample}
 \label{fig:RockGranite}
 \end{subfigure}
 \begin{subfigure}[c]{0.5\textwidth}
-\includegraphics[width=0.99\textwidth]{./figures/ExpRockBasalt.jpg}
+%\includegraphics[width=0.99\textwidth]{./figures/ExpRockBasalt.jpg}
 \subcaption{Basalt sample}
 \label{fig:RockBasalt}
 \end{subfigure}

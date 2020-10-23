@@ -1,0 +1,69 @@
+\chapter{Numerical Platform}
+\label{cha:num}
+
+\Authors{Keita Yoshioka, Mathias Nest, Daniel P\"otschke, Amir Shoarian Sattari, Patrick Schmidt, David Krach}
+
+An essential scientific goal of the GeomInt project is the analysis of potentials and limitations of different numerical approaches for the modelling of discontinuities in the rocks under consideration in order to improve the understanding of methods and their synergies with regard to theoretical and numerical fundamentals. As numerical methods, 
+the ``Lattice Element Method'' (LEM),
+the non-continuous discontinuum methods "Discrete Element Method" (DEM),
+the ``Smoothed Particle Hydrodynamics'' (SPH),
+the ''Forces on Fracture Surfaces'' (FFS) 
+as well as the continuum approaches ``Phase-Field Method'' (PFM), ''Lower-Interface-Method'' (LIE), ''Non-Local Deformation'' (NLD) and the ''Hybrid-Dimensional Finite-Element-Method'' (HDF) will be systematically investigated and appropriately extended based on experimental results (Fig. \ref{fig:num-overview}).
+
+\begin{figure}[ht!]
+\begin{subfigure}[c]{0.6\textwidth}
+\includegraphics[width=0.99\textwidth]{figures/geomint-mod-overview}
+%\subcaption{caption 1}
+\label{fig:sub1}
+\end{subfigure}
+\begin{subfigure}[c]{0.38\textwidth}
+\includegraphics[width=0.99\textwidth]{figures/geomint-concept-mod.png}
+%\subcaption{caption 2}
+\label{fig:sub2}
+\end{subfigure}
+\caption{Overview of the Numerical Platform (left) as part of the GeomInt research concept (right), see section \ref{sec:geomint}}
+\label{fig:num-overview}
+\end{figure}
+
+The numerical methods in Figure \ref{fig:num-overview} are displayed in accordance to the scale-ability, i.e. increasing temporal and spatial scales from right to left.
+\index{scaling concept}
+
+%--------------------------
+\input{03_sota.tex}
+%--------------------------
+\section{Numerical Methods}
+%--------------------------
+\input{03_ffs.tex}
+%--------------------------
+\input{03_lem.tex}
+%--------------------------
+\input{03_dem.tex}
+%--------------------------
+\input{03_sph}
+%--------------------------
+\subsection*{FEM - Finite-Element-Method}
+\begin{wrapfigure}{l}{7cm}
+\centering
+\includegraphics[width=7cm]{figures/Schematic_figure_LIE_PF_NLD}
+\caption{Smeared and explicit numerical representations of fracture. Figure reproduced from~\cite{Yoshioka2019}}
+\label{fig:ogsfem-overview}
+\end{wrapfigure}
+Fig. \ref{fig:ogsfem-overview} shows a conceptual illustration of three different approaches for modeling displacement discontinuities: (a) cohesive zone model using lower-dimensional (i.e. co-dimension 1) interface elements with local enrichment to represent a strong displacement discontinuity; (b) phase-field models of brittle fracture in which a crack surface density per unit volume is introduced for regularisation (see section \ref{subsec:fem-vpf}); and (c) non-local elasto-plastic damage models, in which a kernel function with a specified support region is used to characterize a fracture process zone. In the latter two approaches the discontinuities are smeared over a zone characterized by a length-scale parameter. All models (a-c) are implemented in OpenGeoSys.
+
+In the following we briefly introduce two of the Finite-Element-Method based approaches.
+The first approach is the variational phase-field implemented in OpenGeoSys and is particularly suited for simulaiton of fracturing process.
+The second is the hybrid dimensional formulation and is specifically designed for numerical stable fractured-porous media analysis.
+%--------------------------
+%\input{03_lie.tex}
+%\label{subsec:fem-lie}
+%--------------------------
+
+\input{03_vpf.tex}
+\label{subsec:fem-vpf}
+%--------------------------
+\input{03_hdf.tex}
+%--------------------------
+%\input{03_nld.tex}
+%\label{subsec:fem-nld}
+%--------------------------
+
